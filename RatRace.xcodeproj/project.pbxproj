@@ -14,6 +14,9 @@
 		338157FE17D462A5006CCA90 /* RRDiamondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157FD17D462A5006CCA90 /* RRDiamondCell.m */; };
 		3381580017D467CA006CCA90 /* BD_ICON.png in Resources */ = {isa = PBXBuildFile; fileRef = 338157FF17D467CA006CCA90 /* BD_ICON.png */; };
 		3381580817D475BD006CCA90 /* historic-diamond-prices-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3381580717D475BD006CCA90 /* historic-diamond-prices-2.jpg */; };
+		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
+		86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A0C4F717D5461B001663D6 /* AVFoundation.framework */; };
+		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
 		86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1717D415F60032D830 /* UIKit.framework */; };
 		86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1917D415F60032D830 /* Foundation.framework */; };
 		86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1B17D415F60032D830 /* CoreGraphics.framework */; };
@@ -46,6 +49,10 @@
 		338157FD17D462A5006CCA90 /* RRDiamondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRDiamondCell.m; sourceTree = "<group>"; };
 		338157FF17D467CA006CCA90 /* BD_ICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BD_ICON.png; sourceTree = "<group>"; };
 		3381580717D475BD006CCA90 /* historic-diamond-prices-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "historic-diamond-prices-2.jpg"; path = "RatRace/historic-diamond-prices-2.jpg"; sourceTree = "<group>"; };
+		86A0C4F417D5455A001663D6 /* RRAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRAudioEngine.h; sourceTree = "<group>"; };
+		86A0C4F517D5455A001663D6 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
+		86A0C4F717D5461B001663D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		86A0C4FA17D54832001663D6 /* click.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = click.aiff; sourceTree = "<group>"; };
 		86DBBD1417D415F60032D830 /* RatRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DBBD1717D415F60032D830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86DBBD1917D415F60032D830 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */,
 				86DBBD4F17D4208D0032D830 /* QuartzCore.framework in Frameworks */,
 				86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */,
 				86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */,
@@ -126,6 +134,8 @@
 				86DBBD4417D419780032D830 /* RRPlayer.m */,
 				86DBBD4617D41A760032D830 /* RRItem.h */,
 				86DBBD4717D41A760032D830 /* RRItem.m */,
+				86A0C4F417D5455A001663D6 /* RRAudioEngine.h */,
+				86A0C4F517D5455A001663D6 /* RRAudioEngine.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -143,6 +153,14 @@
 				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
 			);
 			name = Control;
+			sourceTree = "<group>";
+		};
+		86A0C4F917D54832001663D6 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				86A0C4FA17D54832001663D6 /* click.aiff */,
+			);
+			path = sound;
 			sourceTree = "<group>";
 		};
 		86DBBD0B17D415F60032D830 = {
@@ -166,6 +184,7 @@
 		86DBBD1617D415F60032D830 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86A0C4F717D5461B001663D6 /* AVFoundation.framework */,
 				86DBBD4E17D4208D0032D830 /* QuartzCore.framework */,
 				86DBBD1717D415F60032D830 /* UIKit.framework */,
 				86DBBD1917D415F60032D830 /* Foundation.framework */,
@@ -177,6 +196,7 @@
 		86DBBD1D17D415F60032D830 /* RatRace */ = {
 			isa = PBXGroup;
 			children = (
+				86A0C4F917D54832001663D6 /* sound */,
 				3381580117D468C7006CCA90 /* Assets */,
 				3381580317D468E1006CCA90 /* Model */,
 				3381580217D468D8006CCA90 /* Views */,
@@ -263,6 +283,7 @@
 				338157F617D45B1E006CCA90 /* RRBankViewController.xib in Resources */,
 				3381580017D467CA006CCA90 /* BD_ICON.png in Resources */,
 				3381580817D475BD006CCA90 /* historic-diamond-prices-2.jpg in Resources */,
+				86A0C50217D54832001663D6 /* click.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +306,7 @@
 				338157F517D45B1E006CCA90 /* RRBankViewController.m in Sources */,
 				338157F917D45BB7006CCA90 /* JLBPartialModal.m in Sources */,
 				338157FE17D462A5006CCA90 /* RRDiamondCell.m in Sources */,
+				86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
