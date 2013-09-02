@@ -29,7 +29,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)newGame:(id)sender {
+- (IBAction)newGame:(id)sender
+{
     
 }
 

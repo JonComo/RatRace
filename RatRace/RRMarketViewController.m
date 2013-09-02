@@ -16,6 +16,8 @@
 #import "RRBankViewController.h"
 #import "RRDiamondCell.h"
 
+#import "RRAudioEngine.h"
+
 @interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RRTravelViewControllerDelegate>
 {
     SMStatsView *statsView;
@@ -45,6 +47,9 @@
     [[RRGame sharedGame] newGame];
     
     [self addStatsView];
+    
+    //music
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"strings" extension:@"wav" loop:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated
