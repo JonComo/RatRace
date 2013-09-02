@@ -109,6 +109,7 @@
     [[RRGame sharedGame].player.inventory removeObject:item];
     
     [RRGame sharedGame].player.money += item.value;
+
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
