@@ -44,8 +44,8 @@
     int inventory = [RRGame sharedGame].player.inventory.count;
     float loan = [RRGame sharedGame].bank.loan;
 
-    self.days.text = [NSString stringWithFormat:@"Days:%d / 30", days];
-    self.cash.text = [NSString stringWithFormat:@"Cash on Hand: $%.2f",money];
+    self.days.text = [NSString stringWithFormat:@"Days: %d / 30", days];
+    self.cash.text = [NSString stringWithFormat:@"Cash on Hand: $%.2f",money + loan];
     self.balance.text = [NSString stringWithFormat:@"Loan Balance: $%.2f", loan];
     self.inventory.text = [NSString stringWithFormat:@"Inventory: %d / %d", inventory, [RRGame sharedGame].player.inventoryCapacity];
 }

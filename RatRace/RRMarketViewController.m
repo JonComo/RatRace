@@ -65,6 +65,8 @@
     
     statsView = (SMStatsView *)nibViews[0];
     
+    NSLog(@"%f", statsView.frame.size.height);
+    
     [statsView setup];
     
     [self.view addSubview:statsView];
@@ -85,6 +87,8 @@
     [RRGame sharedGame].player.money -= item.value;
     
     //[statsView update];
+    
+    [collectionViewItems reloadData];
     
     NSLog(@"Inventory: %@", [RRGame sharedGame].player.inventory);
 }

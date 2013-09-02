@@ -36,9 +36,9 @@
     self.bank.loan = 0;
     self.bank.interest = .02;
     
-    self.availableItems = [@[[RRItem item:@"Yellow Diamond" value:20], [RRItem item:@"White Diamond" value:35],[RRItem item:@"Blue Diamond" value:86], [RRItem item:@"Cognac Diamond" value:95],[RRItem item:@"Black Diamond" value:86]] mutableCopy];
+    self.availableItems = [@[[RRItem item:@"Yellow Diamond" value:200], [RRItem item:@"White Diamond" value:350],[RRItem item:@"Blue Diamond" value:860], [RRItem item:@"Cognac Diamond" value:950],[RRItem item:@"Black Diamond" value:4600]] mutableCopy];
     
-    self.availableLocations = [@[@"Italy", @"USA", @"Germany", @"France", @"Greece"] mutableCopy];
+    self.availableLocations = [@[@"Italy", @"USA", @"Germany", @"France", @"Greece", @"Switzerland", @"Israel"] mutableCopy];
 }
 
 -(void)changeToLocation:(NSString *)newLocation
@@ -51,7 +51,7 @@
 {
     for (RRItem *item in self.availableItems)
     {
-        item.value = 20 + arc4random()%30;
+        item.value = 200 + arc4random()%30;
     }
 }
 

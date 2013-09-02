@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JLBPartialModal.h"
 
 @class RRTravelViewController;
 
@@ -19,7 +19,7 @@
 
 @end
 
-@interface RRTravelViewController : UIViewController
+@interface RRTravelViewController : UIViewController <JLBPartialModalDelegate>
 
 @property (assign) id <RRTravelViewControllerDelegate> delegate;
 

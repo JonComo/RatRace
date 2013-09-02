@@ -49,7 +49,7 @@
 
 - (IBAction)borrow:(id)sender
 {
-    [[RRGame sharedGame].bank borrow:[self.label.text floatValue]];
+    [[RRGame sharedGame].bank borrow:self.stepper.value];
     [[JLBPartialModal sharedInstance] dismissViewController];
 
 
@@ -57,7 +57,7 @@
 
 - (IBAction)stepValue:(UIStepper *)sender
 {
-    self.label.text = [NSString stringWithFormat:@"%f", sender.value];
+    self.label.text = [NSString stringWithFormat:@"$%.2f", sender.value];
     
 }
 
