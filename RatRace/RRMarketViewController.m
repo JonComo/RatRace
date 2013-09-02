@@ -71,6 +71,7 @@
     
     NSLog(@"%f", statsView.frame.size.height);
     
+    
     [statsView setup];
     
     [self.view addSubview:statsView];
