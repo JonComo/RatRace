@@ -88,7 +88,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.98175182481751821" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="RVx-vo-0MB" secondAttribute="trailing" constant="8" id="I9K-J8-SsF"/>
                                             <constraint firstItem="G0q-ak-Pv5" firstAttribute="leading" secondItem="Z6g-VG-HYU" secondAttribute="leading" type="default" id="IUq-I9-rnC"/>
