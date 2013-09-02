@@ -32,6 +32,7 @@
 {
     [[RRGame sharedGame] addObserver:self forKeyPath:@"day" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame].player addObserver:self forKeyPath:@"money" options:NSKeyValueObservingOptionNew context:NULL];
+    [[RRGame sharedGame].bank addObserver:self forKeyPath:@"loan" options:NSKeyValueObservingOptionNew context:NULL];
     
     [self update];
 }
@@ -41,8 +42,9 @@
     int days = [RRGame sharedGame].day;
     float money = [RRGame sharedGame].player.money;
     int inventory = [RRGame sharedGame].player.inventory.count;
+    float loan = [RRGame sharedGame].bank.loan;
     
-    NSString *output = [NSString stringWithFormat:@"Day: %i $%.2f Inv: %i", days, money, inventory];
+    NSString *output = [NSString stringWithFormat:@"Day: %i/30   $%.2f - ($%.2f)  Inv: %i", days, money, loan ,inventory];
     
     labelOutput.text = output;
 }

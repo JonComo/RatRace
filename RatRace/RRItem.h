@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSString *name;
 @property float value;
 @property int amount;
+@property BOOL hasItem;
+@property (nonatomic, weak) UILabel *label;
 
 +(RRItem *)item:(NSString *)name value:(float)value;
 

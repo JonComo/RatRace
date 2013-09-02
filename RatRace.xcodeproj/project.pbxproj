@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		338157F117D44EB2006CCA90 /* RRBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F017D44EB2006CCA90 /* RRBank.m */; };
+		338157F517D45B1E006CCA90 /* RRBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F317D45B1E006CCA90 /* RRBankViewController.m */; };
+		338157F617D45B1E006CCA90 /* RRBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 338157F417D45B1E006CCA90 /* RRBankViewController.xib */; };
+		338157F917D45BB7006CCA90 /* JLBPartialModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F817D45BB7006CCA90 /* JLBPartialModal.m */; };
 		86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1717D415F60032D830 /* UIKit.framework */; };
 		86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1917D415F60032D830 /* Foundation.framework */; };
 		86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1B17D415F60032D830 /* CoreGraphics.framework */; };
@@ -28,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		338157EF17D44EB2006CCA90 /* RRBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBank.h; sourceTree = "<group>"; };
+		338157F017D44EB2006CCA90 /* RRBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBank.m; sourceTree = "<group>"; };
+		338157F217D45B1E006CCA90 /* RRBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBankViewController.h; sourceTree = "<group>"; };
+		338157F317D45B1E006CCA90 /* RRBankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBankViewController.m; sourceTree = "<group>"; };
+		338157F417D45B1E006CCA90 /* RRBankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RRBankViewController.xib; sourceTree = "<group>"; };
+		338157F717D45BB7006CCA90 /* JLBPartialModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLBPartialModal.h; path = ../JLBPartialModal.h; sourceTree = "<group>"; };
+		338157F817D45BB7006CCA90 /* JLBPartialModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLBPartialModal.m; path = ../JLBPartialModal.m; sourceTree = "<group>"; };
 		86DBBD1417D415F60032D830 /* RatRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DBBD1717D415F60032D830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86DBBD1917D415F60032D830 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,12 +126,19 @@
 				86DBBD3E17D417480032D830 /* RRTravelViewController.m */,
 				86DBBD3A17D416ED0032D830 /* RRMarketViewController.h */,
 				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
+				338157EF17D44EB2006CCA90 /* RRBank.h */,
+				338157F017D44EB2006CCA90 /* RRBank.m */,
 				86DBBD4017D418290032D830 /* RRGame.h */,
 				86DBBD4117D418290032D830 /* RRGame.m */,
 				86DBBD4317D419780032D830 /* RRPlayer.h */,
 				86DBBD4417D419780032D830 /* RRPlayer.m */,
 				86DBBD4617D41A760032D830 /* RRItem.h */,
 				86DBBD4717D41A760032D830 /* RRItem.m */,
+				338157F217D45B1E006CCA90 /* RRBankViewController.h */,
+				338157F317D45B1E006CCA90 /* RRBankViewController.m */,
+				338157F717D45BB7006CCA90 /* JLBPartialModal.h */,
+				338157F817D45BB7006CCA90 /* JLBPartialModal.m */,
+				338157F417D45B1E006CCA90 /* RRBankViewController.xib */,
 			);
 			path = RatRace;
 			sourceTree = "<group>";
@@ -198,6 +216,7 @@
 				86DBBD2E17D415F60032D830 /* Default-568h@2x.png in Resources */,
 				86DBBD3117D415F60032D830 /* MainStoryboard.storyboard in Resources */,
 				86DBBD4A17D41CA90032D830 /* stats.xib in Resources */,
+				338157F617D45B1E006CCA90 /* RRBankViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +235,9 @@
 				86DBBD4517D419780032D830 /* RRPlayer.m in Sources */,
 				86DBBD4817D41A760032D830 /* RRItem.m in Sources */,
 				86DBBD4D17D41CB30032D830 /* SMStatsView.m in Sources */,
+				338157F117D44EB2006CCA90 /* RRBank.m in Sources */,
+				338157F517D45B1E006CCA90 /* RRBankViewController.m in Sources */,
+				338157F917D45BB7006CCA90 /* JLBPartialModal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +360,7 @@
 				86DBBD3917D415F60032D830 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

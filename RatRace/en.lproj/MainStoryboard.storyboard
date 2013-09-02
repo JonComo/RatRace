@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -45,7 +45,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-W5-aEY">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-W5-aEY">
                                 <color key="backgroundColor" white="0.94271783759124084" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="241" type="user" id="rUu-FY-Ohb"/>
@@ -87,8 +87,8 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WJ-iF-yMP">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="KXz-Qy-TsU"/>
-                                    <constraint firstAttribute="height" constant="46" id="iiv-fF-goQ"/>
+                                    <constraint firstAttribute="width" constant="73" id="d5z-eU-91o"/>
+                                    <constraint firstAttribute="height" constant="46" id="k7K-6X-SXn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Buy">
@@ -119,6 +119,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G27-ES-Lae">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="Get-yu-IFX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Travel">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,22 +131,42 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5LU-98-ggc" kind="modal" id="6mv-s1-kiS"/>
+                                    <segue destination="5LU-98-ggc" kind="modal" identifier="travel" id="sR7-Jd-uaX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qX-dT-zPS">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="UpB-i1-6LK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Bank">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bank:" destination="2" eventType="touchUpInside" id="Mry-5w-5kn"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="bottom" secondItem="6WJ-iF-yMP" secondAttribute="bottom" type="default" id="0ce-XC-elh"/>
-                            <constraint firstAttribute="bottom" secondItem="G27-ES-Lae" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="74A-5s-hEm"/>
-                            <constraint firstItem="6WJ-iF-yMP" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="AhC-hP-rO9"/>
-                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Bfo-md-Q36"/>
-                            <constraint firstAttribute="trailing" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="bGu-UN-S2M"/>
+                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="1HT-JM-xhK"/>
+                            <constraint firstItem="6WJ-iF-yMP" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="CLt-eA-JMm"/>
+                            <constraint firstItem="y0x-W5-aEY" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="DJv-rG-qGg"/>
+                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="top" secondItem="6WJ-iF-yMP" secondAttribute="top" type="default" id="Ft0-Sh-cvO"/>
+                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="leading" secondItem="6WJ-iF-yMP" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="I1J-Pu-cOA"/>
+                            <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="SSq-Hs-LUl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="LrJ-Wk-Beu"/>
+                            <constraint firstItem="6WJ-iF-yMP" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="OaH-F6-u6B"/>
+                            <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aZa-Wo-nz2"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gyy-NR-NIa"/>
                             <constraint firstAttribute="bottom" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="148" type="user" id="hYu-KE-39n"/>
-                            <constraint firstItem="6WJ-iF-yMP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="136" id="ofl-u4-cca"/>
-                            <constraint firstItem="y0x-W5-aEY" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="plG-Bf-qjP"/>
-                            <constraint firstAttribute="trailing" secondItem="SSq-Hs-LUl" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qOO-sD-DMU"/>
+                            <constraint firstItem="G27-ES-Lae" firstAttribute="top" secondItem="SSq-Hs-LUl" secondAttribute="top" type="default" id="pqj-xx-awQ"/>
+                            <constraint firstItem="G27-ES-Lae" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="tSA-y0-R5j"/>
+                            <constraint firstItem="5qX-dT-zPS" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="vn5-GE-QaZ"/>
+                            <constraint firstItem="5qX-dT-zPS" firstAttribute="top" secondItem="G27-ES-Lae" secondAttribute="top" type="default" id="z9i-dZ-uo2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -157,7 +180,7 @@
         <!--Travel View Controller-->
         <scene sceneID="6A1-SG-po7">
             <objects>
-                <viewController id="5LU-98-ggc" customClass="RRTravelViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="travelVC" id="5LU-98-ggc" customClass="RRTravelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2SQ-ba-ong">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -207,19 +230,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdg-EN-sIH">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancel:" destination="5LU-98-ggc" eventType="touchUpInside" id="uvw-1z-sFf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -228,8 +238,6 @@
                             <constraint firstItem="kRO-WJ-osv" firstAttribute="trailing" secondItem="2SQ-ba-ong" secondAttribute="trailing" type="default" id="VJO-s0-Q6M"/>
                             <constraint firstItem="gWe-Gv-CwP" firstAttribute="centerX" secondItem="kRO-WJ-osv" secondAttribute="centerX" type="default" id="dHV-XC-1bo"/>
                             <constraint firstItem="kRO-WJ-osv" firstAttribute="top" secondItem="gWe-Gv-CwP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="flk-xq-Fgw"/>
-                            <constraint firstAttribute="bottom" secondItem="cdg-EN-sIH" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="qQ0-fa-oYw"/>
-                            <constraint firstItem="cdg-EN-sIH" firstAttribute="leading" secondItem="2SQ-ba-ong" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zjC-tw-qAb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -255,7 +263,6 @@
         <class className="RRTravelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRTravelViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancel:"/>
                 <relationship kind="outlet" name="collectionViewCountries" candidateClass="UICollectionView"/>
             </relationships>
         </class>

@@ -33,12 +33,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+{    
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     NSString *location = [RRGame sharedGame].availableLocations[indexPath.row];
@@ -60,9 +57,12 @@
     
     NSString *location = [RRGame sharedGame].availableLocations[indexPath.row];
     
-    [[RRGame sharedGame] changeToLocation:location];
+    [[RRGame sharedGame] changeToLocation:location];    
+    if ([self.delegate respondsToSelector:@selector(controllerDidDismiss:)]) {
+        [self.delegate controllerDidDismiss:self];
+    }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 @end

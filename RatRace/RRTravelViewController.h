@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class RRTravelViewController;
+
+@protocol RRTravelViewControllerDelegate <NSObject>
+
+@required
+- (void)controllerDidDismiss:(RRTravelViewController *)controller;
+
+
+@end
+
 @interface RRTravelViewController : UIViewController
+
+@property (assign) id <RRTravelViewControllerDelegate> delegate;
 
 @end

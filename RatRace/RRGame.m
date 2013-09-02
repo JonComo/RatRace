@@ -32,7 +32,12 @@
     //reset properties
     self.day = 0;
     
-    self.availableItems = [@[[RRItem item:@"Weed" value:20], [RRItem item:@"Crack" value:35]] mutableCopy];
+    self.bank = [RRBank new];
+    self.bank.loan = 0;
+    self.bank.interest = .02;
+    
+    self.availableItems = [@[[RRItem item:@"Yellow Diamond" value:20], [RRItem item:@"White Diamond" value:35],[RRItem item:@"Blue Diamond" value:86], [RRItem item:@"Cognac Diamond" value:95],[RRItem item:@"Black Diamond" value:86]] mutableCopy];
+    
     self.availableLocations = [@[@"Italy", @"USA", @"Germany", @"France", @"Greece"] mutableCopy];
 }
 
@@ -48,6 +53,13 @@
     {
         item.value = 20 + arc4random()%30;
     }
+}
+
+- (void)advanceDay
+{
+    self.day +=1;
+    [self.bank incrementLoan];
+    
 }
 
 @end

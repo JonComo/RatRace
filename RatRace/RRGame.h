@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "RRPlayer.h"
+#import "RRBank.h"
 
 @interface RRGame : NSObject
 
@@ -21,10 +22,14 @@
 
 @property (nonatomic, strong) RRPlayer *player;
 
+@property (nonatomic, strong) RRBank *bank;
+
 +(RRGame *)sharedGame;
 
 -(void)newGame;
 
 -(void)changeToLocation:(NSString *)newLocation;
+
+- (void)advanceDay;
 
 @end

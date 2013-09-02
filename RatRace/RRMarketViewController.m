@@ -12,10 +12,13 @@
 #import "RRItem.h"
 
 #import "SMStatsView.h"
+#import "RRTravelViewController.h"
+#import "RRBankViewController.h"
 
-@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RRTravelViewControllerDelegate>
 {
     SMStatsView *statsView;
+    RRTravelViewController *travelController;
 }
 
 @end
@@ -31,6 +34,8 @@
 	// Do any additional setup after loading the view.
     
     collectionViewItems.allowsMultipleSelection = NO;
+    
+
     
     [RRGame sharedGame];
     [[RRGame sharedGame] newGame];
@@ -93,6 +98,8 @@
     //select item
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
     
+    [[RRGame sharedGame].player.inventory removeObject:item];
+    
     [RRGame sharedGame].player.money += item.value;
 }
 
@@ -127,6 +134,39 @@
     UICollectionViewCell *cell = [collectionViewItems cellForItemAtIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor whiteColor];
+}
+
+#pragma mark PrepereSegue
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"travel"]) {
+        travelController = (RRTravelViewController *)segue.destinationViewController;
+        travelController.delegate = self;
+    }
+}
+
+- (IBAction)bank:(id)sender
+{
+    RRBankViewController *bankView = [[RRBankViewController alloc] initWithNibName:@"RRBankViewController" bundle:[NSBundle mainBundle]];
+    
+    JLBPartialModal *modal = [JLBPartialModal sharedInstance];
+    modal.delegate = bankView;
+    [modal presentViewController:bankView dismissal:^{
+        
+    }];
+
+}
+
+#pragma mark RRTravelViewCOntrollerDelegate
+
+- (void)controllerDidDismiss:(RRTravelViewController *)controller
+{
+    [controller dismissViewControllerAnimated:YES completion:^{
+        [[RRGame sharedGame] advanceDay];
+        
+    }];
+    
 }
 
 @end
