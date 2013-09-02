@@ -17,6 +17,7 @@
 		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
 		86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A0C4F717D5461B001663D6 /* AVFoundation.framework */; };
 		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
+		3381580B17D545BD006CCA90 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3381580A17D545BD006CCA90 /* MBProgressHUD.m */; };
 		86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1717D415F60032D830 /* UIKit.framework */; };
 		86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1917D415F60032D830 /* Foundation.framework */; };
 		86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1B17D415F60032D830 /* CoreGraphics.framework */; };
@@ -53,6 +54,8 @@
 		86A0C4F517D5455A001663D6 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
 		86A0C4F717D5461B001663D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		86A0C4FA17D54832001663D6 /* click.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = click.aiff; sourceTree = "<group>"; };
+		3381580917D545BD006CCA90 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		3381580A17D545BD006CCA90 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		86DBBD1417D415F60032D830 /* RatRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DBBD1717D415F60032D830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86DBBD1917D415F60032D830 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -161,12 +164,20 @@
 				86A0C4FA17D54832001663D6 /* click.aiff */,
 			);
 			path = sound;
+		3381580C17D545C5006CCA90 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3381580917D545BD006CCA90 /* MBProgressHUD.h */,
+				3381580A17D545BD006CCA90 /* MBProgressHUD.m */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		86DBBD0B17D415F60032D830 = {
 			isa = PBXGroup;
 			children = (
 				86DBBD1D17D415F60032D830 /* RatRace */,
+				3381580C17D545C5006CCA90 /* Libraries */,
 				86DBBD1E17D415F60032D830 /* Supporting Files */,
 				86DBBD1617D415F60032D830 /* Frameworks */,
 				86DBBD1517D415F60032D830 /* Products */,
@@ -307,6 +318,7 @@
 				338157F917D45BB7006CCA90 /* JLBPartialModal.m in Sources */,
 				338157FE17D462A5006CCA90 /* RRDiamondCell.m in Sources */,
 				86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */,
+				3381580B17D545BD006CCA90 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

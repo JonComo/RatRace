@@ -15,6 +15,7 @@
 #import "RRTravelViewController.h"
 #import "RRBankViewController.h"
 #import "RRDiamondCell.h"
+#import "MBProgressHUD.h"
 
 @interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RRTravelViewControllerDelegate>
 {
@@ -80,20 +81,24 @@
     NSArray *selected = collectionViewItems.indexPathsForSelectedItems;
     
     if (selected.count == 0) return;
+
     
     NSIndexPath *indexPath = selected[0];
     
     //select item
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    item.hasItem = YES;
-    [[RRGame sharedGame].player.inventory addObject:item];
-    [RRGame sharedGame].player.money -= item.value;
     
-    //[statsView update];
-    
-    [collectionViewItems reloadData];
-    
-    NSLog(@"Inventory: %@", [RRGame sharedGame].player.inventory);
+    if ([RRGame sharedGame].player.money < item.value) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"Insufficient funds";
+        [hud hide:YES afterDelay:.4];
+        
+    }else{
+        item.hasItem = YES;
+        [[RRGame sharedGame].player.inventory addObject:item];
+        [RRGame sharedGame].player.money -= item.value;
+    }
 }
 
 - (IBAction)sell:(id)sender {
@@ -106,9 +111,17 @@
     //select item
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
     
-    [[RRGame sharedGame].player.inventory removeObject:item];
-    
-    [RRGame sharedGame].player.money += item.value;
+    if ([[RRGame sharedGame].player.inventory containsObject:item]) {
+        item.hasItem = NO;
+        [[RRGame sharedGame].player.inventory removeObject:item];
+        [RRGame sharedGame].player.money += item.value;
+    }else{
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"You don't have any items to sell";
+        [hud hide:YES afterDelay:.4];
+    }
+
 
 }
 
