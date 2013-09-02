@@ -11,6 +11,8 @@
 		338157F517D45B1E006CCA90 /* RRBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F317D45B1E006CCA90 /* RRBankViewController.m */; };
 		338157F617D45B1E006CCA90 /* RRBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 338157F417D45B1E006CCA90 /* RRBankViewController.xib */; };
 		338157F917D45BB7006CCA90 /* JLBPartialModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F817D45BB7006CCA90 /* JLBPartialModal.m */; };
+		338157FE17D462A5006CCA90 /* RRDiamondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157FD17D462A5006CCA90 /* RRDiamondCell.m */; };
+		3381580017D467CA006CCA90 /* BD_ICON.png in Resources */ = {isa = PBXBuildFile; fileRef = 338157FF17D467CA006CCA90 /* BD_ICON.png */; };
 		86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1717D415F60032D830 /* UIKit.framework */; };
 		86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1917D415F60032D830 /* Foundation.framework */; };
 		86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1B17D415F60032D830 /* CoreGraphics.framework */; };
@@ -39,6 +41,9 @@
 		338157F417D45B1E006CCA90 /* RRBankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RRBankViewController.xib; sourceTree = "<group>"; };
 		338157F717D45BB7006CCA90 /* JLBPartialModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLBPartialModal.h; path = ../JLBPartialModal.h; sourceTree = "<group>"; };
 		338157F817D45BB7006CCA90 /* JLBPartialModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLBPartialModal.m; path = ../JLBPartialModal.m; sourceTree = "<group>"; };
+		338157FC17D462A4006CCA90 /* RRDiamondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRDiamondCell.h; sourceTree = "<group>"; };
+		338157FD17D462A5006CCA90 /* RRDiamondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRDiamondCell.m; sourceTree = "<group>"; };
+		338157FF17D467CA006CCA90 /* BD_ICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BD_ICON.png; sourceTree = "<group>"; };
 		86DBBD1417D415F60032D830 /* RatRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DBBD1717D415F60032D830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86DBBD1917D415F60032D830 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +89,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3381580117D468C7006CCA90 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				338157FF17D467CA006CCA90 /* BD_ICON.png */,
+			);
+			name = Assets;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3381580217D468D8006CCA90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				338157FC17D462A4006CCA90 /* RRDiamondCell.h */,
+				338157FD17D462A5006CCA90 /* RRDiamondCell.m */,
+				86DBBD2F17D415F60032D830 /* MainStoryboard.storyboard */,
+				338157F417D45B1E006CCA90 /* RRBankViewController.xib */,
+				86DBBD4917D41CA90032D830 /* stats.xib */,
+				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
+				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3381580317D468E1006CCA90 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				338157EF17D44EB2006CCA90 /* RRBank.h */,
+				338157F017D44EB2006CCA90 /* RRBank.m */,
+				86DBBD4017D418290032D830 /* RRGame.h */,
+				86DBBD4117D418290032D830 /* RRGame.m */,
+				86DBBD4317D419780032D830 /* RRPlayer.h */,
+				86DBBD4417D419780032D830 /* RRPlayer.m */,
+				86DBBD4617D41A760032D830 /* RRItem.h */,
+				86DBBD4717D41A760032D830 /* RRItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3381580517D468F7006CCA90 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				338157F717D45BB7006CCA90 /* JLBPartialModal.h */,
+				338157F817D45BB7006CCA90 /* JLBPartialModal.m */,
+				86DBBD3D17D417480032D830 /* RRTravelViewController.h */,
+				86DBBD3E17D417480032D830 /* RRTravelViewController.m */,
+				338157F217D45B1E006CCA90 /* RRBankViewController.h */,
+				338157F317D45B1E006CCA90 /* RRBankViewController.m */,
+				86DBBD3A17D416ED0032D830 /* RRMarketViewController.h */,
+				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
 		86DBBD0B17D415F60032D830 = {
 			isa = PBXGroup;
 			children = (
@@ -116,29 +174,10 @@
 		86DBBD1D17D415F60032D830 /* RatRace */ = {
 			isa = PBXGroup;
 			children = (
-				86DBBD4917D41CA90032D830 /* stats.xib */,
-				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
-				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
-				86DBBD2617D415F60032D830 /* RRAppDelegate.h */,
-				86DBBD2717D415F60032D830 /* RRAppDelegate.m */,
-				86DBBD2F17D415F60032D830 /* MainStoryboard.storyboard */,
-				86DBBD3D17D417480032D830 /* RRTravelViewController.h */,
-				86DBBD3E17D417480032D830 /* RRTravelViewController.m */,
-				86DBBD3A17D416ED0032D830 /* RRMarketViewController.h */,
-				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
-				338157EF17D44EB2006CCA90 /* RRBank.h */,
-				338157F017D44EB2006CCA90 /* RRBank.m */,
-				86DBBD4017D418290032D830 /* RRGame.h */,
-				86DBBD4117D418290032D830 /* RRGame.m */,
-				86DBBD4317D419780032D830 /* RRPlayer.h */,
-				86DBBD4417D419780032D830 /* RRPlayer.m */,
-				86DBBD4617D41A760032D830 /* RRItem.h */,
-				86DBBD4717D41A760032D830 /* RRItem.m */,
-				338157F217D45B1E006CCA90 /* RRBankViewController.h */,
-				338157F317D45B1E006CCA90 /* RRBankViewController.m */,
-				338157F717D45BB7006CCA90 /* JLBPartialModal.h */,
-				338157F817D45BB7006CCA90 /* JLBPartialModal.m */,
-				338157F417D45B1E006CCA90 /* RRBankViewController.xib */,
+				3381580117D468C7006CCA90 /* Assets */,
+				3381580317D468E1006CCA90 /* Model */,
+				3381580217D468D8006CCA90 /* Views */,
+				3381580517D468F7006CCA90 /* Control */,
 			);
 			path = RatRace;
 			sourceTree = "<group>";
@@ -146,6 +185,8 @@
 		86DBBD1E17D415F60032D830 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				86DBBD2617D415F60032D830 /* RRAppDelegate.h */,
+				86DBBD2717D415F60032D830 /* RRAppDelegate.m */,
 				86DBBD1F17D415F60032D830 /* RatRace-Info.plist */,
 				86DBBD2017D415F60032D830 /* InfoPlist.strings */,
 				86DBBD2317D415F60032D830 /* main.m */,
@@ -217,6 +258,7 @@
 				86DBBD3117D415F60032D830 /* MainStoryboard.storyboard in Resources */,
 				86DBBD4A17D41CA90032D830 /* stats.xib in Resources */,
 				338157F617D45B1E006CCA90 /* RRBankViewController.xib in Resources */,
+				3381580017D467CA006CCA90 /* BD_ICON.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +280,7 @@
 				338157F117D44EB2006CCA90 /* RRBank.m in Sources */,
 				338157F517D45B1E006CCA90 /* RRBankViewController.m in Sources */,
 				338157F917D45BB7006CCA90 /* JLBPartialModal.m in Sources */,
+				338157FE17D462A5006CCA90 /* RRDiamondCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

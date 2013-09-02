@@ -48,7 +48,7 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-W5-aEY">
                                 <color key="backgroundColor" white="0.94271783759124084" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="241" type="user" id="rUu-FY-Ohb"/>
+                                    <constraint firstAttribute="height" constant="315" id="ycc-44-KUG"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="wge-yN-4Gl">
                                     <size key="itemSize" width="320" height="39"/>
@@ -57,7 +57,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Z6g-VG-HYU">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Z6g-VG-HYU" customClass="RRDiamondCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -65,6 +65,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssx-20-miM">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="W8R-Hg-XZO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BD_ICON.png" translatesAutoresizingMaskIntoConstraints="NO" id="G0q-ak-Pv5">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="3A1-iw-hk7"/>
+                                                        <constraint firstAttribute="width" constant="35" id="Tec-f1-fsN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVx-vo-0MB">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -74,10 +88,18 @@
                                         </view>
                                         <color key="backgroundColor" white="0.98175182481751821" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Ssx-20-miM" secondAttribute="trailing" constant="20" type="default" id="ABz-ik-kX0"/>
-                                            <constraint firstItem="Ssx-20-miM" firstAttribute="centerY" secondItem="Z6g-VG-HYU" secondAttribute="centerY" type="default" id="EFx-Rc-s8P"/>
-                                            <constraint firstItem="Ssx-20-miM" firstAttribute="leading" secondItem="Z6g-VG-HYU" secondAttribute="leading" constant="20" type="default" id="iTw-pS-F3R"/>
+                                            <constraint firstAttribute="trailing" secondItem="RVx-vo-0MB" secondAttribute="trailing" constant="8" id="I9K-J8-SsF"/>
+                                            <constraint firstItem="G0q-ak-Pv5" firstAttribute="leading" secondItem="Z6g-VG-HYU" secondAttribute="leading" constant="10" id="JyE-fJ-iXu"/>
+                                            <constraint firstItem="G0q-ak-Pv5" firstAttribute="top" secondItem="Z6g-VG-HYU" secondAttribute="top" constant="3" id="Q20-Td-feb"/>
+                                            <constraint firstItem="RVx-vo-0MB" firstAttribute="baseline" secondItem="Ssx-20-miM" secondAttribute="baseline" type="default" id="SXk-h8-h2s"/>
+                                            <constraint firstItem="Ssx-20-miM" firstAttribute="leading" secondItem="Z6g-VG-HYU" secondAttribute="leading" constant="48" id="sS2-TM-ooz"/>
+                                            <constraint firstItem="Ssx-20-miM" firstAttribute="centerY" secondItem="Z6g-VG-HYU" secondAttribute="centerY" type="default" id="soL-sE-U3c"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="diamondLabel" destination="Ssx-20-miM" id="PlT-9U-kxE"/>
+                                            <outlet property="image" destination="G0q-ak-Pv5" id="GZC-6J-Wen"/>
+                                            <outlet property="valueLabel" destination="RVx-vo-0MB" id="HUS-HK-6sm"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -88,7 +110,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WJ-iF-yMP">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="d5z-eU-91o"/>
-                                    <constraint firstAttribute="height" constant="46" id="k7K-6X-SXn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Buy">
@@ -155,18 +176,19 @@
                         <constraints>
                             <constraint firstItem="SSq-Hs-LUl" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="1HT-JM-xhK"/>
                             <constraint firstItem="6WJ-iF-yMP" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="CLt-eA-JMm"/>
+                            <constraint firstItem="G27-ES-Lae" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="D2p-7v-z70"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="DJv-rG-qGg"/>
-                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="top" secondItem="6WJ-iF-yMP" secondAttribute="top" type="default" id="Ft0-Sh-cvO"/>
+                            <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="179" id="Dwe-gY-oZ3"/>
                             <constraint firstItem="SSq-Hs-LUl" firstAttribute="leading" secondItem="6WJ-iF-yMP" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="I1J-Pu-cOA"/>
+                            <constraint firstItem="6WJ-iF-yMP" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LqK-U2-OVy"/>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="SSq-Hs-LUl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="LrJ-Wk-Beu"/>
                             <constraint firstItem="6WJ-iF-yMP" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="OaH-F6-u6B"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aZa-Wo-nz2"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gyy-NR-NIa"/>
-                            <constraint firstAttribute="bottom" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="148" type="user" id="hYu-KE-39n"/>
-                            <constraint firstItem="G27-ES-Lae" firstAttribute="top" secondItem="SSq-Hs-LUl" secondAttribute="top" type="default" id="pqj-xx-awQ"/>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="tSA-y0-R5j"/>
+                            <constraint firstItem="5qX-dT-zPS" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="usc-1C-kCk"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="vn5-GE-QaZ"/>
-                            <constraint firstItem="5qX-dT-zPS" firstAttribute="top" secondItem="G27-ES-Lae" secondAttribute="top" type="default" id="z9i-dZ-uo2"/>
+                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xg4-NP-CII"/>
                         </constraints>
                     </view>
                     <connections>
@@ -249,36 +271,9 @@
             <point key="canvasLocation" x="544" y="19"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RRMarketViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buy:" candidateClass="UIButton"/>
-                <relationship kind="action" name="sell:"/>
-            </relationships>
-        </class>
-        <class className="RRTravelViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRTravelViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="collectionViewCountries" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-    </classes>
+    <resources>
+        <image name="BD_ICON.png" width="500" height="500"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

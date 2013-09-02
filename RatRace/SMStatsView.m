@@ -43,10 +43,11 @@
     float money = [RRGame sharedGame].player.money;
     int inventory = [RRGame sharedGame].player.inventory.count;
     float loan = [RRGame sharedGame].bank.loan;
-    
-    NSString *output = [NSString stringWithFormat:@"Day: %i/30   $%.2f - ($%.2f)  Inv: %i", days, money, loan ,inventory];
-    
-    labelOutput.text = output;
+
+    self.days.text = [NSString stringWithFormat:@"Days:%d / 30", days];
+    self.cash.text = [NSString stringWithFormat:@"Cash on Hand: $%.2f",money];
+    self.balance.text = [NSString stringWithFormat:@"Loan Balance: $%.2f", loan];
+    self.inventory.text = [NSString stringWithFormat:@"Inventory: %d / %d", inventory, [RRGame sharedGame].player.inventoryCapacity];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

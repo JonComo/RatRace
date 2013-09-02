@@ -14,6 +14,7 @@
 #import "SMStatsView.h"
 #import "RRTravelViewController.h"
 #import "RRBankViewController.h"
+#import "RRDiamondCell.h"
 
 @interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RRTravelViewControllerDelegate>
 {
@@ -79,7 +80,7 @@
     
     //select item
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    
+    item.hasItem = YES;
     [[RRGame sharedGame].player.inventory addObject:item];
     [RRGame sharedGame].player.money -= item.value;
     
@@ -105,14 +106,16 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor whiteColor];
+    RRDiamondCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    
-    UILabel *label = (UILabel *)[cell viewWithTag:100];
-    label.text = [NSString stringWithFormat:@"%@ $%.2f", item.name, item.value];
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.diamondLabel.text = [NSString stringWithFormat:@"%@", item.name];
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%.2f", item.value];
+    if (item.hasItem) {
+        cell.image.hidden = NO;
+    }else
+        cell.image.hidden = YES;
     
     return cell;
 }
@@ -126,7 +129,7 @@
 {
     UICollectionViewCell *cell = [collectionViewItems cellForItemAtIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor orangeColor];
+    cell.backgroundColor = [UIColor lightGrayColor];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
