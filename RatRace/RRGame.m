@@ -38,7 +38,7 @@
     
     self.availableItems = [@[[RRItem item:@"Yellow Diamond" value:200], [RRItem item:@"White Diamond" value:350],[RRItem item:@"Blue Diamond" value:860], [RRItem item:@"Cognac Diamond" value:950],[RRItem item:@"Black Diamond" value:4600]] mutableCopy];
     
-    self.availableLocations = [@[@"Italy", @"USA", @"Germany", @"France", @"Greece", @"Switzerland", @"Israel"] mutableCopy];
+    self.availableLocations = [@[@"Switzerland", @"USA", @"Germany", @"France", @"Greece", @"Israel"] mutableCopy];
 }
 
 -(void)changeToLocation:(NSString *)newLocation

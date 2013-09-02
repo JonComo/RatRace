@@ -47,7 +47,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-W5-aEY">
-                                <color key="backgroundColor" white="0.94271783759124084" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="195" id="QK3-dG-hPU"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="wge-yN-4Gl">
                                     <size key="itemSize" width="320" height="39"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -65,8 +68,9 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssx-20-miM">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="W8R-Hg-XZO"/>
+                                                        <constraint firstAttribute="height" constant="21" id="nhJ-8r-CqW"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -87,10 +91,10 @@
                                         <color key="backgroundColor" white="0.98175182481751821" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="RVx-vo-0MB" secondAttribute="trailing" constant="8" id="I9K-J8-SsF"/>
-                                            <constraint firstItem="G0q-ak-Pv5" firstAttribute="leading" secondItem="Z6g-VG-HYU" secondAttribute="leading" constant="10" id="JyE-fJ-iXu"/>
+                                            <constraint firstItem="G0q-ak-Pv5" firstAttribute="leading" secondItem="Z6g-VG-HYU" secondAttribute="leading" type="default" id="IUq-I9-rnC"/>
                                             <constraint firstItem="G0q-ak-Pv5" firstAttribute="top" secondItem="Z6g-VG-HYU" secondAttribute="top" constant="3" id="Q20-Td-feb"/>
-                                            <constraint firstItem="RVx-vo-0MB" firstAttribute="baseline" secondItem="Ssx-20-miM" secondAttribute="baseline" type="default" id="SXk-h8-h2s"/>
-                                            <constraint firstItem="Ssx-20-miM" firstAttribute="leading" secondItem="Z6g-VG-HYU" secondAttribute="leading" constant="48" id="sS2-TM-ooz"/>
+                                            <constraint firstItem="Ssx-20-miM" firstAttribute="leading" secondItem="Z6g-VG-HYU" secondAttribute="leading" constant="37" id="at8-Gc-7pA"/>
+                                            <constraint firstItem="RVx-vo-0MB" firstAttribute="top" secondItem="Ssx-20-miM" secondAttribute="top" type="default" id="er7-cU-PRO"/>
                                             <constraint firstItem="Ssx-20-miM" firstAttribute="centerY" secondItem="Z6g-VG-HYU" secondAttribute="centerY" type="default" id="soL-sE-U3c"/>
                                         </constraints>
                                         <connections>
@@ -107,7 +111,6 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WJ-iF-yMP">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="UGw-7s-Tpt"/>
                                     <constraint firstAttribute="width" constant="73" id="d5z-eU-91o"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -170,6 +173,21 @@
                                     <action selector="bank:" destination="2" eventType="touchUpInside" id="Mry-5w-5kn"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="historic-diamond-prices-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7zf-dE-vEC">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="237" id="fld-Tu-iIJ"/>
+                                    <constraint firstAttribute="width" constant="400" id="okL-eM-4GC"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="237" type="user" id="zfb-uE-ZOl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-md-vTK">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="9tO-gN-0Fo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -177,21 +195,27 @@
                             <constraint firstItem="6WJ-iF-yMP" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="CLt-eA-JMm"/>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="D2p-7v-z70"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="DJv-rG-qGg"/>
-                            <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="3" secondAttribute="top" priority="831" constant="179" type="user" id="Dwe-gY-oZ3"/>
                             <constraint firstItem="SSq-Hs-LUl" firstAttribute="leading" secondItem="6WJ-iF-yMP" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="I1J-Pu-cOA"/>
                             <constraint firstItem="6WJ-iF-yMP" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LqK-U2-OVy"/>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="SSq-Hs-LUl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="LrJ-Wk-Beu"/>
                             <constraint firstItem="6WJ-iF-yMP" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="OaH-F6-u6B"/>
+                            <constraint firstItem="aaZ-md-vTK" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="RBF-w1-2ot"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aZa-Wo-nz2"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gyy-NR-NIa"/>
+                            <constraint firstItem="aaZ-md-vTK" firstAttribute="top" secondItem="3" secondAttribute="top" constant="116" id="j9p-cv-dmD"/>
+                            <constraint firstItem="7zf-dE-vEC" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="mG8-cJ-MtR"/>
+                            <constraint firstItem="7zf-dE-vEC" firstAttribute="top" secondItem="3" secondAttribute="top" constant="62" id="sCh-RR-so8"/>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="tSA-y0-R5j"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="usc-1C-kCk"/>
+                            <constraint firstItem="aaZ-md-vTK" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="vL0-qm-m3r"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="vn5-GE-QaZ"/>
                             <constraint firstItem="SSq-Hs-LUl" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xg4-NP-CII"/>
+                            <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="7zf-dE-vEC" secondAttribute="bottom" type="user" id="zlY-z7-3p4"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionViewItems" destination="y0x-W5-aEY" id="y8i-Bi-mMP"/>
+                        <outlet property="countryLabel" destination="aaZ-md-vTK" id="cq4-kQ-bjh"/>
                     </connections>
                 </viewController>
             </objects>
@@ -264,6 +288,7 @@
     </scenes>
     <resources>
         <image name="BD_ICON.png" width="500" height="500"/>
+        <image name="historic-diamond-prices-2.jpg" width="1920" height="1080"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -283,6 +308,7 @@
                 <relationship kind="action" name="bank:"/>
                 <relationship kind="action" name="buy:" candidateClass="UIButton"/>
                 <relationship kind="action" name="sell:"/>
+                <relationship kind="outlet" name="countryLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="RRTravelViewController" superclassName="UIViewController">

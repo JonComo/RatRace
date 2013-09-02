@@ -22,6 +22,8 @@
     RRTravelViewController *travelController;
 }
 
+@property (strong, nonatomic) IBOutlet UILabel *countryLabel;
+
 @end
 
 @implementation RRMarketViewController
@@ -36,6 +38,7 @@
     
     collectionViewItems.allowsMultipleSelection = NO;
     
+    self.countryLabel.text = @"Switzerland";
 
     
     [RRGame sharedGame];
@@ -131,15 +134,18 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionViewItems cellForItemAtIndexPath:indexPath];
+    RRDiamondCell *cell = (RRDiamondCell *)[collectionViewItems cellForItemAtIndexPath:indexPath];
     
+    cell.diamondLabel.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor lightGrayColor];
+    
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionViewItems cellForItemAtIndexPath:indexPath];
+    RRDiamondCell *cell = (RRDiamondCell *)[collectionViewItems cellForItemAtIndexPath:indexPath];
     
+    cell.diamondLabel.textColor = [UIColor blackColor];
     cell.backgroundColor = [UIColor whiteColor];
 }
 
@@ -167,8 +173,8 @@
 
 #pragma mark RRTravelViewCOntrollerDelegate
 
-- (void)controllerDidDismiss:(RRTravelViewController *)controller
-{
+-(void)controllerDidDismiss:(RRTravelViewController *)controller withInfo:(NSString *)country{
+    self.countryLabel.text = country;
     [controller dismissViewControllerAnimated:YES completion:^{
         [[RRGame sharedGame] advanceDay];
         

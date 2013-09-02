@@ -14,7 +14,7 @@
 @protocol RRTravelViewControllerDelegate <NSObject>
 
 @required
-- (void)controllerDidDismiss:(RRTravelViewController *)controller;
+- (void)controllerDidDismiss:(RRTravelViewController *)controller withInfo:(NSString *)country;
 
 
 @end

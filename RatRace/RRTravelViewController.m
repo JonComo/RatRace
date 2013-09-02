@@ -59,8 +59,8 @@
     
     [[RRGame sharedGame] changeToLocation:location];
     
-    if ([self.delegate respondsToSelector:@selector(controllerDidDismiss:)]) {
-        [self.delegate controllerDidDismiss:self];
+    if ([self.delegate respondsToSelector:@selector(controllerDidDismiss:withInfo:)]) {
+        [self.delegate controllerDidDismiss:self withInfo:[RRGame sharedGame].availableLocations[indexPath.row]];
     }
     
 }
