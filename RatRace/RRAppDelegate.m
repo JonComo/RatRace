@@ -8,11 +8,16 @@
 
 #import "RRAppDelegate.h"
 
+#import "RRAudioEngine.h"
+
 @implementation RRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [[RRAudioEngine sharedEngine] initializeAudioSession];
+    
     return YES;
 }
 							

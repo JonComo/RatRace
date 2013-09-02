@@ -55,7 +55,15 @@
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:soundName ofType:ext];
     
-    AVAudioPlayer *soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:path] error:nil];
+    NSError *soundError;
+    
+    AVAudioPlayer *soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&soundError];
+    
+    if (soundError)
+    {
+        NSLog(@"Error: %@" , soundError);
+        return;
+    }
     
     soundPlayer.numberOfLoops = loop ? -1 : 0;
     
