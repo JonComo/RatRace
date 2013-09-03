@@ -8,14 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+#import <AVFoundation/AVFoundation.h>
+#import "RRAudioPlayer.h"
+
 @interface RRAudioEngine : NSObject
+
+@property BOOL muted;
 
 +(RRAudioEngine *)sharedEngine;
 
 -(void)initializeAudioSession;
 
--(void)playSoundNamed:(NSString *)soundName extension:(NSString *)ext loop:(BOOL)loop;
+-(RRAudioPlayer *)playSoundNamed:(NSString *)soundName extension:(NSString *)ext loop:(BOOL)loop;
+-(void)stopSoundName:(NSString *)soundName;
 
 -(void)stopAllSounds;
+
+-(void)mute:(BOOL)mute;
 
 @end

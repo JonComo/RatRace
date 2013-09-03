@@ -8,11 +8,14 @@
 
 #import "RRTravelViewController.h"
 
+#import "RRAudioEngine.h"
+
 #import "RRGame.h"
 
 @interface RRTravelViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 {
     __weak IBOutlet UICollectionView *collectionViewCountries;
+    RRAudioPlayer *plane;
 }
 
 @end
@@ -24,7 +27,34 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"ding" extension:@"aiff" loop:NO];
+    
+    plane = [[RRAudioEngine sharedEngine] playSoundNamed:@"planeAmbient" extension:@"aiff" loop:YES];
+    plane.volume = 0;
+    
     [collectionViewCountries reloadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [plane fadeIn:1];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"jet" extension:@"aiff" loop:NO];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [plane fadeOut:3];
+    plane.numberOfLoops = 0;
 }
 
 - (void)didReceiveMemoryWarning

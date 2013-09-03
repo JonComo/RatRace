@@ -31,6 +31,7 @@
 @implementation RRMarketViewController
 {
     __weak IBOutlet UICollectionView *collectionViewItems;
+    RRAudioPlayer *strings;
 }
 
 - (void)viewDidLoad
@@ -50,14 +51,24 @@
     [self addStatsView];
     
     //music
-    [[RRAudioEngine sharedEngine] playSoundNamed:@"strings" extension:@"wav" loop:YES];
+    strings = [[RRAudioEngine sharedEngine] playSoundNamed:@"strings" extension:@"wav" loop:YES];
+    strings.volume = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    [self deselectAllItems];
     [collectionViewItems reloadData];
+    
+    [strings fadeIn:2];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [strings fadeOut:1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,12 +98,23 @@
     //select item
     RRItem *item = [self selectedItem];
     
+    if ([RRGame sharedGame].player.money < item.value)
+    {
+        NSLog(@"INSUFFICIENT FUNDS");
+        return;
+    }
+    
     item.hasItem = YES;
     
-    [[RRGame sharedGame].player.inventory addObject:item];
+    RRItem *boughtItem = [RRItem item:item.name value:item.value];
+    
+    [[RRGame sharedGame].player.inventory addObject:boughtItem];
+    
     [RRGame sharedGame].player.money -= item.value;
     
     [collectionViewItems reloadData];
+    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
     
     NSLog(@"Inventory: %@", [RRGame sharedGame].player.inventory);
 }
@@ -107,7 +129,15 @@
     {
         [[RRGame sharedGame].player.inventory removeObject:matchingItem];
         [RRGame sharedGame].player.money += item.value;
+        
+        [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
     }
+    
+    RRItem *stillHas = [[RRGame sharedGame].player itemMatchingItem:item];
+    
+    if(!stillHas) item.hasItem = NO;
+    
+    [collectionViewItems reloadData];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -128,6 +158,8 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
+    
     [self deselectAllItems];
     
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];

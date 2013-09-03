@@ -14,7 +14,7 @@
 {
     if (self = [super init]) {
         //init
-        _money = 50.0;
+        _money = 2000.00;
         _inventory = [NSMutableArray array];
         _inventoryCapacity = 100;
     }
