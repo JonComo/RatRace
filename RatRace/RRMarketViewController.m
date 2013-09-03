@@ -22,6 +22,8 @@
 {
     SMStatsView *statsView;
     RRTravelViewController *travelController;
+    
+    __weak IBOutlet UIImageView *imageViewCountry;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *countryLabel;
@@ -39,14 +41,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [[RRGame sharedGame] newGame];
+    
     collectionViewItems.allowsMultipleSelection = NO;
     [collectionViewItems registerNib:[UINib nibWithNibName:@"diamondCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"diamondCell"];
-    
-    self.countryLabel.text = @"Switzerland";
-
-    
-    [RRGame sharedGame];
-    [[RRGame sharedGame] newGame];
     
     [self addStatsView];
     
@@ -61,6 +59,9 @@
     
     [self deselectAllItems];
     [collectionViewItems reloadData];
+    
+    self.countryLabel.text = [RRGame sharedGame].location;
+    imageViewCountry.image = [UIImage imageNamed:[RRGame sharedGame].location];
     
     [strings fadeIn:2];
 }
@@ -97,6 +98,8 @@
 {
     //select item
     RRItem *item = [self selectedItem];
+    
+    if (!item) return;
     
     if ([RRGame sharedGame].player.money < item.value)
     {

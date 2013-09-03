@@ -73,6 +73,9 @@
     UILabel *label = (UILabel *)[cell viewWithTag:100];
     label.text = location;
     
+    UIImageView *image = (UIImageView *)[cell viewWithTag:200];
+    image.image = [UIImage imageNamed:location];
+    
     return cell;
 }
 
@@ -93,6 +96,7 @@
         [self.delegate controllerDidDismiss:self withInfo:[RRGame sharedGame].availableLocations[indexPath.row]];
     }
     
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

@@ -25,9 +25,11 @@
     {
         labelName.textColor = [UIColor whiteColor];
         self.backgroundColor = [UIColor lightGrayColor];
+        labelPrice.textColor = [UIColor whiteColor];
     }else{
         labelName.textColor = [UIColor blackColor];
         self.backgroundColor = [UIColor whiteColor];
+        labelPrice.textColor = [UIColor blackColor];
     }
     
     _item = item;
