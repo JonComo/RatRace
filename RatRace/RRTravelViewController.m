@@ -95,5 +95,10 @@
     
 }
 
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(320, self.view.frame.size.height / [RRGame sharedGame].availableLocations.count);
+}
+
 
 @end
