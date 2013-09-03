@@ -37,4 +37,19 @@
     return match;
 }
 
+-(int)numberOfItem:(RRItem *)item
+{
+    int count = 0;
+    
+    for (RRItem *playerItem in self.inventory)
+    {
+        if ([playerItem.name isEqualToString:item.name])
+        {
+            count ++;
+        }
+    }
+    
+    return count;
+}
+
 @end

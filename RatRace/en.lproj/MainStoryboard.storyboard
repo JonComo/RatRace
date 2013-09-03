@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -95,38 +95,6 @@
                                     <outlet property="delegate" destination="2" id="Yct-DL-Z8d"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WJ-iF-yMP" customClass="RRButtonSound">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="d5z-eU-91o"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Buy">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buy:" destination="2" eventType="touchUpInside" id="LDp-cs-5lO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSq-Hs-LUl" customClass="RRButtonSound">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="IMH-RX-f5Q"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Sell">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="sell:" destination="2" eventType="touchUpInside" id="WWT-pD-2dd"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G27-ES-Lae" customClass="RRButtonSound">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Get-yu-IFX"/>
@@ -159,57 +127,23 @@
                                     <action selector="bank:" destination="2" eventType="touchUpInside" id="Mry-5w-5kn"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" image="historic-diamond-prices-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7zf-dE-vEC">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="Ct1-y7-LRS"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSK-FR-fOf">
-                                <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-md-vTK">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="9tO-gN-0Fo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="60"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1EE-bC-0aL"/>
-                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="1HT-JM-xhK"/>
-                            <constraint firstItem="aSK-FR-fOf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-7" id="1aq-JV-OGa"/>
-                            <constraint firstItem="7zf-dE-vEC" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="25A-xG-FvY"/>
-                            <constraint firstAttribute="trailing" secondItem="aaZ-md-vTK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="6BK-MS-gV6"/>
-                            <constraint firstItem="6WJ-iF-yMP" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="user" id="CLt-eA-JMm"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="DJv-rG-qGg"/>
-                            <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="7zf-dE-vEC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DPA-i3-86M"/>
-                            <constraint firstItem="7zf-dE-vEC" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="FbY-Re-lZQ"/>
-                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="G6I-Ny-cL4"/>
-                            <constraint firstItem="aaZ-md-vTK" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HWN-1i-9SU"/>
-                            <constraint firstItem="SSq-Hs-LUl" firstAttribute="leading" secondItem="6WJ-iF-yMP" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="I1J-Pu-cOA"/>
-                            <constraint firstItem="aSK-FR-fOf" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="JAi-Gf-FJb"/>
-                            <constraint firstItem="6WJ-iF-yMP" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="LqK-U2-OVy"/>
-                            <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="SSq-Hs-LUl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="LrJ-Wk-Beu"/>
+                            <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="140" type="user" id="MQz-AE-AMN"/>
                             <constraint firstAttribute="bottom" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="51" type="user" id="MVE-l6-9ri"/>
-                            <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="aSK-FR-fOf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="MYB-V0-x54"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="N3q-hh-m6o"/>
-                            <constraint firstItem="6WJ-iF-yMP" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="OaH-F6-u6B"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aZa-Wo-nz2"/>
-                            <constraint firstItem="aSK-FR-fOf" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="e2i-fa-caQ"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gyy-NR-NIa"/>
-                            <constraint firstItem="7zf-dE-vEC" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="mG8-cJ-MtR"/>
-                            <constraint firstItem="aaZ-md-vTK" firstAttribute="top" secondItem="3" secondAttribute="top" constant="64" id="rds-ZM-qbo"/>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="tSA-y0-R5j"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="vn5-GE-QaZ"/>
+                            <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="247" id="zB5-ec-7he"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionViewItems" destination="y0x-W5-aEY" id="y8i-Bi-mMP"/>
-                        <outlet property="countryLabel" destination="aaZ-md-vTK" id="cq4-kQ-bjh"/>
-                        <outlet property="imageViewCountry" destination="7zf-dE-vEC" id="oAa-w3-CbN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -343,7 +277,6 @@
     <resources>
         <image name="Italy.png" width="640" height="320"/>
         <image name="background2.png" width="640" height="1120"/>
-        <image name="historic-diamond-prices-2.jpg" width="640" height="240"/>
         <image name="travel.png" width="640" height="1120"/>
     </resources>
     <classes>
@@ -363,10 +296,6 @@
         <class className="RRMarketViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
             <relationships>
-                <relationship kind="action" name="bank:"/>
-                <relationship kind="action" name="buy:" candidateClass="UIButton"/>
-                <relationship kind="action" name="sell:"/>
-                <relationship kind="action" name="travel:"/>
                 <relationship kind="outlet" name="countryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="imageViewCountry" candidateClass="UIImageView"/>
             </relationships>
@@ -388,9 +317,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

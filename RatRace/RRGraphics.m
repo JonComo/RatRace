@@ -17,8 +17,12 @@
 
 +(void)buttonStyle:(UIButton *)button
 {
-    [button setBackgroundImage:[[UIImage imageNamed:@"border"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)] forState:UIControlStateNormal];
-    
+    [button setBackgroundImage:[RRGraphics resizableBorderImage] forState:UIControlStateNormal];
+}
+
++(UIImage *)resizableBorderImage
+{
+    return [[UIImage imageNamed:@"border"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)];
 }
 
 @end

@@ -12,4 +12,6 @@
 
 +(void)buttonStyle:(UIButton *)button;
 
++(UIImage *)resizableBorderImage;
+
 @end

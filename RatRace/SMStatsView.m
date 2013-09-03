@@ -12,7 +12,12 @@
 
 @implementation SMStatsView
 {
-    __weak IBOutlet UILabel *labelOutput;
+    __weak IBOutlet UILabel *labelDays;
+    __weak IBOutlet UILabel *labelInventory;
+    __weak IBOutlet UILabel *labelCash;
+    
+    __weak IBOutlet UILabel *labelLocation;
+    __weak IBOutlet UIImageView *imageViewLocation;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -33,6 +38,7 @@
     [[RRGame sharedGame] addObserver:self forKeyPath:@"day" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame].player addObserver:self forKeyPath:@"money" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame].bank addObserver:self forKeyPath:@"loan" options:NSKeyValueObservingOptionNew context:NULL];
+    [[RRGame sharedGame] addObserver:self forKeyPath:@"location" options:NSKeyValueObservingOptionNew context:NULL];
     
     [self update];
 }
@@ -43,11 +49,15 @@
     float money = [RRGame sharedGame].player.money;
     int inventory = [RRGame sharedGame].player.inventory.count;
     float loan = [RRGame sharedGame].bank.loan;
+    
+    NSString *location = [RRGame sharedGame].location;
 
-    self.days.text = [NSString stringWithFormat:@"Days: %d / 30", days];
-    self.cash.text = [NSString stringWithFormat:@"Cash on Hand: $%.2f",money];
-    self.balance.text = [NSString stringWithFormat:@"Loan Balance: $%.2f", loan];
-    self.inventory.text = [NSString stringWithFormat:@"Inventory: %d / %d", inventory, [RRGame sharedGame].player.inventoryCapacity];
+    labelDays.text = [NSString stringWithFormat:@"Days: %d / 30", days];
+    labelCash.text = [NSString stringWithFormat:@"$%.2f (-$%.2f)", money, loan];
+    labelInventory.text = [NSString stringWithFormat:@"Inventory: %d / %d", inventory, [RRGame sharedGame].player.inventoryCapacity];
+    
+    imageViewLocation.image = [UIImage imageNamed:location];
+    labelLocation.text = location;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

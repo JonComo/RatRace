@@ -76,7 +76,7 @@
 {
     [super viewDidAppear:animated];
     
-    [self randomEvent];
+    //[self randomEvent];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -127,16 +127,6 @@
     [self.view addSubview:statsView];
 }
 
-- (IBAction)buy:(UIButton *)sender
-{
-    //select item
-
-}
-
-- (IBAction)sell:(id)sender {
-    //select item
-}
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     RRDiamondCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"diamondCell" forIndexPath:indexPath];
@@ -157,16 +147,19 @@
 {
     [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
     
-    [self deselectAllItems];
-    
-    [collectionViewItems reloadData];
-    
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    item.selected = YES;
     
-    [collectionViewItems reloadData];
-    
-    [collectionViewItems scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    if (item.selected)
+    {
+        item.selected = NO;
+        [collectionViewItems reloadData];
+    }else{
+        [self deselectAllItems];
+        item.selected = YES;
+        
+        [collectionViewItems reloadData];
+        [collectionViewItems scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    }
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

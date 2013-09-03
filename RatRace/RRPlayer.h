@@ -18,5 +18,6 @@
 @property int inventoryCapacity;
 
 -(RRItem *)itemMatchingItem:(RRItem *)item;
+-(int)numberOfItem:(RRItem *)item;
 
 @end

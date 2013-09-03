@@ -9,10 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SMStatsView : UIView
-@property (strong, nonatomic) IBOutlet UILabel *days;
-@property (strong, nonatomic) IBOutlet UILabel *cash;
-@property (strong, nonatomic) IBOutlet UILabel *balance;
-@property (strong, nonatomic) IBOutlet UILabel *inventory;
 
 -(void)setup;
 -(void)update;
