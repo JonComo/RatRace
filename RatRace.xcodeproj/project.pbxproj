@@ -17,6 +17,7 @@
 		863BBAD317D54BCA00BEF75A /* RRIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BBAD217D54BCA00BEF75A /* RRIntroViewController.m */; };
 		863BBAD617D54CA700BEF75A /* RRButtonSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BBAD517D54CA700BEF75A /* RRButtonSound.m */; };
 		864F707B17D559A800FEDAA6 /* strings.wav in Resources */ = {isa = PBXBuildFile; fileRef = 864F707A17D559A800FEDAA6 /* strings.wav */; };
+		864F707D17D55C5C00FEDAA6 /* diamondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 864F707C17D55C5C00FEDAA6 /* diamondCell.xib */; };
 		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
 		86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A0C4F717D5461B001663D6 /* AVFoundation.framework */; };
 		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
@@ -57,6 +58,7 @@
 		863BBAD417D54CA700BEF75A /* RRButtonSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRButtonSound.h; sourceTree = "<group>"; };
 		863BBAD517D54CA700BEF75A /* RRButtonSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRButtonSound.m; sourceTree = "<group>"; };
 		864F707A17D559A800FEDAA6 /* strings.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = strings.wav; sourceTree = "<group>"; };
+		864F707C17D55C5C00FEDAA6 /* diamondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diamondCell.xib; sourceTree = "<group>"; };
 		86A0C4F417D5455A001663D6 /* RRAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRAudioEngine.h; sourceTree = "<group>"; };
 		86A0C4F517D5455A001663D6 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
 		86A0C4F717D5461B001663D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				338157FC17D462A4006CCA90 /* RRDiamondCell.h */,
+				864F707C17D55C5C00FEDAA6 /* diamondCell.xib */,
 				338157FD17D462A5006CCA90 /* RRDiamondCell.m */,
 				86DBBD2F17D415F60032D830 /* MainStoryboard.storyboard */,
 				338157F417D45B1E006CCA90 /* RRBankViewController.xib */,
@@ -298,6 +301,7 @@
 				3381580817D475BD006CCA90 /* historic-diamond-prices-2.jpg in Resources */,
 				86A0C50217D54832001663D6 /* click.aiff in Resources */,
 				864F707B17D559A800FEDAA6 /* strings.wav in Resources */,
+				864F707D17D55C5C00FEDAA6 /* diamondCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "RRItem.h"
+
 @interface RRDiamondCell : UICollectionViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *diamondLabel;
-@property (strong, nonatomic) IBOutlet UILabel *valueLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (nonatomic, strong) RRItem *item;
 
 @end

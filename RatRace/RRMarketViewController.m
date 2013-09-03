@@ -39,6 +39,7 @@
 	// Do any additional setup after loading the view.
     
     collectionViewItems.allowsMultipleSelection = NO;
+    [collectionViewItems registerNib:[UINib nibWithNibName:@"diamondCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"diamondCell"];
     
     self.countryLabel.text = @"Switzerland";
 
@@ -83,19 +84,13 @@
 
 - (IBAction)buy:(UIButton *)sender
 {
-    NSArray *selected = collectionViewItems.indexPathsForSelectedItems;
-    
-    if (selected.count == 0) return;
-    
-    NSIndexPath *indexPath = selected[0];
-    
     //select item
-    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
+    RRItem *item = [self selectedItem];
+    
     item.hasItem = YES;
+    
     [[RRGame sharedGame].player.inventory addObject:item];
     [RRGame sharedGame].player.money -= item.value;
-    
-    //[statsView update];
     
     [collectionViewItems reloadData];
     
@@ -103,33 +98,19 @@
 }
 
 - (IBAction)sell:(id)sender {
-    NSArray *selected = collectionViewItems.indexPathsForSelectedItems;
-    
-    if (selected.count == 0) return;
-    
-    NSIndexPath *indexPath = selected[0];
-    
     //select item
-    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    
-    [[RRGame sharedGame].player.inventory removeObject:item];
+    RRItem *item = [self selectedItem];
     
     [RRGame sharedGame].player.money += item.value;
-
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RRDiamondCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    RRDiamondCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"diamondCell" forIndexPath:indexPath];
     
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    cell.backgroundColor = [UIColor whiteColor];
-    cell.diamondLabel.text = [NSString stringWithFormat:@"%@", item.name];
-    cell.valueLabel.text = [NSString stringWithFormat:@"$%.2f", item.value];
-    if (item.hasItem) {
-        cell.image.hidden = NO;
-    }else
-        cell.image.hidden = YES;
+    
+    cell.item = item;
     
     return cell;
 }
@@ -141,19 +122,36 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RRDiamondCell *cell = (RRDiamondCell *)[collectionViewItems cellForItemAtIndexPath:indexPath];
+    [self deselectAllItems];
     
-    cell.diamondLabel.textColor = [UIColor whiteColor];
-    cell.backgroundColor = [UIColor lightGrayColor];
+    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
     
+    item.selected = YES;
+    
+    [collectionViewItems reloadData];
 }
 
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+-(void)deselectAllItems
 {
-    RRDiamondCell *cell = (RRDiamondCell *)[collectionViewItems cellForItemAtIndexPath:indexPath];
+    for (RRItem *item in [RRGame sharedGame].availableItems)
+    {
+        item.selected = NO;
+    }
+}
+
+-(RRItem *)selectedItem
+{
+    RRItem *selected;
     
-    cell.diamondLabel.textColor = [UIColor blackColor];
-    cell.backgroundColor = [UIColor whiteColor];
+    for (RRItem *item in [RRGame sharedGame].availableItems)
+    {
+        if (item.selected)
+        {
+            selected = item;
+        }
+    }
+    
+    return selected;
 }
 
 #pragma mark PrepereSegue

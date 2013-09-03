@@ -9,14 +9,28 @@
 #import "RRDiamondCell.h"
 
 @implementation RRDiamondCell
-
-- (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    __weak IBOutlet UILabel *labelName;
+    __weak IBOutlet UILabel *labelPrice;
+    __weak IBOutlet UIImageView *imageViewHasItem;
+}
+
+-(void)setItem:(RRItem *)item
+{
+    imageViewHasItem.hidden = !item.hasItem;
+    labelName.text = item.name;
+    labelPrice.text = [NSString stringWithFormat:@"$%.2f", item.value];
+    
+    if (item.selected)
+    {
+        labelName.textColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor lightGrayColor];
+    }else{
+        labelName.textColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
-    return self;
+    
+    _item = item;
 }
 
 /*
