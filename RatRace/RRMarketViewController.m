@@ -8,6 +8,8 @@
 
 #import "RRMarketViewController.h"
 
+#import "RRRandomNewsViewController.h"
+
 #import "RRGame.h"
 #import "RRItem.h"
 
@@ -18,7 +20,7 @@
 
 #import "RRAudioEngine.h"
 
-@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RRTravelViewControllerDelegate>
+@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     SMStatsView *statsView;
     RRTravelViewController *travelController;
@@ -48,6 +50,10 @@
     
     [self addStatsView];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:RRDiamondCountChanged object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [collectionViewItems reloadData];
+    }];
+    
     //music
     strings = [[RRAudioEngine sharedEngine] playSoundNamed:@"strings" extension:@"wav" loop:YES];
     strings.volume = 0;
@@ -66,16 +72,43 @@
     [strings fadeIn:2];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self randomEvent];
+}
+
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [strings fadeOut:1];
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RRDiamondCountChanged object:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)randomEvent
+{
+    BOOL randomEvent = NO;
+    
+    if (arc4random()%10 > 5)
+    {
+        randomEvent = YES;
+        RRRandomNewsViewController *randomVC = [self.storyboard instantiateViewControllerWithIdentifier:@"randomVC"];
+        
+        [self presentViewController:randomVC animated:YES completion:nil];
+    }
+    
+    return randomEvent;
 }
 
 -(void)addStatsView
@@ -97,50 +130,11 @@
 - (IBAction)buy:(UIButton *)sender
 {
     //select item
-    RRItem *item = [self selectedItem];
-    
-    if (!item) return;
-    
-    if ([RRGame sharedGame].player.money < item.value)
-    {
-        NSLog(@"INSUFFICIENT FUNDS");
-        return;
-    }
-    
-    item.hasItem = YES;
-    
-    RRItem *boughtItem = [RRItem item:item.name value:item.value];
-    
-    [[RRGame sharedGame].player.inventory addObject:boughtItem];
-    
-    [RRGame sharedGame].player.money -= item.value;
-    
-    [collectionViewItems reloadData];
-    
-    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
-    
-    NSLog(@"Inventory: %@", [RRGame sharedGame].player.inventory);
+
 }
 
 - (IBAction)sell:(id)sender {
     //select item
-    RRItem *item = [self selectedItem];
-    
-    RRItem *matchingItem = [[RRGame sharedGame].player itemMatchingItem:item];
-    
-    if (matchingItem)
-    {
-        [[RRGame sharedGame].player.inventory removeObject:matchingItem];
-        [RRGame sharedGame].player.money += item.value;
-        
-        [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
-    }
-    
-    RRItem *stillHas = [[RRGame sharedGame].player itemMatchingItem:item];
-    
-    if(!stillHas) item.hasItem = NO;
-    
-    [collectionViewItems reloadData];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -165,11 +159,21 @@
     
     [self deselectAllItems];
     
-    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
+    [collectionViewItems reloadData];
     
+    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
     item.selected = YES;
     
     [collectionViewItems reloadData];
+    
+    [collectionViewItems scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
+    
+    return item.selected ? CGSizeMake(320, 144) : CGSizeMake(320, 44);
 }
 
 -(void)deselectAllItems
@@ -195,16 +199,6 @@
     return selected;
 }
 
-#pragma mark PrepereSegue
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"travel"]) {
-        travelController = (RRTravelViewController *)segue.destinationViewController;
-        travelController.delegate = self;
-    }
-}
-
 - (IBAction)bank:(id)sender
 {
     RRBankViewController *bankView = [[RRBankViewController alloc] initWithNibName:@"RRBankViewController" bundle:[NSBundle mainBundle]];
@@ -217,15 +211,13 @@
 
 }
 
-#pragma mark RRTravelViewCOntrollerDelegate
-
--(void)controllerDidDismiss:(RRTravelViewController *)controller withInfo:(NSString *)country{
-    self.countryLabel.text = country;
-    [controller dismissViewControllerAnimated:YES completion:^{
-        [[RRGame sharedGame] advanceDay];
-        
-    }];
+- (IBAction)travel:(id)sender {
+    [[RRGame sharedGame] advanceDay];
     
+    RRTravelViewController *travelVC = [self.storyboard instantiateViewControllerWithIdentifier:@"travelVC"];
+    
+    [self presentViewController:travelVC animated:YES completion:nil];
 }
+
 
 @end

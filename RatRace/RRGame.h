@@ -11,6 +11,8 @@
 #import "RRPlayer.h"
 #import "RRBank.h"
 
+#define RRDiamondCountChanged @"diamondCountChanged"
+
 @interface RRGame : NSObject
 
 @property int day;

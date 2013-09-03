@@ -15,6 +15,7 @@
     RRItem *item = [RRItem new];
     item.name = name;
     item.value = value;
+    item.valueInitial = value;
     
     return item;
 }

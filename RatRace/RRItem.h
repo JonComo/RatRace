@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *name;
 @property float value;
+@property float valueInitial;
 @property int amount;
 @property BOOL hasItem;
 @property BOOL selected;

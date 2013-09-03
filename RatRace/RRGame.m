@@ -41,6 +41,8 @@
     self.availableLocations = [@[@"Switzerland", @"Dubai", @"Greece", @"Russia", @"South Africa", @"Thailand"] mutableCopy];
     
     self.location = self.availableLocations[0];
+    
+    [self randomizeValues];
 }
 
 -(void)changeToLocation:(NSString *)newLocation
@@ -53,7 +55,7 @@
 {
     for (RRItem *item in self.availableItems)
     {
-        item.value = 200 + arc4random()%30;
+        item.value = item.valueInitial + arc4random()%((int)(item.valueInitial*.2));
     }
 }
 

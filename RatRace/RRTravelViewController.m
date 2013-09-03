@@ -15,6 +15,7 @@
 @interface RRTravelViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 {
     __weak IBOutlet UICollectionView *collectionViewCountries;
+    NSMutableArray *locations;
     RRAudioPlayer *plane;
 }
 
@@ -29,10 +30,28 @@
     
     [[RRAudioEngine sharedEngine] playSoundNamed:@"ding" extension:@"aiff" loop:NO];
     
+    locations = [[RRGame sharedGame].availableLocations mutableCopy];
+    
+    [self removeCurrentLocation];
+    
     plane = [[RRAudioEngine sharedEngine] playSoundNamed:@"planeAmbient" extension:@"aiff" loop:YES];
     plane.volume = 0;
     
     [collectionViewCountries reloadData];
+}
+
+-(void)removeCurrentLocation
+{
+    NSString *locationToRemove;
+    for (NSString *location in locations)
+    {
+        if ([[RRGame sharedGame].location isEqualToString:location])
+        {
+            locationToRemove = location;
+        }
+    }
+    
+    [locations removeObject:locationToRemove];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -46,7 +65,7 @@
 {
     [super viewWillDisappear:animated];
     
-    [[RRAudioEngine sharedEngine] playSoundNamed:@"jet" extension:@"aiff" loop:NO];
+    [plane fadeOut:1];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -68,7 +87,7 @@
 {    
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    NSString *location = [RRGame sharedGame].availableLocations[indexPath.row];
+    NSString *location = locations[indexPath.row];
     
     UILabel *label = (UILabel *)[cell viewWithTag:100];
     label.text = location;
@@ -81,27 +100,27 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [RRGame sharedGame].availableLocations.count;
+    return locations.count;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //select item
     
-    NSString *location = [RRGame sharedGame].availableLocations[indexPath.row];
+    NSString *location = locations[indexPath.row];
     
     [[RRGame sharedGame] changeToLocation:location];
     
-    if ([self.delegate respondsToSelector:@selector(controllerDidDismiss:withInfo:)]) {
-        [self.delegate controllerDidDismiss:self withInfo:[RRGame sharedGame].availableLocations[indexPath.row]];
-    }
-    
     [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
+    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"jet" extension:@"aiff" loop:NO];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(320, self.view.frame.size.height / [RRGame sharedGame].availableLocations.count);
+    return CGSizeMake(320, (int)(self.view.frame.size.height / locations.count + 1));
 }
 
 
