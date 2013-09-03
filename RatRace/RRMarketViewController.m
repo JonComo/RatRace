@@ -101,7 +101,13 @@
     //select item
     RRItem *item = [self selectedItem];
     
-    [RRGame sharedGame].player.money += item.value;
+    RRItem *matchingItem = [[RRGame sharedGame].player itemMatchingItem:item];
+    
+    if (matchingItem)
+    {
+        [[RRGame sharedGame].player.inventory removeObject:matchingItem];
+        [RRGame sharedGame].player.money += item.value;
+    }
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath

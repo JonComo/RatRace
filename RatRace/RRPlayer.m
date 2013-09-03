@@ -22,4 +22,19 @@
     return self;
 }
 
+-(RRItem *)itemMatchingItem:(RRItem *)item
+{
+    RRItem *match;
+    
+    for (RRItem *playerItem in self.inventory)
+    {
+        if ([playerItem.name isEqualToString:item.name])
+        {
+            match = playerItem;
+        }
+    }
+    
+    return match;
+}
+
 @end

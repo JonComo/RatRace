@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import "RRItem.h"
+
 @interface RRPlayer : NSObject
 
 @property float money;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSMutableArray *inventory;
 @property int inventoryCapacity;
+
+-(RRItem *)itemMatchingItem:(RRItem *)item;
 
 @end
