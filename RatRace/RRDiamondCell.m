@@ -14,6 +14,8 @@
 
 #import "RRButtonSound.h"
 
+#import "RRStepper.h"
+
 #import "RRGraphics.h"
 
 @implementation RRDiamondCell
@@ -28,9 +30,6 @@
     __weak IBOutlet UILabel *labelItemCount;
     
     __weak IBOutlet UIImageView *imageViewBackground;
-    
-    NSTimer *timerShouldStep;
-    NSTimer *timerIncrement;
     
     double previousValue;
 }
@@ -90,62 +89,29 @@
 }
 
 - (IBAction)sellOne:(id)sender {
-    [self sellStep];
-    
-    [timerShouldStep invalidate];
-    timerShouldStep = nil;
-    
-    timerShouldStep = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(startSellStep) userInfo:nil repeats:NO];
+    [[RRStepper sharedStepper] buttonDownWithAction:^{
+        [self sell];
+    }];
 }
 
 - (IBAction)buyOne:(id)sender {
-    [self buyStep];
     
-    [timerShouldStep invalidate];
-    timerShouldStep = nil;
-    
-    timerShouldStep = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(startBuyStep) userInfo:nil repeats:NO];
-}
-
--(void)startBuyStep
-{
-    [timerIncrement invalidate];
-    timerIncrement = nil;
-    
-    timerIncrement = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(buyStep) userInfo:nil repeats:YES];
-}
-
--(void)startSellStep
-{
-    [timerIncrement invalidate];
-    timerIncrement = nil;
-    
-    timerIncrement = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(sellStep) userInfo:nil repeats:YES];
+    [[RRStepper sharedStepper] buttonDownWithAction:^{
+        [self buy];
+    }];
 }
 
 - (IBAction)buyOneUp:(id)sender
 {
-    [timerIncrement invalidate];
-    timerIncrement = nil;
-    
-    [timerShouldStep invalidate];
-    timerShouldStep = nil;
-    
-    [self countChangedNotification];
+    [[RRStepper sharedStepper] buttonUp];
 }
 
 - (IBAction)sellOneUp:(id)sender
 {
-    [timerIncrement invalidate];
-    timerIncrement = nil;
-    
-    [timerShouldStep invalidate];
-    timerShouldStep = nil;
-    
-    [self countChangedNotification];
+    [[RRStepper sharedStepper] buttonUp];
 }
 
--(void)buyStep
+-(void)buy
 {
     int amountAvailable = [self amountAvailable];
     
@@ -167,7 +133,7 @@
     [self calculate];
 }
 
--(void)sellStep
+-(void)sell
 {
     int amountToSell = [[RRGame sharedGame].player numberOfItem:self.item];
     
@@ -212,8 +178,6 @@
         }];
     }];
 }
-
-
 
 /*
 // Only override drawRect: if you perform custom drawing.
