@@ -8,6 +8,8 @@
 
 #import "RREvent.h"
 
+#import "RRGame.h"
+
 @implementation RREvent
 {
     int daysProgressed;
@@ -51,8 +53,7 @@
 
 -(void)progressDay
 {
-    if (daysProgressed == 0)
-    {
+    if (daysProgressed == 0){
         //first day, run it
         [self runStart];
     }
@@ -61,6 +62,7 @@
     
     if (daysProgressed >= self.duration){
         [self runEnd];
+        [[RRGame sharedGame].events removeObject:self];
     }
 }
 
