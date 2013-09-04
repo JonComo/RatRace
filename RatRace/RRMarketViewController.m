@@ -17,6 +17,8 @@
 #import "RRTravelViewController.h"
 #import "RRBankViewController.h"
 #import "RRDiamondCell.h"
+#import "RRButtonSound.h"
+#import "RRGraphics.h"
 
 #import "RRAudioEngine.h"
 
@@ -26,6 +28,8 @@
     RRTravelViewController *travelController;
     
     __weak IBOutlet UIImageView *imageViewCountry;
+    __weak IBOutlet RRButtonSound *travelButton;
+    __weak IBOutlet RRButtonSound *bankButton;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *countryLabel;
@@ -44,6 +48,9 @@
 	// Do any additional setup after loading the view.
     
     [[RRGame sharedGame] newGame];
+    
+    [RRGraphics buttonStyle:travelButton];
+    [RRGraphics buttonStyle:bankButton];
     
     collectionViewItems.allowsMultipleSelection = NO;
     [collectionViewItems registerNib:[UINib nibWithNibName:@"diamondCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"diamondCell"];

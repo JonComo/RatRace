@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -16,7 +16,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlh-KF-oC3" customClass="RRButtonSound">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="0mN-el-QCz"/>
-                                    <constraint firstAttribute="height" constant="44" id="Hhy-QD-IIS"/>
+                                    <constraint firstAttribute="height" constant="34" id="Yl4-Fg-8KT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
                                 <state key="normal" title="NEW GAME">
@@ -34,8 +34,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Zlh-KF-oC3" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Jw1-Ps-R6z"/>
                             <constraint firstItem="Wav-no-9d4" firstAttribute="top" secondItem="wnt-TZ-sND" secondAttribute="top" type="default" id="QJI-YJ-gyY"/>
+                            <constraint firstAttribute="bottom" secondItem="Zlh-KF-oC3" secondAttribute="bottom" constant="30" id="S6u-6s-F28"/>
                             <constraint firstItem="Wav-no-9d4" firstAttribute="leading" secondItem="wnt-TZ-sND" secondAttribute="leading" type="default" id="UsC-yI-tP0"/>
                             <constraint firstItem="Wav-no-9d4" firstAttribute="bottom" secondItem="wnt-TZ-sND" secondAttribute="bottom" type="default" id="iOY-En-FLv"/>
                             <constraint firstItem="Wav-no-9d4" firstAttribute="centerX" secondItem="Zlh-KF-oC3" secondAttribute="centerX" type="default" id="rzd-Og-nUt"/>
@@ -99,9 +99,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Get-yu-IFX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Travel">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                <state key="normal" title="TRAVEL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -114,10 +114,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qX-dT-zPS" customClass="RRButtonSound">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="UpB-i1-6LK"/>
+                                    <constraint firstAttribute="height" constant="34" id="ytS-5g-VBc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Bank">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                <state key="normal" title="BANK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -132,18 +133,19 @@
                         <constraints>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1EE-bC-0aL"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="DJv-rG-qGg"/>
+                            <constraint firstAttribute="trailing" secondItem="5qX-dT-zPS" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="FHF-l7-UvE"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="140" type="user" id="MQz-AE-AMN"/>
                             <constraint firstAttribute="bottom" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="51" type="user" id="MVE-l6-9ri"/>
-                            <constraint firstItem="5qX-dT-zPS" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="N3q-hh-m6o"/>
-                            <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="aZa-Wo-nz2"/>
+                            <constraint firstItem="5qX-dT-zPS" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="SsS-MV-r0g"/>
+                            <constraint firstItem="5qX-dT-zPS" firstAttribute="bottom" secondItem="G27-ES-Lae" secondAttribute="bottom" type="default" id="aHb-Rh-rhB"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gyy-NR-NIa"/>
-                            <constraint firstItem="G27-ES-Lae" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="tSA-y0-R5j"/>
-                            <constraint firstItem="5qX-dT-zPS" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="vn5-GE-QaZ"/>
-                            <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="247" id="zB5-ec-7he"/>
+                            <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jFS-Sb-nlw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bankButton" destination="5qX-dT-zPS" id="6cs-D5-jc0"/>
                         <outlet property="collectionViewItems" destination="y0x-W5-aEY" id="y8i-Bi-mMP"/>
+                        <outlet property="travelButton" destination="G27-ES-Lae" id="yyM-cH-R20"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -296,12 +298,19 @@
         <class className="RRMarketViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
             <relationships>
+                <relationship kind="action" name="bank:"/>
+                <relationship kind="action" name="travel:"/>
+                <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="countryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="imageViewCountry" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>
             </relationships>
         </class>
         <class className="RRRandomNewsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRRandomNewsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismiss:"/>
+            </relationships>
         </class>
         <class className="RRTravelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRTravelViewController.h"/>
@@ -317,6 +326,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
