@@ -20,6 +20,8 @@
 #import "RRButtonSound.h"
 #import "RRGraphics.h"
 
+#import "RREvent.h"
+
 #import "RRAudioEngine.h"
 
 @interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -83,7 +85,8 @@
 {
     [super viewDidAppear:animated];
     
-    //[self randomEvent];
+    [self addRandomEvent];
+    [self runEvents];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -103,19 +106,37 @@
     // Dispose of any resources that can be recreated.
 }
 
--(BOOL)randomEvent
+-(void)addRandomEvent
 {
-    BOOL randomEvent = NO;
+    if ([RRGame sharedGame].events.count > 0) return;
     
     if (arc4random()%10 > 5)
     {
-        randomEvent = YES;
-        RRRandomNewsViewController *randomVC = [self.storyboard instantiateViewControllerWithIdentifier:@"randomVC"];
+        RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bank interest low!" message:@"Swiss banks have halved their interest rates!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        } numberOfDays:3 endingBlock:^{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bank interest normal!" message:@"Swiss banks have come to their senses and restored original interest rates." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        }];
         
-        [self presentViewController:randomVC animated:YES completion:nil];
+        [[RRGame sharedGame].events addObject:newspaperEvent];
     }
-    
-    return randomEvent;
+}
+
+-(void)runEvents
+{
+    if ([RRGame sharedGame].events.count > 0)
+    {
+        RREvent *event = [RRGame sharedGame].events[0];
+        
+        [event progressDay];
+        
+        [event runEndCompletion:^{
+            //Event is done running and displaying VCs etc, should check for any more events that need to end.
+            [self runEvents];
+        }];
+    }
 }
 
 -(void)addStatsView

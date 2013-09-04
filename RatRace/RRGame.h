@@ -17,6 +17,8 @@
 
 @property int day;
 
+@property (nonatomic, strong) NSMutableArray *events;
+
 @property (nonatomic, strong) NSMutableArray *availableItems;
 @property (nonatomic, strong) NSMutableArray *availableLocations;
 

@@ -30,6 +30,8 @@
     self.player = [RRPlayer new];
     
     //reset properties
+    self.events = [NSMutableArray array];
+    
     self.day = 0;
     
     self.bank = [RRBank new];
