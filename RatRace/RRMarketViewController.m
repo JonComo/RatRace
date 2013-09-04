@@ -129,13 +129,7 @@
     if ([RRGame sharedGame].events.count > 0)
     {
         RREvent *event = [RRGame sharedGame].events[0];
-        
         [event progressDay];
-        
-        [event runEndCompletion:^{
-            //Event is done running and displaying VCs etc, should check for any more events that need to end.
-            [self runEvents];
-        }];
     }
 }
 
