@@ -25,6 +25,7 @@
 		862400DE17D5773A00C3BDE0 /* South Africa.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400D417D5773A00C3BDE0 /* South Africa.png */; };
 		862400DF17D5773A00C3BDE0 /* Switzerland.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400D517D5773A00C3BDE0 /* Switzerland.png */; };
 		862400E017D5773A00C3BDE0 /* Thailand.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400D617D5773A00C3BDE0 /* Thailand.png */; };
+		8636C39A17D7E79800612361 /* RREvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636C39917D7E79800612361 /* RREvent.m */; };
 		863BBAD317D54BCA00BEF75A /* RRIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BBAD217D54BCA00BEF75A /* RRIntroViewController.m */; };
 		863BBAD617D54CA700BEF75A /* RRButtonSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BBAD517D54CA700BEF75A /* RRButtonSound.m */; };
 		864F707B17D559A800FEDAA6 /* strings.wav in Resources */ = {isa = PBXBuildFile; fileRef = 864F707A17D559A800FEDAA6 /* strings.wav */; };
@@ -84,6 +85,8 @@
 		862400D417D5773A00C3BDE0 /* South Africa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "South Africa.png"; sourceTree = "<group>"; };
 		862400D517D5773A00C3BDE0 /* Switzerland.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switzerland.png; sourceTree = "<group>"; };
 		862400D617D5773A00C3BDE0 /* Thailand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thailand.png; sourceTree = "<group>"; };
+		8636C39817D7E79800612361 /* RREvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREvent.h; sourceTree = "<group>"; };
+		8636C39917D7E79800612361 /* RREvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREvent.m; sourceTree = "<group>"; };
 		863BBAD117D54BCA00BEF75A /* RRIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRIntroViewController.h; sourceTree = "<group>"; };
 		863BBAD217D54BCA00BEF75A /* RRIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRIntroViewController.m; sourceTree = "<group>"; };
 		863BBAD417D54CA700BEF75A /* RRButtonSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRButtonSound.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				864F708317D5684C00FEDAA6 /* RRAudioPlayer.m */,
 				3381582717D5A635006CCA90 /* RRGraphics.h */,
 				3381582817D5A635006CCA90 /* RRGraphics.m */,
+				8636C39817D7E79800612361 /* RREvent.h */,
+				8636C39917D7E79800612361 /* RREvent.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				864F708417D5684D00FEDAA6 /* RRAudioPlayer.m in Sources */,
 				86EAC96817D58F9F00E89F5A /* RRRandomNewsViewController.m in Sources */,
 				3381582917D5A635006CCA90 /* RRGraphics.m in Sources */,
+				8636C39A17D7E79800612361 /* RREvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
