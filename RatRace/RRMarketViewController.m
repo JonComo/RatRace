@@ -110,18 +110,18 @@
 {
     if ([RRGame sharedGame].events.count > 0) return;
     
-    if (arc4random()%10 > 5)
-    {
+//    if (arc4random()%10 > 5)
+//    {
         RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bank interest low!" message:@"Swiss banks have halved their interest rates!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bank interest low!" message:@"Swiss banks have halved their interest rates for the next 3 days!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert show];
-        } numberOfDays:3 endingBlock:^{
+        } numberOfDays:4 endingBlock:^{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bank interest normal!" message:@"Swiss banks have come to their senses and restored original interest rates." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert show];
         }];
         
         [[RRGame sharedGame].events addObject:newspaperEvent];
-    }
+//    }
 }
 
 -(void)runEvents
