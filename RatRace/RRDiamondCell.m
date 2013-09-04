@@ -152,6 +152,8 @@
     if (amountAvailable == 0)
     {
         NSLog(@"INSUFFICIENT FUNDS");
+        [self animateLabel];
+
         return;
     }
     
@@ -172,6 +174,8 @@
     if (amountToSell == 0)
     {
         NSLog(@"YOU DONT HAVE THE ITEM");
+        [self animateLabel];
+
         return;
     }
     
@@ -192,6 +196,24 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:RRDiamondCountChanged object:nil];
 }
+
+-(void)animateLabel
+{
+    [UIView animateWithDuration:0.1 animations:^{
+        labelItemCount.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1);
+        labelItemCount.alpha = 0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.1 animations:^{
+            labelItemCount.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1);
+            labelItemCount.alpha = 1;
+        } completion:^(BOOL finished) {
+            
+            
+        }];
+    }];
+}
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -66,8 +66,8 @@
 		338157F217D45B1E006CCA90 /* RRBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBankViewController.h; sourceTree = "<group>"; };
 		338157F317D45B1E006CCA90 /* RRBankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBankViewController.m; sourceTree = "<group>"; };
 		338157F417D45B1E006CCA90 /* RRBankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RRBankViewController.xib; sourceTree = "<group>"; };
-		338157F717D45BB7006CCA90 /* JLBPartialModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLBPartialModal.h; path = ../JLBPartialModal.h; sourceTree = "<group>"; };
-		338157F817D45BB7006CCA90 /* JLBPartialModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLBPartialModal.m; path = ../JLBPartialModal.m; sourceTree = "<group>"; };
+		338157F717D45BB7006CCA90 /* JLBPartialModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLBPartialModal.h; sourceTree = "<group>"; };
+		338157F817D45BB7006CCA90 /* JLBPartialModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLBPartialModal.m; sourceTree = "<group>"; };
 		338157FC17D462A4006CCA90 /* RRDiamondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRDiamondCell.h; sourceTree = "<group>"; };
 		338157FD17D462A5006CCA90 /* RRDiamondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRDiamondCell.m; sourceTree = "<group>"; };
 		3381582117D5A27E006CCA90 /* travel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = travel.png; sourceTree = "<group>"; };
@@ -161,10 +161,6 @@
 				86DBBD4917D41CA90032D830 /* stats.xib */,
 				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
 				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
-				863BBAD117D54BCA00BEF75A /* RRIntroViewController.h */,
-				863BBAD217D54BCA00BEF75A /* RRIntroViewController.m */,
-				86EAC96617D58F9F00E89F5A /* RRRandomNewsViewController.h */,
-				86EAC96717D58F9F00E89F5A /* RRRandomNewsViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -195,8 +191,10 @@
 		3381580517D468F7006CCA90 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				338157F717D45BB7006CCA90 /* JLBPartialModal.h */,
-				338157F817D45BB7006CCA90 /* JLBPartialModal.m */,
+				86EAC96617D58F9F00E89F5A /* RRRandomNewsViewController.h */,
+				86EAC96717D58F9F00E89F5A /* RRRandomNewsViewController.m */,
+				863BBAD117D54BCA00BEF75A /* RRIntroViewController.h */,
+				863BBAD217D54BCA00BEF75A /* RRIntroViewController.m */,
 				86DBBD3D17D417480032D830 /* RRTravelViewController.h */,
 				86DBBD3E17D417480032D830 /* RRTravelViewController.m */,
 				338157F217D45B1E006CCA90 /* RRBankViewController.h */,
@@ -205,6 +203,23 @@
 				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
 			);
 			name = Control;
+			sourceTree = "<group>";
+		};
+		3381582A17D7EEA4006CCA90 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3381582B17D7EEBF006CCA90 /* JLPartialModal */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		3381582B17D7EEBF006CCA90 /* JLPartialModal */ = {
+			isa = PBXGroup;
+			children = (
+				338157F717D45BB7006CCA90 /* JLBPartialModal.h */,
+				338157F817D45BB7006CCA90 /* JLBPartialModal.m */,
+			);
+			name = JLPartialModal;
 			sourceTree = "<group>";
 		};
 		862400CC17D5773A00C3BDE0 /* media */ = {
@@ -245,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				86DBBD1D17D415F60032D830 /* RatRace */,
+				3381582A17D7EEA4006CCA90 /* Libraries */,
 				86DBBD1E17D415F60032D830 /* Supporting Files */,
 				86DBBD1617D415F60032D830 /* Frameworks */,
 				86DBBD1517D415F60032D830 /* Products */,

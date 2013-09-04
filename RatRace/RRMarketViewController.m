@@ -58,7 +58,7 @@
     [self addStatsView];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:RRDiamondCountChanged object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [collectionViewItems reloadData];
+        //[collectionViewItems reloadData];
     }];
     
     //music
