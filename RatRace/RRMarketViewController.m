@@ -8,6 +8,8 @@
 
 #import "RRMarketViewController.h"
 
+#import "RRRandomNewsViewController.h"
+
 #import "RRGame.h"
 #import "RRItem.h"
 
@@ -15,11 +17,19 @@
 #import "RRTravelViewController.h"
 #import "RRBankViewController.h"
 #import "RRDiamondCell.h"
+#import "RRButtonSound.h"
+#import "RRGraphics.h"
 
-@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RRTravelViewControllerDelegate>
+#import "RRAudioEngine.h"
+
+@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     SMStatsView *statsView;
     RRTravelViewController *travelController;
+    
+    __weak IBOutlet UIImageView *imageViewCountry;
+    __weak IBOutlet RRButtonSound *travelButton;
+    __weak IBOutlet RRButtonSound *bankButton;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *countryLabel;
@@ -29,6 +39,7 @@
 @implementation RRMarketViewController
 {
     __weak IBOutlet UICollectionView *collectionViewItems;
+    RRAudioPlayer *strings;
 }
 
 - (void)viewDidLoad
@@ -36,28 +47,75 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    collectionViewItems.allowsMultipleSelection = NO;
-    
-    self.countryLabel.text = @"Switzerland";
-
-    
-    [RRGame sharedGame];
     [[RRGame sharedGame] newGame];
     
+    [RRGraphics buttonStyle:travelButton];
+    [RRGraphics buttonStyle:bankButton];
+    
+    collectionViewItems.allowsMultipleSelection = NO;
+    [collectionViewItems registerNib:[UINib nibWithNibName:@"diamondCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"diamondCell"];
+    
     [self addStatsView];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:RRDiamondCountChanged object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [collectionViewItems reloadData];
+    }];
+    
+    //music
+    strings = [[RRAudioEngine sharedEngine] playSoundNamed:@"strings" extension:@"wav" loop:YES];
+    strings.volume = 0;
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    [self deselectAllItems];
     [collectionViewItems reloadData];
+    
+    self.countryLabel.text = [RRGame sharedGame].location;
+    imageViewCountry.image = [UIImage imageNamed:[RRGame sharedGame].location];
+    
+    [strings fadeIn:2];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    //[self randomEvent];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [strings fadeOut:1];
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RRDiamondCountChanged object:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)randomEvent
+{
+    BOOL randomEvent = NO;
+    
+    if (arc4random()%10 > 5)
+    {
+        randomEvent = YES;
+        RRRandomNewsViewController *randomVC = [self.storyboard instantiateViewControllerWithIdentifier:@"randomVC"];
+        
+        [self presentViewController:randomVC animated:YES completion:nil];
+    }
+    
+    return randomEvent;
 }
 
 -(void)addStatsView
@@ -76,55 +134,13 @@
     [self.view addSubview:statsView];
 }
 
-- (IBAction)buy:(UIButton *)sender
-{
-    NSArray *selected = collectionViewItems.indexPathsForSelectedItems;
-    
-    if (selected.count == 0) return;
-    
-    NSIndexPath *indexPath = selected[0];
-    
-    //select item
-    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    item.hasItem = YES;
-    [[RRGame sharedGame].player.inventory addObject:item];
-    [RRGame sharedGame].player.money -= item.value;
-    
-    //[statsView update];
-    
-    [collectionViewItems reloadData];
-    
-    NSLog(@"Inventory: %@", [RRGame sharedGame].player.inventory);
-}
-
-- (IBAction)sell:(id)sender {
-    NSArray *selected = collectionViewItems.indexPathsForSelectedItems;
-    
-    if (selected.count == 0) return;
-    
-    NSIndexPath *indexPath = selected[0];
-    
-    //select item
-    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    
-    [[RRGame sharedGame].player.inventory removeObject:item];
-    
-    [RRGame sharedGame].player.money += item.value;
-
-}
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RRDiamondCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    RRDiamondCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"diamondCell" forIndexPath:indexPath];
     
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    cell.backgroundColor = [UIColor whiteColor];
-    cell.diamondLabel.text = [NSString stringWithFormat:@"%@", item.name];
-    cell.valueLabel.text = [NSString stringWithFormat:@"$%.2f", item.value];
-    if (item.hasItem) {
-        cell.image.hidden = NO;
-    }else
-        cell.image.hidden = YES;
+    
+    cell.item = item;
     
     return cell;
 }
@@ -136,29 +152,51 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RRDiamondCell *cell = (RRDiamondCell *)[collectionViewItems cellForItemAtIndexPath:indexPath];
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
     
-    cell.diamondLabel.textColor = [UIColor whiteColor];
-    cell.backgroundColor = [UIColor lightGrayColor];
+    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
     
-}
-
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    RRDiamondCell *cell = (RRDiamondCell *)[collectionViewItems cellForItemAtIndexPath:indexPath];
-    
-    cell.diamondLabel.textColor = [UIColor blackColor];
-    cell.backgroundColor = [UIColor whiteColor];
-}
-
-#pragma mark PrepereSegue
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"travel"]) {
-        travelController = (RRTravelViewController *)segue.destinationViewController;
-        travelController.delegate = self;
+    if (item.selected)
+    {
+        item.selected = NO;
+        [collectionViewItems reloadData];
+    }else{
+        [self deselectAllItems];
+        item.selected = YES;
+        
+        [collectionViewItems reloadData];
+        [collectionViewItems scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     }
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
+    
+    return item.selected ? CGSizeMake(320, 144) : CGSizeMake(320, 44);
+}
+
+-(void)deselectAllItems
+{
+    for (RRItem *item in [RRGame sharedGame].availableItems)
+    {
+        item.selected = NO;
+    }
+}
+
+-(RRItem *)selectedItem
+{
+    RRItem *selected;
+    
+    for (RRItem *item in [RRGame sharedGame].availableItems)
+    {
+        if (item.selected)
+        {
+            selected = item;
+        }
+    }
+    
+    return selected;
 }
 
 - (IBAction)bank:(id)sender
@@ -173,15 +211,13 @@
 
 }
 
-#pragma mark RRTravelViewCOntrollerDelegate
-
--(void)controllerDidDismiss:(RRTravelViewController *)controller withInfo:(NSString *)country{
-    self.countryLabel.text = country;
-    [controller dismissViewControllerAnimated:YES completion:^{
-        [[RRGame sharedGame] advanceDay];
-        
-    }];
+- (IBAction)travel:(id)sender {
+    [[RRGame sharedGame] advanceDay];
     
+    RRTravelViewController *travelVC = [self.storyboard instantiateViewControllerWithIdentifier:@"travelVC"];
+    
+    [self presentViewController:travelVC animated:YES completion:nil];
 }
+
 
 @end

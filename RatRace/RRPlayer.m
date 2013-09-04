@@ -14,12 +14,42 @@
 {
     if (self = [super init]) {
         //init
-        _money = 50.0;
+        _money = 2000.00;
         _inventory = [NSMutableArray array];
         _inventoryCapacity = 100;
     }
     
     return self;
+}
+
+-(RRItem *)itemMatchingItem:(RRItem *)item
+{
+    RRItem *match;
+    
+    for (RRItem *playerItem in self.inventory)
+    {
+        if ([playerItem.name isEqualToString:item.name])
+        {
+            match = playerItem;
+        }
+    }
+    
+    return match;
+}
+
+-(int)numberOfItem:(RRItem *)item
+{
+    int count = 0;
+    
+    for (RRItem *playerItem in self.inventory)
+    {
+        if ([playerItem.name isEqualToString:item.name])
+        {
+            count ++;
+        }
+    }
+    
+    return count;
 }
 
 @end

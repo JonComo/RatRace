@@ -8,6 +8,8 @@
 
 #import "RRBank.h"
 
+#import "RRGame.h"
+
 @implementation RRBank
 
 +(RRBank *)loanAmount:(float)loan withInterest:(float)interest
@@ -38,7 +40,9 @@
 
 - (void)borrow:(float)amount
 {
-    self.loan = self.loan + amount;
+    self.loan += amount;
+    
+    [RRGame sharedGame].player.money += amount;
 }
 
 @end

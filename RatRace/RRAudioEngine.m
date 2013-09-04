@@ -8,7 +8,12 @@
 
 #import "RRAudioEngine.h"
 
-#import <AVFoundation/AVFoundation.h>
+@interface RRAudioEngine () <AVAudioPlayerDelegate>
+{
+    
+}
+
+@end
 
 @implementation RRAudioEngine
 {
@@ -51,33 +56,69 @@
     if (!catSuccess) { /* handle the error in setCategoryError */ }
 }
 
--(void)playSoundNamed:(NSString *)soundName extension:(NSString *)ext loop:(BOOL)loop
+-(RRAudioPlayer *)playSoundNamed:(NSString *)soundName extension:(NSString *)ext loop:(BOOL)loop
 {
+    if (self.muted) return nil;
+    
     NSString *path = [[NSBundle mainBundle] pathForResource:soundName ofType:ext];
     
     NSError *soundError;
     
-    AVAudioPlayer *soundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&soundError];
+    RRAudioPlayer *soundPlayer = [[RRAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:&soundError];
     
     if (soundError)
     {
         NSLog(@"Error: %@" , soundError);
-        return;
+        return nil;
     }
+    
+    soundPlayer.delegate = self;
     
     soundPlayer.numberOfLoops = loop ? -1 : 0;
     
     [sounds addObject:soundPlayer];
     
     [soundPlayer play];
+    
+    return soundPlayer;
+}
+
+-(void)stopSoundName:(NSString *)soundName
+{
+    for (RRAudioPlayer *player in sounds)
+    {
+        NSString *name = [[player.url URLByDeletingPathExtension] lastPathComponent];
+        if ([name isEqualToString:soundName])
+        {
+            [player stop];
+            [sounds removeObject:player];
+            NSLog(@"Stopped sound: %@", soundName);
+        }
+    }
 }
 
 -(void)stopAllSounds
 {
-    for (AVAudioPlayer *player in sounds)
-    {
+    for (RRAudioPlayer *player in sounds){
         [player stop];
     }
+    
+    [sounds removeAllObjects];
+}
+
+-(void)mute:(BOOL)mute
+{
+    self.muted = mute;
+    
+    if (mute)
+    {
+        [self stopAllSounds];
+    }
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [sounds removeObject:player];
 }
 
 @end

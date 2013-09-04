@@ -9,8 +9,14 @@
 #import "RRIntroViewController.h"
 
 #import "RRAudioEngine.h"
+#import "RRGraphics.h"
+#import "RRButtonSound.h"
 
 @interface RRIntroViewController ()
+{
+    
+    __weak IBOutlet RRButtonSound *buttonNewGame;
+}
 
 @end
 
@@ -19,6 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [RRGraphics buttonStyle:buttonNewGame];
+    
 	// Do any additional setup after loading the view.
     
 }
@@ -29,7 +37,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)newGame:(id)sender {
+- (IBAction)newGame:(id)sender
+{
     
 }
 

@@ -9,18 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "JLBPartialModal.h"
 
-@class RRTravelViewController;
-
-@protocol RRTravelViewControllerDelegate <NSObject>
-
-@required
-- (void)controllerDidDismiss:(RRTravelViewController *)controller withInfo:(NSString *)country;
-
-
-@end
-
 @interface RRTravelViewController : UIViewController <JLBPartialModalDelegate>
-
-@property (assign) id <RRTravelViewControllerDelegate> delegate;
 
 @end

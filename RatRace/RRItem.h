@@ -11,10 +11,10 @@
 @interface RRItem : NSObject
 
 @property (nonatomic, strong) NSString *name;
+
 @property float value;
-@property int amount;
-@property BOOL hasItem;
-@property (nonatomic, weak) UILabel *label;
+@property float valueInitial;
+@property BOOL selected;
 
 +(RRItem *)item:(NSString *)name value:(float)value;
 
