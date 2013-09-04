@@ -43,24 +43,14 @@
 
 - (IBAction)pay:(id)sender
 {
-    [[RRGame sharedGame].bank payLoan:[self.label.text floatValue]];
-    [[JLBPartialModal sharedInstance] dismissViewController];
+    
 }
 
 - (IBAction)borrow:(id)sender
 {
-    [[RRGame sharedGame].bank borrow:self.stepper.value];
-    [[JLBPartialModal sharedInstance] dismissViewController];
 
 
 }
-
-- (IBAction)stepValue:(UIStepper *)sender
-{
-    self.label.text = [NSString stringWithFormat:@"$%.2f", sender.value];
-    
-}
-
 
 #pragma mark JLModalDelegate
 
