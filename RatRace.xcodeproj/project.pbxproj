@@ -17,6 +17,10 @@
 		3381582617D5A608006CCA90 /* border@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381582417D5A608006CCA90 /* border@2x.png */; };
 		3381582917D5A635006CCA90 /* RRGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = 3381582817D5A635006CCA90 /* RRGraphics.m */; };
 		3381582D17D83C9E006CCA90 /* suisse.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381582C17D83C9E006CCA90 /* suisse.png */; };
+		3381583217D83FEB006CCA90 /* badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381582E17D83FEB006CCA90 /* badge.png */; };
+		3381583317D83FEB006CCA90 /* cut_diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381582F17D83FEB006CCA90 /* cut_diamonds.png */; };
+		3381583417D83FEB006CCA90 /* debeers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583017D83FEB006CCA90 /* debeers.png */; };
+		3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583117D83FEB006CCA90 /* diamond-in-hand.png */; };
 		862400D817D5773A00C3BDE0 /* Dubai.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CE17D5773A00C3BDE0 /* Dubai.png */; };
 		862400D917D5773A00C3BDE0 /* Germany.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CF17D5773A00C3BDE0 /* Germany.png */; };
 		862400DA17D5773A00C3BDE0 /* Greece.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400D017D5773A00C3BDE0 /* Greece.png */; };
@@ -80,6 +84,10 @@
 		3381582717D5A635006CCA90 /* RRGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRGraphics.h; sourceTree = "<group>"; };
 		3381582817D5A635006CCA90 /* RRGraphics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRGraphics.m; sourceTree = "<group>"; };
 		3381582C17D83C9E006CCA90 /* suisse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suisse.png; sourceTree = "<group>"; };
+		3381582E17D83FEB006CCA90 /* badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge.png; sourceTree = "<group>"; };
+		3381582F17D83FEB006CCA90 /* cut_diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_diamonds.png; sourceTree = "<group>"; };
+		3381583017D83FEB006CCA90 /* debeers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debeers.png; sourceTree = "<group>"; };
+		3381583117D83FEB006CCA90 /* diamond-in-hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond-in-hand.png"; sourceTree = "<group>"; };
 		862400CE17D5773A00C3BDE0 /* Dubai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dubai.png; sourceTree = "<group>"; };
 		862400CF17D5773A00C3BDE0 /* Germany.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Germany.png; sourceTree = "<group>"; };
 		862400D017D5773A00C3BDE0 /* Greece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greece.png; sourceTree = "<group>"; };
@@ -241,6 +249,10 @@
 		862400CC17D5773A00C3BDE0 /* media */ = {
 			isa = PBXGroup;
 			children = (
+				3381582E17D83FEB006CCA90 /* badge.png */,
+				3381582F17D83FEB006CCA90 /* cut_diamonds.png */,
+				3381583017D83FEB006CCA90 /* debeers.png */,
+				3381583117D83FEB006CCA90 /* diamond-in-hand.png */,
 				3381582C17D83C9E006CCA90 /* suisse.png */,
 				86B9850617D5BBEB0065FD70 /* diamondWhite@2x.png */,
 				86B9850717D5BBEB0065FD70 /* diamondBlack@2x.png */,
@@ -423,6 +435,10 @@
 				86B9850817D5BBEB0065FD70 /* diamondWhite@2x.png in Resources */,
 				86B9850917D5BBEB0065FD70 /* diamondBlack@2x.png in Resources */,
 				3381582D17D83C9E006CCA90 /* suisse.png in Resources */,
+				3381583217D83FEB006CCA90 /* badge.png in Resources */,
+				3381583317D83FEB006CCA90 /* cut_diamonds.png in Resources */,
+				3381583417D83FEB006CCA90 /* debeers.png in Resources */,
+				3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

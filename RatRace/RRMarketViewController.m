@@ -104,17 +104,18 @@
 
 -(void)addRandomEvent
 {
+    UIImage *image;
     if ([RRGame sharedGame].events.count > 0) return;
     
     if (arc4random()%10 > 5)
     {
         float interest = [RRGame sharedGame].bank.interest;
         float newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
+        image = [UIImage imageNamed:@"suisse"];
         
         if (interest != newInterest)
         {
-        
-            UIImage *image = [UIImage imageNamed:@"suisse"];
+
             RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
 
                 float previousInterest = [RRGame sharedGame].bank.interest;
@@ -149,6 +150,24 @@
             
             [[RRGame sharedGame].events addObject:newspaperEvent];
         }
+    }else if (arc4random()%10 > 40)
+    {
+        float money = [RRGame sharedGame].player.money;
+        float newMoney = MAX(0, money + (float)(arc4random()%100000));
+        image = [UIImage imageNamed:@"cut_diamonds"];
+        
+        if (money != newMoney) {
+            RREvent *newEvent = [RREvent eventWithInitialBlock:^{
+                
+                [self showHUDWithTitle:@"MADE MONEY" detail:@"Huh?" autoDismiss:NO image:image];
+                
+            } numberOfDays:1 endingBlock:^{
+                
+            }];
+            
+            [[RRGame sharedGame].events addObject:newEvent];
+        }
+        
     }
 }
 
