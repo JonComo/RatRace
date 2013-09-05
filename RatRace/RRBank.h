@@ -12,8 +12,9 @@
 
 @property float loan;
 @property float interest;
+@property float loanLimit;
 
-+(RRBank *)loanAmount:(float)loan withInterest:(float)interest;
++(RRBank *)bankWithLoanAmount:(float)loan withInterest:(float)interest limit:(float)limit;
 
 - (void)incrementLoan;
 - (void)borrow:(float)amount;
