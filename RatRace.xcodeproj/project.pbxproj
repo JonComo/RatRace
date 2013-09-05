@@ -42,6 +42,7 @@
 		864F708417D5684D00FEDAA6 /* RRAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 864F708317D5684C00FEDAA6 /* RRAudioPlayer.m */; };
 		864F708617D56EE500FEDAA6 /* ding.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 864F708517D56EE500FEDAA6 /* ding.aiff */; };
 		864F708817D5714700FEDAA6 /* jet.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 864F708717D5714700FEDAA6 /* jet.aiff */; };
+		8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */; };
 		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
 		86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A0C4F717D5461B001663D6 /* AVFoundation.framework */; };
 		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
@@ -115,6 +116,8 @@
 		864F708317D5684C00FEDAA6 /* RRAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioPlayer.m; sourceTree = "<group>"; };
 		864F708517D56EE500FEDAA6 /* ding.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ding.aiff; sourceTree = "<group>"; };
 		864F708717D5714700FEDAA6 /* jet.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = jet.aiff; sourceTree = "<group>"; };
+		8664AE8017D8711B0096CD2B /* RRBriefcaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBriefcaseViewController.h; sourceTree = "<group>"; };
+		8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBriefcaseViewController.m; sourceTree = "<group>"; };
 		86A0C4F417D5455A001663D6 /* RRAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRAudioEngine.h; sourceTree = "<group>"; };
 		86A0C4F517D5455A001663D6 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
 		86A0C4F717D5461B001663D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -224,6 +227,8 @@
 				338157F317D45B1E006CCA90 /* RRBankViewController.m */,
 				86DBBD3A17D416ED0032D830 /* RRMarketViewController.h */,
 				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
+				8664AE8017D8711B0096CD2B /* RRBriefcaseViewController.h */,
+				8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				8636C39A17D7E79800612361 /* RREvent.m in Sources */,
 				8636C3AA17D7FA2600612361 /* RRStepper.m in Sources */,
 				8636C5D817D82B3C00612361 /* MBProgressHUD.m in Sources */,
+				8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

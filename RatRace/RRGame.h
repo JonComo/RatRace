@@ -32,8 +32,6 @@
 
 -(void)newGame;
 
--(void)changeToLocation:(NSString *)newLocation;
-
 - (void)advanceDay;
 
 @end

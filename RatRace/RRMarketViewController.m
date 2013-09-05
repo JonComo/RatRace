@@ -35,6 +35,7 @@
     
     __weak IBOutlet RRButtonSound *travelButton;
     __weak IBOutlet RRButtonSound *bankButton;
+    __weak IBOutlet RRButtonSound *briefButton;
     
     int eventIndex;
 }
@@ -56,15 +57,12 @@
     
     [RRGraphics buttonStyle:travelButton];
     [RRGraphics buttonStyle:bankButton];
+    [RRGraphics buttonStyle:briefButton];
     
     collectionViewItems.allowsMultipleSelection = NO;
     [collectionViewItems registerNib:[UINib nibWithNibName:@"diamondCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"diamondCell"];
     
     [self addStatsView];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:RRDiamondCountChanged object:nil queue:nil usingBlock:^(NSNotification *note) {
-        //[collectionViewItems reloadData];
-    }];
     
     //music
     strings = [[RRAudioEngine sharedEngine] playSoundNamed:@"strings" extension:@"wav" loop:YES];
@@ -84,6 +82,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    [statsView setup]; //DO BETTER!
     
     [self addRandomEvent];
     [self runEvents];
@@ -225,7 +225,7 @@
             
             [RRGame sharedGame].player.inventoryCapacity += additionalSlots;
             
-            [self showHUDWithTitle:@"Bigger breifcase!" detail:[NSString stringWithFormat:@"You found a bigger breifcase. How much bigger? %i slots bigger!", additionalSlots] autoDismiss:NO image:[UIImage imageNamed:@"cut_diamonds"]];
+            [self showHUDWithTitle:@"Bigger briefcase!" detail:[NSString stringWithFormat:@"You found a bigger briefcase. How much bigger? %i slots bigger!", additionalSlots] autoDismiss:NO image:[UIImage imageNamed:@"cut_diamonds"]];
         } numberOfDays:1 endingBlock:nil];
         
         [self addEvent:inventoryPlus];
@@ -311,18 +311,17 @@
 
 -(void)addStatsView
 {
-    NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"stats"
-                                                      owner:self
-                                                    options:nil];
+    NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"stats" owner:self options:nil];
     
     statsView = (SMStatsView *)nibViews[0];
     
     NSLog(@"%f", statsView.frame.size.height);
     
-    
     [statsView setup];
     
     [self.view addSubview:statsView];
+    
+    [statsView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(statsTapped)]];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -367,10 +366,15 @@
     return item.selected ? CGSizeMake(320, 144) : CGSizeMake(320, 44);
 }
 
+-(void)statsTapped
+{
+    [self deselectAllItems];
+    [collectionViewItems reloadData];
+}
+
 -(void)deselectAllItems
 {
-    for (RRItem *item in [RRGame sharedGame].availableItems)
-    {
+    for (RRItem *item in [RRGame sharedGame].availableItems){
         item.selected = NO;
     }
 }
@@ -410,9 +414,7 @@
 
 }
 
-- (IBAction)travel:(id)sender {
-    [[RRGame sharedGame] advanceDay];
-    
+- (IBAction)travel:(id)sender {    
     RRTravelViewController *travelVC = [self.storyboard instantiateViewControllerWithIdentifier:@"travelVC"];
     
     [self presentViewController:travelVC animated:YES completion:nil];
