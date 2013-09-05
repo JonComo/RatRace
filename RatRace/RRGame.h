@@ -34,4 +34,6 @@
 
 - (void)advanceDay;
 
+-(void)randomizeItemValue:(RRItem *)item;
+
 @end

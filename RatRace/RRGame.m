@@ -51,8 +51,14 @@
 {
     for (RRItem *item in self.availableItems)
     {
-        item.value = item.valueInitial + arc4random()%((int)(item.valueInitial*.2));
+        [self randomizeItemValue:item];
     }
+}
+
+-(void)randomizeItemValue:(RRItem *)item
+{
+    // + arc4random()%((int)(item.valueInitial*.2));
+    item.value = item.valueInitial;
 }
 
 - (void)advanceDay

@@ -58,15 +58,23 @@
         [self runStart];
     }
     
+    [self landedOnLocation:[RRGame sharedGame].location];
+    
     daysProgressed ++;
     
     if (daysProgressed >= self.duration){
         [self runEnd];
-        NSLog(@"Finished: %@", [RRGame sharedGame].events);
-        
         [[RRGame sharedGame].events removeObject:self];
-        
-        NSLog(@"removed: %@", [RRGame sharedGame].events);
+    }
+}
+
+-(void)landedOnLocation:(NSString *)location
+{
+    if ([location isEqualToString:self.location])
+    {
+        if (self.locationBlock) self.locationBlock();
+    }else{
+        if (self.wrongLocation) self.wrongLocation();
     }
 }
 

@@ -108,6 +108,56 @@
 
 -(void)addRandomEvent
 {
+    [self randomWithChance:65 run:^{
+        
+        RRItem *changedItem = [RRGame sharedGame].availableItems[arc4random()%[RRGame sharedGame].availableItems.count];
+        float initialValue = changedItem.valueInitial;
+        float valueChange = (float)(arc4random()%((int)(changedItem.valueInitial*.65)));
+        
+        //valueChange = valueChange * (arc4random()%2) ? 1 : -1;
+        
+        NSString *occurence = valueChange > 0 ? @"destroyed" : @"created";
+        NSString *change = valueChange > 0 ? @"increased" : @"decreased";
+        
+        NSString *randomLocation = [RRGame sharedGame].availableLocations[arc4random()%[RRGame sharedGame].availableLocations.count];
+        
+        float newValue = changedItem.value + valueChange;
+        
+        RREvent *locationEvent = [RREvent eventWithInitialBlock:^{
+            
+            [self showHUDWithTitle:[NSString stringWithFormat:@"Diamond mine %@!", occurence] detail:[NSString stringWithFormat:@"A large diamond mine was %@ in %@. The average value of %@s has %@ by $%.2f.", occurence, randomLocation, changedItem.name, change, valueChange] autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
+            
+        } numberOfDays:3 endingBlock:^{
+            
+            changedItem.value = initialValue;
+            [collectionViewItems reloadData];
+            
+            [self showHUDWithTitle:@"Price restored" detail:@"Diamond prices leveled out" autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
+            
+            NSLog(@"ENDED PRICE CHANGE");
+        }];
+        
+        locationEvent.location = randomLocation;
+        
+        locationEvent.locationBlock = ^{
+            changedItem.valueInitial = newValue;
+            [[RRGame sharedGame] randomizeItemValue:changedItem];
+            [collectionViewItems reloadData];
+            NSLog(@"RIGHT LOCATION, Original: %.2f NEW: %.2f", initialValue, newValue);
+        };
+        
+        locationEvent.wrongLocation = ^{
+            NSLog(@"WRONG LOCATOIN");
+            changedItem.valueInitial = initialValue;
+            [[RRGame sharedGame] randomizeItemValue:changedItem];
+            [collectionViewItems reloadData];
+        };
+        
+        [self addEvent:locationEvent];
+    }];
+    
+    return;
+    
     [self randomWithChance:15 run:^{
         
         float interest = [RRGame sharedGame].bank.interest;
@@ -250,6 +300,7 @@
     
     if (shouldAdd){
         [[RRGame sharedGame].events addObject:event];
+        [event landedOnLocation:[RRGame sharedGame].location];
     }
 }
 
@@ -263,12 +314,13 @@
 
 -(void)runEvents
 {
-    if (eventIndex < 0) return;
-
-    RREvent *event = [RRGame sharedGame].events[eventIndex];
-    [event progressDay];
+    for (RREvent *event in [RRGame sharedGame].events)
+    {
+        RREvent *event = [RRGame sharedGame].events[eventIndex];
+        [event progressDay];
+    }
     
-    eventIndex --;
+    NSLog(@"RAN EVENTS: %@, INDEX: %i", [RRGame sharedGame].events, eventIndex);
 }
 
 -(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
@@ -292,7 +344,7 @@
     {
         [hud hide:YES afterDelay:3];
     }else{
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD:)];
         
         double delayInSeconds = 1.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -302,11 +354,13 @@
     }
 }
 
--(void)hideHUD
+-(void)hideHUD:(UITapGestureRecognizer *)tap
 {
+    [tap.view removeGestureRecognizer:tap];
+    
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     
-    [self runEvents];
+    //[self runEvents];
 }
 
 -(void)addStatsView
