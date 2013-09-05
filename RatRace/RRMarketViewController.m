@@ -128,7 +128,7 @@
                     change = @"lowered";
                 }
                 
-                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO];
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO  image:[UIImage imageNamed:@"suisse"]];
                 
             } numberOfDays:4 endingBlock:^{
                 
@@ -143,7 +143,7 @@
                 
                 [RRGame sharedGame].bank.interest = interest;
                 
-                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO];
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:[UIImage imageNamed:@"suisse"]];
             }];
             
             [[RRGame sharedGame].events addObject:newspaperEvent];
@@ -160,7 +160,7 @@
     }
 }
 
--(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss
+-(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
@@ -172,7 +172,6 @@
     hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
-    //image
     imageView.image = image;
     hud.customView = imageView;
     
