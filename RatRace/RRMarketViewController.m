@@ -112,11 +112,11 @@
         float interest = [RRGame sharedGame].bank.interest;
         float newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
         image = [UIImage imageNamed:@"suisse"];
-        
         if (interest != newInterest)
         {
-
+        
             RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
+                
 
                 float previousInterest = [RRGame sharedGame].bank.interest;
                 [RRGame sharedGame].bank.interest = MAX(0, interest + (float)(arc4random()%20)/100);
@@ -150,24 +150,6 @@
             
             [[RRGame sharedGame].events addObject:newspaperEvent];
         }
-    }else if (arc4random()%10 > 40)
-    {
-        float money = [RRGame sharedGame].player.money;
-        float newMoney = MAX(0, money + (float)(arc4random()%100000));
-        image = [UIImage imageNamed:@"cut_diamonds"];
-        
-        if (money != newMoney) {
-            RREvent *newEvent = [RREvent eventWithInitialBlock:^{
-                
-                [self showHUDWithTitle:@"MADE MONEY" detail:@"Huh?" autoDismiss:NO image:image];
-                
-            } numberOfDays:1 endingBlock:^{
-                
-            }];
-            
-            [[RRGame sharedGame].events addObject:newEvent];
-        }
-        
     }
 }
 
@@ -180,7 +162,7 @@
     }
 }
 
--(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image;
+-(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
@@ -201,12 +183,12 @@
         [hud hide:YES afterDelay:3];
     }else{
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD)];
+        
         double delayInSeconds = 1.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [hud addGestureRecognizer:tap];
         });
-        
     }
 }
 
