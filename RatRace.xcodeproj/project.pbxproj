@@ -27,6 +27,7 @@
 		862400E017D5773A00C3BDE0 /* Thailand.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400D617D5773A00C3BDE0 /* Thailand.png */; };
 		8636C39A17D7E79800612361 /* RREvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636C39917D7E79800612361 /* RREvent.m */; };
 		8636C3AA17D7FA2600612361 /* RRStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636C3A917D7FA2600612361 /* RRStepper.m */; };
+		8636C5D817D82B3C00612361 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8636C5D717D82B3C00612361 /* MBProgressHUD.m */; };
 		863BBAD317D54BCA00BEF75A /* RRIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BBAD217D54BCA00BEF75A /* RRIntroViewController.m */; };
 		863BBAD617D54CA700BEF75A /* RRButtonSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 863BBAD517D54CA700BEF75A /* RRButtonSound.m */; };
 		864F707B17D559A800FEDAA6 /* strings.wav in Resources */ = {isa = PBXBuildFile; fileRef = 864F707A17D559A800FEDAA6 /* strings.wav */; };
@@ -90,6 +91,8 @@
 		8636C39917D7E79800612361 /* RREvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREvent.m; sourceTree = "<group>"; };
 		8636C3A817D7FA2600612361 /* RRStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStepper.h; sourceTree = "<group>"; };
 		8636C3A917D7FA2600612361 /* RRStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStepper.m; sourceTree = "<group>"; };
+		8636C5D617D82B3C00612361 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		8636C5D717D82B3C00612361 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		863BBAD117D54BCA00BEF75A /* RRIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRIntroViewController.h; sourceTree = "<group>"; };
 		863BBAD217D54BCA00BEF75A /* RRIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRIntroViewController.m; sourceTree = "<group>"; };
 		863BBAD417D54CA700BEF75A /* RRButtonSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRButtonSound.h; sourceTree = "<group>"; };
@@ -218,6 +221,7 @@
 		3381582A17D7EEA4006CCA90 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				8636C5D917D82B3F00612361 /* MBProgressHud */,
 				3381582B17D7EEBF006CCA90 /* JLPartialModal */,
 			);
 			name = Libraries;
@@ -251,6 +255,15 @@
 				862400D617D5773A00C3BDE0 /* Thailand.png */,
 			);
 			path = media;
+			sourceTree = "<group>";
+		};
+		8636C5D917D82B3F00612361 /* MBProgressHud */ = {
+			isa = PBXGroup;
+			children = (
+				8636C5D617D82B3C00612361 /* MBProgressHUD.h */,
+				8636C5D717D82B3C00612361 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHud;
 			sourceTree = "<group>";
 		};
 		86A0C4F917D54832001663D6 /* sound */ = {
@@ -436,6 +449,7 @@
 				3381582917D5A635006CCA90 /* RRGraphics.m in Sources */,
 				8636C39A17D7E79800612361 /* RREvent.m in Sources */,
 				8636C3AA17D7FA2600612361 /* RRStepper.m in Sources */,
+				8636C5D817D82B3C00612361 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

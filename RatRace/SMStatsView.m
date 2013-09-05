@@ -39,6 +39,7 @@
     [[RRGame sharedGame].player addObserver:self forKeyPath:@"money" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame].bank addObserver:self forKeyPath:@"loan" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame] addObserver:self forKeyPath:@"location" options:NSKeyValueObservingOptionNew context:NULL];
+    [[RRGame sharedGame].bank addObserver:self forKeyPath:@"interest" options:NSKeyValueObservingOptionNew context:NULL];
     
     [self update];
 }
@@ -49,11 +50,12 @@
     float money = [RRGame sharedGame].player.money;
     int inventory = [RRGame sharedGame].player.inventory.count;
     float loan = [RRGame sharedGame].bank.loan;
+    float interest = [RRGame sharedGame].bank.interest;
     
     NSString *location = [RRGame sharedGame].location;
 
     labelDays.text = [NSString stringWithFormat:@"Days: %d / 30", days];
-    labelCash.text = [NSString stringWithFormat:@"$%.2f (-$%.2f)", money, loan];
+    labelCash.text = [NSString stringWithFormat:@"$%.2f (-$%.2f * %.1f%%)", money, loan, interest * 100];
     labelInventory.text = [NSString stringWithFormat:@"Inventory: %d / %d", inventory, [RRGame sharedGame].player.inventoryCapacity];
     
     imageViewLocation.image = [UIImage imageNamed:location];
