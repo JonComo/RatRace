@@ -62,7 +62,11 @@
     
     if (daysProgressed >= self.duration){
         [self runEnd];
+        NSLog(@"Finished: %@", [RRGame sharedGame].events);
+        
         [[RRGame sharedGame].events removeObject:self];
+        
+        NSLog(@"removed: %@", [RRGame sharedGame].events);
     }
 }
 

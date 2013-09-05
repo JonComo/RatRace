@@ -16,6 +16,7 @@
     item.name = name;
     item.value = value;
     item.valueInitial = value;
+    item.count = 0;
     
     return item;
 }

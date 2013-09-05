@@ -8,6 +8,8 @@
 
 #import "RRPlayer.h"
 
+#import "RRGame.h"
+
 @implementation RRPlayer
 
 -(id)init
@@ -15,38 +17,34 @@
     if (self = [super init]) {
         //init
         _money = 2000.00;
-        _inventory = [NSMutableArray array];
         _inventoryCapacity = 100;
     }
     
     return self;
 }
 
--(RRItem *)itemMatchingItem:(RRItem *)item
-{
-    RRItem *match;
-    
-    for (RRItem *playerItem in self.inventory)
-    {
-        if ([playerItem.name isEqualToString:item.name])
-        {
-            match = playerItem;
-        }
-    }
-    
-    return match;
-}
+//-(RRItem *)itemMatchingItem:(RRItem *)item
+//{
+//    RRItem *match;
+//    
+//    for (RRItem *playerItem in self.inventory)
+//    {
+//        if ([playerItem.name isEqualToString:item.name])
+//        {
+//            match = playerItem;
+//        }
+//    }
+//    
+//    return match;
+//}
 
--(int)numberOfItem:(RRItem *)item
+-(int)inventoryCount
 {
     int count = 0;
     
-    for (RRItem *playerItem in self.inventory)
+    for (RRItem *item in [RRGame sharedGame].availableItems)
     {
-        if ([playerItem.name isEqualToString:item.name])
-        {
-            count ++;
-        }
+        count += item.count;
     }
     
     return count;

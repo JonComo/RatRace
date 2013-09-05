@@ -76,11 +76,10 @@
 
 -(void)calculate
 {
-    int numberOwned = [[RRGame sharedGame].player numberOfItem:self.item];
+    int numberOwned = self.item.count;
     
     labelItemCount.text = [NSString stringWithFormat:@"%i", numberOwned];
-    
-    imageViewHasItem.hidden = [[RRGame sharedGame].player itemMatchingItem:self.item] ? NO : YES;
+    imageViewHasItem.hidden = self.item.count == 0 ? YES : NO;
 }
 
 -(int)amountAvailable
@@ -123,9 +122,10 @@
         return;
     }
     
-    RRItem *boughtItem = [RRItem item:self.item.name value:self.item.value];
+//    RRItem *boughtItem = [RRItem item:self.item.name value:self.item.value];
+    self.item.count ++;
     
-    [[RRGame sharedGame].player.inventory addObject:boughtItem];
+    //[[RRGame sharedGame].player.inventory addObject:boughtItem];
     [RRGame sharedGame].player.money -= self.item.value;
     
     [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
@@ -135,9 +135,7 @@
 
 -(void)sell
 {
-    int amountToSell = [[RRGame sharedGame].player numberOfItem:self.item];
-    
-    if (amountToSell == 0)
+    if (self.item.count == 0)
     {
         NSLog(@"YOU DONT HAVE THE ITEM");
         [self animateLabel];
@@ -145,13 +143,8 @@
         return;
     }
     
-    RRItem *matchingItem = [[RRGame sharedGame].player itemMatchingItem:self.item];
-    
-    if (matchingItem)
-    {
-        [[RRGame sharedGame].player.inventory removeObject:matchingItem];
-        [RRGame sharedGame].player.money += self.item.value;
-    }
+    self.item.count --;
+    [RRGame sharedGame].player.money += self.item.value;
     
     [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
     
