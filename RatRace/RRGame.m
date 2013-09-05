@@ -26,12 +26,16 @@
 
 -(void)newGame
 {
+    //reset/alloc properties
+    
     self.player = nil;
     self.player = [RRPlayer new];
     
-    //reset properties
     self.events = nil;
     self.events = [NSMutableArray array];
+    
+    self.eventManager = nil;
+    self.eventManager = [RREventManager new];
     
     self.day = 1;
     

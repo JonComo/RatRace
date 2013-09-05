@@ -21,6 +21,7 @@
 		3381583317D83FEB006CCA90 /* cut_diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381582F17D83FEB006CCA90 /* cut_diamonds.png */; };
 		3381583417D83FEB006CCA90 /* debeers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583017D83FEB006CCA90 /* debeers.png */; };
 		3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583117D83FEB006CCA90 /* diamond-in-hand.png */; };
+		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
 		862400D817D5773A00C3BDE0 /* Dubai.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CE17D5773A00C3BDE0 /* Dubai.png */; };
 		862400D917D5773A00C3BDE0 /* Germany.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CF17D5773A00C3BDE0 /* Germany.png */; };
 		862400DA17D5773A00C3BDE0 /* Greece.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400D017D5773A00C3BDE0 /* Greece.png */; };
@@ -89,6 +90,8 @@
 		3381582F17D83FEB006CCA90 /* cut_diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_diamonds.png; sourceTree = "<group>"; };
 		3381583017D83FEB006CCA90 /* debeers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debeers.png; sourceTree = "<group>"; };
 		3381583117D83FEB006CCA90 /* diamond-in-hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond-in-hand.png"; sourceTree = "<group>"; };
+		86166B2F17D904AE00A6F925 /* RREventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREventManager.h; sourceTree = "<group>"; };
+		86166B3017D904AE00A6F925 /* RREventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREventManager.m; sourceTree = "<group>"; };
 		862400CE17D5773A00C3BDE0 /* Dubai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dubai.png; sourceTree = "<group>"; };
 		862400CF17D5773A00C3BDE0 /* Germany.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Germany.png; sourceTree = "<group>"; };
 		862400D017D5773A00C3BDE0 /* Greece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greece.png; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				8636C39917D7E79800612361 /* RREvent.m */,
 				8636C3A817D7FA2600612361 /* RRStepper.h */,
 				8636C3A917D7FA2600612361 /* RRStepper.m */,
+				86166B2F17D904AE00A6F925 /* RREventManager.h */,
+				86166B3017D904AE00A6F925 /* RREventManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				8636C3AA17D7FA2600612361 /* RRStepper.m in Sources */,
 				8636C5D817D82B3C00612361 /* MBProgressHUD.m in Sources */,
 				8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */,
+				86166B3117D904AE00A6F925 /* RREventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

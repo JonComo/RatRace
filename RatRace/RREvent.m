@@ -64,7 +64,7 @@
     
     if (daysProgressed >= self.duration){
         [self runEnd];
-        [[RRGame sharedGame].events removeObject:self];
+        [[RRGame sharedGame].eventManager removeEvent:self];
     }
 }
 

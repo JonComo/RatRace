@@ -22,13 +22,9 @@
 
 #import "MBProgressHUD.h"
 
-#import "RREvent.h"
-
 #import "RRAudioEngine.h"
 
-#define MAX_CONCURRENT_EVENTS 3
-
-@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RREventManagerDelegate>
 {
     SMStatsView *statsView;
     RRTravelViewController *travelController;
@@ -55,6 +51,9 @@
     
     [[RRGame sharedGame] newGame];
     
+    [RRGame sharedGame].eventManager.viewForHUD = self.view;
+    [RRGame sharedGame].eventManager.delegate = self;
+    
     [RRGraphics buttonStyle:travelButton];
     [RRGraphics buttonStyle:bankButton];
     [RRGraphics buttonStyle:briefButton];
@@ -79,16 +78,6 @@
     [strings fadeIn:2];
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    [statsView setup]; //DO BETTER!
-    
-    [self addRandomEvent];
-    [self runEvents];
-}
-
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -106,261 +95,9 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)addRandomEvent
+-(void)eventManagerDidUpdateData:(RREventManager *)manager
 {
-    [self randomWithChance:65 run:^{
-        
-        RRItem *changedItem = [RRGame sharedGame].availableItems[arc4random()%[RRGame sharedGame].availableItems.count];
-        float initialValue = changedItem.valueInitial;
-        float valueChange = (float)(arc4random()%((int)(changedItem.valueInitial*.65)));
-        
-        //valueChange = valueChange * (arc4random()%2) ? 1 : -1;
-        
-        NSString *occurence = valueChange > 0 ? @"destroyed" : @"created";
-        NSString *change = valueChange > 0 ? @"increased" : @"decreased";
-        
-        NSString *randomLocation = [RRGame sharedGame].availableLocations[arc4random()%[RRGame sharedGame].availableLocations.count];
-        
-        float newValue = changedItem.value + valueChange;
-        
-        RREvent *locationEvent = [RREvent eventWithInitialBlock:^{
-            
-            [self showHUDWithTitle:[NSString stringWithFormat:@"Diamond mine %@!", occurence] detail:[NSString stringWithFormat:@"A large diamond mine was %@ in %@. The average value of %@s has %@ by $%.2f.", occurence, randomLocation, changedItem.name, change, valueChange] autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
-            
-        } numberOfDays:3 endingBlock:^{
-            
-            changedItem.value = initialValue;
-            [collectionViewItems reloadData];
-            
-            [self showHUDWithTitle:@"Price restored" detail:@"Diamond prices leveled out" autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
-            
-            NSLog(@"ENDED PRICE CHANGE");
-        }];
-        
-        locationEvent.location = randomLocation;
-        
-        locationEvent.locationBlock = ^{
-            changedItem.valueInitial = newValue;
-            [[RRGame sharedGame] randomizeItemValue:changedItem];
-            [collectionViewItems reloadData];
-            NSLog(@"RIGHT LOCATION, Original: %.2f NEW: %.2f", initialValue, newValue);
-        };
-        
-        locationEvent.wrongLocation = ^{
-            NSLog(@"WRONG LOCATOIN");
-            changedItem.valueInitial = initialValue;
-            [[RRGame sharedGame] randomizeItemValue:changedItem];
-            [collectionViewItems reloadData];
-        };
-        
-        [self addEvent:locationEvent];
-    }];
-    
-    return;
-    
-    [self randomWithChance:15 run:^{
-        
-        float interest = [RRGame sharedGame].bank.interest;
-        float newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
-        UIImage *image = [UIImage imageNamed:@"suisse"];
-        
-        if (interest != newInterest)
-        {
-            
-            RREvent *interestEvent = [RREvent eventWithInitialBlock:^{
-                
-                
-                float previousInterest = [RRGame sharedGame].bank.interest;
-                [RRGame sharedGame].bank.interest = MAX(0, interest + (float)(arc4random()%20)/100);
-                
-                NSString *change;
-                
-                if (previousInterest < [RRGame sharedGame].bank.interest)
-                {
-                    change = @"raised";
-                }else{
-                    change = @"lowered";
-                }
-                
-                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
-                
-                
-            } numberOfDays:4 endingBlock:^{
-                
-                NSString *change;
-                
-                if (interest < [RRGame sharedGame].bank.interest)
-                {
-                    change = @"lowered";
-                }else{
-                    change = @"raised";
-                }
-                
-                [RRGame sharedGame].bank.interest = interest;
-                
-                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
-            }];
-            
-            interestEvent.type = RREventTypeInterest;
-            
-            [self addEvent:interestEvent];
-        }
-    }];
-    
-    [self randomWithChance:15 run:^{
-        
-        if ([[RRGame sharedGame].player inventoryCount] == 0) return;
-        
-        NSMutableArray *itemsWithCounts = [NSMutableArray array];
-        
-        for (RRItem *item in [RRGame sharedGame].availableItems)
-        {
-            if (item.count > 0) [itemsWithCounts addObject:item];
-        }
-        
-        RRItem *randomItem = itemsWithCounts[arc4random()%itemsWithCounts.count];
-        
-        int numberToTake = MAX(1, arc4random()%randomItem.count);
-        
-        RREvent *confiscate = [RREvent eventWithInitialBlock:^{
-            
-            randomItem.count -= numberToTake;
-            
-            NSLog(@"SEIZED: %i", numberToTake);
-            
-            [collectionViewItems reloadData];
-            
-            [self showHUDWithTitle:@"Diamonds seized!" detail:[NSString stringWithFormat:@"Interpol has seized %i of your %@(s). Investigation number: %i revealed possible link to theivery.", numberToTake, randomItem.name, arc4random()%1000] autoDismiss:NO image:[UIImage imageNamed:@"badge"]];
-            
-        } numberOfDays:1 endingBlock:nil];
-        
-        confiscate.type = RREventTypeSeize;
-        
-        [self addEvent:confiscate];
-    }];
-    
-    [self randomWithChance:15 run:^{
-        
-        int giftAmount = 1 + arc4random()%7;
-        RRItem *giftedItem = [RRGame sharedGame].availableItems[arc4random()%[RRGame sharedGame].availableItems.count];
-        
-        RREvent *gift = [RREvent eventWithInitialBlock:^{
-            
-            giftedItem.count += giftAmount;
-            
-            [self showHUDWithTitle:@"Received diamonds!" detail:[NSString stringWithFormat:@"You've received %i %@(s) from a mysterious source.", giftAmount, giftedItem.name] autoDismiss:NO image:[UIImage imageNamed:@"diamond-in-hand"]];
-            
-            [collectionViewItems reloadData];
-        } numberOfDays:2+arc4random()%4 endingBlock:^{
-            [self randomWithChance:20 run:^{
-                //take back those diamonds!
-                
-                if (giftedItem.count >= giftAmount){
-                    giftedItem.count -= giftAmount;
-                    
-                    [self showHUDWithTitle:@"Tainted gift!" detail:[NSString stringWithFormat:@"Your gift of %i %@(s) turned out to be stolen. They were seized.",giftAmount, giftedItem.name] autoDismiss:NO image:[UIImage imageNamed:@"badge"]];
-                    
-                    [collectionViewItems reloadData];
-                }
-            }];
-            
-        }];
-        
-        [self addEvent:gift];
-    }];
-    
-    [self randomWithChance:15 run:^{
-        RREvent *inventoryPlus = [RREvent eventWithInitialBlock:^{
-            int additionalSlots = 5 + arc4random()%25;
-            
-            [RRGame sharedGame].player.inventoryCapacity += additionalSlots;
-            
-            [self showHUDWithTitle:@"Bigger briefcase!" detail:[NSString stringWithFormat:@"You found a bigger briefcase. How much bigger? %i slots bigger!", additionalSlots] autoDismiss:NO image:[UIImage imageNamed:@"cut_diamonds"]];
-        } numberOfDays:1 endingBlock:nil];
-        
-        [self addEvent:inventoryPlus];
-    }];
-    
-    eventIndex = [RRGame sharedGame].events.count-1;
-}
-
--(void)addEvent:(RREvent *)event
-{
-    if ([RRGame sharedGame].events.count > MAX_CONCURRENT_EVENTS) return;
-    
-    BOOL shouldAdd = YES;
-    
-    for (RREvent *currentEvent in [RRGame sharedGame].events)
-    {
-        if (currentEvent.type == event.type)
-        {
-            shouldAdd = NO;
-        }
-    }
-    
-    if (shouldAdd){
-        [[RRGame sharedGame].events addObject:event];
-        [event landedOnLocation:[RRGame sharedGame].location];
-    }
-}
-
--(void)randomWithChance:(int)chance run:(void(^)(void))block
-{
-    if (arc4random()%100 < chance)
-    {
-        if (block) block();
-    }
-}
-
--(void)runEvents
-{
-    for (RREvent *event in [RRGame sharedGame].events)
-    {
-        RREvent *event = [RRGame sharedGame].events[eventIndex];
-        [event progressDay];
-    }
-    
-    NSLog(@"RAN EVENTS: %@, INDEX: %i", [RRGame sharedGame].events, eventIndex);
-}
-
--(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
-{
-    NSLog(@"SHOWING HUD: %@", title);
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = title;
-    hud.detailsLabelText = detail;
-    hud.mode = MBProgressHUDModeCustomView;
-    
-    hud.color = [UIColor whiteColor];
-    hud.labelFont = [UIFont fontWithName:@"Avenir" size:18];
-    hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
-    imageView.image = image;
-    hud.customView = imageView;
-    
-    if (autoDismiss)
-    {
-        [hud hide:YES afterDelay:3];
-    }else{
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD:)];
-        
-        double delayInSeconds = 1.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [hud addGestureRecognizer:tap];
-        });
-    }
-}
-
--(void)hideHUD:(UITapGestureRecognizer *)tap
-{
-    [tap.view removeGestureRecognizer:tap];
-    
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    
-    //[self runEvents];
+    [collectionViewItems reloadData];
 }
 
 -(void)addStatsView
@@ -474,5 +211,41 @@
     [self presentViewController:travelVC animated:YES completion:nil];
 }
 
+-(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
+{
+    NSLog(@"SHOWING HUD: %@", title);
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = title;
+    hud.detailsLabelText = detail;
+    hud.mode = MBProgressHUDModeCustomView;
+    
+    hud.color = [UIColor whiteColor];
+    hud.labelFont = [UIFont fontWithName:@"Avenir" size:18];
+    hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
+    imageView.image = image;
+    hud.customView = imageView;
+    
+    if (autoDismiss)
+    {
+        [hud hide:YES afterDelay:3];
+    }else{
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD:)];
+        
+        double delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [hud addGestureRecognizer:tap];
+        });
+    }
+}
+
+-(void)hideHUD:(UITapGestureRecognizer *)tap
+{
+    MBProgressHUD *hud = (MBProgressHUD *)tap.view;
+    [hud hide:YES];
+}
 
 @end

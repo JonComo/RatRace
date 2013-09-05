@@ -10,6 +10,7 @@
 
 #import "RRPlayer.h"
 #import "RRBank.h"
+#import "RREventManager.h"
 
 #define RRDiamondCountChanged @"diamondCountChanged"
 
@@ -25,8 +26,8 @@
 @property (nonatomic, strong) NSString *location;
 
 @property (nonatomic, strong) RRPlayer *player;
-
 @property (nonatomic, strong) RRBank *bank;
+@property (nonatomic, strong) RREventManager *eventManager;
 
 +(RRGame *)sharedGame;
 
