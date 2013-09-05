@@ -171,10 +171,10 @@
     hud.labelFont = [UIFont fontWithName:@"Avenir" size:18];
     hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
     
-    RRButtonSound *dismiss = [[RRButtonSound alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
-    [dismiss setTitle:@"Dismiss" forState:UIControlStateNormal];
-    
-    hud.customView = dismiss;
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
+    //image
+    imageView.image = image;
+    hud.customView = imageView;
     
     if (autoDismiss)
     {
