@@ -114,6 +114,7 @@
         if (interest != newInterest)
         {
         
+            UIImage *image = [UIImage imageNamed:@"suisse"];
             RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
 
                 float previousInterest = [RRGame sharedGame].bank.interest;
@@ -128,7 +129,7 @@
                     change = @"lowered";
                 }
                 
-                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO];
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
                 
             } numberOfDays:4 endingBlock:^{
                 
@@ -143,7 +144,7 @@
                 
                 [RRGame sharedGame].bank.interest = interest;
                 
-                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO];
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
             }];
             
             [[RRGame sharedGame].events addObject:newspaperEvent];
@@ -160,7 +161,7 @@
     }
 }
 
--(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss
+-(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image;
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
@@ -171,18 +172,21 @@
     hud.labelFont = [UIFont fontWithName:@"Avenir" size:18];
     hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
     
-    RRButtonSound *dismiss = [[RRButtonSound alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
-    [dismiss setTitle:@"Dismiss" forState:UIControlStateNormal];
-    
-    hud.customView = dismiss;
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
+    imageView.image = image;
+    hud.customView = imageView;
     
     if (autoDismiss)
     {
         [hud hide:YES afterDelay:3];
     }else{
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD)];
-        tap.numberOfTapsRequired = 2;
-        [hud addGestureRecognizer:tap];
+        double delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [hud addGestureRecognizer:tap];
+        });
+        
     }
 }
 
