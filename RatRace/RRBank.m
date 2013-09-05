@@ -12,11 +12,12 @@
 
 @implementation RRBank
 
-+(RRBank *)loanAmount:(float)loan withInterest:(float)interest
++(RRBank *)bankWithLoanAmount:(float)loan withInterest:(float)interest limit:(float)limit
 {
     RRBank *bank = [RRBank new];
     bank.loan = loan;
     bank.interest = interest;
+    bank.loanLimit = limit;
     return bank;
 }
 

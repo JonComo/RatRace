@@ -8,13 +8,16 @@
 
 #import "RRBankViewController.h"
 #import "RRGame.h"
+#import "RRStepper.h"
+
 @interface RRBankViewController ()
 {
 
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *label;
-@property (strong, nonatomic) IBOutlet UIStepper *stepper;
+
+- (IBAction)touchup:(id)sender;
 
 @end
 
@@ -32,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateUI];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -43,14 +48,70 @@
 
 - (IBAction)pay:(id)sender
 {
-    
+    [[RRStepper sharedStepper] buttonDownWithAction:^{
+        [self payLoan:arc4random()%100];
+    }];
 }
 
 - (IBAction)borrow:(id)sender
 {
-
-
+    [[RRStepper sharedStepper] buttonDownWithAction:^{
+        [self borrowLoan:arc4random()%100];
+    }];
 }
+
+- (IBAction)touchup:(id)sender
+{
+    [[RRStepper sharedStepper] buttonUp];
+}
+
+-(void)payLoan:(float)amount
+{
+    float currentLoan = [RRGame sharedGame].bank.loan;
+    
+    NSLog(@"Loan: %f amount:%f", currentLoan, amount);
+    
+    if (currentLoan < amount)
+    {
+        float diff = amount - currentLoan;
+        
+        NSLog(@"Payed difference: %f" , (amount - diff));
+        
+        [RRGame sharedGame].player.money -= (amount - diff);
+        [RRGame sharedGame].bank.loan -= (amount - diff);
+
+    }else{
+        NSLog(@"Payed full amount");
+        [RRGame sharedGame].player.money -= amount;
+        [RRGame sharedGame].bank.loan -= amount;
+
+    }
+    
+    [self updateUI];
+}
+
+-(void)borrowLoan:(float)amount
+{
+    float currentLoan = [RRGame sharedGame].bank.loan;
+    float limit = [RRGame sharedGame].bank.loanLimit;
+    
+    if (currentLoan + amount > limit) {
+        float diff = (currentLoan + amount) - limit;
+        
+        [RRGame sharedGame].bank.loan += (amount - diff);
+        [RRGame sharedGame].player.money += (amount - diff);
+    }else{
+        [RRGame sharedGame].bank.loan += amount;
+        [RRGame sharedGame].player.money += amount;
+    }
+    
+    [self updateUI];
+}
+
+-(void)updateUI
+{
+    self.label.text = [NSString stringWithFormat:@"$%.2f", [RRGame sharedGame].bank.loan];
+}   
 
 #pragma mark JLModalDelegate
 
