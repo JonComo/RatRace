@@ -192,6 +192,7 @@
     hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
+    //image
     imageView.image = image;
     hud.customView = imageView;
     
