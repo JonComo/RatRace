@@ -35,15 +35,41 @@
 
 - (void)payLoan:(float)amount
 {
-    self.loan = self.loan - amount;
-    self.loan = MAX(0, self.loan);
+    float currentLoan = [RRGame sharedGame].bank.loan;
+    
+    NSLog(@"Loan: %f amount:%f", currentLoan, amount);
+    
+    if (currentLoan < amount)
+    {
+        float diff = amount - currentLoan;
+        
+        NSLog(@"Payed difference: %f" , (amount - diff));
+        
+        [RRGame sharedGame].player.money -= (amount - diff);
+        [RRGame sharedGame].bank.loan -= (amount - diff);
+        
+    }else{
+        NSLog(@"Payed full amount");
+        [RRGame sharedGame].player.money -= amount;
+        [RRGame sharedGame].bank.loan -= amount;
+        
+    }
 }
 
 - (void)borrow:(float)amount
 {
-    self.loan += amount;
+    float currentLoan = [RRGame sharedGame].bank.loan;
+    float limit = [RRGame sharedGame].bank.loanLimit;
     
-    [RRGame sharedGame].player.money += amount;
+    if (currentLoan + amount > limit) {
+        float diff = (currentLoan + amount) - limit;
+        
+        [RRGame sharedGame].bank.loan += (amount - diff);
+        [RRGame sharedGame].player.money += (amount - diff);
+    }else{
+        [RRGame sharedGame].bank.loan += amount;
+        [RRGame sharedGame].player.money += amount;
+    }
 }
 
 @end
