@@ -61,6 +61,10 @@
     float currentLoan = [RRGame sharedGame].bank.loan;
     float limit = [RRGame sharedGame].bank.loanLimit;
     
+    if (currentLoan > limit) {
+        return;
+    }
+    
     if (currentLoan + amount > limit) {
         float diff = (currentLoan + amount) - limit;
         
