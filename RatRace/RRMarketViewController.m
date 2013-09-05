@@ -104,14 +104,14 @@
 
 -(void)addRandomEvent
 {
-    UIImage *image;
     if ([RRGame sharedGame].events.count > 0) return;
     
     if (arc4random()%10 > 5)
     {
         float interest = [RRGame sharedGame].bank.interest;
         float newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
-        image = [UIImage imageNamed:@"suisse"];
+        UIImage *image = [UIImage imageNamed:@"suisse"];
+        
         if (interest != newInterest)
         {
         
@@ -131,6 +131,7 @@
                 }
                 
                 [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
+
                 
             } numberOfDays:4 endingBlock:^{
                 
@@ -174,7 +175,6 @@
     hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
-    //image
     imageView.image = image;
     hud.customView = imageView;
     
