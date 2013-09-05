@@ -26,6 +26,8 @@
 
 #import "RRAudioEngine.h"
 
+#define MAX_CONCURRENT_EVENTS 3
+
 @interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     SMStatsView *statsView;
@@ -33,6 +35,8 @@
     
     __weak IBOutlet RRButtonSound *travelButton;
     __weak IBOutlet RRButtonSound *bankButton;
+    
+    int eventIndex;
 }
 
 @end
@@ -104,20 +108,18 @@
 
 -(void)addRandomEvent
 {
-    UIImage *image;
-    if ([RRGame sharedGame].events.count > 0) return;
-    
-    if (arc4random()%10 > 5)
-    {
+    [self randomWithChance:15 run:^{
+        
         float interest = [RRGame sharedGame].bank.interest;
         float newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
-        image = [UIImage imageNamed:@"suisse"];
+        UIImage *image = [UIImage imageNamed:@"suisse"];
+        
         if (interest != newInterest)
         {
-        
-            RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
+            
+            RREvent *interestEvent = [RREvent eventWithInitialBlock:^{
                 
-
+                
                 float previousInterest = [RRGame sharedGame].bank.interest;
                 [RRGame sharedGame].bank.interest = MAX(0, interest + (float)(arc4random()%20)/100);
                 
@@ -131,6 +133,7 @@
                 }
                 
                 [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
+                
                 
             } numberOfDays:4 endingBlock:^{
                 
@@ -148,22 +151,130 @@
                 [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
             }];
             
-            [[RRGame sharedGame].events addObject:newspaperEvent];
+            interestEvent.type = RREventTypeInterest;
+            
+            [self addEvent:interestEvent];
         }
+    }];
+    
+    [self randomWithChance:15 run:^{
+        
+        if ([[RRGame sharedGame].player inventoryCount] == 0) return;
+        
+        NSMutableArray *itemsWithCounts = [NSMutableArray array];
+        
+        for (RRItem *item in [RRGame sharedGame].availableItems)
+        {
+            if (item.count > 0) [itemsWithCounts addObject:item];
+        }
+        
+        RRItem *randomItem = itemsWithCounts[arc4random()%itemsWithCounts.count];
+        
+        int numberToTake = MAX(1, arc4random()%randomItem.count);
+        
+        RREvent *confiscate = [RREvent eventWithInitialBlock:^{
+            
+            randomItem.count -= numberToTake;
+            
+            NSLog(@"SEIZED: %i", numberToTake);
+            
+            [collectionViewItems reloadData];
+            
+            [self showHUDWithTitle:@"Diamonds seized!" detail:[NSString stringWithFormat:@"Interpol has seized %i of your %@(s). Investigation number: %i revealed possible link to theivery.", numberToTake, randomItem.name, arc4random()%1000] autoDismiss:NO image:[UIImage imageNamed:@"badge"]];
+            
+        } numberOfDays:1 endingBlock:nil];
+        
+        confiscate.type = RREventTypeSeize;
+        
+        [self addEvent:confiscate];
+    }];
+    
+    [self randomWithChance:15 run:^{
+        
+        int giftAmount = 1 + arc4random()%7;
+        RRItem *giftedItem = [RRGame sharedGame].availableItems[arc4random()%[RRGame sharedGame].availableItems.count];
+        
+        RREvent *gift = [RREvent eventWithInitialBlock:^{
+            
+            giftedItem.count += giftAmount;
+            
+            [self showHUDWithTitle:@"Received diamonds!" detail:[NSString stringWithFormat:@"You've received %i %@(s) from a mysterious source.", giftAmount, giftedItem.name] autoDismiss:NO image:[UIImage imageNamed:@"diamond-in-hand"]];
+            
+            [collectionViewItems reloadData];
+        } numberOfDays:2+arc4random()%4 endingBlock:^{
+            [self randomWithChance:20 run:^{
+                //take back those diamonds!
+                
+                if (giftedItem.count >= giftAmount){
+                    giftedItem.count -= giftAmount;
+                    
+                    [self showHUDWithTitle:@"Tainted gift!" detail:[NSString stringWithFormat:@"Your gift of %i %@(s) turned out to be stolen. They were seized.",giftAmount, giftedItem.name] autoDismiss:NO image:[UIImage imageNamed:@"badge"]];
+                    
+                    [collectionViewItems reloadData];
+                }
+            }];
+            
+        }];
+        
+        [self addEvent:gift];
+    }];
+    
+    [self randomWithChance:15 run:^{
+        RREvent *inventoryPlus = [RREvent eventWithInitialBlock:^{
+            int additionalSlots = 5 + arc4random()%25;
+            
+            [RRGame sharedGame].player.inventoryCapacity += additionalSlots;
+            
+            [self showHUDWithTitle:@"Bigger breifcase!" detail:[NSString stringWithFormat:@"You found a bigger breifcase. How much bigger? %i slots bigger!", additionalSlots] autoDismiss:NO image:[UIImage imageNamed:@"cut_diamonds"]];
+        } numberOfDays:1 endingBlock:nil];
+        
+        [self addEvent:inventoryPlus];
+    }];
+    
+    eventIndex = [RRGame sharedGame].events.count-1;
+}
+
+-(void)addEvent:(RREvent *)event
+{
+    if ([RRGame sharedGame].events.count > MAX_CONCURRENT_EVENTS) return;
+    
+    BOOL shouldAdd = YES;
+    
+    for (RREvent *currentEvent in [RRGame sharedGame].events)
+    {
+        if (currentEvent.type == event.type)
+        {
+            shouldAdd = NO;
+        }
+    }
+    
+    if (shouldAdd){
+        [[RRGame sharedGame].events addObject:event];
+    }
+}
+
+-(void)randomWithChance:(int)chance run:(void(^)(void))block
+{
+    if (arc4random()%100 < chance)
+    {
+        if (block) block();
     }
 }
 
 -(void)runEvents
 {
-    if ([RRGame sharedGame].events.count > 0)
-    {
-        RREvent *event = [RRGame sharedGame].events[0];
-        [event progressDay];
-    }
+    if (eventIndex < 0) return;
+
+    RREvent *event = [RRGame sharedGame].events[eventIndex];
+    [event progressDay];
+    
+    eventIndex --;
 }
 
 -(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
 {
+    NSLog(@"SHOWING HUD: %@", title);
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
     hud.detailsLabelText = detail;
@@ -174,7 +285,6 @@
     hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
-    //image
     imageView.image = image;
     hud.customView = imageView;
     
@@ -195,6 +305,8 @@
 -(void)hideHUD
 {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    
+    [self runEvents];
 }
 
 -(void)addStatsView
@@ -280,11 +392,14 @@
 
 - (IBAction)bank:(id)sender
 {
+    NSString *bankLocation = [RRGame sharedGame].availableLocations[0];
     
-    if (![[RRGame sharedGame].location isEqualToString:[RRGame sharedGame].availableLocations[0]]) {
+    if (![[RRGame sharedGame].location isEqualToString:bankLocation]) {
         // Show
-        
+        [self showHUDWithTitle:@"Cannot access bank." detail:[NSString stringWithFormat:@"%@ is not where you want to manage your finances. Go back to %@.", [RRGame sharedGame].location, bankLocation] autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
+        return;
     }
+    
     RRBankViewController *bankView = [[RRBankViewController alloc] initWithNibName:@"RRBankViewController" bundle:[NSBundle mainBundle]];
     
     JLBPartialModal *modal = [JLBPartialModal sharedInstance];
