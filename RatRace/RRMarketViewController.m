@@ -104,17 +104,19 @@
 
 -(void)addRandomEvent
 {
+    UIImage *image;
     if ([RRGame sharedGame].events.count > 0) return;
     
     if (arc4random()%10 > 5)
     {
         float interest = [RRGame sharedGame].bank.interest;
         float newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
-        
+        image = [UIImage imageNamed:@"suisse"];
         if (interest != newInterest)
         {
         
             RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
+                
 
                 float previousInterest = [RRGame sharedGame].bank.interest;
                 [RRGame sharedGame].bank.interest = MAX(0, interest + (float)(arc4random()%20)/100);
@@ -128,7 +130,11 @@
                     change = @"lowered";
                 }
                 
+<<<<<<< HEAD
                 [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO  image:[UIImage imageNamed:@"suisse"]];
+=======
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
+>>>>>>> master
                 
             } numberOfDays:4 endingBlock:^{
                 
@@ -143,7 +149,11 @@
                 
                 [RRGame sharedGame].bank.interest = interest;
                 
+<<<<<<< HEAD
                 [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:[UIImage imageNamed:@"suisse"]];
+=======
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
+>>>>>>> master
             }];
             
             [[RRGame sharedGame].events addObject:newspaperEvent];
