@@ -37,6 +37,7 @@
 {
     [[RRGame sharedGame] addObserver:self forKeyPath:@"day" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame].player addObserver:self forKeyPath:@"money" options:NSKeyValueObservingOptionNew context:NULL];
+    [[RRGame sharedGame].player addObserver:self forKeyPath:@"inventoryCapacity" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame].bank addObserver:self forKeyPath:@"loan" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame] addObserver:self forKeyPath:@"location" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame].bank addObserver:self forKeyPath:@"interest" options:NSKeyValueObservingOptionNew context:NULL];

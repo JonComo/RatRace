@@ -21,6 +21,7 @@
 		3381583317D83FEB006CCA90 /* cut_diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381582F17D83FEB006CCA90 /* cut_diamonds.png */; };
 		3381583417D83FEB006CCA90 /* debeers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583017D83FEB006CCA90 /* debeers.png */; };
 		3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583117D83FEB006CCA90 /* diamond-in-hand.png */; };
+		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
 		862400D817D5773A00C3BDE0 /* Dubai.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CE17D5773A00C3BDE0 /* Dubai.png */; };
 		862400D917D5773A00C3BDE0 /* Germany.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CF17D5773A00C3BDE0 /* Germany.png */; };
 		862400DA17D5773A00C3BDE0 /* Greece.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400D017D5773A00C3BDE0 /* Greece.png */; };
@@ -42,6 +43,7 @@
 		864F708417D5684D00FEDAA6 /* RRAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 864F708317D5684C00FEDAA6 /* RRAudioPlayer.m */; };
 		864F708617D56EE500FEDAA6 /* ding.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 864F708517D56EE500FEDAA6 /* ding.aiff */; };
 		864F708817D5714700FEDAA6 /* jet.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 864F708717D5714700FEDAA6 /* jet.aiff */; };
+		8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */; };
 		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
 		86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A0C4F717D5461B001663D6 /* AVFoundation.framework */; };
 		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
@@ -88,6 +90,8 @@
 		3381582F17D83FEB006CCA90 /* cut_diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_diamonds.png; sourceTree = "<group>"; };
 		3381583017D83FEB006CCA90 /* debeers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debeers.png; sourceTree = "<group>"; };
 		3381583117D83FEB006CCA90 /* diamond-in-hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond-in-hand.png"; sourceTree = "<group>"; };
+		86166B2F17D904AE00A6F925 /* RREventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREventManager.h; sourceTree = "<group>"; };
+		86166B3017D904AE00A6F925 /* RREventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREventManager.m; sourceTree = "<group>"; };
 		862400CE17D5773A00C3BDE0 /* Dubai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dubai.png; sourceTree = "<group>"; };
 		862400CF17D5773A00C3BDE0 /* Germany.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Germany.png; sourceTree = "<group>"; };
 		862400D017D5773A00C3BDE0 /* Greece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greece.png; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		864F708317D5684C00FEDAA6 /* RRAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioPlayer.m; sourceTree = "<group>"; };
 		864F708517D56EE500FEDAA6 /* ding.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ding.aiff; sourceTree = "<group>"; };
 		864F708717D5714700FEDAA6 /* jet.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = jet.aiff; sourceTree = "<group>"; };
+		8664AE8017D8711B0096CD2B /* RRBriefcaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBriefcaseViewController.h; sourceTree = "<group>"; };
+		8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBriefcaseViewController.m; sourceTree = "<group>"; };
 		86A0C4F417D5455A001663D6 /* RRAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRAudioEngine.h; sourceTree = "<group>"; };
 		86A0C4F517D5455A001663D6 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
 		86A0C4F717D5461B001663D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -207,6 +213,8 @@
 				8636C39917D7E79800612361 /* RREvent.m */,
 				8636C3A817D7FA2600612361 /* RRStepper.h */,
 				8636C3A917D7FA2600612361 /* RRStepper.m */,
+				86166B2F17D904AE00A6F925 /* RREventManager.h */,
+				86166B3017D904AE00A6F925 /* RREventManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -224,6 +232,8 @@
 				338157F317D45B1E006CCA90 /* RRBankViewController.m */,
 				86DBBD3A17D416ED0032D830 /* RRMarketViewController.h */,
 				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
+				8664AE8017D8711B0096CD2B /* RRBriefcaseViewController.h */,
+				8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -470,6 +480,8 @@
 				8636C39A17D7E79800612361 /* RREvent.m in Sources */,
 				8636C3AA17D7FA2600612361 /* RRStepper.m in Sources */,
 				8636C5D817D82B3C00612361 /* MBProgressHUD.m in Sources */,
+				8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */,
+				86166B3117D904AE00A6F925 /* RREventManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

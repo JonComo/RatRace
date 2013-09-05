@@ -109,7 +109,9 @@
     
     NSString *location = locations[indexPath.row];
     
-    [[RRGame sharedGame] changeToLocation:location];
+    [RRGame sharedGame].location = location;
+    
+    [[RRGame sharedGame] advanceDay];
     
     [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
     

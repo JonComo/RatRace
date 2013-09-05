@@ -26,14 +26,20 @@
 
 -(void)newGame
 {
+    //reset/alloc properties
+    
     self.player = nil;
     self.player = [RRPlayer new];
     
-    //reset properties
+    self.events = nil;
     self.events = [NSMutableArray array];
     
-    self.day = 0;
+    self.eventManager = nil;
+    self.eventManager = [RREventManager new];
     
+    self.day = 1;
+    
+    self.bank = nil;
     self.bank = [RRBank bankWithLoanAmount:0 withInterest:0.02 limit:2000];
     
     self.availableItems = [@[[RRItem item:@"Yellow Diamond" value:200], [RRItem item:@"White Diamond" value:350],[RRItem item:@"Blue Diamond" value:860], [RRItem item:@"Cognac Diamond" value:950],[RRItem item:@"Black Diamond" value:4600], [RRItem item:@"Blood Diamond" value:9500]] mutableCopy];
@@ -45,25 +51,25 @@
     [self randomizeValues];
 }
 
--(void)changeToLocation:(NSString *)newLocation
-{
-    self.location = newLocation;
-    [self randomizeValues];
-}
-
 -(void)randomizeValues
 {
     for (RRItem *item in self.availableItems)
     {
-        item.value = item.valueInitial + arc4random()%((int)(item.valueInitial*.2));
+        [self randomizeItemValue:item];
     }
+}
+
+-(void)randomizeItemValue:(RRItem *)item
+{
+    // + arc4random()%((int)(item.valueInitial*.2));
+    item.value = item.valueInitial;
 }
 
 - (void)advanceDay
 {
     self.day +=1;
     [self.bank incrementLoan];
-    
+    [self randomizeValues];
 }
 
 @end
