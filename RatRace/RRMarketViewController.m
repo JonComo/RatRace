@@ -20,6 +20,8 @@
 #import "RRButtonSound.h"
 #import "RRGraphics.h"
 
+#import "MBProgressHUD.h"
+
 #import "RREvent.h"
 
 #import "RRAudioEngine.h"
@@ -29,12 +31,9 @@
     SMStatsView *statsView;
     RRTravelViewController *travelController;
     
-    __weak IBOutlet UIImageView *imageViewCountry;
     __weak IBOutlet RRButtonSound *travelButton;
     __weak IBOutlet RRButtonSound *bankButton;
 }
-
-@property (strong, nonatomic) IBOutlet UILabel *countryLabel;
 
 @end
 
@@ -75,9 +74,6 @@
     [self deselectAllItems];
     [collectionViewItems reloadData];
     
-    self.countryLabel.text = [RRGame sharedGame].location;
-    imageViewCountry.image = [UIImage imageNamed:[RRGame sharedGame].location];
-    
     [strings fadeIn:2];
 }
 
@@ -110,18 +106,49 @@
 {
     if ([RRGame sharedGame].events.count > 0) return;
     
-//    if (arc4random()%10 > 5)
-//    {
-        RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bank interest low!" message:@"Swiss banks have halved their interest rates for the next 3 days!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-        } numberOfDays:4 endingBlock:^{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bank interest normal!" message:@"Swiss banks have come to their senses and restored original interest rates." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-        }];
+    if (arc4random()%10 > 5)
+    {
+        float interest = [RRGame sharedGame].bank.interest;
+        float newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
         
-        [[RRGame sharedGame].events addObject:newspaperEvent];
-//    }
+        if (interest != newInterest)
+        {
+        
+            RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
+
+                float previousInterest = [RRGame sharedGame].bank.interest;
+                [RRGame sharedGame].bank.interest = MAX(0, interest + (float)(arc4random()%20)/100);
+                
+                NSString *change;
+                
+                if (previousInterest < [RRGame sharedGame].bank.interest)
+                {
+                    change = @"raised";
+                }else{
+                    change = @"lowered";
+                }
+                
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO];
+                
+            } numberOfDays:4 endingBlock:^{
+                
+                NSString *change;
+                
+                if (interest < [RRGame sharedGame].bank.interest)
+                {
+                    change = @"lowered";
+                }else{
+                    change = @"raised";
+                }
+                
+                [RRGame sharedGame].bank.interest = interest;
+                
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO];
+            }];
+            
+            [[RRGame sharedGame].events addObject:newspaperEvent];
+        }
+    }
 }
 
 -(void)runEvents
@@ -131,6 +158,37 @@
         RREvent *event = [RRGame sharedGame].events[0];
         [event progressDay];
     }
+}
+
+-(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = title;
+    hud.detailsLabelText = detail;
+    hud.mode = MBProgressHUDModeCustomView;
+    
+    hud.color = [UIColor whiteColor];
+    hud.labelFont = [UIFont fontWithName:@"Avenir" size:18];
+    hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
+    
+    RRButtonSound *dismiss = [[RRButtonSound alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
+    [dismiss setTitle:@"Dismiss" forState:UIControlStateNormal];
+    
+    hud.customView = dismiss;
+    
+    if (autoDismiss)
+    {
+        [hud hide:YES afterDelay:3];
+    }else{
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD)];
+        tap.numberOfTapsRequired = 2;
+        [hud addGestureRecognizer:tap];
+    }
+}
+
+-(void)hideHUD
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 -(void)addStatsView
