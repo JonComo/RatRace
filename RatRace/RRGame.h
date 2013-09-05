@@ -32,8 +32,8 @@
 
 -(void)newGame;
 
--(void)changeToLocation:(NSString *)newLocation;
-
 - (void)advanceDay;
+
+-(void)randomizeItemValue:(RRItem *)item;
 
 @end
