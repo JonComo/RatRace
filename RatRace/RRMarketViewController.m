@@ -210,6 +210,11 @@
 
 - (IBAction)bank:(id)sender
 {
+    
+    if (![[RRGame sharedGame].location isEqualToString:[RRGame sharedGame].availableLocations[0]]) {
+        // Show
+        
+    }
     RRBankViewController *bankView = [[RRBankViewController alloc] initWithNibName:@"RRBankViewController" bundle:[NSBundle mainBundle]];
     
     JLBPartialModal *modal = [JLBPartialModal sharedInstance];

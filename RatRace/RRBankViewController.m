@@ -7,14 +7,18 @@
 //
 
 #import "RRBankViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "RRGame.h"
+#import "RRStepper.h"
+
 @interface RRBankViewController ()
 {
 
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *label;
-@property (strong, nonatomic) IBOutlet UIStepper *stepper;
+
+- (IBAction)touchup:(id)sender;
 
 @end
 
@@ -32,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateUI];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -43,13 +49,62 @@
 
 - (IBAction)pay:(id)sender
 {
-    
+    [[RRStepper sharedStepper] buttonDownWithAction:^{
+        [self payLoan:arc4random()%100];
+    }];
 }
 
 - (IBAction)borrow:(id)sender
 {
+    [[RRStepper sharedStepper] buttonDownWithAction:^{
+        [self borrowLoan:arc4random()%100];
+    }];
+}
 
+- (IBAction)touchup:(id)sender
+{
+    [[RRStepper sharedStepper] buttonUp];
+}
 
+-(void)payLoan:(float)amount
+{
+    [[RRGame sharedGame].bank payLoan:amount];
+    if ([RRGame sharedGame].bank.loan == 0) {
+        [self animateLabel];
+    }
+    
+    [self updateUI];
+}
+
+-(void)borrowLoan:(float)amount
+{
+    [[RRGame sharedGame].bank borrow:amount];
+    if ([RRGame sharedGame].bank.loan >= [RRGame sharedGame].bank.loanLimit) {
+        [self animateLabel];
+    }
+    
+    [self updateUI];
+}
+
+-(void)updateUI
+{
+    self.label.text = [NSString stringWithFormat:@"$%.2f", [RRGame sharedGame].bank.loan];
+}
+
+-(void)animateLabel
+{
+    [UIView animateWithDuration:0.1 animations:^{
+        self.label.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1);
+        self.label.alpha = 0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.1 animations:^{
+            self.label.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1);
+            self.label.alpha = 1;
+        } completion:^(BOOL finished) {
+            
+            
+        }];
+    }];
 }
 
 #pragma mark JLModalDelegate
