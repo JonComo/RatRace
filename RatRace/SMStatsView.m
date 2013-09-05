@@ -48,7 +48,7 @@
 {
     int days = [RRGame sharedGame].day;
     float money = [RRGame sharedGame].player.money;
-    int inventory = [RRGame sharedGame].player.inventory.count;
+    int inventory = [[RRGame sharedGame].player inventoryCount];
     float loan = [RRGame sharedGame].bank.loan;
     float interest = [RRGame sharedGame].bank.interest;
     

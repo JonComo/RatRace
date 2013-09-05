@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    RREventTypeSeize,
+    RREventTypeInterest
+} RREventType;
+
 typedef void (^InitialBlock)(void);
 typedef void (^EndingBlock)(void);
 
@@ -15,6 +21,8 @@ typedef void (^EndingBlock)(void);
 
 @property (copy) InitialBlock initBlock;
 @property (copy) EndingBlock endBlock;
+
+@property RREventType type;
 
 @property int duration;
 

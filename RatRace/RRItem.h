@@ -15,6 +15,7 @@
 @property float value;
 @property float valueInitial;
 @property BOOL selected;
+@property int count;
 
 +(RRItem *)item:(NSString *)name value:(float)value;
 

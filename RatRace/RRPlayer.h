@@ -14,10 +14,8 @@
 
 @property float money;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSMutableArray *inventory;
 @property int inventoryCapacity;
 
--(RRItem *)itemMatchingItem:(RRItem *)item;
--(int)numberOfItem:(RRItem *)item;
+-(int)inventoryCount;
 
 @end
