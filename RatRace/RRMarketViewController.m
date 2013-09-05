@@ -29,12 +29,9 @@
     SMStatsView *statsView;
     RRTravelViewController *travelController;
     
-    __weak IBOutlet UIImageView *imageViewCountry;
     __weak IBOutlet RRButtonSound *travelButton;
     __weak IBOutlet RRButtonSound *bankButton;
 }
-
-@property (strong, nonatomic) IBOutlet UILabel *countryLabel;
 
 @end
 
@@ -74,9 +71,6 @@
     
     [self deselectAllItems];
     [collectionViewItems reloadData];
-    
-    self.countryLabel.text = [RRGame sharedGame].location;
-    imageViewCountry.image = [UIImage imageNamed:[RRGame sharedGame].location];
     
     [strings fadeIn:2];
 }
