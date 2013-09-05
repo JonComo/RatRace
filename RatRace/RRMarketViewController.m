@@ -104,17 +104,19 @@
 
 -(void)addRandomEvent
 {
+    UIImage *image;
     if ([RRGame sharedGame].events.count > 0) return;
     
     if (arc4random()%10 > 5)
     {
         float interest = [RRGame sharedGame].bank.interest;
         float newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
-        
+        image = [UIImage imageNamed:@"suisse"];
         if (interest != newInterest)
         {
         
             RREvent *newspaperEvent = [RREvent eventWithInitialBlock:^{
+                
 
                 float previousInterest = [RRGame sharedGame].bank.interest;
                 [RRGame sharedGame].bank.interest = MAX(0, interest + (float)(arc4random()%20)/100);
@@ -128,7 +130,7 @@
                     change = @"lowered";
                 }
                 
-                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO];
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
                 
             } numberOfDays:4 endingBlock:^{
                 
@@ -143,7 +145,7 @@
                 
                 [RRGame sharedGame].bank.interest = interest;
                 
-                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO];
+                [self showHUDWithTitle:[NSString stringWithFormat:@"Bank interest %@!", change] detail:[NSString stringWithFormat:@"Swiss banks have %@ their interest rate to %.1f%%!", change, [RRGame sharedGame].bank.interest * 100] autoDismiss:NO image:image];
             }];
             
             [[RRGame sharedGame].events addObject:newspaperEvent];
@@ -160,7 +162,7 @@
     }
 }
 
--(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss
+-(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
@@ -171,10 +173,10 @@
     hud.labelFont = [UIFont fontWithName:@"Avenir" size:18];
     hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
     
-    RRButtonSound *dismiss = [[RRButtonSound alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
-    [dismiss setTitle:@"Dismiss" forState:UIControlStateNormal];
-    
-    hud.customView = dismiss;
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
+    //image
+    imageView.image = image;
+    hud.customView = imageView;
     
     if (autoDismiss)
     {
