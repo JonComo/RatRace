@@ -14,6 +14,7 @@
 #import "SMStatsView.h"
 #import "RRTravelViewController.h"
 #import "RRBankViewController.h"
+#import "RRBriefcaseViewController.h"
 #import "RRDiamondCell.h"
 #import "RRButtonSound.h"
 #import "RRGraphics.h"
@@ -220,6 +221,18 @@
     [self presentViewController:travelVC animated:YES completion:nil];
 }
 
+- (IBAction)brief:(id)sender {
+    
+    
+    RRBriefcaseViewController *brief = [[RRBriefcaseViewController alloc] initWithNibName:@"brief" bundle:[NSBundle mainBundle]];
+    
+    JLBPartialModal *modal = [JLBPartialModal sharedInstance];
+    modal.delegate = brief;
+    [modal presentViewController:brief dismissal:^{
+        
+    }];
+}
+
 -(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -256,5 +269,7 @@
     
     [[RRGame sharedGame].eventManager runNextEvent];
 }
+
+
 
 @end
