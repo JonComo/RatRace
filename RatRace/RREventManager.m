@@ -29,25 +29,33 @@
 
 -(void)run
 {
-    for (RREvent *event in events)
+    for (int i = events.count-1; i>0 ; i--)
     {
+        RREvent *event = events[i];
+        
         [event progressDay];
-        [event landedOnLocation:[RRGame sharedGame].location];
+        
+        if (event.isFinished)
+        {
+            [events removeObject:event];
+        }else{
+            [event landedOnLocation:[RRGame sharedGame].location];
+        }
     }
-    
-    //display huds now.
-    [self displayNextHUD];
 }
 
 -(void)addRandomEvent
 {
-    [self randomWithChance:65 run:^{
+    [self randomWithChance:100 run:^{
         
         RRItem *changedItem = [RRGame sharedGame].availableItems[arc4random()%[RRGame sharedGame].availableItems.count];
         float initialValue = changedItem.valueInitial;
-        float valueChange = (float)(arc4random()%((int)(changedItem.valueInitial*.65)));
         
-        //valueChange = valueChange * (arc4random()%2) ? 1 : -1;
+        if (initialValue == 0) return;
+        
+        NSString *itemName = [changedItem.name copy];
+        
+        float valueChange = (float)(arc4random()%((int)(changedItem.valueInitial*.65)));
         
         NSString *occurence = valueChange > 0 ? @"destroyed" : @"created";
         NSString *change = valueChange > 0 ? @"increased" : @"decreased";
@@ -60,28 +68,27 @@
             
             [self addHUDWithTitle:[NSString stringWithFormat:@"Diamond mine %@!", occurence] detail:[NSString stringWithFormat:@"A large diamond mine was %@ in %@. The average value of %@s has %@ by $%.2f.", occurence, randomLocation, changedItem.name, change, valueChange] autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
             
-        } numberOfDays:3 endingBlock:^{
+            [[RRGame sharedGame] changeItemWithName:itemName toValue:newValue];
             
-            changedItem.value = initialValue;
+        } numberOfDays:4 endingBlock:^{
             
-            [self addHUDWithTitle:@"Price restored" detail:@"Diamond prices leveled out" autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
+            [[RRGame sharedGame] changeItemWithName:itemName toValue:initialValue];
             
-            NSLog(@"ENDED PRICE CHANGE");
+            [self addHUDWithTitle:@"Price restored" detail:[NSString stringWithFormat:@"The price of %@s in %@ has restored to $%.2f.", changedItem.name, randomLocation, initialValue] autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
         }];
         
+        locationEvent.locationBlock = ^(BOOL rightLocation)
+        {
+            NSLog(@"Location block: %i", rightLocation);
+            if (rightLocation){
+                [[RRGame sharedGame] changeItemWithName:itemName toValue:newValue];
+            }else{
+                [[RRGame sharedGame] changeItemWithName:itemName toValue:initialValue];
+            }
+        };
+        
         locationEvent.location = randomLocation;
-        
-        locationEvent.locationBlock = ^{
-            changedItem.valueInitial = newValue;
-            [[RRGame sharedGame] randomizeItemValue:changedItem];
-            NSLog(@"RIGHT LOCATION, Original: %.2f NEW: %.2f", initialValue, newValue);
-        };
-        
-        locationEvent.wrongLocation = ^{
-            NSLog(@"WRONG LOCATOIN");
-            changedItem.valueInitial = initialValue;
-            [[RRGame sharedGame] randomizeItemValue:changedItem];
-        };
+        locationEvent.type = RREventTypeLocation;
         
         [self addEvent:locationEvent];
     }];
@@ -222,27 +229,14 @@
 
 -(void)addEvent:(RREvent *)event
 {
-    if ([RRGame sharedGame].events.count > 3) return;
-    
-    BOOL shouldAdd = YES;
-    
-    for (RREvent *currentEvent in [RRGame sharedGame].events){
-        if (currentEvent.type == event.type)
-        {
-            shouldAdd = NO;
-        }
-    }
-    
-    if (shouldAdd){
-        [[RRGame sharedGame].events addObject:event];
-    }
+    if (events.count > 1) return;
+
+    [events addObject:event];
 }
 
 -(void)addHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
 {
-    NSLog(@"SHOWING HUD: %@", title);
-    
-    MBProgressHUD *hud = [[MBProgressHUD alloc] init];
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.viewForHUD];
     hud.labelText = title;
     hud.detailsLabelText = detail;
     hud.mode = MBProgressHUDModeCustomView;
@@ -277,18 +271,18 @@
     
     MBProgressHUD *hudToDisplay = HUDQueue[0];
     
-    NSLog(@"HUD: %@", hudToDisplay.labelText);
-    
     [HUDQueue removeObject:hudToDisplay];
     
-    [self performSelector:@selector(hideHUD:) withObject:nil afterDelay:2];
+	[self.viewForHUD addSubview:hudToDisplay];
+	[hudToDisplay show:YES];
 }
 
 -(void)hideHUD:(UITapGestureRecognizer *)tap
 {
-    //[MBProgressHUD hideAllHUDsForView:self.viewForHUD animated:YES];
+    [MBProgressHUD hideAllHUDsForView:self.viewForHUD animated:YES];
     
-    [HUDQueue removeObjectAtIndex:0];
+    if (HUDQueue.count > 0)
+        [HUDQueue removeObjectAtIndex:0];
     
     [self displayNextHUD];
 }

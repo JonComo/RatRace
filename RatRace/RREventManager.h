@@ -16,6 +16,7 @@
 
 @protocol RREventManagerDelegate <NSObject>
 
+-(void)showHUDWithTitle:(NSString *)title message:(NSString *)message image:(UIImage *)image;
 -(void)eventManagerDidUpdateData:(RREventManager *)manager;
 
 @end
@@ -30,6 +31,7 @@
 
 -(void)run;
 
+-(void)displayNextHUD;
 -(void)hideHUD:(UITapGestureRecognizer *)tap;
 
 @end

@@ -73,7 +73,6 @@
     [super viewWillAppear:animated];
     
     [self deselectAllItems];
-    [collectionViewItems reloadData];
     
     [strings fadeIn:2];
 }
@@ -82,6 +81,14 @@
 {
     [super viewWillDisappear:animated];
     [strings fadeOut:1];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [collectionViewItems reloadData];
+    [[RRGame sharedGame].eventManager displayNextHUD];
 }
 
 -(void)dealloc
@@ -213,8 +220,6 @@
 
 -(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
 {
-    NSLog(@"SHOWING HUD: %@", title);
-    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
     hud.detailsLabelText = detail;

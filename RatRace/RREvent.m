@@ -53,29 +53,23 @@
 
 -(void)progressDay
 {
-    if (daysProgressed == 0){
+    daysProgressed ++;
+    
+    if (daysProgressed == 1){
         //first day, run it
         [self runStart];
     }
     
-    [self landedOnLocation:[RRGame sharedGame].location];
-    
-    daysProgressed ++;
-    
     if (daysProgressed >= self.duration){
         [self runEnd];
-        [[RRGame sharedGame].eventManager removeEvent:self];
+        self.isFinished = YES;
     }
 }
 
 -(void)landedOnLocation:(NSString *)location
 {
-    if ([location isEqualToString:self.location])
-    {
-        if (self.locationBlock) self.locationBlock();
-    }else{
-        if (self.wrongLocation) self.wrongLocation();
-    }
+    BOOL rightLocation = [location isEqualToString:self.location];
+    if (self.locationBlock) self.locationBlock(rightLocation);
 }
 
 @end
