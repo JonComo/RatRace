@@ -21,6 +21,8 @@
 		3381583317D83FEB006CCA90 /* cut_diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381582F17D83FEB006CCA90 /* cut_diamonds.png */; };
 		3381583417D83FEB006CCA90 /* debeers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583017D83FEB006CCA90 /* debeers.png */; };
 		3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583117D83FEB006CCA90 /* diamond-in-hand.png */; };
+		3381583717D94226006CCA90 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3381583617D94226006CCA90 /* GameKit.framework */; };
+		3381583A17D942D3006CCA90 /* RRLeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3381583917D942D3006CCA90 /* RRLeaderboardViewController.m */; };
 		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
 		862400D817D5773A00C3BDE0 /* Dubai.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CE17D5773A00C3BDE0 /* Dubai.png */; };
 		862400D917D5773A00C3BDE0 /* Germany.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CF17D5773A00C3BDE0 /* Germany.png */; };
@@ -90,6 +92,9 @@
 		3381582F17D83FEB006CCA90 /* cut_diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_diamonds.png; sourceTree = "<group>"; };
 		3381583017D83FEB006CCA90 /* debeers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debeers.png; sourceTree = "<group>"; };
 		3381583117D83FEB006CCA90 /* diamond-in-hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond-in-hand.png"; sourceTree = "<group>"; };
+		3381583617D94226006CCA90 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		3381583817D942D3006CCA90 /* RRLeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRLeaderboardViewController.h; sourceTree = "<group>"; };
+		3381583917D942D3006CCA90 /* RRLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRLeaderboardViewController.m; sourceTree = "<group>"; };
 		86166B2F17D904AE00A6F925 /* RREventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREventManager.h; sourceTree = "<group>"; };
 		86166B3017D904AE00A6F925 /* RREventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREventManager.m; sourceTree = "<group>"; };
 		862400CE17D5773A00C3BDE0 /* Dubai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dubai.png; sourceTree = "<group>"; };
@@ -164,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3381583717D94226006CCA90 /* GameKit.framework in Frameworks */,
 				86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */,
 				86DBBD4F17D4208D0032D830 /* QuartzCore.framework in Frameworks */,
 				86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */,
@@ -234,6 +240,8 @@
 				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
 				8664AE8017D8711B0096CD2B /* RRBriefcaseViewController.h */,
 				8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */,
+				3381583817D942D3006CCA90 /* RRLeaderboardViewController.h */,
+				3381583917D942D3006CCA90 /* RRLeaderboardViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -326,6 +334,7 @@
 		86DBBD1617D415F60032D830 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3381583617D94226006CCA90 /* GameKit.framework */,
 				86A0C4F717D5461B001663D6 /* AVFoundation.framework */,
 				86DBBD4E17D4208D0032D830 /* QuartzCore.framework */,
 				86DBBD1717D415F60032D830 /* UIKit.framework */,
@@ -482,6 +491,7 @@
 				8636C5D817D82B3C00612361 /* MBProgressHUD.m in Sources */,
 				8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */,
 				86166B3117D904AE00A6F925 /* RREventManager.m in Sources */,
+				3381583A17D942D3006CCA90 /* RRLeaderboardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
