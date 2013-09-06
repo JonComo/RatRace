@@ -71,7 +71,6 @@
 		86DBBD4A17D41CA90032D830 /* stats.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DBBD4917D41CA90032D830 /* stats.xib */; };
 		86DBBD4D17D41CB30032D830 /* SMStatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DBBD4C17D41CB30032D830 /* SMStatsView.m */; };
 		86DBBD4F17D4208D0032D830 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD4E17D4208D0032D830 /* QuartzCore.framework */; };
-		86EAC96817D58F9F00E89F5A /* RRRandomNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86EAC96717D58F9F00E89F5A /* RRRandomNewsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,8 +165,6 @@
 		86DBBD4B17D41CB30032D830 /* SMStatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStatsView.h; sourceTree = "<group>"; };
 		86DBBD4C17D41CB30032D830 /* SMStatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStatsView.m; sourceTree = "<group>"; };
 		86DBBD4E17D4208D0032D830 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		86EAC96617D58F9F00E89F5A /* RRRandomNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRRandomNewsViewController.h; sourceTree = "<group>"; };
-		86EAC96717D58F9F00E89F5A /* RRRandomNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRRandomNewsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,8 +235,6 @@
 		3381580517D468F7006CCA90 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				86EAC96617D58F9F00E89F5A /* RRRandomNewsViewController.h */,
-				86EAC96717D58F9F00E89F5A /* RRRandomNewsViewController.m */,
 				863BBAD117D54BCA00BEF75A /* RRIntroViewController.h */,
 				863BBAD217D54BCA00BEF75A /* RRIntroViewController.m */,
 				86DBBD3D17D417480032D830 /* RRTravelViewController.h */,
@@ -494,7 +489,6 @@
 				863BBAD317D54BCA00BEF75A /* RRIntroViewController.m in Sources */,
 				863BBAD617D54CA700BEF75A /* RRButtonSound.m in Sources */,
 				864F708417D5684D00FEDAA6 /* RRAudioPlayer.m in Sources */,
-				86EAC96817D58F9F00E89F5A /* RRRandomNewsViewController.m in Sources */,
 				3381582917D5A635006CCA90 /* RRGraphics.m in Sources */,
 				8636C39A17D7E79800612361 /* RREvent.m in Sources */,
 				8636C3AA17D7FA2600612361 /* RRStepper.m in Sources */,
