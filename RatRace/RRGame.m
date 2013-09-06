@@ -39,10 +39,11 @@
     self.eventManager = nil;
     self.eventManager = [RREventManager new];
     
-    self.day = 1;
+    self.stats = nil;
+    self.stats = [RRStats new];
     
     self.bank = nil;
-    self.bank = [RRBank bankWithLoanAmount:0 withInterest:0.02 limit:2000];
+    self.bank = [RRBank bankWithLoanAmount:5000 withInterest:0.05 limit:15000];
     
     self.availableItems = [self.pack items];
     self.availableLocations = [self.pack locations];
@@ -50,6 +51,10 @@
     self.location = self.availableLocations[0];
     
     [self randomizeValues];
+    
+    //start the day
+    self.day = 1;
+    self.dayMaximum = 30;
 }
 
 -(void)randomizeValues
@@ -62,7 +67,7 @@
 -(void)randomizeItem:(RRItem *)item
 {
     float initValue = item.valueInitial;
-    float addedValue = (float)(arc4random()%((int)(initValue*.2)));
+    float addedValue = (float)(arc4random()%((int)(initValue*1.4))) - (float)(arc4random()%((int)(initValue*.7)));
     
     item.value = initValue + addedValue;
 }
@@ -85,6 +90,8 @@
     [self.bank incrementLoan];
     
     [self.eventManager addRandomEvent];
+    
+    [self.eventManager run];
     
     [self randomizeValues];
 }

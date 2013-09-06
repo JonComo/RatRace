@@ -12,12 +12,14 @@
 #import "RRBank.h"
 #import "RRPack.h"
 #import "RREventManager.h"
+#import "RRStats.h"
 
 #define RRDiamondCountChanged @"diamondCountChanged"
 
 @interface RRGame : NSObject
 
 @property int day;
+@property int dayMaximum;
 
 @property (nonatomic, strong) RRPack *pack;
 
@@ -29,6 +31,7 @@
 @property (nonatomic, strong) RRPlayer *player;
 @property (nonatomic, strong) RRBank *bank;
 @property (nonatomic, strong) RREventManager *eventManager;
+@property (nonatomic, strong) RRStats *stats;
 
 +(RRGame *)sharedGame;
 

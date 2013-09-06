@@ -14,7 +14,7 @@
 
 -(NSArray *)items
 {
-    return @[[RRItem item:@"Cognac Diamond" value:200], [RRItem item:@"Yellow Diamond" value:400], [RRItem item:@"Black Diamond" value:650], [RRItem item:@"Blue Diamond" value:1000], [RRItem item:@"White Diamond" value:2000], [RRItem item:@"Blood Diamond" value:10000]];
+    return @[[RRItem item:@"Cognac Diamond" value:200], [RRItem item:@"Yellow Diamond" value:500], [RRItem item:@"Black Diamond" value:1200], [RRItem item:@"Blue Diamond" value:2260], [RRItem item:@"White Diamond" value:6000], [RRItem item:@"Blood Diamond" value:10000]];
 }
 
 -(NSArray *)locations
@@ -202,8 +202,6 @@
 
 -(RREvent *)randomEvent
 {
-    return [self eventMineChange];
-    
     int rand = arc4random()%5;
     
     switch (rand) {

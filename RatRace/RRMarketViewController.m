@@ -92,13 +92,6 @@
     [strings fadeOut:1];
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    [[RRGame sharedGame].eventManager runNextEvent];
-}
-
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:RRDiamondCountChanged object:nil];
@@ -266,10 +259,6 @@
     MBProgressHUD *hud = (MBProgressHUD *)tap.view;
     [hud removeGestureRecognizer:tap];
     [hud hide:YES];
-    
-    [[RRGame sharedGame].eventManager runNextEvent];
 }
-
-
 
 @end

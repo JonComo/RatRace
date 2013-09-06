@@ -11,6 +11,8 @@
 #import "RRGame.h"
 #import "RRStepper.h"
 
+#import "RRAudioEngine.h"
+
 @interface RRBankViewController ()
 {
     __weak IBOutlet UILabel *label;
@@ -42,20 +44,22 @@
 - (IBAction)pay:(id)sender
 {
     [[RRStepper sharedStepper] buttonDownWithAction:^{
-        [self payLoan:arc4random()%100];
+        [self payLoan:200];
     }];
 }
 
 - (IBAction)borrow:(id)sender
 {
     [[RRStepper sharedStepper] buttonDownWithAction:^{
-        [self borrowLoan:arc4random()%100];
+        [self borrowLoan:200];
     }];
 }
 
 - (IBAction)touchup:(id)sender
 {
     [[RRStepper sharedStepper] buttonUp];
+    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
 }
 
 -(void)payLoan:(float)amount

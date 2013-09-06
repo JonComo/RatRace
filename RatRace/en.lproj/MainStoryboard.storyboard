@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -245,44 +245,6 @@
         <image name="historic-diamond-prices-2.jpg" width="640" height="240"/>
         <image name="travel.png" width="640" height="1120"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RRButtonSound" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRButtonSound.h"/>
-        </class>
-        <class className="RRIntroViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRIntroViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="newGame:"/>
-                <relationship kind="outlet" name="buttonNewGame" candidateClass="RRButtonSound"/>
-            </relationships>
-        </class>
-        <class className="RRMarketViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
-                <relationship kind="outlet" name="briefButton" candidateClass="RRButtonSound"/>
-                <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>
-            </relationships>
-        </class>
-        <class className="RRTravelViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRTravelViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="collectionViewCountries" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

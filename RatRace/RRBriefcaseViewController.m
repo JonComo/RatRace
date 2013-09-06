@@ -12,11 +12,13 @@
 #import "RRGraphics.h"
 #import "RRGame.h"
 
+#import "RRStatsView.h"
+
 #import "JLBPartialModal.h"
 
 @interface RRBriefcaseViewController ()
 {
-    
+    __weak IBOutlet RRStatsView *viewStats;
     __weak IBOutlet RRButtonSound *buttonLeader;
     __weak IBOutlet RRButtonSound *buttonNewGame;
 }
@@ -37,6 +39,13 @@
     
     [self loadLeaderboardInfo];
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    viewStats.stats = [RRGame sharedGame].stats;
 }
 
 - (void)didReceiveMemoryWarning
