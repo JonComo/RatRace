@@ -25,16 +25,21 @@
     return self;
 }
 
--(void)runNextEvent
+-(void)run
 {
-    if (events.count == 0) return;
+//    if (events.count == 0) return;
+//    
+//    RREvent *event = events[0];
     
-    RREvent *event = events[0];
-    
-    [event progressDay];
-    
-    if (event.isFinished)
-        [events removeObject:event];
+    for (int i = 0; i<events.count; i++)
+    {
+        RREvent *event = events[i];
+        [event progressDay];
+        
+        if (event.isFinished)
+            [events removeObject:event];
+        
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:RREventUpdateUI object:nil];
 }
@@ -42,7 +47,7 @@
 -(void)addRandomEvent
 {
     NSLog(@"ADD RANDOM");
-    if (events.count >= 1) return;
+    //if (events.count >= 1) return;
     
     RREvent *event = [[RRGame sharedGame].pack randomEvent];
     

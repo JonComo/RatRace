@@ -11,6 +11,8 @@
 #import "RRGame.h"
 #import "RRStepper.h"
 
+#import "RRAudioEngine.h"
+
 @interface RRBankViewController ()
 {
     __weak IBOutlet UILabel *label;
@@ -33,6 +35,17 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    double delayInSeconds = 0.3;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [[RRAudioEngine sharedEngine] playSoundNamed:@"slide" extension:@"aiff" loop:NO];
+    });
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -42,20 +55,22 @@
 - (IBAction)pay:(id)sender
 {
     [[RRStepper sharedStepper] buttonDownWithAction:^{
-        [self payLoan:arc4random()%100];
+        [self payLoan:200];
     }];
 }
 
 - (IBAction)borrow:(id)sender
 {
     [[RRStepper sharedStepper] buttonDownWithAction:^{
-        [self borrowLoan:arc4random()%100];
+        [self borrowLoan:200];
     }];
 }
 
 - (IBAction)touchup:(id)sender
 {
     [[RRStepper sharedStepper] buttonUp];
+    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
 }
 
 -(void)payLoan:(float)amount
@@ -109,12 +124,13 @@
 
 - (BOOL)shouldDismissPartialModalView:(JLBPartialModal *)partialModal
 {
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
     return YES;
 }
 
 - (void)didDismissPartialModalView:(JLBPartialModal *)partialModal
 {
-    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"slide" extension:@"aiff" loop:NO];
 }
 
 @end

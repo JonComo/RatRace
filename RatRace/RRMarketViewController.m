@@ -83,20 +83,13 @@
     [self deselectAllItems];
     [collectionViewItems reloadData];
     
-    //[strings fadeIn:2];
+    [strings fadeIn:2];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [strings fadeOut:1];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    [[RRGame sharedGame].eventManager runNextEvent];
 }
 
 -(void)dealloc
@@ -169,6 +162,8 @@
 
 -(void)statsTapped
 {
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
+    
     [self deselectAllItems];
     [collectionViewItems reloadData];
 }
@@ -266,10 +261,6 @@
     MBProgressHUD *hud = (MBProgressHUD *)tap.view;
     [hud removeGestureRecognizer:tap];
     [hud hide:YES];
-    
-    [[RRGame sharedGame].eventManager runNextEvent];
 }
-
-
 
 @end

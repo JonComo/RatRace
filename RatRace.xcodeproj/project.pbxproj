@@ -27,6 +27,7 @@
 		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
 		86166B3417D9918800A6F925 /* RRPackDiamond.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3317D9918800A6F925 /* RRPackDiamond.m */; };
 		86166B3717D9936200A6F925 /* RRPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3617D9936100A6F925 /* RRPack.m */; };
+		861F691617DA8CD00097541C /* slide.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 861F691517DA8CD00097541C /* slide.aiff */; };
 		862400D817D5773A00C3BDE0 /* Dubai.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CE17D5773A00C3BDE0 /* Dubai.png */; };
 		862400D917D5773A00C3BDE0 /* Germany.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400CF17D5773A00C3BDE0 /* Germany.png */; };
 		862400DA17D5773A00C3BDE0 /* Greece.png in Resources */ = {isa = PBXBuildFile; fileRef = 862400D017D5773A00C3BDE0 /* Greece.png */; };
@@ -54,6 +55,8 @@
 		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
 		86B9850817D5BBEB0065FD70 /* diamondWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B9850617D5BBEB0065FD70 /* diamondWhite@2x.png */; };
 		86B9850917D5BBEB0065FD70 /* diamondBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B9850717D5BBEB0065FD70 /* diamondBlack@2x.png */; };
+		86D3116A17DA6BAC00D218E3 /* RRStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D3116917DA6BAC00D218E3 /* RRStats.m */; };
+		86D3116D17DA6C9300D218E3 /* RRStatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D3116C17DA6C9300D218E3 /* RRStatsView.m */; };
 		86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1717D415F60032D830 /* UIKit.framework */; };
 		86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1917D415F60032D830 /* Foundation.framework */; };
 		86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1B17D415F60032D830 /* CoreGraphics.framework */; };
@@ -104,6 +107,7 @@
 		86166B3317D9918800A6F925 /* RRPackDiamond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackDiamond.m; sourceTree = "<group>"; };
 		86166B3517D9936100A6F925 /* RRPack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPack.h; sourceTree = "<group>"; };
 		86166B3617D9936100A6F925 /* RRPack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPack.m; sourceTree = "<group>"; };
+		861F691517DA8CD00097541C /* slide.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = slide.aiff; sourceTree = "<group>"; };
 		862400CE17D5773A00C3BDE0 /* Dubai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dubai.png; sourceTree = "<group>"; };
 		862400CF17D5773A00C3BDE0 /* Germany.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Germany.png; sourceTree = "<group>"; };
 		862400D017D5773A00C3BDE0 /* Greece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greece.png; sourceTree = "<group>"; };
@@ -139,6 +143,10 @@
 		86A0C4FA17D54832001663D6 /* click.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = click.aiff; sourceTree = "<group>"; };
 		86B9850617D5BBEB0065FD70 /* diamondWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamondWhite@2x.png"; sourceTree = "<group>"; };
 		86B9850717D5BBEB0065FD70 /* diamondBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamondBlack@2x.png"; sourceTree = "<group>"; };
+		86D3116817DA6BAC00D218E3 /* RRStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStats.h; sourceTree = "<group>"; };
+		86D3116917DA6BAC00D218E3 /* RRStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStats.m; sourceTree = "<group>"; };
+		86D3116B17DA6C9300D218E3 /* RRStatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStatsView.h; sourceTree = "<group>"; };
+		86D3116C17DA6C9300D218E3 /* RRStatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStatsView.m; sourceTree = "<group>"; };
 		86DBBD1417D415F60032D830 /* RatRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DBBD1717D415F60032D830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86DBBD1917D415F60032D830 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -198,6 +206,8 @@
 				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
 				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
 				3381583B17D9B01C006CCA90 /* brief.xib */,
+				86D3116B17DA6C9300D218E3 /* RRStatsView.h */,
+				86D3116C17DA6C9300D218E3 /* RRStatsView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -227,6 +237,8 @@
 				8636C3A917D7FA2600612361 /* RRStepper.m */,
 				86166B2F17D904AE00A6F925 /* RREventManager.h */,
 				86166B3017D904AE00A6F925 /* RREventManager.m */,
+				86D3116817DA6BAC00D218E3 /* RRStats.h */,
+				86D3116917DA6BAC00D218E3 /* RRStats.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -317,6 +329,7 @@
 		86A0C4F917D54832001663D6 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				861F691517DA8CD00097541C /* slide.aiff */,
 				864F708717D5714700FEDAA6 /* jet.aiff */,
 				864F708517D56EE500FEDAA6 /* ding.aiff */,
 				864F708017D567CE00FEDAA6 /* planeAmbient.aiff */,
@@ -475,6 +488,7 @@
 				3381583417D83FEB006CCA90 /* debeers.png in Resources */,
 				3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */,
 				3381583C17D9B01C006CCA90 /* brief.xib in Resources */,
+				861F691617DA8CD00097541C /* slide.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +524,8 @@
 				3381583A17D942D3006CCA90 /* RRLeaderboardViewController.m in Sources */,
 				86166B3417D9918800A6F925 /* RRPackDiamond.m in Sources */,
 				86166B3717D9936200A6F925 /* RRPack.m in Sources */,
+				86D3116A17DA6BAC00D218E3 /* RRStats.m in Sources */,
+				86D3116D17DA6C9300D218E3 /* RRStatsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
