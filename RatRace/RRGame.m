@@ -44,9 +44,8 @@
     self.bank = nil;
     self.bank = [RRBank bankWithLoanAmount:0 withInterest:0.02 limit:2000];
     
-    self.availableItems = [@[[RRItem item:@"Cognac Diamond" value:200], [RRItem item:@"Yellow Diamond" value:400], [RRItem item:@"Black Diamond" value:650], [RRItem item:@"Blue Diamond" value:1000], [RRItem item:@"White Diamond" value:2000], [RRItem item:@"Blood Diamond" value:10000]] mutableCopy];
-    
-    self.availableLocations = [@[@"Switzerland", @"Dubai", @"Greece", @"Russia", @"South Africa", @"Thailand"] mutableCopy];
+    self.availableItems = [self.pack items];
+    self.availableLocations = [self.pack locations];
     
     self.location = self.availableLocations[0];
     
@@ -56,29 +55,33 @@
 -(void)randomizeValues
 {
     for (RRItem *item in self.availableItems){
-        [self randomizeItemValue:item];
+        [self randomizeItem:item];
     }
 }
 
--(void)randomizeItemValue:(RRItem *)item
+-(void)randomizeItem:(RRItem *)item
 {
-    item.value = item.valueInitial + arc4random()%((int)(item.valueInitial*.2));
+    float initValue = item.valueInitial;
+    float addedValue = (float)(arc4random()%((int)(initValue*.2)));
+    
+    item.value = initValue + addedValue;
 }
 
--(void)changeItemWithName:(NSString *)name toValue:(float)value
+-(RRItem *)itemWithName:(NSString *)name
 {
-    for (RRItem *item in [RRGame sharedGame].availableItems)
-    {
-        if ([item.name isEqualToString:name])
-        {
-            item.valueInitial = value;
+    for (RRItem *item in [RRGame sharedGame].availableItems){
+        if ([item.name isEqualToString:name]){
+            return item;
         }
     }
+    
+    return nil;
 }
 
 - (void)advanceDay
 {
     self.day +=1;
+    
     [self.bank incrementLoan];
     
     [self.eventManager addRandomEvent];

@@ -21,8 +21,8 @@
 
 @property (nonatomic, strong) RRPack *pack;
 
-@property (nonatomic, strong) NSMutableArray *availableItems;
-@property (nonatomic, strong) NSMutableArray *availableLocations;
+@property (nonatomic, strong) NSArray *availableItems;
+@property (nonatomic, strong) NSArray *availableLocations;
 
 @property (nonatomic, strong) NSString *location;
 
@@ -33,11 +33,11 @@
 +(RRGame *)sharedGame;
 
 -(void)newGame;
-
 - (void)advanceDay;
 
--(void)randomizeItemValue:(RRItem *)item;
+-(void)randomizeValues;
 
--(void)changeItemWithName:(NSString *)name toValue:(float)value;
+-(RRItem *)itemWithName:(NSString *)name;
+-(void)randomizeItem:(RRItem *)item;
 
 @end

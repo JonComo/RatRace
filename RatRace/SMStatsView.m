@@ -42,6 +42,10 @@
     [[RRGame sharedGame] addObserver:self forKeyPath:@"location" options:NSKeyValueObservingOptionNew context:NULL];
     [[RRGame sharedGame].bank addObserver:self forKeyPath:@"interest" options:NSKeyValueObservingOptionNew context:NULL];
     
+    [[NSNotificationCenter defaultCenter] addObserverForName:RREventUpdateUI object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self update];
+    }];
+    
     [self update];
 }
 
@@ -67,14 +71,5 @@
 {
     [self update];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
