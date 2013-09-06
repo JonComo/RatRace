@@ -227,10 +227,6 @@
 				8636C3A917D7FA2600612361 /* RRStepper.m */,
 				86166B2F17D904AE00A6F925 /* RREventManager.h */,
 				86166B3017D904AE00A6F925 /* RREventManager.m */,
-				86166B3517D9936100A6F925 /* RRPack.h */,
-				86166B3617D9936100A6F925 /* RRPack.m */,
-				86166B3217D9918800A6F925 /* RRPackDiamond.h */,
-				86166B3317D9918800A6F925 /* RRPackDiamond.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -270,6 +266,17 @@
 				338157F817D45BB7006CCA90 /* JLBPartialModal.m */,
 			);
 			name = JLPartialModal;
+			sourceTree = "<group>";
+		};
+		86166B3817D9C51400A6F925 /* ContentPacks */ = {
+			isa = PBXGroup;
+			children = (
+				86166B3517D9936100A6F925 /* RRPack.h */,
+				86166B3617D9936100A6F925 /* RRPack.m */,
+				86166B3217D9918800A6F925 /* RRPackDiamond.h */,
+				86166B3317D9918800A6F925 /* RRPackDiamond.m */,
+			);
+			name = ContentPacks;
 			sourceTree = "<group>";
 		};
 		862400CC17D5773A00C3BDE0 /* media */ = {
@@ -357,6 +364,7 @@
 			children = (
 				862400CC17D5773A00C3BDE0 /* media */,
 				86A0C4F917D54832001663D6 /* sound */,
+				86166B3817D9C51400A6F925 /* ContentPacks */,
 				3381580317D468E1006CCA90 /* Model */,
 				3381580217D468D8006CCA90 /* Views */,
 				3381580517D468F7006CCA90 /* Control */,

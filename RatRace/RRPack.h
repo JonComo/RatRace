@@ -13,5 +13,7 @@
 @interface RRPack : NSObject
 
 -(RREvent *)randomEvent;
+-(NSArray *)locations;
+-(NSArray *)items;
 
 @end

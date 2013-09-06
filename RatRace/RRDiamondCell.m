@@ -39,7 +39,7 @@
     _item = item;
     
     labelName.text = item.name;
-    labelPrice.text = [NSString stringWithFormat:@"$%.2f", item.valueInitial];
+    labelPrice.text = [NSString stringWithFormat:@"$%.2f", item.value];
     
     if (item.selected)
     {
@@ -120,11 +120,9 @@
 
         return;
     }
-    
-//    RRItem *boughtItem = [RRItem item:self.item.name value:self.item.value];
+
     self.item.count ++;
     
-    //[[RRGame sharedGame].player.inventory addObject:boughtItem];
     [RRGame sharedGame].player.money -= self.item.value;
     
     [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
