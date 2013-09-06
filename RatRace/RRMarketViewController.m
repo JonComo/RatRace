@@ -83,7 +83,7 @@
     [self deselectAllItems];
     [collectionViewItems reloadData];
     
-    //[strings fadeIn:2];
+    [strings fadeIn:2];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -162,6 +162,8 @@
 
 -(void)statsTapped
 {
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
+    
     [self deselectAllItems];
     [collectionViewItems reloadData];
 }

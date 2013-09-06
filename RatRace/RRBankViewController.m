@@ -35,6 +35,17 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    double delayInSeconds = 0.3;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [[RRAudioEngine sharedEngine] playSoundNamed:@"slide" extension:@"aiff" loop:NO];
+    });
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -113,12 +124,13 @@
 
 - (BOOL)shouldDismissPartialModalView:(JLBPartialModal *)partialModal
 {
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
     return YES;
 }
 
 - (void)didDismissPartialModalView:(JLBPartialModal *)partialModal
 {
-    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"slide" extension:@"aiff" loop:NO];
 }
 
 @end

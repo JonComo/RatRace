@@ -65,7 +65,7 @@
     
     if (playClick%2 == 0)
     {
-        [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
+        [[RRAudioEngine sharedEngine] playSoundNamed:@"slide" extension:@"aiff" loop:NO];
     }
 }
 
