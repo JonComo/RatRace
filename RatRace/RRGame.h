@@ -10,6 +10,7 @@
 
 #import "RRPlayer.h"
 #import "RRBank.h"
+#import "RRPack.h"
 #import "RREventManager.h"
 
 #define RRDiamondCountChanged @"diamondCountChanged"
@@ -17,6 +18,8 @@
 @interface RRGame : NSObject
 
 @property int day;
+
+@property (nonatomic, strong) RRPack *pack;
 
 @property (nonatomic, strong) NSMutableArray *availableItems;
 @property (nonatomic, strong) NSMutableArray *availableLocations;

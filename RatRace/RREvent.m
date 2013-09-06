@@ -7,7 +7,6 @@
 //
 
 #import "RREvent.h"
-
 #import "RRGame.h"
 
 @implementation RREvent
@@ -15,14 +14,16 @@
     int daysProgressed;
 }
 
-+(RREvent *)eventWithInitialBlock:(InitialBlock)initBlock numberOfDays:(int)duration endingBlock:(EndingBlock)endBlock
++(RREvent *)eventWithName:(NSString *)name initialBlock:(InitialBlock)initBlock numberOfDays:(int)duration endingBlock:(EndingBlock)endBlock
 {
     RREvent *newEvent = [[self alloc] init];
     
+    newEvent.name = name;
     newEvent.initBlock = initBlock;
     newEvent.endBlock = endBlock;
-    
     newEvent.duration = duration;
+    
+    NSLog(@"Event created: %@", name);
     
     return newEvent;
 }
@@ -37,6 +38,11 @@
     return self;
 }
 
+-(void)dealloc
+{
+    NSLog(@"Event removed %@", self.name);
+}
+
 -(void)runStart
 {
     if (self.initBlock)
@@ -45,10 +51,8 @@
 
 -(void)runEnd
 {
-    if (daysProgressed >= self.duration){
-        if (self.endBlock)
-            self.endBlock();
-    }
+    if (self.endBlock)
+        self.endBlock();
 }
 
 -(void)progressDay
@@ -56,13 +60,16 @@
     daysProgressed ++;
     
     if (daysProgressed == 1){
-        //first day, run it
         [self runStart];
     }
     
-    if (daysProgressed >= self.duration){
+    if (daysProgressed > self.duration){
         [self runEnd];
         self.isFinished = YES;
+    }
+    
+    if (!self.isFinished){
+        [self landedOnLocation:[RRGame sharedGame].location];
     }
 }
 
@@ -70,6 +77,13 @@
 {
     BOOL rightLocation = [location isEqualToString:self.location];
     if (self.locationBlock) self.locationBlock(rightLocation);
+}
+
+-(NSString *)description
+{
+    NSString *original = [super description];
+    
+    return [NSString stringWithFormat:@"%@ - %@", original, self.name];
 }
 
 @end
