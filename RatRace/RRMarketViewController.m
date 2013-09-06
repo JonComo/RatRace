@@ -22,7 +22,7 @@
 
 #import "RRAudioEngine.h"
 
-@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RREventManagerDelegate>
+@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     SMStatsView *statsView;
     RRTravelViewController *travelController;
@@ -49,9 +49,6 @@
     
     [[RRGame sharedGame] newGame];
     
-    [RRGame sharedGame].eventManager.viewForHUD = self.view;
-    [RRGame sharedGame].eventManager.delegate = self;
-    
     [RRGraphics buttonStyle:travelButton];
     [RRGraphics buttonStyle:bankButton];
     [RRGraphics buttonStyle:briefButton];
@@ -64,6 +61,18 @@
     //music
     strings = [[RRAudioEngine sharedEngine] playSoundNamed:@"strings" extension:@"wav" loop:YES];
     strings.volume = 0;
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:RREventShowMessageNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSString *title = note.userInfo[RREventTitle];
+        NSString *message = note.userInfo[RREventMessage];
+        UIImage *image = note.userInfo[RREventImage];
+        
+        [self showHUDWithTitle:title detail:message autoDismiss:NO image:image];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:RREventShowMessageNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [collectionViewItems reloadData];
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -82,6 +91,13 @@
     [strings fadeOut:1];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [[RRGame sharedGame].eventManager runNextEvent];
+}
+
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:RRDiamondCountChanged object:nil];
@@ -91,11 +107,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)eventManagerDidUpdateData:(RREventManager *)manager
-{
-    [collectionViewItems reloadData];
 }
 
 -(void)addStatsView
@@ -211,8 +222,6 @@
 
 -(void)showHUDWithTitle:(NSString *)title detail:(NSString *)detail autoDismiss:(BOOL)autoDismiss image:(UIImage *)image
 {
-    NSLog(@"SHOWING HUD: %@", title);
-    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
     hud.detailsLabelText = detail;
@@ -226,8 +235,7 @@
     imageView.image = image;
     hud.customView = imageView;
     
-    if (autoDismiss)
-    {
+    if (autoDismiss){
         [hud hide:YES afterDelay:3];
     }else{
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideHUD:)];
@@ -244,6 +252,8 @@
 {
     MBProgressHUD *hud = (MBProgressHUD *)tap.view;
     [hud hide:YES];
+    
+    [[RRGame sharedGame].eventManager runNextEvent];
 }
 
 @end

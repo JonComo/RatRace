@@ -1,5 +1,5 @@
 //
-//  RREventManager.h
+//  RRPack.h
 //  RatRace
 //
 //  Created by Jon Como on 9/5/13.
@@ -10,9 +10,8 @@
 
 #import "RREvent.h"
 
-@interface RREventManager : NSObject
+@interface RRPack : NSObject
 
--(void)addRandomEvent;
--(void)runNextEvent;
+-(RREvent *)randomEvent;
 
 @end

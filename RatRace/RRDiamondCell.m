@@ -39,8 +39,7 @@
     _item = item;
     
     labelName.text = item.name;
-    labelPrice.text = [NSString stringWithFormat:@"$%.2f", item.value];
-    
+    labelPrice.text = [NSString stringWithFormat:@"$%.2f", item.valueInitial];
     
     if (item.selected)
     {

@@ -8,34 +8,32 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum
-{
-    RREventTypeSeize,
-    RREventTypeInterest
-} RREventType;
+#define RREventShowMessageNotification @"eventShowMessage"
+#define RREventTitle @"title"
+#define RREventMessage @"message"
+#define RREventImage @"image"
+
+#define RREventUpdateUI @"eventUpdateUI"
 
 typedef void (^InitialBlock)(void);
 typedef void (^EndingBlock)(void);
-typedef void (^LocationBlock)(void);
+typedef void (^LocationBlock)(BOOL rightLocation);
 
 @interface RREvent : NSObject
 
 @property (copy) InitialBlock initBlock;
 @property (copy) EndingBlock endBlock;
 @property (copy) LocationBlock locationBlock;
-@property (copy) LocationBlock wrongLocation;
 
-@property RREventType type;
+@property (nonatomic, strong) NSString *name;
 @property int duration;
-@property (nonatomic, strong) NSString *location;
+@property (copy) NSString *location;
+@property BOOL isFinished;
 
-+(RREvent *)eventWithInitialBlock:(InitialBlock)initBlock numberOfDays:(int)duration endingBlock:(EndingBlock)endBlock;
++(RREvent *)eventWithName:(NSString *)name initialBlock:(InitialBlock)initBlock numberOfDays:(int)duration endingBlock:(EndingBlock)endBlock;
 
 -(void)runStart;
 -(void)runEnd;
-
 -(void)progressDay;
-
--(void)landedOnLocation:(NSString *)location;
 
 @end

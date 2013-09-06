@@ -10,6 +10,7 @@
 
 #import "RRPlayer.h"
 #import "RRBank.h"
+#import "RRPack.h"
 #import "RREventManager.h"
 
 #define RRDiamondCountChanged @"diamondCountChanged"
@@ -18,7 +19,7 @@
 
 @property int day;
 
-@property (nonatomic, strong) NSMutableArray *events;
+@property (nonatomic, strong) RRPack *pack;
 
 @property (nonatomic, strong) NSMutableArray *availableItems;
 @property (nonatomic, strong) NSMutableArray *availableLocations;
@@ -36,5 +37,7 @@
 - (void)advanceDay;
 
 -(void)randomizeItemValue:(RRItem *)item;
+
+-(void)changeItemWithName:(NSString *)name toValue:(float)value;
 
 @end

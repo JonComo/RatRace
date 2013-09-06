@@ -42,8 +42,7 @@
 {
     int count = 0;
     
-    for (RRItem *item in [RRGame sharedGame].availableItems)
-    {
+    for (RRItem *item in [RRGame sharedGame].availableItems){
         count += item.count;
     }
     
