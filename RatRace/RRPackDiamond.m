@@ -59,21 +59,21 @@
     
     RREvent *locationEvent = [RREvent eventWithName:@"mineChange" initialBlock:^{
         
-        //[self addHUDWithTitle:[NSString stringWithFormat:@"Diamond mine %@!", occurence] detail:[NSString stringWithFormat:@"A large diamond mine was %@ in %@. The average value of %@s has %@ by $%.2f.", occurence, randomLocation, changedItem.name, change, valueChange] autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
-        
         RRItem *item = [[RRGame sharedGame] itemWithName:itemName];
         item.valueInitial = newValue;
         
+        [[RRGame sharedGame] randomizeItem:item];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle: [NSString stringWithFormat:@"Diamond mine %@!", occurence], RREventMessage : [NSString stringWithFormat:@"A large diamond mine was %@ in %@. The average value of %@s has %@ by $%.2f.", occurence, randomLocation, changedItem.name, change, ABS(valueChange)], RREventImage:[UIImage imageNamed:@"debeers"]}];
         
-    } numberOfDays:2+arc4random()%3 endingBlock:^{
+    } numberOfDays:3+arc4random()%3 endingBlock:^{
         
         RRItem *item = [[RRGame sharedGame] itemWithName:itemName];
         item.valueInitial = initialValue;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle: @"Price restored!", RREventMessage : [NSString stringWithFormat:@"The market value of %@s has returned to normal.", changedItem.name], RREventImage:[UIImage imageNamed:@"debeers"]}];
+        [[RRGame sharedGame] randomizeItem:item];
         
-        //[self addHUDWithTitle:@"Price restored!" detail:[NSString stringWithFormat:@"The market value of %@s has returned to normal in %@.", changedItem.name, randomLocation] autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle: @"Price restored!", RREventMessage : [NSString stringWithFormat:@"The market value of %@s has returned to normal.", changedItem.name], RREventImage:[UIImage imageNamed:@"debeers"]}];
     }];
     
     locationEvent.locationBlock = ^(BOOL rightLocation)
