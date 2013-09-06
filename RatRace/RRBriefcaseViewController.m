@@ -20,7 +20,12 @@
     __weak IBOutlet RRButtonSound *buttonLeader;
     __weak IBOutlet RRButtonSound *buttonNewGame;
 }
+
+@property (nonatomic, strong) GKLeaderboard *leaderboards;
+@property (nonatomic, strong) GKScore *score;
+
 @end
+
 
 @implementation RRBriefcaseViewController
 
@@ -29,6 +34,8 @@
     [super viewDidLoad];
     [RRGraphics buttonStyle:buttonNewGame];
     [RRGraphics buttonStyle:buttonLeader];
+    
+    [self loadLeaderboardInfo];
 	// Do any additional setup after loading the view.
 }
 
@@ -41,19 +48,31 @@
 
 - (IBAction)leaderboard:(id)sender {
 
-    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
-    if (!localPlayer.authenticated) {
-        [localPlayer setAuthenticateHandler:^(UIViewController *vc, NSError *error) {
-            [self presentViewController:vc animated:YES completion:nil];
-        }];
-    }else{
-        
-        GKLeaderboardViewController *leaderboardViewController =
-        [[GKLeaderboardViewController alloc] init];
-        leaderboardViewController.leaderboardDelegate = self;
-        [self presentViewController:leaderboardViewController animated:YES completion:nil];
-    }
+}
 
+- (void) loadLeaderboardInfo
+{
+    [[GKLocalPlayer localPlayer] loadDefaultLeaderboardCategoryIDWithCompletionHandler:^(NSString *categoryID, NSError *error) {
+        
+         NSLog(@"%@ %@", categoryID, error);
+        [self showLeaderboard:self.leaderboards.groupIdentifier];
+        
+    }];
+
+}
+
+- (void)showLeaderboard:(NSString*)leaderboardID
+{
+    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+    
+    if (gameCenterController != nil)
+    {
+        gameCenterController.gameCenterDelegate = self;
+        gameCenterController.viewState = GKGameCenterViewControllerStateLeaderboards;
+        gameCenterController.leaderboardTimeScope = GKLeaderboardTimeScopeToday;
+        gameCenterController.leaderboardCategory = leaderboardID;
+        [self presentViewController: gameCenterController animated: YES completion:nil];
+    }
 }
 
 - (IBAction)newGame:(id)sender {
