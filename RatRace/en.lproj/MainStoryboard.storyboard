@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="dRU-ZG-PbK" customClass="RRIntroViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wnt-TZ-sND">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="travel.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wav-no-9d4">
@@ -59,7 +59,7 @@
             <objects>
                 <viewController id="QrZ-4I-jwn" customClass="RRBriefcaseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jRb-I4-O3I">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background2.png" translatesAutoresizingMaskIntoConstraints="NO" id="DrG-XX-xky"/>
@@ -138,25 +138,31 @@
             <objects>
                 <viewController id="uNJ-I9-fWI" customClass="RRLeaderboardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCP-8j-bcK">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwJ-0V-AXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="728"/>
+            <point key="canvasLocation" x="669" y="784"/>
         </scene>
         <!--Market View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="RRMarketViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" image="historic-diamond-prices-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UcI-2r-k4p">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gzu-Fr-gTQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" type="user" id="nP8-vZ-LHk"/>
+                                </constraints>
+                            </imageView>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-W5-aEY">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="wge-yN-4Gl">
                                     <size key="itemSize" width="320" height="39"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -225,7 +231,10 @@
                             <constraint firstItem="G27-ES-Lae" firstAttribute="width" secondItem="5qX-dT-zPS" secondAttribute="width" type="user" id="VEG-X2-box"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="bottom" secondItem="G27-ES-Lae" secondAttribute="bottom" type="default" id="aHb-Rh-rhB"/>
                             <constraint firstAttribute="trailing" secondItem="P9I-NY-F2t" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="b1h-gi-WC1"/>
+                            <constraint firstItem="UcI-2r-k4p" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="d3S-2f-FaD"/>
+                            <constraint firstItem="UcI-2r-k4p" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="fjr-9v-t9U"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gyy-NR-NIa"/>
+                            <constraint firstAttribute="bottom" secondItem="UcI-2r-k4p" secondAttribute="bottom" type="user" id="j3e-c3-JeP"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="jBW-AS-9LP"/>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jFS-Sb-nlw"/>
                             <constraint firstItem="P9I-NY-F2t" firstAttribute="bottom" secondItem="5qX-dT-zPS" secondAttribute="bottom" type="default" id="wUZ-kV-9Hz"/>
@@ -247,7 +256,7 @@
             <objects>
                 <viewController storyboardIdentifier="travelVC" id="5LU-98-ggc" customClass="RRTravelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2SQ-ba-ong">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kRO-WJ-osv">
@@ -317,58 +326,11 @@
             </objects>
             <point key="canvasLocation" x="544" y="19"/>
         </scene>
-        <!--Random News View Controller-->
-        <scene sceneID="t1D-QV-gxI">
-            <objects>
-                <viewController storyboardIdentifier="randomVC" id="PQu-Zh-pCJ" customClass="RRRandomNewsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9X6-YI-ZQ8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="RANDOM EVENT!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqP-j1-3dQ">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="0LE-wH-UKM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z5k-Ez-UqR" customClass="RRButtonSound">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="34N-xj-CCV"/>
-                                    <constraint firstAttribute="width" constant="82" id="vqn-4u-tuG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Dismiss">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismiss:" destination="PQu-Zh-pCJ" eventType="touchUpInside" id="ZLw-Bk-nWq"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Z5k-Ez-UqR" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="2ha-Vw-PDs"/>
-                            <constraint firstItem="CqP-j1-3dQ" firstAttribute="top" secondItem="9X6-YI-ZQ8" secondAttribute="top" constant="20" symbolic="YES" type="default" id="KOd-Wi-8vs"/>
-                            <constraint firstAttribute="trailing" secondItem="CqP-j1-3dQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="tlO-si-ZX2"/>
-                            <constraint firstAttribute="trailing" secondItem="Z5k-Ez-UqR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ut1-uL-cH9"/>
-                            <constraint firstItem="CqP-j1-3dQ" firstAttribute="leading" secondItem="9X6-YI-ZQ8" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="xkB-vt-IzX"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fna-4Z-KzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="940" y="19"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Italy.png" width="640" height="320"/>
         <image name="background2.png" width="640" height="1120"/>
+        <image name="historic-diamond-prices-2.jpg" width="640" height="240"/>
         <image name="travel.png" width="640" height="1120"/>
     </resources>
     <classes>
@@ -384,6 +346,7 @@
         <class className="RRIntroViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRIntroViewController.h"/>
             <relationships>
+                <relationship kind="action" name="newGame:"/>
                 <relationship kind="outlet" name="buttonNewGame" candidateClass="RRButtonSound"/>
             </relationships>
         </class>
@@ -393,13 +356,12 @@
         <class className="RRMarketViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
             <relationships>
+                <relationship kind="action" name="bank:"/>
+                <relationship kind="action" name="travel:"/>
                 <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="briefButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>
             </relationships>
-        </class>
-        <class className="RRRandomNewsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRRandomNewsViewController.h"/>
         </class>
         <class className="RRTravelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRTravelViewController.h"/>
@@ -420,6 +382,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
