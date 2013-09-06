@@ -23,6 +23,7 @@
 		3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583117D83FEB006CCA90 /* diamond-in-hand.png */; };
 		3381583717D94226006CCA90 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3381583617D94226006CCA90 /* GameKit.framework */; };
 		3381583A17D942D3006CCA90 /* RRLeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3381583917D942D3006CCA90 /* RRLeaderboardViewController.m */; };
+		3381583C17D9B01C006CCA90 /* brief.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3381583B17D9B01C006CCA90 /* brief.xib */; };
 		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
 		86166B3417D9918800A6F925 /* RRPackDiamond.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3317D9918800A6F925 /* RRPackDiamond.m */; };
 		86166B3717D9936200A6F925 /* RRPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3617D9936100A6F925 /* RRPack.m */; };
@@ -96,6 +97,7 @@
 		3381583617D94226006CCA90 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		3381583817D942D3006CCA90 /* RRLeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRLeaderboardViewController.h; sourceTree = "<group>"; };
 		3381583917D942D3006CCA90 /* RRLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRLeaderboardViewController.m; sourceTree = "<group>"; };
+		3381583B17D9B01C006CCA90 /* brief.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = brief.xib; sourceTree = "<group>"; };
 		86166B2F17D904AE00A6F925 /* RREventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREventManager.h; sourceTree = "<group>"; };
 		86166B3017D904AE00A6F925 /* RREventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREventManager.m; sourceTree = "<group>"; };
 		86166B3217D9918800A6F925 /* RRPackDiamond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackDiamond.h; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				86DBBD4917D41CA90032D830 /* stats.xib */,
 				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
 				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
+				3381583B17D9B01C006CCA90 /* brief.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				3381583317D83FEB006CCA90 /* cut_diamonds.png in Resources */,
 				3381583417D83FEB006CCA90 /* debeers.png in Resources */,
 				3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */,
+				3381583C17D9B01C006CCA90 /* brief.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
