@@ -167,8 +167,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kRO-WJ-osv">
-                                <color key="backgroundColor" white="0.94271783760000005" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="353-nr-bDd">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="10" id="353-nr-bDd">
                                     <size key="itemSize" width="320" height="95"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -184,30 +184,36 @@
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="200" contentMode="scaleAspectFill" image="Italy.png" translatesAutoresizingMaskIntoConstraints="NO" id="gJr-u8-3Fy"/>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEc-2X-SyD">
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.20000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-iy-u8D">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="320" id="1zY-cM-3b9"/>
+                                                                <constraint firstAttribute="height" constant="90" id="DQx-5i-bRH"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="51"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="9uv-iy-u8D" firstAttribute="top" secondItem="uEc-2X-SyD" secondAttribute="top" constant="3" id="4E2-ZX-7tA"/>
+                                                        <constraint firstItem="9uv-iy-u8D" firstAttribute="leading" secondItem="uEc-2X-SyD" secondAttribute="leading" type="default" id="XNi-x5-BHg"/>
+                                                    </constraints>
                                                 </view>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.20000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="9uv-iy-u8D">
-                                                    <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="51"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.92119069343065696" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="gJr-u8-3Fy" firstAttribute="leading" secondItem="BNP-FG-HJZ" secondAttribute="leading" type="default" id="05r-Mr-Mp2"/>
-                                            <constraint firstItem="9uv-iy-u8D" firstAttribute="trailing" secondItem="BNP-FG-HJZ" secondAttribute="trailing" type="default" id="2XM-xT-qNI"/>
-                                            <constraint firstItem="uEc-2X-SyD" firstAttribute="top" secondItem="BNP-FG-HJZ" secondAttribute="top" type="default" id="6iK-Ya-6s2"/>
-                                            <constraint firstItem="9uv-iy-u8D" firstAttribute="top" secondItem="BNP-FG-HJZ" secondAttribute="top" type="default" id="ACt-Qs-EBM"/>
-                                            <constraint firstItem="gJr-u8-3Fy" firstAttribute="top" secondItem="BNP-FG-HJZ" secondAttribute="top" type="default" id="GzH-f4-vVR"/>
-                                            <constraint firstItem="uEc-2X-SyD" firstAttribute="trailing" secondItem="BNP-FG-HJZ" secondAttribute="trailing" type="default" id="PaB-no-XU5"/>
-                                            <constraint firstItem="uEc-2X-SyD" firstAttribute="leading" secondItem="BNP-FG-HJZ" secondAttribute="leading" type="default" id="Qhv-zO-D6M"/>
-                                            <constraint firstItem="gJr-u8-3Fy" firstAttribute="trailing" secondItem="BNP-FG-HJZ" secondAttribute="trailing" type="default" id="SCN-6O-P8W"/>
-                                            <constraint firstItem="uEc-2X-SyD" firstAttribute="bottom" secondItem="BNP-FG-HJZ" secondAttribute="bottom" type="default" id="YmE-5c-0u8"/>
-                                            <constraint firstItem="9uv-iy-u8D" firstAttribute="leading" secondItem="BNP-FG-HJZ" secondAttribute="leading" type="default" id="cOM-en-Sgb"/>
-                                            <constraint firstItem="gJr-u8-3Fy" firstAttribute="bottom" secondItem="BNP-FG-HJZ" secondAttribute="bottom" type="default" id="rMl-IG-bNr"/>
-                                            <constraint firstItem="9uv-iy-u8D" firstAttribute="bottom" secondItem="BNP-FG-HJZ" secondAttribute="bottom" type="default" id="yZC-Z3-BLJ"/>
+                                            <constraint firstItem="uEc-2X-SyD" firstAttribute="bottom" secondItem="BNP-FG-HJZ" secondAttribute="bottom" type="default" id="ESV-wM-n0w"/>
+                                            <constraint firstItem="gJr-u8-3Fy" firstAttribute="bottom" secondItem="BNP-FG-HJZ" secondAttribute="bottom" type="default" id="N39-Wp-nWz"/>
+                                            <constraint firstItem="uEc-2X-SyD" firstAttribute="trailing" secondItem="BNP-FG-HJZ" secondAttribute="trailing" type="default" id="Que-zq-XWF"/>
+                                            <constraint firstItem="gJr-u8-3Fy" firstAttribute="trailing" secondItem="BNP-FG-HJZ" secondAttribute="trailing" type="default" id="V5q-Wa-8IX"/>
+                                            <constraint firstItem="gJr-u8-3Fy" firstAttribute="leading" secondItem="BNP-FG-HJZ" secondAttribute="leading" type="default" id="VUG-Kl-pvm"/>
+                                            <constraint firstItem="uEc-2X-SyD" firstAttribute="leading" secondItem="BNP-FG-HJZ" secondAttribute="leading" type="default" id="XQO-qc-Q2A"/>
+                                            <constraint firstItem="uEc-2X-SyD" firstAttribute="top" secondItem="BNP-FG-HJZ" secondAttribute="top" type="default" id="lpb-4s-4YC"/>
+                                            <constraint firstItem="gJr-u8-3Fy" firstAttribute="top" secondItem="BNP-FG-HJZ" secondAttribute="top" type="default" id="nAS-zC-1n9"/>
                                         </constraints>
                                     </collectionViewCell>
                                 </cells>
@@ -256,9 +262,6 @@
         <class className="RRMarketViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
             <relationships>
-                <relationship kind="action" name="bank:"/>
-                <relationship kind="action" name="brief:"/>
-                <relationship kind="action" name="travel:"/>
                 <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="briefButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>
