@@ -44,7 +44,7 @@
     
     self.availableItems = [@[[RRItem item:@"Yellow Diamond" value:200], [RRItem item:@"White Diamond" value:350],[RRItem item:@"Blue Diamond" value:860], [RRItem item:@"Cognac Diamond" value:950],[RRItem item:@"Black Diamond" value:4600], [RRItem item:@"Blood Diamond" value:9500]] mutableCopy];
     
-    self.availableLocations = [@[@"SWITZERLAND", @"DUBAI", @"GREECE", @"RUSSIA", @"SOUTH AFRICA", @"THAILAND"] mutableCopy];
+    self.availableLocations = [@[@"Switzerland", @"Dubai", @"Greece", @"Russia", @"South Africa", @"Thailand"] mutableCopy];
     
     self.location = self.availableLocations[0];
     
