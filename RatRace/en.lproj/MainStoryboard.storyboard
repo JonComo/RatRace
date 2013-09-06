@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="dRU-ZG-PbK" customClass="RRIntroViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wnt-TZ-sND">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="travel.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wav-no-9d4">
@@ -59,7 +59,7 @@
             <objects>
                 <viewController id="QrZ-4I-jwn" customClass="RRBriefcaseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jRb-I4-O3I">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background2.png" translatesAutoresizingMaskIntoConstraints="NO" id="DrG-XX-xky"/>
@@ -138,7 +138,7 @@
             <objects>
                 <viewController id="uNJ-I9-fWI" customClass="RRLeaderboardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCP-8j-bcK">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -152,11 +152,17 @@
             <objects>
                 <viewController id="2" customClass="RRMarketViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" image="historic-diamond-prices-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UcI-2r-k4p">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gzu-Fr-gTQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" type="user" id="nP8-vZ-LHk"/>
+                                </constraints>
+                            </imageView>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-W5-aEY">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="wge-yN-4Gl">
                                     <size key="itemSize" width="320" height="39"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -225,7 +231,10 @@
                             <constraint firstItem="G27-ES-Lae" firstAttribute="width" secondItem="5qX-dT-zPS" secondAttribute="width" type="user" id="VEG-X2-box"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="bottom" secondItem="G27-ES-Lae" secondAttribute="bottom" type="default" id="aHb-Rh-rhB"/>
                             <constraint firstAttribute="trailing" secondItem="P9I-NY-F2t" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="b1h-gi-WC1"/>
+                            <constraint firstItem="UcI-2r-k4p" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="d3S-2f-FaD"/>
+                            <constraint firstItem="UcI-2r-k4p" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="fjr-9v-t9U"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gyy-NR-NIa"/>
+                            <constraint firstAttribute="bottom" secondItem="UcI-2r-k4p" secondAttribute="bottom" type="user" id="j3e-c3-JeP"/>
                             <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="jBW-AS-9LP"/>
                             <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jFS-Sb-nlw"/>
                             <constraint firstItem="P9I-NY-F2t" firstAttribute="bottom" secondItem="5qX-dT-zPS" secondAttribute="bottom" type="default" id="wUZ-kV-9Hz"/>
@@ -247,7 +256,7 @@
             <objects>
                 <viewController storyboardIdentifier="travelVC" id="5LU-98-ggc" customClass="RRTravelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2SQ-ba-ong">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kRO-WJ-osv">
@@ -321,11 +330,58 @@
     <resources>
         <image name="Italy.png" width="640" height="320"/>
         <image name="background2.png" width="640" height="1120"/>
+        <image name="historic-diamond-prices-2.jpg" width="640" height="240"/>
         <image name="travel.png" width="640" height="1120"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RRBriefcaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRBriefcaseViewController.h"/>
+        </class>
+        <class className="RRButtonSound" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRButtonSound.h"/>
+        </class>
+        <class className="RRIntroViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRIntroViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="newGame:"/>
+                <relationship kind="outlet" name="buttonNewGame" candidateClass="RRButtonSound"/>
+            </relationships>
+        </class>
+        <class className="RRLeaderboardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRLeaderboardViewController.h"/>
+        </class>
+        <class className="RRMarketViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="bank:"/>
+                <relationship kind="action" name="travel:"/>
+                <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
+                <relationship kind="outlet" name="briefButton" candidateClass="RRButtonSound"/>
+                <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>
+            </relationships>
+        </class>
+        <class className="RRTravelViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRTravelViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="collectionViewCountries" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
