@@ -202,8 +202,6 @@
 
 -(RREvent *)randomEvent
 {
-    return [self eventMineChange];
-    
     int rand = arc4random()%5;
     
     switch (rand) {
