@@ -48,7 +48,7 @@
     
     float valueChange = (float)(arc4random()%((int)(changedItem.valueInitial*.60))) + changedItem.valueInitial*.20;
     
-    valueChange = (arc4random()%2) ? valueChange * -1 : valueChange * -1;
+    valueChange = (arc4random()%2) ? valueChange * -1 : valueChange;
     
     NSString *occurence = valueChange > 0 ? @"destroyed" : @"created";
     NSString *change = valueChange > 0 ? @"increased" : @"decreased";
@@ -202,6 +202,8 @@
 
 -(RREvent *)randomEvent
 {
+    return [self eventMineChange];
+    
     int rand = arc4random()%5;
     
     switch (rand) {
