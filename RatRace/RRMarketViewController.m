@@ -8,8 +8,6 @@
 
 #import "RRMarketViewController.h"
 
-#import "RRRandomNewsViewController.h"
-
 #import "RRGame.h"
 #import "RRItem.h"
 

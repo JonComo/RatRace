@@ -13,10 +13,11 @@
 
 @interface RRBankViewController ()
 {
+    __weak IBOutlet UILabel *label;
+    __weak IBOutlet UILabel *balanceLabel;
+
 
 }
-
-@property (strong, nonatomic) IBOutlet UILabel *label;
 
 - (IBAction)touchup:(id)sender;
 
@@ -79,18 +80,19 @@
 
 -(void)updateUI
 {
-    self.label.text = [NSString stringWithFormat:@"$%.2f", [RRGame sharedGame].bank.loan];
+    label.text = [NSString stringWithFormat:@"$%.2f", [RRGame sharedGame].bank.loan];
+    balanceLabel.text = [NSString stringWithFormat:@"BAL: $%.2f", [RRGame sharedGame].player.money];
 }
 
 -(void)animateLabel
 {
     [UIView animateWithDuration:0.1 animations:^{
-        self.label.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1);
-        self.label.alpha = 0;
+        label.layer.transform = CATransform3DMakeScale(1.2, 1.2, 1);
+        label.alpha = 0;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.1 animations:^{
-            self.label.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1);
-            self.label.alpha = 1;
+            label.layer.transform = CATransform3DMakeScale(1.0, 1.0, 1);
+            label.alpha = 1;
         } completion:^(BOOL finished) {
             
             
