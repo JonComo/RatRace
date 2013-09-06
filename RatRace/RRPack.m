@@ -15,4 +15,14 @@
     return nil;
 }
 
+-(NSArray *)locations
+{
+    return nil;
+}
+
+-(NSArray *)items
+{
+    return nil;
+}
+
 @end

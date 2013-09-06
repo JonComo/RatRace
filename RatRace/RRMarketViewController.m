@@ -70,7 +70,7 @@
         [self showHUDWithTitle:title detail:message autoDismiss:NO image:image];
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:RREventShowMessageNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:RREventUpdateUI object:nil queue:nil usingBlock:^(NSNotification *note) {
         [collectionViewItems reloadData];
     }];
 }
@@ -82,7 +82,7 @@
     [self deselectAllItems];
     [collectionViewItems reloadData];
     
-    [strings fadeIn:2];
+    //[strings fadeIn:2];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -251,6 +251,7 @@
 -(void)hideHUD:(UITapGestureRecognizer *)tap
 {
     MBProgressHUD *hud = (MBProgressHUD *)tap.view;
+    [hud removeGestureRecognizer:tap];
     [hud hide:YES];
     
     [[RRGame sharedGame].eventManager runNextEvent];
