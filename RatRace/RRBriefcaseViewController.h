@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GameKit/GameKit.h>
+#import "JLBPartialModal.h"
 
-@interface RRBriefcaseViewController : UIViewController
+@interface RRBriefcaseViewController : UIViewController <JLBPartialModalDelegate, GKLeaderboardViewControllerDelegate>
 
 @end
