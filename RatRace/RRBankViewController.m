@@ -17,7 +17,7 @@
 {
     __weak IBOutlet UILabel *label;
     __weak IBOutlet UILabel *balanceLabel;
-
+    __weak IBOutlet UILabel *labelLoanLimit;
 
 }
 
@@ -95,8 +95,9 @@
 
 -(void)updateUI
 {
-    label.text = [NSString stringWithFormat:@"$%.2f", [RRGame sharedGame].bank.loan];
+    label.text = [[RRGame sharedGame] currencyFromValue:[RRGame sharedGame].bank.loan];
     balanceLabel.text = [NSString stringWithFormat:@"BAL: $%.2f", [RRGame sharedGame].player.money];
+    labelLoanLimit.text = [NSString stringWithFormat:@"LIMIT: $%.2f", [RRGame sharedGame].bank.loanLimit];
 }
 
 -(void)animateLabel

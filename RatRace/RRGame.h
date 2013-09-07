@@ -43,4 +43,7 @@
 -(RRItem *)itemWithName:(NSString *)name;
 -(void)randomizeItem:(RRItem *)item;
 
+
+-(NSString *)currencyFromValue:(float)value;
+
 @end

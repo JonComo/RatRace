@@ -13,6 +13,9 @@
 #import "RRPackDiamond.h"
 
 @implementation RRGame
+{
+    NSNumberFormatter *numberFormatter;
+}
 
 +(RRGame *)sharedGame
 {
@@ -24,6 +27,15 @@
     });
     
     return sharedGame;
+}
+
+- (id)init
+{
+    if (self = [super init]) {
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    }
+    return self;
 }
 
 -(void)newGame
@@ -94,6 +106,12 @@
     [self.eventManager run];
     
     [self randomizeValues];
+}
+
+-(NSString *)currencyFromValue:(float)value
+{
+    NSString *formattedString = [numberFormatter stringFromNumber:@(value)];
+    return [NSString stringWithFormat:@"$%@", formattedString];
 }
 
 @end
