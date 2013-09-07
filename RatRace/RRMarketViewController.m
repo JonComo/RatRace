@@ -123,7 +123,6 @@
     RRDiamondCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"diamondCell" forIndexPath:indexPath];
     
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    
     cell.item = item;
     
     return cell;
@@ -136,6 +135,8 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    RRDiamondCell *cell = (RRDiamondCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    
     [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
     
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
@@ -143,14 +144,35 @@
     if (item.selected)
     {
         item.selected = NO;
-        [collectionViewItems reloadData];
+        cell.item = item;
+        
+        [collectionView performBatchUpdates:^{
+            
+        } completion:^(BOOL finished) {
+        }];
     }else{
         [self deselectAllItems];
         item.selected = YES;
         
-        [collectionViewItems reloadData];
-        [collectionViewItems scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+        cell.item = item;
+        
+        [collectionView performBatchUpdates:^{
+            
+        } completion:^(BOOL finished) {
+            [collectionViewItems scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+        }];
+
     }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    RRDiamondCell *cell = (RRDiamondCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
+    item.selected = NO;
+    
+    cell.item = item;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -236,10 +258,13 @@
     hud.mode = MBProgressHUDModeCustomView;
     
     hud.color = [UIColor whiteColor];
+    
+    hud.dimBackground = YES;
+    
     hud.labelFont = [UIFont fontWithName:@"Avenir" size:18];
     hud.detailsLabelFont = [UIFont fontWithName:@"Avenir" size:14];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
     imageView.image = image;
     hud.customView = imageView;
     

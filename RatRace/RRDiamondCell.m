@@ -39,10 +39,12 @@
     _item = item;
     
     labelName.text = item.name;
-    labelPrice.text = [NSString stringWithFormat:@"$%.2f", item.value];
+    labelPrice.text = [[RRGame sharedGame] format:item.value];
     
     if (item.selected)
     {
+        [UIView animateWithDuration:0.3 animations:^{
+            
         self.backgroundColor = [UIColor whiteColor];
         //imageViewBackground.image = [RRGraphics resizableBorderImage];
         
@@ -52,11 +54,17 @@
         
         labelName.textColor = interfaceColor;
         labelPrice.textColor = interfaceColor;
+        labelItemCount.textColor = interfaceColor;
         
         [buttonBuyOne setTitleColor:interfaceColor forState:UIControlStateNormal];
         [buttonSellOne setTitleColor:interfaceColor forState:UIControlStateNormal];
+        }];
     }else{
-        self.backgroundColor = [UIColor clearColor];
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            
+        
+        self.backgroundColor = [UIColor blackColor];
         //imageViewBackground.image = nil;
         
         UIColor *interfaceColor = [UIColor whiteColor];
@@ -65,9 +73,12 @@
         
         labelName.textColor = interfaceColor;
         labelPrice.textColor = interfaceColor;
+        labelItemCount.textColor = interfaceColor;
         
         [buttonBuyOne setTitleColor:interfaceColor forState:UIControlStateNormal];
         [buttonSellOne setTitleColor:interfaceColor forState:UIControlStateNormal];
+            
+        }];
     }
     
     [self calculate];
@@ -77,7 +88,7 @@
 {
     int numberOwned = self.item.count;
     
-    labelItemCount.text = [NSString stringWithFormat:@"%i", numberOwned];
+    labelItemCount.text = [NSString stringWithFormat:@"x%i", numberOwned];
     imageViewHasItem.hidden = self.item.count == 0 ? YES : NO;
 }
 
@@ -87,12 +98,15 @@
 }
 
 - (IBAction)sellOne:(id)sender {
+    previousValue = self.item.count;
+    
     [[RRStepper sharedStepper] buttonDownWithAction:^{
         [self sell];
     }];
 }
 
 - (IBAction)buyOne:(id)sender {
+    previousValue = self.item.count;
     
     [[RRStepper sharedStepper] buttonDownWithAction:^{
         [self buy];
@@ -103,14 +117,16 @@
 {
     [[RRStepper sharedStepper] buttonUp];
     
-    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
+    if (self.item.count != previousValue)
+        [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
 }
 
 - (IBAction)sellOneUp:(id)sender
 {
     [[RRStepper sharedStepper] buttonUp];
     
-    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
+    if (self.item.count != previousValue)
+        [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
 }
 
 -(void)buy
