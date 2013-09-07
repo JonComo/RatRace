@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12E3067</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
@@ -43,7 +43,6 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrameSize">{320, 140}</string>
 						<reference key="NSSuperview" ref="566320583"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1070560075"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">2</int>
@@ -63,7 +62,6 @@
 								<int key="NSvFlags">1316</int>
 								<string key="NSFrame">{{81, 94}, {158, 21}}</string>
 								<reference key="NSSuperview" ref="1070560075"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="694314321"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -97,7 +95,6 @@
 								<int key="NSvFlags">1316</int>
 								<string key="NSFrame">{{83, 114}, {154, 21}}</string>
 								<reference key="NSSuperview" ref="1070560075"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -119,7 +116,6 @@
 								<object class="NSPSMatrix" key="NSFrameMatrix"/>
 								<string key="NSFrame">{{20, -2}, {280, 80}}</string>
 								<reference key="NSSuperview" ref="1070560075"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="210742733"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -150,7 +146,6 @@
 								<int key="NSvFlags">1316</int>
 								<string key="NSFrame">{{20, 65}, {280, 32}}</string>
 								<reference key="NSSuperview" ref="1070560075"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="726645712"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -178,7 +173,6 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrameSize">{320, 140}</string>
 						<reference key="NSSuperview" ref="566320583"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="300120762"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -189,7 +183,6 @@
 				</array>
 				<string key="NSFrameSize">{320, 140}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="728663781"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -915,26 +908,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">391</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">NSLayoutConstraint</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SMStatsView</string>
-					<string key="superclassName">UIView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SMStatsView.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

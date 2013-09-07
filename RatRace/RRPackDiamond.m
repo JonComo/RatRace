@@ -200,9 +200,38 @@
     return gift;
 }
 
+-(RREvent *)eventBankLimitIncrease
+{
+    float bankLimit = [RRGame sharedGame].bank.loanLimit;
+    float newLimit;
+    do {
+        newLimit = bankLimit + (float)(arc4random()%100000);
+    } while (newLimit == bankLimit);
+    
+    UIImage *image = [UIImage imageNamed:@"suisse"];
+    
+    RREvent *bankLimitIncrease = [RREvent eventWithName:@"banklimitIncrease" initialBlock:^{
+
+        [RRGame sharedGame].bank.loanLimit = newLimit;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle:@"Loan Limits Increased!", RREventMessage:[NSString stringWithFormat:@"Swiss banks have increased thier limits to $%.2f", newLimit], RREventImage:image}];
+        
+    } numberOfDays:4 endingBlock:^{
+        
+        [RRGame sharedGame].bank.loanLimit = bankLimit;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle:@"Loan Limits return to normal!", RREventMessage:[NSString stringWithFormat:@"Swiss banks have returned thier limits to $%.2f", bankLimit], RREventImage:image}];
+        
+    }];
+
+    return bankLimitIncrease;
+}
+
 -(RREvent *)randomEvent
 {
-    int rand = arc4random()%5;
+    return [self eventBankLimitIncrease];
+    
+    int rand = arc4random()%6;
     
     switch (rand) {
         case 0:
@@ -220,11 +249,16 @@
         case 4:
             return [self eventGift];
             break;
+        case 5:
+            return [self eventBankLimitIncrease];
+            break;
             
         default:
             return nil;
             break;
     }
 }
+
+
 
 @end
