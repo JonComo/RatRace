@@ -34,6 +34,7 @@
     if (self = [super init]) {
         numberFormatter = [[NSNumberFormatter alloc] init];
         [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [numberFormatter setMaximumFractionDigits:0];
     }
     return self;
 }
@@ -108,7 +109,7 @@
     [self randomizeValues];
 }
 
--(NSString *)currencyFromValue:(float)value
+-(NSString *)format:(float)value
 {
     NSString *formattedString = [numberFormatter stringFromNumber:@(value)];
     return [NSString stringWithFormat:@"$%@", formattedString];

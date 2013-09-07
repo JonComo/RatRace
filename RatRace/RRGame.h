@@ -44,6 +44,6 @@
 -(void)randomizeItem:(RRItem *)item;
 
 
--(NSString *)currencyFromValue:(float)value;
+-(NSString *)format:(float)value;
 
 @end
