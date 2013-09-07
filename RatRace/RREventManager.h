@@ -13,6 +13,6 @@
 @interface RREventManager : NSObject
 
 -(void)addRandomEvent;
--(void)runNextEvent;
+-(void)run;
 
 @end

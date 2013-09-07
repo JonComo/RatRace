@@ -8,12 +8,16 @@
 
 #import "RRStepper.h"
 
+#import "RRAudioEngine.h"
+
 @implementation RRStepper
 {
     NSTimer *timerShouldStep;
     NSTimer *timerIncrement;
     
     ActionHandler _action;
+    
+    int playClick;
 }
 
 +(RRStepper *)sharedStepper
@@ -48,12 +52,21 @@
     [timerShouldStep invalidate];
     timerShouldStep = nil;
     
-    timerIncrement = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(step) userInfo:nil repeats:YES];
+    playClick = 0;
+    
+    timerIncrement = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(step) userInfo:nil repeats:YES];
 }
 
 -(void)step
 {
     if (_action) _action();
+    
+    playClick ++;
+    
+    if (playClick%2 == 0)
+    {
+        [[RRAudioEngine sharedEngine] playSoundNamed:@"slide" extension:@"aiff" loop:NO];
+    }
 }
 
 -(void)buttonUp

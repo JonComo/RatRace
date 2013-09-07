@@ -14,7 +14,7 @@
 
 -(NSArray *)items
 {
-    return @[[RRItem item:@"Cognac Diamond" value:200], [RRItem item:@"Yellow Diamond" value:400], [RRItem item:@"Black Diamond" value:650], [RRItem item:@"Blue Diamond" value:1000], [RRItem item:@"White Diamond" value:2000], [RRItem item:@"Blood Diamond" value:10000]];
+    return @[[RRItem item:@"Cognac Diamond" value:200], [RRItem item:@"Yellow Diamond" value:500], [RRItem item:@"Black Diamond" value:1200], [RRItem item:@"Blue Diamond" value:2260], [RRItem item:@"White Diamond" value:6000], [RRItem item:@"Blood Diamond" value:10000]];
 }
 
 -(NSArray *)locations
@@ -48,7 +48,7 @@
     
     float valueChange = (float)(arc4random()%((int)(changedItem.valueInitial*.60))) + changedItem.valueInitial*.20;
     
-    valueChange = (arc4random()%2) ? valueChange * -1 : valueChange * -1;
+    valueChange = (arc4random()%2) ? valueChange * -1 : valueChange;
     
     NSString *occurence = valueChange > 0 ? @"destroyed" : @"created";
     NSString *change = valueChange > 0 ? @"increased" : @"decreased";
@@ -200,9 +200,38 @@
     return gift;
 }
 
+-(RREvent *)eventBankLimitIncrease
+{
+    float bankLimit = [RRGame sharedGame].bank.loanLimit;
+    float newLimit;
+    do {
+        newLimit = bankLimit + (float)(arc4random()%100000);
+    } while (newLimit == bankLimit);
+    
+    UIImage *image = [UIImage imageNamed:@"suisse"];
+    
+    RREvent *bankLimitIncrease = [RREvent eventWithName:@"banklimitIncrease" initialBlock:^{
+
+        [RRGame sharedGame].bank.loanLimit = newLimit;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle:@"Loan Limits Increased!", RREventMessage:[NSString stringWithFormat:@"Swiss banks have increased thier limits to $%.2f", newLimit], RREventImage:image}];
+        
+    } numberOfDays:4 endingBlock:^{
+        
+        [RRGame sharedGame].bank.loanLimit = bankLimit;
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle:@"Loan Limits return to normal!", RREventMessage:[NSString stringWithFormat:@"Swiss banks have returned thier limits to $%.2f", bankLimit], RREventImage:image}];
+        
+    }];
+
+    return bankLimitIncrease;
+}
+
 -(RREvent *)randomEvent
 {
-    int rand = arc4random()%5;
+    return [self eventBankLimitIncrease];
+    
+    int rand = arc4random()%6;
     
     switch (rand) {
         case 0:
@@ -220,11 +249,16 @@
         case 4:
             return [self eventGift];
             break;
+        case 5:
+            return [self eventBankLimitIncrease];
+            break;
             
         default:
             return nil;
             break;
     }
 }
+
+
 
 @end

@@ -102,11 +102,15 @@
 - (IBAction)buyOneUp:(id)sender
 {
     [[RRStepper sharedStepper] buttonUp];
+    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
 }
 
 - (IBAction)sellOneUp:(id)sender
 {
     [[RRStepper sharedStepper] buttonUp];
+    
+    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
 }
 
 -(void)buy
@@ -125,8 +129,6 @@
     
     [RRGame sharedGame].player.money -= self.item.value;
     
-    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
-    
     [self calculate];
 }
 
@@ -142,8 +144,6 @@
     
     self.item.count --;
     [RRGame sharedGame].player.money += self.item.value;
-    
-    [[RRAudioEngine sharedEngine] playSoundNamed:@"register" extension:@"wav" loop:NO];
     
     [self calculate];
 }
