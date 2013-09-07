@@ -229,8 +229,6 @@
 
 -(RREvent *)randomEvent
 {
-    return [self eventBankLimitIncrease];
-    
     int rand = arc4random()%6;
     
     switch (rand) {

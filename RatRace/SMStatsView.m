@@ -60,7 +60,7 @@
     NSString *location = [RRGame sharedGame].location;
 
     labelDays.text = [NSString stringWithFormat:@"Days: %d / 30", days];
-    labelCash.text = [NSString stringWithFormat:@"$%.2f (-$%.2f * %.1f%%)", money, loan, interest * 100];
+    labelCash.text = [NSString stringWithFormat:@"%@ (-%@ * %.1f%%)", [[RRGame sharedGame] format:money], [[RRGame sharedGame] format:loan], interest * 100];
     labelInventory.text = [NSString stringWithFormat:@"Inventory: %d / %d", inventory, [RRGame sharedGame].player.inventoryCapacity];
     
     imageViewLocation.image = [UIImage imageNamed:location];

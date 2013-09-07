@@ -95,9 +95,9 @@
 
 -(void)updateUI
 {
-    label.text = [[RRGame sharedGame] currencyFromValue:[RRGame sharedGame].bank.loan];
-    balanceLabel.text = [NSString stringWithFormat:@"BAL: $%.2f", [RRGame sharedGame].player.money];
-    labelLoanLimit.text = [NSString stringWithFormat:@"LIMIT: $%.2f", [RRGame sharedGame].bank.loanLimit];
+    label.text = [[RRGame sharedGame] format:[RRGame sharedGame].bank.loan];
+    balanceLabel.text = [NSString stringWithFormat:@"BAL: %@", [[RRGame sharedGame] format:[RRGame sharedGame].player.money]];
+    labelLoanLimit.text = [NSString stringWithFormat:@"LIMIT: %@", [[RRGame sharedGame] format:[RRGame sharedGame].bank.loanLimit]];
 }
 
 -(void)animateLabel
