@@ -110,6 +110,7 @@
     NSString *location = locations[indexPath.row];
     
     [RRGame sharedGame].location = location;
+    
     [[RRGame sharedGame] advanceDay];
     
     [[RRAudioEngine sharedEngine] playSoundNamed:@"click" extension:@"aiff" loop:NO];
@@ -120,7 +121,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(320, (int)(self.view.frame.size.height / locations.count + 1));
+    return CGSizeMake(320, (int)(self.view.frame.size.height / locations.count + 1) - 2);
 }
 
 

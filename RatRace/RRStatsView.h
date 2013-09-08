@@ -14,4 +14,11 @@
 
 @property (nonatomic, weak) RRStats *stats;
 
+@property int xRange;
+
+@property (nonatomic, strong) NSArray *keys;
+@property (nonatomic, strong) NSArray *colors;
+
+@property BOOL drawGrid;
+
 @end

@@ -57,6 +57,7 @@
 		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
 		86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A0C4F717D5461B001663D6 /* AVFoundation.framework */; };
 		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
+		86B5678017DBEBB400E1F4E9 /* PerlinNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B5677F17DBEBB400E1F4E9 /* PerlinNoise.m */; };
 		86B9850817D5BBEB0065FD70 /* diamondWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B9850617D5BBEB0065FD70 /* diamondWhite@2x.png */; };
 		86B9850917D5BBEB0065FD70 /* diamondBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B9850717D5BBEB0065FD70 /* diamondBlack@2x.png */; };
 		86D3116A17DA6BAC00D218E3 /* RRStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D3116917DA6BAC00D218E3 /* RRStats.m */; };
@@ -79,6 +80,7 @@
 		86DBBD4A17D41CA90032D830 /* stats.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DBBD4917D41CA90032D830 /* stats.xib */; };
 		86DBBD4D17D41CB30032D830 /* SMStatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DBBD4C17D41CB30032D830 /* SMStatsView.m */; };
 		86DBBD4F17D4208D0032D830 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD4E17D4208D0032D830 /* QuartzCore.framework */; };
+		86E1EF7117DC09FA0023FDF5 /* RRGraphData.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E1EF7017DC09FA0023FDF5 /* RRGraphData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -152,6 +154,8 @@
 		86A0C4F517D5455A001663D6 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
 		86A0C4F717D5461B001663D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		86A0C4FA17D54832001663D6 /* click.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = click.aiff; sourceTree = "<group>"; };
+		86B5677E17DBEBB400E1F4E9 /* PerlinNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerlinNoise.h; sourceTree = "<group>"; };
+		86B5677F17DBEBB400E1F4E9 /* PerlinNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerlinNoise.m; sourceTree = "<group>"; };
 		86B9850617D5BBEB0065FD70 /* diamondWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamondWhite@2x.png"; sourceTree = "<group>"; };
 		86B9850717D5BBEB0065FD70 /* diamondBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamondBlack@2x.png"; sourceTree = "<group>"; };
 		86D3116817DA6BAC00D218E3 /* RRStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStats.h; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 		86DBBD4B17D41CB30032D830 /* SMStatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMStatsView.h; sourceTree = "<group>"; };
 		86DBBD4C17D41CB30032D830 /* SMStatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMStatsView.m; sourceTree = "<group>"; };
 		86DBBD4E17D4208D0032D830 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		86E1EF6F17DC09FA0023FDF5 /* RRGraphData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRGraphData.h; sourceTree = "<group>"; };
+		86E1EF7017DC09FA0023FDF5 /* RRGraphData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRGraphData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +234,8 @@
 		3381580317D468E1006CCA90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				86B5677E17DBEBB400E1F4E9 /* PerlinNoise.h */,
+				86B5677F17DBEBB400E1F4E9 /* PerlinNoise.m */,
 				338157EF17D44EB2006CCA90 /* RRBank.h */,
 				338157F017D44EB2006CCA90 /* RRBank.m */,
 				86DBBD4017D418290032D830 /* RRGame.h */,
@@ -252,6 +260,8 @@
 				86166B3017D904AE00A6F925 /* RREventManager.m */,
 				86D3116817DA6BAC00D218E3 /* RRStats.h */,
 				86D3116917DA6BAC00D218E3 /* RRStats.m */,
+				86E1EF6F17DC09FA0023FDF5 /* RRGraphData.h */,
+				86E1EF7017DC09FA0023FDF5 /* RRGraphData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -572,6 +582,8 @@
 				86166B3717D9936200A6F925 /* RRPack.m in Sources */,
 				86D3116A17DA6BAC00D218E3 /* RRStats.m in Sources */,
 				86D3116D17DA6C9300D218E3 /* RRStatsView.m in Sources */,
+				86B5678017DBEBB400E1F4E9 /* PerlinNoise.m in Sources */,
+				86E1EF7117DC09FA0023FDF5 /* RRGraphData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,7 +32,7 @@
     logs = [stats.dayLogs mutableCopy];
     [logs addObject:[stats statsForDay]];
     
-    xStep = self.frame.size.width / [RRGame sharedGame].dayMaximum;
+    xStep = self.frame.size.width / self.xRange;
     
     //render stats
     [self setNeedsDisplay];
@@ -42,23 +42,11 @@
 {
     // Drawing code
     
-    NSMutableArray *itemsToGraph = [NSMutableArray array];
-    NSMutableArray *colors = [NSMutableArray array];
-    
-    for (RRItem *item in [RRGame sharedGame].availableItems)
-    {
-        [itemsToGraph addObject:item.name];
-        [colors addObject:[UIColor greenColor]];
-    }
-    
-    [itemsToGraph addObjectsFromArray:@[@"money", @"loan"]];
-    [colors addObjectsFromArray:@[[UIColor whiteColor], [UIColor redColor]]];
-    
-    [self graphKeys:itemsToGraph withColors:colors inRect:rect];
+    [self graphKeys:self.keys withColors:self.colors inRect:rect];
     
     //draw grid
-    
-    [self drawGridWithNumbers:CGPointMake([RRGame sharedGame].dayMaximum, 8) inRect:rect];
+    if (self.drawGrid)
+        [self drawGridWithNumbers:CGPointMake([RRGame sharedGame].dayMaximum, 8) inRect:rect];
 }
 
 -(void)drawGridWithNumbers:(CGPoint)count inRect:(CGRect)rect
@@ -163,6 +151,5 @@
     
     return CGPointMake(minRange, maxRange);
 }
-
 
 @end

@@ -46,6 +46,24 @@
     [super viewDidAppear:animated];
     
     viewStats.stats = [RRGame sharedGame].stats;
+    
+    NSMutableArray *itemsToGraph = [NSMutableArray array];
+    NSMutableArray *colors = [NSMutableArray array];
+    
+    for (RRItem *item in [RRGame sharedGame].availableItems){
+        [itemsToGraph addObject:item.name];
+        [colors addObject:[UIColor greenColor]];
+    }
+    
+    [itemsToGraph addObjectsFromArray:@[@"money", @"loan"]];
+    [colors addObjectsFromArray:@[[UIColor whiteColor], [UIColor redColor]]];
+    
+    viewStats.keys = itemsToGraph;
+    viewStats.colors = colors;
+    viewStats.drawGrid = YES;
+    viewStats.xRange = [RRGame sharedGame].dayMaximum;
+    
+    [viewStats setNeedsDisplay];
 }
 
 - (void)didReceiveMemoryWarning
