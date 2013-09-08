@@ -84,6 +84,10 @@
     [collectionViewItems reloadData];
     
     [strings fadeIn:2];
+    
+    if ([RRGame sharedGame].day >= [RRGame sharedGame].dayMaximum){
+        [travelButton setTitle:@"FINISH" forState:UIControlStateNormal];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -215,7 +219,15 @@
 
 }
 
-- (IBAction)travel:(id)sender {    
+- (IBAction)travel:(id)sender
+{
+    if ([RRGame sharedGame].day >= [RRGame sharedGame].dayMaximum)
+    {
+        //end of game
+        
+        return;
+    }
+    
     RRTravelViewController *travelVC = [self.storyboard instantiateViewControllerWithIdentifier:@"travelVC"];
     
     [self presentViewController:travelVC animated:YES completion:nil];

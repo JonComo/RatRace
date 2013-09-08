@@ -63,11 +63,11 @@
     
     self.location = self.availableLocations[0];
     
-    [self randomizeValues];
-    
     //start the day
     self.day = 1;
-    self.dayMaximum = 30;
+    self.dayMaximum = 5;
+    
+    [self randomizeValues];
 }
 
 -(void)randomizeValues
@@ -95,14 +95,16 @@
 
 - (void)advanceDay
 {
+        
     self.day +=1;
     
     [self.bank incrementLoan];
     
-    //[self.eventManager addRandomEvent];
-    //[self.eventManager run];
-    
+    [self.eventManager addRandomEvent];
+    [self.eventManager run];
+
     [self randomizeValues];
+
 }
 
 -(NSString *)format:(float)value

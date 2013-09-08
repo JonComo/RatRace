@@ -52,6 +52,7 @@
 -(void)update
 {
     int days = [RRGame sharedGame].day;
+    int daysMax = [RRGame sharedGame].dayMaximum;
     float money = [RRGame sharedGame].player.money;
     int inventory = [[RRGame sharedGame].player inventoryCount];
     float loan = [RRGame sharedGame].bank.loan;
@@ -59,7 +60,7 @@
     
     NSString *location = [RRGame sharedGame].location;
 
-    labelDays.text = [NSString stringWithFormat:@"Days: %d / 30", days];
+    labelDays.text = [NSString stringWithFormat:@"Days: %i / %i", days, daysMax];
     labelCash.text = [NSString stringWithFormat:@"%@ (-%@ * %.1f%%)", [[RRGame sharedGame] format:money], [[RRGame sharedGame] format:loan], interest * 100];
     labelInventory.text = [NSString stringWithFormat:@"Inventory: %d / %d", inventory, [RRGame sharedGame].player.inventoryCapacity];
     

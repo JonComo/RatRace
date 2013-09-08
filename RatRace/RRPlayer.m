@@ -16,7 +16,7 @@
 {
     if (self = [super init]) {
         //init
-        _money = 2000.00;
+        _money = 200000.00;
         _inventoryCapacity = 100;
     }
     

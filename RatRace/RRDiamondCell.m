@@ -116,11 +116,6 @@
     return percent;
 }
 
--(int)amountAvailable
-{
-    return floor([RRGame sharedGame].player.money / self.item.value);
-}
-
 - (IBAction)sellOne:(id)sender {
     previousValue = self.item.count;
     
@@ -155,13 +150,19 @@
 
 -(void)buy
 {
-    int amountAvailable = [self amountAvailable];
-    
-    if (amountAvailable == 0)
+    if ([RRGame sharedGame].player.money < self.item.value)
     {
         NSLog(@"INSUFFICIENT FUNDS");
         [self animateLabel];
 
+        return;
+    }
+    
+    if ([RRGame sharedGame].player.inventoryCount >= [RRGame sharedGame].player.inventoryCapacity)
+    {
+        NSLog(@"NOT ENOUGH SPACE");
+        [self animateLabel];
+        
         return;
     }
 
@@ -174,8 +175,9 @@
 
 -(void)sell
 {
-    if (self.item.count == 0)
+    if (self.item.count <= 0)
     {
+        self.item.count = 0;
         NSLog(@"YOU DONT HAVE THE ITEM");
         [self animateLabel];
 
@@ -208,14 +210,5 @@
         }];
     }];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
