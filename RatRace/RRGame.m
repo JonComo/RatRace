@@ -73,16 +73,13 @@
 -(void)randomizeValues
 {
     for (RRItem *item in self.availableItems){
-        [self randomizeItem:item];
+        [item randomizeValue];
     }
 }
 
 -(void)randomizeItem:(RRItem *)item
 {
-    float initValue = item.valueInitial;
-    float addedValue = (float)(arc4random()%((int)(initValue*1.4))) - (float)(arc4random()%((int)(initValue*.7)));
-    
-    item.value = initValue + addedValue;
+    [item randomizeValue];
 }
 
 -(RRItem *)itemWithName:(NSString *)name
@@ -102,9 +99,8 @@
     
     [self.bank incrementLoan];
     
-    [self.eventManager addRandomEvent];
-    
-    [self.eventManager run];
+    //[self.eventManager addRandomEvent];
+    //[self.eventManager run];
     
     [self randomizeValues];
 }

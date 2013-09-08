@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="dRU-ZG-PbK" customClass="RRIntroViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wnt-TZ-sND">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="travel.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wav-no-9d4">
@@ -59,14 +59,11 @@
             <objects>
                 <viewController id="2" customClass="RRMarketViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y0x-W5-aEY">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="258" id="8nE-h4-H3A"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wge-yN-4Gl">
                                     <size key="itemSize" width="320" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -138,20 +135,21 @@
                                     <constraint firstItem="G27-ES-Lae" firstAttribute="bottom" secondItem="5qX-dT-zPS" secondAttribute="bottom" type="default" id="Yy3-1n-hvP"/>
                                     <constraint firstItem="P9I-NY-F2t" firstAttribute="top" secondItem="5qX-dT-zPS" secondAttribute="top" type="default" id="cG2-2C-ckE"/>
                                     <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="ZTs-nI-bMv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="krd-Hw-uaM"/>
-                                    <constraint firstItem="P9I-NY-F2t" firstAttribute="baseline" secondItem="5qX-dT-zPS" secondAttribute="baseline" type="default" id="pWm-Oj-wHi"/>
+                                    <constraint firstAttribute="height" constant="50" type="user" id="lPo-k1-VHg"/>
+                                    <constraint firstItem="P9I-NY-F2t" firstAttribute="baseline" secondItem="5qX-dT-zPS" secondAttribute="baseline" type="user" id="pWm-Oj-wHi"/>
                                     <constraint firstItem="P9I-NY-F2t" firstAttribute="centerY" secondItem="ZTs-nI-bMv" secondAttribute="centerY" type="default" id="usm-mw-gTn"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="y0x-W5-aEY" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="DJv-rG-qGg"/>
-                            <constraint firstItem="ZTs-nI-bMv" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="dH8-KL-MpZ"/>
-                            <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="gyy-NR-NIa"/>
-                            <constraint firstItem="ZTs-nI-bMv" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="itz-zs-VUk"/>
-                            <constraint firstItem="ZTs-nI-bMv" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jOe-Jn-hKQ"/>
-                            <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="144" id="nva-Gl-dWv"/>
-                            <constraint firstItem="ZTs-nI-bMv" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="zzL-BT-mxN"/>
+                            <constraint firstItem="ZTs-nI-bMv" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="user" id="dH8-KL-MpZ"/>
+                            <constraint firstItem="y0x-W5-aEY" firstAttribute="trailing" secondItem="ZTs-nI-bMv" secondAttribute="trailing" type="default" id="eff-5p-vSF"/>
+                            <constraint firstItem="y0x-W5-aEY" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="user" id="gyy-NR-NIa"/>
+                            <constraint firstItem="ZTs-nI-bMv" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="user" id="itz-zs-VUk"/>
+                            <constraint firstItem="ZTs-nI-bMv" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="jOe-Jn-hKQ"/>
+                            <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="144" type="user" id="nva-Gl-dWv"/>
+                            <constraint firstItem="y0x-W5-aEY" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="z1r-lp-eSX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -170,12 +168,12 @@
             <objects>
                 <viewController storyboardIdentifier="travelVC" id="5LU-98-ggc" customClass="RRTravelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2SQ-ba-ong">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kRO-WJ-osv">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="10" id="353-nr-bDd">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="0.0" id="353-nr-bDd">
                                     <size key="itemSize" width="320" height="95"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -287,10 +285,13 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

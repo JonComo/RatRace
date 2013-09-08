@@ -146,6 +146,9 @@
 
 -(RREvent *)eventSeize
 {
+    
+    return nil;
+    
     if ([[RRGame sharedGame].player inventoryCount] == 0) return nil;
     
     NSMutableArray *itemsWithCounts = [NSMutableArray array];
@@ -154,19 +157,26 @@
         if (item.count > 0) [itemsWithCounts addObject:item];
     }
     
+    RRItem *randomItem;
+    
     if (itemsWithCounts.count == 0) return nil;
     
-    RRItem *randomItem = itemsWithCounts[arc4random()%itemsWithCounts.count];
+    randomItem = itemsWithCounts[arc4random()%itemsWithCounts.count];
     
-    int numberToTake = MAX(1, arc4random()%randomItem.count);
+    RREvent *confiscate;
     
-    RREvent *confiscate = [RREvent eventWithName:@"seize" initialBlock:^{
-        
-        randomItem.count -= numberToTake;
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle: @"Diamonds seized!", RREventMessage : [NSString stringWithFormat:@"Interpol has seized %i of your %@(s). Investigation number: %i revealed possible link to theivery.", numberToTake, randomItem.name, arc4random()%100000], RREventImage : [UIImage imageNamed:@"badge"]}];
-        
-    } numberOfDays:1 endingBlock:nil];
+    if (randomItem.count > 0)
+    {
+        confiscate = [RREvent eventWithName:@"seize" initialBlock:^{
+            
+            int numberToTake = MAX(1, arc4random()%randomItem.count);
+            
+            randomItem.count -= numberToTake;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle: @"Diamonds seized!", RREventMessage : [NSString stringWithFormat:@"Interpol has seized %i of your %@(s). Investigation number: %i revealed possible link to theivery.", numberToTake, randomItem.name, arc4random()%100000], RREventImage : [UIImage imageNamed:@"badge"]}];
+            
+        } numberOfDays:1 endingBlock:nil];
+    }
     
     return confiscate;
 }
