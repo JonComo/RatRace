@@ -24,6 +24,10 @@
 		3381583717D94226006CCA90 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3381583617D94226006CCA90 /* GameKit.framework */; };
 		3381583A17D942D3006CCA90 /* RRLeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3381583917D942D3006CCA90 /* RRLeaderboardViewController.m */; };
 		3381583C17D9B01C006CCA90 /* brief.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3381583B17D9B01C006CCA90 /* brief.xib */; };
+		33D98B4517DCF6BF00172947 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B3F17DCF6BF00172947 /* libTestFlight.a */; };
+		33D98B4617DCF6BF00172947 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4017DCF6BF00172947 /* README.md */; };
+		33D98B4717DCF6BF00172947 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4117DCF6BF00172947 /* release_notes.md */; };
+		33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B4817DCF78A00172947 /* libz.dylib */; };
 		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
 		86166B3417D9918800A6F925 /* RRPackDiamond.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3317D9918800A6F925 /* RRPackDiamond.m */; };
 		86166B3717D9936200A6F925 /* RRPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3617D9936100A6F925 /* RRPack.m */; };
@@ -102,6 +106,13 @@
 		3381583817D942D3006CCA90 /* RRLeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRLeaderboardViewController.h; sourceTree = "<group>"; };
 		3381583917D942D3006CCA90 /* RRLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRLeaderboardViewController.m; sourceTree = "<group>"; };
 		3381583B17D9B01C006CCA90 /* brief.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = brief.xib; sourceTree = "<group>"; };
+		33D98B3F17DCF6BF00172947 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		33D98B4017DCF6BF00172947 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		33D98B4117DCF6BF00172947 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		33D98B4217DCF6BF00172947 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		33D98B4317DCF6BF00172947 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		33D98B4417DCF6BF00172947 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		33D98B4817DCF78A00172947 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		86166B2F17D904AE00A6F925 /* RREventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREventManager.h; sourceTree = "<group>"; };
 		86166B3017D904AE00A6F925 /* RREventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREventManager.m; sourceTree = "<group>"; };
 		86166B3217D9918800A6F925 /* RRPackDiamond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackDiamond.h; sourceTree = "<group>"; };
@@ -185,12 +196,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */,
 				3381583717D94226006CCA90 /* GameKit.framework in Frameworks */,
 				86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */,
 				86DBBD4F17D4208D0032D830 /* QuartzCore.framework in Frameworks */,
 				86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */,
 				86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */,
 				86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */,
+				33D98B4517DCF6BF00172947 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +283,7 @@
 		3381582A17D7EEA4006CCA90 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				33D98B3E17DCF6BF00172947 /* TestFlightSDK2.0.0 */,
 				8636C5D917D82B3F00612361 /* MBProgressHud */,
 				3381582B17D7EEBF006CCA90 /* JLPartialModal */,
 			);
@@ -283,6 +297,19 @@
 				338157F817D45BB7006CCA90 /* JLBPartialModal.m */,
 			);
 			name = JLPartialModal;
+			sourceTree = "<group>";
+		};
+		33D98B3E17DCF6BF00172947 /* TestFlightSDK2.0.0 */ = {
+			isa = PBXGroup;
+			children = (
+				33D98B3F17DCF6BF00172947 /* libTestFlight.a */,
+				33D98B4017DCF6BF00172947 /* README.md */,
+				33D98B4117DCF6BF00172947 /* release_notes.md */,
+				33D98B4217DCF6BF00172947 /* TestFlight+AsyncLogging.h */,
+				33D98B4317DCF6BF00172947 /* TestFlight+ManualSessions.h */,
+				33D98B4417DCF6BF00172947 /* TestFlight.h */,
+			);
+			path = TestFlightSDK2.0.0;
 			sourceTree = "<group>";
 		};
 		86166B3817D9C51400A6F925 /* ContentPacks */ = {
@@ -383,6 +410,7 @@
 		86DBBD1617D415F60032D830 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33D98B4817DCF78A00172947 /* libz.dylib */,
 				3381583617D94226006CCA90 /* GameKit.framework */,
 				86A0C4F717D5461B001663D6 /* AVFoundation.framework */,
 				86DBBD4E17D4208D0032D830 /* QuartzCore.framework */,
@@ -510,6 +538,8 @@
 				3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */,
 				3381583C17D9B01C006CCA90 /* brief.xib in Resources */,
 				861F691617DA8CD00097541C /* slide.aiff in Resources */,
+				33D98B4617DCF6BF00172947 /* README.md in Resources */,
+				33D98B4717DCF6BF00172947 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +665,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RatRace/RatRace-Prefix.pch";
 				INFOPLIST_FILE = "RatRace/RatRace-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -646,6 +680,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RatRace/RatRace-Prefix.pch";
 				INFOPLIST_FILE = "RatRace/RatRace-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
