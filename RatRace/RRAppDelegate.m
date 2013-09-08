@@ -9,6 +9,7 @@
 #import "RRAppDelegate.h"
 #import "RRAudioEngine.h"
 #import <GameKit/GameKit.h>
+#import "TestFlight.h"
 
 @implementation RRAppDelegate
 
@@ -23,6 +24,8 @@
     // Override point for customization after application launch.
     
     [[RRAudioEngine sharedEngine] initializeAudioSession];
+    
+    [TestFlight takeOff:@"20027d9d-5ca4-4093-82bf-930c0d004cb1"];
 
     
     return YES;
