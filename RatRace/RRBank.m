@@ -34,10 +34,19 @@
 }
 
 - (void)payLoan:(float)amount
-{
+{    
     float currentLoan = [RRGame sharedGame].bank.loan;
     
     NSLog(@"Loan: %f amount:%f", currentLoan, amount);
+    
+    if ([RRGame sharedGame].player.money < amount) {
+        
+        float diff = amount - [RRGame sharedGame].player.money;
+        [RRGame sharedGame].player.money -= (amount - diff);
+        [RRGame sharedGame].bank.loan -= (amount - diff);
+        return;
+        
+    }
     
     if (currentLoan < amount)
     {
@@ -45,8 +54,14 @@
         
         NSLog(@"Payed difference: %f" , (amount - diff));
         
-        [RRGame sharedGame].player.money -= (amount - diff);
-        [RRGame sharedGame].bank.loan -= (amount - diff);
+        float amountPaying = (amount - diff);
+        
+        if ([RRGame sharedGame].player.money < amountPaying) {
+            amountPaying = [RRGame sharedGame].player.money;
+        }
+        
+        [RRGame sharedGame].player.money -= amountPaying;
+        [RRGame sharedGame].bank.loan -= amountPaying;
         
     }else{
         NSLog(@"Payed full amount");

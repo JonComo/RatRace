@@ -147,8 +147,6 @@
 -(RREvent *)eventSeize
 {
     
-    return nil;
-    
     if ([[RRGame sharedGame].player inventoryCount] == 0) return nil;
     
     NSMutableArray *itemsWithCounts = [NSMutableArray array];
@@ -169,11 +167,17 @@
     {
         confiscate = [RREvent eventWithName:@"seize" initialBlock:^{
             
-            int numberToTake = MAX(1, arc4random()%randomItem.count);
+            RRItem *item = [[RRGame sharedGame] itemWithName:randomItem.name];
             
-            randomItem.count -= numberToTake;
+            int numberToTake = arc4random()%(MAX(item.count, 1));
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle: @"Diamonds seized!", RREventMessage : [NSString stringWithFormat:@"Interpol has seized %i of your %@(s). Investigation number: %i revealed possible link to theivery.", numberToTake, randomItem.name, arc4random()%100000], RREventImage : [UIImage imageNamed:@"badge"]}];
+            numberToTake = MAX(numberToTake, 1);
+            
+            if (item.count >= numberToTake){
+                item.count -= numberToTake;
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:RREventShowMessageNotification object:nil userInfo:@{RREventTitle: @"Diamonds seized!", RREventMessage : [NSString stringWithFormat:@"Interpol has seized %i of your %@(s). Investigation number: %i revealed possible link to theivery.", numberToTake, item.name, arc4random()%100000], RREventImage : [UIImage imageNamed:@"badge"]}];
+            }
             
         } numberOfDays:1 endingBlock:nil];
     }
@@ -184,6 +188,11 @@
 -(RREvent *)eventGift
 {
     int giftAmount = 1 + arc4random()%7;
+    
+    if ([RRGame sharedGame].player.inventoryCount + giftAmount > [RRGame sharedGame].player.inventoryCapacity)
+    {
+        return nil;
+    }
     
     RRItem *giftedItem = [RRGame sharedGame].availableItems[arc4random()%[RRGame sharedGame].availableItems.count];
     
