@@ -19,4 +19,7 @@
 
 +(RRItem *)item:(NSString *)name value:(float)value;
 
+-(void)randomizeValue;
+-(float)valueInLocation:(NSString *)location;
+
 @end

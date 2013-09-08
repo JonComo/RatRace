@@ -10,6 +10,8 @@
 
 #import "RRGame.h"
 
+#import "RRStats.h"
+
 @implementation RRStats
 
 -(id)init

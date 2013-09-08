@@ -146,40 +146,23 @@
         item.selected = NO;
         cell.item = item;
         
-        [collectionView performBatchUpdates:^{
-            
-        } completion:^(BOOL finished) {
-        }];
+        [collectionView reloadData];
     }else{
         [self deselectAllItems];
         item.selected = YES;
         
         cell.item = item;
         
-        [collectionView performBatchUpdates:^{
-            
-        } completion:^(BOOL finished) {
-            [collectionViewItems scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
-        }];
-
+        [collectionView reloadData];
+        [collectionViewItems scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     }
-}
-
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    RRDiamondCell *cell = (RRDiamondCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    
-    RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
-    item.selected = NO;
-    
-    cell.item = item;
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     RRItem *item = [RRGame sharedGame].availableItems[indexPath.row];
     
-    return item.selected ? CGSizeMake(320, 144) : CGSizeMake(320, 44);
+    return item.selected ? CGSizeMake(320, 94) : CGSizeMake(320, 44);
 }
 
 -(void)statsTapped

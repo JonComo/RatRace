@@ -47,7 +47,7 @@
 -(void)addRandomEvent
 {
     NSLog(@"ADD RANDOM");
-    //if (events.count >= 1) return;
+    if (events.count >= 3) return;
     
     RREvent *event = [[RRGame sharedGame].pack randomEvent];
     

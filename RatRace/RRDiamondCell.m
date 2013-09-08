@@ -18,6 +18,8 @@
 
 #import "RRGraphics.h"
 
+#import "RRStatsView.h"
+
 @implementation RRDiamondCell
 {
     __weak IBOutlet UILabel *labelName;
@@ -29,9 +31,9 @@
     
     __weak IBOutlet UILabel *labelItemCount;
     
-    __weak IBOutlet UIImageView *imageViewBackground;
-    
     double previousValue;
+    
+    __weak IBOutlet RRStatsView *statsView;
 }
 
 -(void)setItem:(RRItem *)item
@@ -39,16 +41,21 @@
     _item = item;
     
     labelName.text = item.name;
-    labelPrice.text = [[RRGame sharedGame] format:item.value];
+    
+    statsView.stats = [RRGame sharedGame].stats;
+    statsView.keys = @[self.item.name];
+    
+    statsView.xRange = [RRGame sharedGame].day;
     
     if (item.selected)
     {
-        [UIView animateWithDuration:0.3 animations:^{
+        UIColor *interfaceColor = [UIColor blackColor];
+        
+        statsView.colors = @[interfaceColor];
+        [statsView setNeedsDisplay];
             
         self.backgroundColor = [UIColor whiteColor];
         //imageViewBackground.image = [RRGraphics resizableBorderImage];
-        
-        UIColor *interfaceColor = [UIColor blackColor];
         
         imageViewHasItem.image = [UIImage imageNamed:@"diamondBlack"];
         
@@ -58,16 +65,16 @@
         
         [buttonBuyOne setTitleColor:interfaceColor forState:UIControlStateNormal];
         [buttonSellOne setTitleColor:interfaceColor forState:UIControlStateNormal];
-        }];
-    }else{
         
-        [UIView animateWithDuration:0.3 animations:^{
-            
+    }else{
         
         self.backgroundColor = [UIColor blackColor];
         //imageViewBackground.image = nil;
         
         UIColor *interfaceColor = [UIColor whiteColor];
+        
+        statsView.colors = @[interfaceColor];
+        [statsView setNeedsDisplay];
         
         imageViewHasItem.image = [UIImage imageNamed:@"diamondWhite"];
         
@@ -77,8 +84,6 @@
         
         [buttonBuyOne setTitleColor:interfaceColor forState:UIControlStateNormal];
         [buttonSellOne setTitleColor:interfaceColor forState:UIControlStateNormal];
-            
-        }];
     }
     
     [self calculate];
@@ -88,8 +93,27 @@
 {
     int numberOwned = self.item.count;
     
-    labelItemCount.text = [NSString stringWithFormat:@"x%i", numberOwned];
+    labelItemCount.text = [NSString stringWithFormat:@"%i", numberOwned];
     imageViewHasItem.hidden = self.item.count == 0 ? YES : NO;
+    labelPrice.text = [[RRGame sharedGame] format:self.item.value];
+}
+
+-(float)calculatePercent
+{
+    float total = 0;
+    for (NSDictionary *dayLog in [RRGame sharedGame].stats.dayLogs)
+    {
+        float value = [dayLog[self.item.name] floatValue];
+        total += value;
+    }
+    
+    float average = total / MAX(1, [RRGame sharedGame].stats.dayLogs.count);
+    
+    float difference = average - self.item.value;
+    
+    float percent = difference / self.item.value * 100;
+    
+    return percent;
 }
 
 -(int)amountAvailable
