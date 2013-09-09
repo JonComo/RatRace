@@ -10,4 +10,15 @@
 
 @implementation RRGraphData
 
+-(id)init
+{
+    if (self = [super init]) {
+        //init
+        _data = [NSMutableArray array];
+        _color = [UIColor orangeColor];
+    }
+    
+    return self;
+}
+
 @end

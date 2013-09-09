@@ -61,7 +61,7 @@
 		86B9850817D5BBEB0065FD70 /* diamondWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B9850617D5BBEB0065FD70 /* diamondWhite@2x.png */; };
 		86B9850917D5BBEB0065FD70 /* diamondBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B9850717D5BBEB0065FD70 /* diamondBlack@2x.png */; };
 		86D3116A17DA6BAC00D218E3 /* RRStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D3116917DA6BAC00D218E3 /* RRStats.m */; };
-		86D3116D17DA6C9300D218E3 /* RRStatsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D3116C17DA6C9300D218E3 /* RRStatsView.m */; };
+		86D3116D17DA6C9300D218E3 /* RRGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D3116C17DA6C9300D218E3 /* RRGraphView.m */; };
 		86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1717D415F60032D830 /* UIKit.framework */; };
 		86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1917D415F60032D830 /* Foundation.framework */; };
 		86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DBBD1B17D415F60032D830 /* CoreGraphics.framework */; };
@@ -160,8 +160,8 @@
 		86B9850717D5BBEB0065FD70 /* diamondBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamondBlack@2x.png"; sourceTree = "<group>"; };
 		86D3116817DA6BAC00D218E3 /* RRStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStats.h; sourceTree = "<group>"; };
 		86D3116917DA6BAC00D218E3 /* RRStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStats.m; sourceTree = "<group>"; };
-		86D3116B17DA6C9300D218E3 /* RRStatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStatsView.h; sourceTree = "<group>"; };
-		86D3116C17DA6C9300D218E3 /* RRStatsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStatsView.m; sourceTree = "<group>"; };
+		86D3116B17DA6C9300D218E3 /* RRGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRGraphView.h; sourceTree = "<group>"; };
+		86D3116C17DA6C9300D218E3 /* RRGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRGraphView.m; sourceTree = "<group>"; };
 		86DBBD1417D415F60032D830 /* RatRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DBBD1717D415F60032D830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86DBBD1917D415F60032D830 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -225,8 +225,8 @@
 				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
 				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
 				3381583B17D9B01C006CCA90 /* brief.xib */,
-				86D3116B17DA6C9300D218E3 /* RRStatsView.h */,
-				86D3116C17DA6C9300D218E3 /* RRStatsView.m */,
+				86D3116B17DA6C9300D218E3 /* RRGraphView.h */,
+				86D3116C17DA6C9300D218E3 /* RRGraphView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -580,7 +580,7 @@
 				86166B3417D9918800A6F925 /* RRPackDiamond.m in Sources */,
 				86166B3717D9936200A6F925 /* RRPack.m in Sources */,
 				86D3116A17DA6BAC00D218E3 /* RRStats.m in Sources */,
-				86D3116D17DA6C9300D218E3 /* RRStatsView.m in Sources */,
+				86D3116D17DA6C9300D218E3 /* RRGraphView.m in Sources */,
 				86B5678017DBEBB400E1F4E9 /* PerlinNoise.m in Sources */,
 				86E1EF7117DC09FA0023FDF5 /* RRGraphData.m in Sources */,
 				33D98B4C17DD357F00172947 /* RRGameCenterManager.m in Sources */,

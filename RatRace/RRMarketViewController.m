@@ -51,8 +51,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [[RRGame sharedGame] newGame];
-    
     [RRGraphics buttonStyle:travelButton];
     [RRGraphics buttonStyle:bankButton];
     [RRGraphics buttonStyle:briefButton];
@@ -78,6 +76,11 @@
         [collectionViewItems reloadData];
     }];
     
+<<<<<<< HEAD
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"newGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+=======
     if([RRGameCenterManager isGameCenterAvailable])
 	{
 		self.gameCenterManager= [[RRGameCenterManager alloc] init];
@@ -90,6 +93,7 @@
 	{
 		NSLog(@"No Game Center");
 	}
+>>>>>>> master
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -114,7 +118,7 @@
 
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:RRDiamondCountChanged object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,7 +135,7 @@
     
     NSLog(@"%f", statsView.frame.size.height);
     
-    [statsView setup];
+    [statsView update];
     
     [self.view addSubview:statsView];
     

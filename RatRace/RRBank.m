@@ -69,6 +69,8 @@
         [RRGame sharedGame].bank.loan -= amount;
         
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RRGameUpdateUI object:nil];
 }
 
 - (void)borrow:(float)amount
@@ -89,6 +91,8 @@
         [RRGame sharedGame].bank.loan += amount;
         [RRGame sharedGame].player.money += amount;
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RRGameUpdateUI object:nil];
 }
 
 @end
