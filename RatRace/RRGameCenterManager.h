@@ -34,7 +34,6 @@
 
 - (void) reportScore:(GKScore *)score forCategory: (NSString*) category;
 - (void) reloadHighScoresForCategory: (NSString*) category;
-- (void) mapPlayerIDtoPlayer: (NSString*) playerID;
 
 //store score
 - (void)storeScore:(GKScore *)score ;

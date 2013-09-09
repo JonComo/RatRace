@@ -278,13 +278,10 @@
         <class className="RRIntroViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRIntroViewController.h"/>
             <relationships>
-<<<<<<< HEAD
                 <relationship kind="action" name="newGame:"/>
-=======
                 <relationship kind="action" name="leaderBoard:"/>
                 <relationship kind="action" name="newGame:"/>
                 <relationship kind="outlet" name="buttonLeaderboard" candidateClass="RRButtonSound"/>
->>>>>>> master
                 <relationship kind="outlet" name="buttonNewGame" candidateClass="RRButtonSound"/>
             </relationships>
         </class>
