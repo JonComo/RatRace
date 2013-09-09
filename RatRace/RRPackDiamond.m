@@ -146,7 +146,6 @@
 
 -(RREvent *)eventSeize
 {
-    
     if ([[RRGame sharedGame].player inventoryCount] == 0) return nil;
     
     NSMutableArray *itemsWithCounts = [NSMutableArray array];
@@ -248,6 +247,8 @@
 
 -(RREvent *)randomEvent
 {
+    return nil;
+    
     int rand = arc4random()%6;
     
     switch (rand) {

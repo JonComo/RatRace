@@ -12,6 +12,10 @@
 #import "RRGraphics.h"
 #import "RRButtonSound.h"
 
+#import "RRMarketViewController.h"
+
+#import "RRGame.h"
+
 @interface RRIntroViewController ()
 {
     
@@ -39,8 +43,11 @@
 
 - (IBAction)newGame:(id)sender
 {
+    [RRGame clearGame];
     
+    RRMarketViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"marketVC"];
+    
+    [self presentViewController:marketVC animated:YES completion:nil];
 }
-
 
 @end

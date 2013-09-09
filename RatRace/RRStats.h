@@ -13,5 +13,8 @@
 @property (nonatomic, strong) NSMutableArray *dayLogs;
 
 -(NSDictionary *)statsForDay;
+-(void)logDay;
+
+-(NSArray *)currentLogs;
 
 @end

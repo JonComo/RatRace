@@ -12,13 +12,13 @@
 #import "RRGraphics.h"
 #import "RRGame.h"
 
-#import "RRStatsView.h"
+#import "RRGraphView.h"
 
 #import "JLBPartialModal.h"
 
 @interface RRBriefcaseViewController ()
 {
-    __weak IBOutlet RRStatsView *viewStats;
+    __weak IBOutlet RRGraphView *viewStats;
     __weak IBOutlet RRButtonSound *buttonLeader;
     __weak IBOutlet RRButtonSound *buttonNewGame;
 }
@@ -30,6 +30,9 @@
 
 
 @implementation RRBriefcaseViewController
+{
+    BOOL newGame;
+}
 
 - (void)viewDidLoad
 {
@@ -45,23 +48,37 @@
 {
     [super viewDidAppear:animated];
     
-    viewStats.stats = [RRGame sharedGame].stats;
+    [self graphStats];
+}
+
+-(void)graphStats
+{
+    [viewStats clear];
     
-    NSMutableArray *itemsToGraph = [NSMutableArray array];
-    NSMutableArray *colors = [NSMutableArray array];
+    RRGraphData *money = [RRGraphData new];
+    RRGraphData *loan = [RRGraphData new];
     
-    for (RRItem *item in [RRGame sharedGame].availableItems){
-        [itemsToGraph addObject:item.name];
-        [colors addObject:[UIColor greenColor]];
+    money.color = [UIColor whiteColor];
+    loan.color = [UIColor redColor];
+    
+    money.name = @"money";
+    loan.name = @"loan";
+    
+    for (NSDictionary *dayLog in [[RRGame sharedGame].stats currentLogs])
+    {
+        NSNumber *moneyValue = dayLog[@"money"];
+        NSNumber *loanValue = dayLog[@"loan"];
+        
+        [money.data addObject:moneyValue];
+        [loan.data addObject:loanValue];
     }
     
-    [itemsToGraph addObjectsFromArray:@[@"money", @"loan"]];
-    [colors addObjectsFromArray:@[[UIColor whiteColor], [UIColor redColor]]];
+    [viewStats graph:money];
+    [viewStats graph:loan];
     
-    viewStats.keys = itemsToGraph;
-    viewStats.colors = colors;
+    viewStats.xRange = MAX(0, [RRGame sharedGame].dayMaximum - 1);
+    
     viewStats.drawGrid = YES;
-    viewStats.xRange = [RRGame sharedGame].dayMaximum;
     
     [viewStats setNeedsDisplay];
 }
@@ -102,7 +119,9 @@
     }
 }
 
-- (IBAction)newGame:(id)sender {
+- (IBAction)newGame:(id)sender
+{
+    newGame = YES;
     [[JLBPartialModal sharedInstance] dismissViewController];
 }
 
@@ -120,7 +139,9 @@
 
 - (void)didDismissPartialModalView:(JLBPartialModal *)partialModal
 {
-    
+    if (newGame){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newGame" object:nil];
+    }
 }
 
 #pragma mark GKLeaderboardDelegate

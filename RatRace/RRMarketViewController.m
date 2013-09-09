@@ -48,8 +48,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [[RRGame sharedGame] newGame];
-    
     [RRGraphics buttonStyle:travelButton];
     [RRGraphics buttonStyle:bankButton];
     [RRGraphics buttonStyle:briefButton];
@@ -73,6 +71,10 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:RREventUpdateUI object:nil queue:nil usingBlock:^(NSNotification *note) {
         [collectionViewItems reloadData];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"newGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 
@@ -98,7 +100,7 @@
 
 -(void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:RRDiamondCountChanged object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,7 +117,7 @@
     
     NSLog(@"%f", statsView.frame.size.height);
     
-    [statsView setup];
+    [statsView update];
     
     [self.view addSubview:statsView];
     

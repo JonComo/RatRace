@@ -26,27 +26,59 @@
     
     if (self){
         // Initialization code
-        
+        [self addObservers];
         
     }
     
     return self;
 }
 
--(void)setup
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    [[RRGame sharedGame] addObserver:self forKeyPath:@"day" options:NSKeyValueObservingOptionNew context:NULL];
-    [[RRGame sharedGame].player addObserver:self forKeyPath:@"money" options:NSKeyValueObservingOptionNew context:NULL];
-    [[RRGame sharedGame].player addObserver:self forKeyPath:@"inventoryCapacity" options:NSKeyValueObservingOptionNew context:NULL];
-    [[RRGame sharedGame].bank addObserver:self forKeyPath:@"loan" options:NSKeyValueObservingOptionNew context:NULL];
-    [[RRGame sharedGame] addObserver:self forKeyPath:@"location" options:NSKeyValueObservingOptionNew context:NULL];
-    [[RRGame sharedGame].bank addObserver:self forKeyPath:@"interest" options:NSKeyValueObservingOptionNew context:NULL];
+    if ([super initWithCoder:aDecoder])
+    {
+        // Initialization code
+        
+        [self addObservers];
+    }
+    
+    return self;
+}
+
+-(void)addObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:RRGameUpdateUI object:nil];
+    
+//    [[RRGame sharedGame] addObserver:self forKeyPath:@"day" options:NSKeyValueObservingOptionNew context:NULL];
+//    [[RRGame sharedGame] addObserver:self forKeyPath:@"location" options:NSKeyValueObservingOptionNew context:NULL];
+//    
+//    [[RRGame sharedGame].player addObserver:self forKeyPath:@"money" options:NSKeyValueObservingOptionNew context:NULL];
+//    [[RRGame sharedGame].player addObserver:self forKeyPath:@"inventoryCapacity" options:NSKeyValueObservingOptionNew context:NULL];
+//    
+//    [[RRGame sharedGame].bank addObserver:self forKeyPath:@"loan" options:NSKeyValueObservingOptionNew context:NULL];
+//    [[RRGame sharedGame].bank addObserver:self forKeyPath:@"interest" options:NSKeyValueObservingOptionNew context:NULL];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:@"clearGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
+//        [[RRGame sharedGame] removeObserver:self forKeyPath:@"day"];
+//        [[RRGame sharedGame] removeObserver:self forKeyPath:@"location"];
+//        
+//        [[RRGame sharedGame].player removeObserver:self forKeyPath:@"money"];
+//        [[RRGame sharedGame].player removeObserver:self forKeyPath:@"inventoryCapacity"];
+//        
+//        [[RRGame sharedGame].bank removeObserver:self forKeyPath:@"loan"];
+//        [[RRGame sharedGame].bank removeObserver:self forKeyPath:@"interest"];
+//    }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:RREventUpdateUI object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self update];
     }];
     
     [self update];
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)update

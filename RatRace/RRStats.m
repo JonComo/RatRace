@@ -12,6 +12,8 @@
 
 #import "RRStats.h"
 
+#define DAY @"day"
+
 @implementation RRStats
 
 -(id)init
@@ -19,14 +21,12 @@
     if (self = [super init]) {
         //init
         _dayLogs = [NSMutableArray array];
-        
-        [[RRGame sharedGame] addObserver:self forKeyPath:@"day" options:NSKeyValueObservingOptionNew context:NULL];
     }
     
     return self;
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+-(void)logDay
 {
     //Log the day
     NSDictionary *dayStats = [self statsForDay];
@@ -47,10 +47,22 @@
     dayLog[@"loan"] = @(loan);
     
     for (RRItem *item in [RRGame sharedGame].availableItems){
-        dayLog[item.name] = @(item.value);
+        
+        NSMutableDictionary *countryValues = [NSMutableDictionary dictionary];
+        for (NSString *location in [RRGame sharedGame].availableLocations)
+        {
+            countryValues[location] = @([item valueInLocation:location]);
+        }
+        
+        dayLog[item.name] = countryValues;
     }
     
     return dayLog;
+}
+
+-(NSArray *)currentLogs
+{
+    return [self.dayLogs arrayByAddingObject:[self statsForDay]];
 }
 
 @end

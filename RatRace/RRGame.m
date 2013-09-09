@@ -12,6 +12,8 @@
 
 #import "RRPackDiamond.h"
 
+static RRGame *sharedGame;
+
 @implementation RRGame
 {
     NSNumberFormatter *numberFormatter;
@@ -19,12 +21,10 @@
 
 +(RRGame *)sharedGame
 {
-    static RRGame *sharedGame;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    if (!sharedGame){
         sharedGame = [RRGame new];
-    });
+        [sharedGame newGame];
+    }
     
     return sharedGame;
 }
@@ -39,10 +39,13 @@
     return self;
 }
 
+-(void)dealloc
+{
+    NSLog(@"BYE GAME");
+}
+
 -(void)newGame
 {
-    //reset/alloc properties
-    
     self.player = nil;
     self.player = [RRPlayer new];
     
@@ -65,9 +68,17 @@
     
     //start the day
     self.day = 1;
-    self.dayMaximum = 5;
+    self.dayMaximum = 30;
     
     [self randomizeValues];
+}
+
++(void)clearGame
+{
+    if (sharedGame){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"clearGame" object:nil];
+        sharedGame = nil;
+    }
 }
 
 -(void)randomizeValues
@@ -95,7 +106,8 @@
 
 - (void)advanceDay
 {
-        
+    [self.stats logDay];
+    
     self.day +=1;
     
     [self.bank incrementLoan];

@@ -14,7 +14,7 @@
 #import "RREventManager.h"
 #import "RRStats.h"
 
-#define RRDiamondCountChanged @"diamondCountChanged"
+#define RRGameUpdateUI @"updateUI"
 
 @interface RRGame : NSObject
 
@@ -36,7 +36,9 @@
 +(RRGame *)sharedGame;
 
 -(void)newGame;
-- (void)advanceDay;
++(void)clearGame;
+
+-(void)advanceDay;
 
 -(void)randomizeValues;
 
