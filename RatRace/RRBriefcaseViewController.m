@@ -19,7 +19,7 @@
 
 #import "JLBPartialModal.h"
 
-@interface RRBriefcaseViewController () <GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate>
+@interface RRBriefcaseViewController () <GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate,UIAlertViewDelegate>
 {
     __weak IBOutlet RRGraphView *viewStats;
     __weak IBOutlet RRButtonSound *buttonNewGame;
@@ -122,8 +122,10 @@
 
 - (IBAction)newGame:(id)sender
 {
-    endGame = YES;
-    [[JLBPartialModal sharedInstance] dismissViewController];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Quit Game?" message:@"Are you sure you want to quit?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    
+    [alert show];
+
 }
 
 #pragma mark JLModalDelegate
@@ -155,6 +157,17 @@
 - (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
 {
     
+}
+
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        //
+        endGame = YES;
+        [[JLBPartialModal sharedInstance] dismissViewController];
+    }
 }
 
 

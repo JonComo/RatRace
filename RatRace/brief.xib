@@ -57,11 +57,12 @@
 						<string key="NSFrame">{{100, 246}, {120, 34}}</string>
 						<reference key="NSSuperview" ref="952749074"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">MAIN MENU</string>
+						<string key="IBUINormalTitle">QUIT GAME</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="189681062">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -411,15 +412,10 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="buttonLeader">RRButtonSound</string>
 						<string key="buttonNewGame">RRButtonSound</string>
 						<string key="viewStats">RRGraphView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="buttonLeader">
-							<string key="name">buttonLeader</string>
-							<string key="candidateClassName">RRButtonSound</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="buttonNewGame">
 							<string key="name">buttonNewGame</string>
 							<string key="candidateClassName">RRButtonSound</string>

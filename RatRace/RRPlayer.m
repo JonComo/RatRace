@@ -17,7 +17,7 @@
     if (self = [super init]) {
         //init
         _money = 2000.0;
-        _inventoryCapacity = 25;
+        _inventoryCapacity = 50;
     }
     
     return self;
