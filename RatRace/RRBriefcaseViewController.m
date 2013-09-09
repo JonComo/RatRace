@@ -23,6 +23,7 @@
     __weak IBOutlet RRButtonSound *buttonNewGame;
 }
 
+
 @property (nonatomic, strong) GKLeaderboard *leaderboards;
 @property (nonatomic, strong) GKScore *score;
 

@@ -76,11 +76,10 @@
         [collectionViewItems reloadData];
     }];
     
-<<<<<<< HEAD
     [[NSNotificationCenter defaultCenter] addObserverForName:@"newGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
-=======
+    
     if([RRGameCenterManager isGameCenterAvailable])
 	{
 		self.gameCenterManager= [[RRGameCenterManager alloc] init];
@@ -93,7 +92,6 @@
 	{
 		NSLog(@"No Game Center");
 	}
->>>>>>> master
 }
 
 -(void)viewWillAppear:(BOOL)animated
