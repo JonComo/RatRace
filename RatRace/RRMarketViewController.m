@@ -19,12 +19,13 @@
 #import "RRButtonSound.h"
 #import "RRGraphics.h"
 
+#import "RREndViewController.h"
+
 #import "MBProgressHUD.h"
 
 #import "RRAudioEngine.h"
-#import "RRGameCenterManager.h"
 
-@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RRGameCenterDelegate>
+@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     SMStatsView *statsView;
     RRTravelViewController *travelController;
@@ -35,8 +36,6 @@
     
     int eventIndex;
 }
-
-@property (nonatomic, strong) RRGameCenterManager *gameCenterManager;
 
 @end
 
@@ -76,22 +75,9 @@
         [collectionViewItems reloadData];
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"newGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"endGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self showEndViewController];
     }];
-    
-    if([RRGameCenterManager isGameCenterAvailable])
-	{
-		self.gameCenterManager= [[RRGameCenterManager alloc] init];
-		[self.gameCenterManager setDelegate: self];
-        [self.gameCenterManager authenticateLocalUser:self];
-        [self.gameCenterManager loadStoredScores];
-        [self.gameCenterManager resubmitStoredScores];
-    }
-	else
-	{
-		NSLog(@"No Game Center");
-	}
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -237,21 +223,20 @@
 
 }
 
+-(void)showEndViewController
+{
+    RREndViewController *endVC = [self.storyboard instantiateViewControllerWithIdentifier:@"endVC"];
+    endVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:endVC animated:YES completion:nil];
+}
+
 - (IBAction)travel:(id)sender
 {
     if ([RRGame sharedGame].day >= [RRGame sharedGame].dayMaximum)
     {
-        if ([RRGame sharedGame].player.money > 0) {
-            GKScore *score = [[GKScore alloc] init];
-            score.value = [RRGame sharedGame].player.money;
-            [self.gameCenterManager reportScore:score forCategory:kLeaderboardCategory];
-        }
-
-    
+        [self showEndViewController];
     }else{
-        
         RRTravelViewController *travelVC = [self.storyboard instantiateViewControllerWithIdentifier:@"travelVC"];
-        
         [self presentViewController:travelVC animated:YES completion:nil];
     }
 }
@@ -306,7 +291,6 @@
     [hud hide:YES];
 }
 
-
 #pragma mark RRGameCenterManagerDelegate
 
 -(void)scoreReported:(NSError *)error
@@ -317,8 +301,5 @@
     
     //show finish view control
 }
-
-
-
 
 @end
