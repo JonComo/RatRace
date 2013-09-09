@@ -10,11 +10,6 @@
 
 @implementation RRGraphics
 
-+(void)load
-{
-    
-}
-
 +(void)buttonStyle:(UIButton *)button
 {
     [button setBackgroundImage:[RRGraphics resizableBorderImageName:@"border"] forState:UIControlStateNormal];

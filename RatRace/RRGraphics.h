@@ -13,6 +13,6 @@
 +(void)buttonStyle:(UIButton *)button;
 +(void)buttonStyleDark:(UIButton *)button;
 
-+(UIImage *)resizableBorderImage;
++(UIImage *)resizableBorderImageName:(NSString *)name;
 
 @end

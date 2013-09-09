@@ -19,6 +19,8 @@
 
 #import "RRMarketViewController.h"
 
+#import "RRStoreManager.h"
+
 #import "RRGame.h"
 
 @interface RRIntroViewController () <GKLeaderboardViewControllerDelegate>
@@ -37,6 +39,10 @@
     [super viewDidLoad];
     [RRGraphics buttonStyle:buttonNewGame];
     [RRGraphics buttonStyle:buttonLeaderboard];
+    
+    [[RRStoreManager store] requestProdcutsCompletion:^(NSArray *prodcuts) {
+        NSLog(@"Products: %@", prodcuts);
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated

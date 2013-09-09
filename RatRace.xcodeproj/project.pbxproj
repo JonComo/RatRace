@@ -55,6 +55,8 @@
 		864F708617D56EE500FEDAA6 /* ding.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 864F708517D56EE500FEDAA6 /* ding.aiff */; };
 		864F708817D5714700FEDAA6 /* jet.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 864F708717D5714700FEDAA6 /* jet.aiff */; };
 		8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */; };
+		866EAB8117DE5B2E004BB19B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866EAB8017DE5B2E004BB19B /* StoreKit.framework */; };
+		866EAB8417DE5F53004BB19B /* RRStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EAB8317DE5F53004BB19B /* RRStoreManager.m */; };
 		8672928117DD9AE900F70ADE /* RREndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8672928017DD9AE900F70ADE /* RREndViewController.m */; };
 		8672928317DD9DBC00F70ADE /* borderDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8672928217DD9DBC00F70ADE /* borderDark@2x.png */; };
 		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
@@ -154,6 +156,9 @@
 		864F708717D5714700FEDAA6 /* jet.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = jet.aiff; sourceTree = "<group>"; };
 		8664AE8017D8711B0096CD2B /* RRBriefcaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBriefcaseViewController.h; sourceTree = "<group>"; };
 		8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBriefcaseViewController.m; sourceTree = "<group>"; };
+		866EAB8017DE5B2E004BB19B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		866EAB8217DE5F53004BB19B /* RRStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStoreManager.h; sourceTree = "<group>"; };
+		866EAB8317DE5F53004BB19B /* RRStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStoreManager.m; sourceTree = "<group>"; };
 		8672927F17DD9AE900F70ADE /* RREndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREndViewController.h; sourceTree = "<group>"; };
 		8672928017DD9AE900F70ADE /* RREndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREndViewController.m; sourceTree = "<group>"; };
 		8672928217DD9DBC00F70ADE /* borderDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "borderDark@2x.png"; sourceTree = "<group>"; };
@@ -206,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866EAB8117DE5B2E004BB19B /* StoreKit.framework in Frameworks */,
 				33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */,
 				3381583717D94226006CCA90 /* GameKit.framework in Frameworks */,
 				86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */,
@@ -272,6 +278,8 @@
 				86E1EF7017DC09FA0023FDF5 /* RRGraphData.m */,
 				33D98B4A17DD357F00172947 /* RRGameCenterManager.h */,
 				33D98B4B17DD357F00172947 /* RRGameCenterManager.m */,
+				866EAB8217DE5F53004BB19B /* RRStoreManager.h */,
+				866EAB8317DE5F53004BB19B /* RRStoreManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -426,6 +434,7 @@
 		86DBBD1617D415F60032D830 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				866EAB8017DE5B2E004BB19B /* StoreKit.framework */,
 				33D98B4817DCF78A00172947 /* libz.dylib */,
 				3381583617D94226006CCA90 /* GameKit.framework */,
 				86A0C4F717D5461B001663D6 /* AVFoundation.framework */,
@@ -598,6 +607,7 @@
 				86E1EF7117DC09FA0023FDF5 /* RRGraphData.m in Sources */,
 				33D98B4C17DD357F00172947 /* RRGameCenterManager.m in Sources */,
 				8672928117DD9AE900F70ADE /* RREndViewController.m in Sources */,
+				866EAB8417DE5F53004BB19B /* RRStoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
