@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -19,7 +19,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlh-KF-oC3" customClass="RRButtonSound">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="0mN-el-QCz"/>
+                                    <constraint firstAttribute="width" constant="120" id="7lB-Cm-TUX"/>
                                     <constraint firstAttribute="height" constant="34" id="Yl4-Fg-8KT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
@@ -35,18 +35,38 @@
                                     <segue destination="2" kind="modal" id="psP-7Y-xvN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRY-lV-8qz" customClass="RRButtonSound">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="aPw-uw-E2J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                <state key="normal" title="LEADERBOARD">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leaderBoard:" destination="dRU-ZG-PbK" eventType="touchUpInside" id="Lq8-Zo-Or6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Zlh-KF-oC3" secondAttribute="bottom" constant="30" id="S6u-6s-F28"/>
+                            <constraint firstAttribute="bottom" secondItem="VRY-lV-8qz" secondAttribute="bottom" constant="21" id="18B-qN-o0d"/>
+                            <constraint firstItem="VRY-lV-8qz" firstAttribute="leading" secondItem="Zlh-KF-oC3" secondAttribute="leading" type="default" id="L26-0S-mDT"/>
                             <constraint firstItem="Wav-no-9d4" firstAttribute="leading" secondItem="wnt-TZ-sND" secondAttribute="leading" type="default" id="UsC-yI-tP0"/>
+                            <constraint firstItem="VRY-lV-8qz" firstAttribute="trailing" secondItem="Zlh-KF-oC3" secondAttribute="trailing" type="default" id="Xhu-S1-0jg"/>
+                            <constraint firstItem="Zlh-KF-oC3" firstAttribute="centerX" secondItem="Wav-no-9d4" secondAttribute="centerX" type="default" id="gKW-RV-Tsm"/>
                             <constraint firstItem="Wav-no-9d4" firstAttribute="bottom" secondItem="wnt-TZ-sND" secondAttribute="bottom" type="user" id="iOY-En-FLv"/>
-                            <constraint firstItem="Wav-no-9d4" firstAttribute="centerX" secondItem="Zlh-KF-oC3" secondAttribute="centerX" type="default" id="rzd-Og-nUt"/>
+                            <constraint firstItem="VRY-lV-8qz" firstAttribute="top" secondItem="Zlh-KF-oC3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="n4j-2E-Cy2"/>
                             <constraint firstItem="Wav-no-9d4" firstAttribute="bottom" secondItem="wnt-TZ-sND" secondAttribute="bottom" type="user" id="y4w-Da-ZJK"/>
                             <constraint firstItem="Wav-no-9d4" firstAttribute="trailing" secondItem="wnt-TZ-sND" secondAttribute="trailing" type="default" id="yRq-e2-uHl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonLeaderboard" destination="VRY-lV-8qz" id="hrO-7n-Odt"/>
                         <outlet property="buttonNewGame" destination="Zlh-KF-oC3" id="JiV-1i-BnU"/>
                     </connections>
                 </viewController>
@@ -259,6 +279,9 @@
         <class className="RRIntroViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRIntroViewController.h"/>
             <relationships>
+                <relationship kind="action" name="leaderBoard:"/>
+                <relationship kind="action" name="newGame:"/>
+                <relationship kind="outlet" name="buttonLeaderboard" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="buttonNewGame" candidateClass="RRButtonSound"/>
             </relationships>
         </class>
@@ -284,9 +307,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

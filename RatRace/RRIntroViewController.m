@@ -11,11 +11,13 @@
 #import "RRAudioEngine.h"
 #import "RRGraphics.h"
 #import "RRButtonSound.h"
+#import <GameKit/GameKit.h>
 
-@interface RRIntroViewController ()
+@interface RRIntroViewController ()<GKLeaderboardViewControllerDelegate>
 {
     
     __weak IBOutlet RRButtonSound *buttonNewGame;
+    __weak IBOutlet RRButtonSound *buttonLeaderboard;
 }
 
 @end
@@ -26,6 +28,7 @@
 {
     [super viewDidLoad];
     [RRGraphics buttonStyle:buttonNewGame];
+    [RRGraphics buttonStyle:buttonLeaderboard];
     
 	// Do any additional setup after loading the view.
     
@@ -40,6 +43,31 @@
 - (IBAction)newGame:(id)sender
 {
     
+}
+
+- (IBAction)leaderBoard:(id)sender {
+    
+    [self showLeaderboard];
+    
+}
+
+#pragma mark GameCenter Controllers
+
+- (void) showLeaderboard;
+{
+	GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+	if (leaderboardController != NULL)
+	{
+		leaderboardController.category = kLeaderboardCategory;
+		leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
+		leaderboardController.leaderboardDelegate = self;
+		[self presentViewController:leaderboardController animated:YES completion:nil];
+	}
+}
+
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

@@ -65,7 +65,7 @@
     
     //start the day
     self.day = 1;
-    self.dayMaximum = 5;
+    self.dayMaximum = 2;
     
     [self randomizeValues];
 }
