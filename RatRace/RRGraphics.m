@@ -17,12 +17,17 @@
 
 +(void)buttonStyle:(UIButton *)button
 {
-    [button setBackgroundImage:[RRGraphics resizableBorderImage] forState:UIControlStateNormal];
+    [button setBackgroundImage:[RRGraphics resizableBorderImageName:@"border"] forState:UIControlStateNormal];
 }
 
-+(UIImage *)resizableBorderImage
++(void)buttonStyleDark:(UIButton *)button
 {
-    return [[UIImage imageNamed:@"border"] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)];
+    [button setBackgroundImage:[RRGraphics resizableBorderImageName:@"borderDark"] forState:UIControlStateNormal];
+}
+
++(UIImage *)resizableBorderImageName:(NSString *)name
+{
+    return [[UIImage imageNamed:name] resizableImageWithCapInsets:UIEdgeInsetsMake(2, 2, 2, 2)];
 }
 
 @end

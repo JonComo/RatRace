@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E3067" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRU-ZG-PbK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -100,6 +100,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G27-ES-Lae" customClass="RRButtonSound">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="9Jl-pH-cXG"/>
+                                            <constraint firstAttribute="width" constant="89" id="E4t-sP-qJ7"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
                                         <state key="normal" title="TRAVEL">
@@ -115,7 +116,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qX-dT-zPS" customClass="RRButtonSound">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="87" id="oQ5-ML-Q3G"/>
+                                            <constraint firstAttribute="width" constant="87" id="vNu-9T-JJD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
                                         <state key="normal" title="BANK">
@@ -145,18 +146,18 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="P9I-NY-F2t" firstAttribute="leading" secondItem="5qX-dT-zPS" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="2y2-J8-KbB"/>
+                                    <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="ZTs-nI-bMv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="AfD-Bo-yhh"/>
                                     <constraint firstItem="P9I-NY-F2t" firstAttribute="bottom" secondItem="5qX-dT-zPS" secondAttribute="bottom" type="default" id="F9l-7V-oir"/>
-                                    <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Jn3-t7-yyn"/>
-                                    <constraint firstAttribute="trailing" secondItem="P9I-NY-F2t" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MPH-Qf-R6G"/>
                                     <constraint firstItem="5qX-dT-zPS" firstAttribute="centerX" secondItem="ZTs-nI-bMv" secondAttribute="centerX" type="default" id="SCB-3D-l0B"/>
                                     <constraint firstItem="5qX-dT-zPS" firstAttribute="top" secondItem="G27-ES-Lae" secondAttribute="top" type="default" id="SQf-kb-9bm"/>
+                                    <constraint firstItem="P9I-NY-F2t" firstAttribute="centerY" secondItem="ZTs-nI-bMv" secondAttribute="centerY" type="default" id="Yhh-Tn-3b6"/>
                                     <constraint firstItem="G27-ES-Lae" firstAttribute="bottom" secondItem="5qX-dT-zPS" secondAttribute="bottom" type="default" id="Yy3-1n-hvP"/>
+                                    <constraint firstAttribute="trailing" secondItem="P9I-NY-F2t" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Yzm-B7-PC8"/>
                                     <constraint firstItem="P9I-NY-F2t" firstAttribute="top" secondItem="5qX-dT-zPS" secondAttribute="top" type="default" id="cG2-2C-ckE"/>
-                                    <constraint firstItem="G27-ES-Lae" firstAttribute="leading" secondItem="ZTs-nI-bMv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="krd-Hw-uaM"/>
                                     <constraint firstAttribute="height" constant="50" type="user" id="lPo-k1-VHg"/>
+                                    <constraint firstItem="5qX-dT-zPS" firstAttribute="leading" secondItem="G27-ES-Lae" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="o6Q-jE-LNS"/>
+                                    <constraint firstItem="P9I-NY-F2t" firstAttribute="leading" secondItem="5qX-dT-zPS" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="oca-v8-FK7"/>
                                     <constraint firstItem="P9I-NY-F2t" firstAttribute="baseline" secondItem="5qX-dT-zPS" secondAttribute="baseline" type="user" id="pWm-Oj-wHi"/>
-                                    <constraint firstItem="P9I-NY-F2t" firstAttribute="centerY" secondItem="ZTs-nI-bMv" secondAttribute="centerY" type="default" id="usm-mw-gTn"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -168,7 +169,6 @@
                             <constraint firstItem="ZTs-nI-bMv" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="user" id="itz-zs-VUk"/>
                             <constraint firstItem="ZTs-nI-bMv" firstAttribute="top" secondItem="y0x-W5-aEY" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="jOe-Jn-hKQ"/>
                             <constraint firstItem="y0x-W5-aEY" firstAttribute="top" secondItem="3" secondAttribute="top" constant="144" type="user" id="nva-Gl-dWv"/>
-                            <constraint firstItem="y0x-W5-aEY" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="z1r-lp-eSX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -263,6 +263,112 @@
             </objects>
             <point key="canvasLocation" x="544" y="19"/>
         </scene>
+        <!--End View Controller-->
+        <scene sceneID="M9C-VR-b5A">
+            <objects>
+                <viewController storyboardIdentifier="endVC" id="GiS-aC-hv1" customClass="RREndViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qG2-WK-Yvi">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DAY 30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rD-lJ-7Av">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="LKM-oQ-lR2"/>
+                                    <constraint firstAttribute="width" constant="260" id="eKa-O9-8aK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$300,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTJ-iJ-0qw">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="RZE-bV-3wx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Diamonds bought and sold" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cf-gW-7y9">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" type="user" id="A3H-BG-V1A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GzW-gc-ltq" customClass="RRGraphView">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" type="user" id="iLw-hE-5Jz"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Most visited location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ4-ca-OsB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" type="user" id="O4e-OJ-8XE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWJ-Z3-AvL" customClass="RRButtonSound">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="B1o-nz-OpG"/>
+                                    <constraint firstAttribute="height" constant="34" type="user" id="wv8-DS-u1e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                <state key="normal" title="DONE">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="brief:" destination="2" eventType="touchUpInside" id="OzH-VJ-aEX"/>
+                                    <action selector="done:" destination="GiS-aC-hv1" eventType="touchUpInside" id="Vgp-qL-JdL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score Submitted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pU-wS-m1z">
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4rD-lJ-7Av" firstAttribute="top" secondItem="qG2-WK-Yvi" secondAttribute="top" constant="20" symbolic="YES" type="default" id="0aL-ZB-gQS"/>
+                            <constraint firstItem="1pU-wS-m1z" firstAttribute="top" secondItem="FTJ-iJ-0qw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5u1-bp-fWi"/>
+                            <constraint firstItem="GzW-gc-ltq" firstAttribute="trailing" secondItem="qG2-WK-Yvi" secondAttribute="trailing" type="default" id="A1D-sN-hpM"/>
+                            <constraint firstItem="1pU-wS-m1z" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CT7-vg-Tms"/>
+                            <constraint firstItem="GzW-gc-ltq" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" type="default" id="Lzl-Vz-mhg"/>
+                            <constraint firstItem="HZ4-ca-OsB" firstAttribute="top" secondItem="GzW-gc-ltq" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="Mrk-Ym-FYE"/>
+                            <constraint firstAttribute="trailing" secondItem="KWJ-Z3-AvL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NhO-RJ-sdh"/>
+                            <constraint firstItem="FTJ-iJ-0qw" firstAttribute="top" secondItem="4rD-lJ-7Av" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TQR-T9-IwV"/>
+                            <constraint firstItem="FTJ-iJ-0qw" firstAttribute="centerX" secondItem="4rD-lJ-7Av" secondAttribute="centerX" type="default" id="TdT-cw-71F"/>
+                            <constraint firstItem="FTJ-iJ-0qw" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VlN-SC-9Lf"/>
+                            <constraint firstItem="0cf-gW-7y9" firstAttribute="top" secondItem="HZ4-ca-OsB" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="YFZ-IV-Cir"/>
+                            <constraint firstAttribute="trailing" secondItem="FTJ-iJ-0qw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="btb-rM-PKC"/>
+                            <constraint firstAttribute="trailing" secondItem="1pU-wS-m1z" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cGD-ry-VKO"/>
+                            <constraint firstItem="KWJ-Z3-AvL" firstAttribute="top" secondItem="0cf-gW-7y9" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="fmd-AQ-xhh"/>
+                            <constraint firstItem="HZ4-ca-OsB" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mnA-At-ZGk"/>
+                            <constraint firstAttribute="trailing" secondItem="HZ4-ca-OsB" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="p8z-Xy-Dka"/>
+                            <constraint firstItem="0cf-gW-7y9" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rMs-Np-Kxb"/>
+                            <constraint firstAttribute="trailing" secondItem="0cf-gW-7y9" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="sAW-AQ-8Vh"/>
+                            <constraint firstAttribute="bottom" secondItem="KWJ-Z3-AvL" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="sZn-2k-3KN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonDone" destination="KWJ-Z3-AvL" id="8LB-lD-djr"/>
+                        <outlet property="labelDay" destination="4rD-lJ-7Av" id="Zk4-5F-BCy"/>
+                        <outlet property="labelMoney" destination="FTJ-iJ-0qw" id="ZB8-Ve-eFv"/>
+                        <outlet property="labelScoreSubmitted" destination="1pU-wS-m1z" id="PWl-Fi-XHM"/>
+                        <outlet property="viewStats" destination="GzW-gc-ltq" id="2vR-ik-Rex"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k1s-Q0-4fq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="19"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Italy.png" width="640" height="320"/>
@@ -275,11 +381,22 @@
         <class className="RRButtonSound" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRButtonSound.h"/>
         </class>
+        <class className="RREndViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RREndViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buttonDone" candidateClass="RRButtonSound"/>
+                <relationship kind="outlet" name="labelDay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelMoney" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelScoreSubmitted" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewStats" candidateClass="RRGraphView"/>
+            </relationships>
+        </class>
+        <class className="RRGraphView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRGraphView.h"/>
+        </class>
         <class className="RRIntroViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRIntroViewController.h"/>
             <relationships>
-                <relationship kind="action" name="leaderBoard:"/>
-                <relationship kind="action" name="newGame:"/>
                 <relationship kind="outlet" name="buttonLeaderboard" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="buttonNewGame" candidateClass="RRButtonSound"/>
             </relationships>
@@ -287,9 +404,6 @@
         <class className="RRMarketViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
             <relationships>
-                <relationship kind="action" name="bank:"/>
-                <relationship kind="action" name="brief:"/>
-                <relationship kind="action" name="travel:"/>
                 <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="briefButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>

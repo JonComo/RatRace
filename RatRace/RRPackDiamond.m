@@ -247,8 +247,6 @@
 
 -(RREvent *)randomEvent
 {
-    return nil;
-    
     int rand = arc4random()%6;
     
     switch (rand) {
