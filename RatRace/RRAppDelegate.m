@@ -20,13 +20,7 @@
         
         [GKLocalPlayer localPlayer].authenticateHandler = ^(UIViewController *viewController, NSError *error)
         {
-            if (viewController != nil)
-            {
-                viewController = (UIViewController *)[UIApplication sharedApplication].delegate;
-                
-                [viewController presentViewController:viewController animated:YES completion:nil];
-            }
-            else if ([GKLocalPlayer localPlayer].authenticated)
+            if ([GKLocalPlayer localPlayer].authenticated)
             {
                 NSLog(@"Player authenticated");
             }

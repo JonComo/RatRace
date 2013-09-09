@@ -12,6 +12,8 @@
 
 #import "RRPackDiamond.h"
 
+#import "RRAudioEngine.h"
+
 static RRGame *sharedGame;
 
 @implementation RRGame
