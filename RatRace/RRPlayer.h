@@ -13,8 +13,8 @@
 @interface RRPlayer : NSObject
 
 @property float money;
-@property (nonatomic, strong) NSString *name;
 @property int inventoryCapacity;
+@property (nonatomic, strong) NSString *name;
 
 -(int)inventoryCount;
 

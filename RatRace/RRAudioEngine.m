@@ -44,16 +44,16 @@
 
 -(void)initializeAudioSession
 {
-    NSError *activationError = nil;
-    BOOL success = [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
-    if (!success) { /* handle the error in activationError */ }
-    
-    NSError *setCategoryError = nil;
-    BOOL catSuccess = [[AVAudioSession sharedInstance]
-                    setCategory: AVAudioSessionCategoryAmbient
-                    error: &setCategoryError];
-    
-    if (!catSuccess) { /* handle the error in setCategoryError */ }
+//    NSError *activationError = nil;
+//    BOOL success = [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
+//    if (!success) { /* handle the error in activationError */ }
+//    
+//    NSError *setCategoryError = nil;
+//    BOOL catSuccess = [[AVAudioSession sharedInstance]
+//                    setCategory: AVAudioSessionCategoryAmbient
+//                    error: &setCategoryError];
+//    
+//    if (!catSuccess) { /* handle the error in setCategoryError */ }
 }
 
 -(RRAudioPlayer *)playSoundNamed:(NSString *)soundName extension:(NSString *)ext loop:(BOOL)loop

@@ -10,7 +10,6 @@
 
 @interface SMStatsView : UIView
 
--(void)setup;
 -(void)update;
 
 @end

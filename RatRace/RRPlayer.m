@@ -16,27 +16,12 @@
 {
     if (self = [super init]) {
         //init
-        _money = 200000.00;
-        _inventoryCapacity = 100;
+        _money = 2000.0;
+        _inventoryCapacity = 25;
     }
     
     return self;
 }
-
-//-(RRItem *)itemMatchingItem:(RRItem *)item
-//{
-//    RRItem *match;
-//    
-//    for (RRItem *playerItem in self.inventory)
-//    {
-//        if ([playerItem.name isEqualToString:item.name])
-//        {
-//            match = playerItem;
-//        }
-//    }
-//    
-//    return match;
-//}
 
 -(int)inventoryCount
 {

@@ -47,8 +47,7 @@
 
 -(void)randomizeValue
 {
-    
-    self.value = [self valueInLocation:@"same"];
+    self.value = [self valueInLocation:[RRGame sharedGame].location];
 }
 
 -(void)noiseForLocation:(NSString *)location

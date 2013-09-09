@@ -18,7 +18,7 @@
 
 #import "RRGraphics.h"
 
-#import "RRStatsView.h"
+#import "RRGraphView.h"
 
 @implementation RRDiamondCell
 {
@@ -33,7 +33,40 @@
     
     double previousValue;
     
-    __weak IBOutlet RRStatsView *statsView;
+    __weak IBOutlet RRGraphView *statsView;
+}
+
+-(void)graphWithColor:(UIColor *)color
+{
+    [statsView clear];
+    
+    int daysToGraph = 5;
+    
+    RRGraphData *data = [RRGraphData new];
+    
+    NSArray *toGraph = [[RRGame sharedGame].stats currentLogs];
+    
+    int startIndex = toGraph.count - daysToGraph - 1;
+    if (startIndex < 0) startIndex = 0;
+    
+    for (int i = startIndex; i < toGraph.count; i++)
+    {
+        NSDictionary *dayLog = toGraph[i];
+        
+        NSDictionary *countryValues = dayLog[self.item.name];
+        
+        NSNumber *numberInCountry = countryValues[[RRGame sharedGame].location];
+        
+        [data.data addObject:numberInCountry];
+    }
+    
+    data.color = color;
+    
+    [statsView graph:data];
+    
+    statsView.xRange = daysToGraph;
+    
+    [statsView setNeedsDisplay];
 }
 
 -(void)setItem:(RRItem *)item
@@ -42,17 +75,11 @@
     
     labelName.text = item.name;
     
-    statsView.stats = [RRGame sharedGame].stats;
-    statsView.keys = @[self.item.name];
-    
-    statsView.xRange = [RRGame sharedGame].day;
+    UIColor *interfaceColor;
     
     if (item.selected)
     {
-        UIColor *interfaceColor = [UIColor blackColor];
-        
-        statsView.colors = @[interfaceColor];
-        [statsView setNeedsDisplay];
+        interfaceColor = [UIColor blackColor];
             
         self.backgroundColor = [UIColor whiteColor];
         //imageViewBackground.image = [RRGraphics resizableBorderImage];
@@ -71,10 +98,7 @@
         self.backgroundColor = [UIColor blackColor];
         //imageViewBackground.image = nil;
         
-        UIColor *interfaceColor = [UIColor whiteColor];
-        
-        statsView.colors = @[interfaceColor];
-        [statsView setNeedsDisplay];
+        interfaceColor = [UIColor whiteColor];
         
         imageViewHasItem.image = [UIImage imageNamed:@"diamondWhite"];
         
@@ -85,6 +109,8 @@
         [buttonBuyOne setTitleColor:interfaceColor forState:UIControlStateNormal];
         [buttonSellOne setTitleColor:interfaceColor forState:UIControlStateNormal];
     }
+    
+    [self graphWithColor:interfaceColor];
     
     [self calculate];
 }
@@ -171,6 +197,8 @@
     [RRGame sharedGame].player.money -= self.item.value;
     
     [self calculate];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RRGameUpdateUI object:nil];
 }
 
 -(void)sell
@@ -188,11 +216,8 @@
     [RRGame sharedGame].player.money += self.item.value;
     
     [self calculate];
-}
-
--(void)countChangedNotification
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:RRDiamondCountChanged object:nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RRGameUpdateUI object:nil];
 }
 
 -(void)animateLabel

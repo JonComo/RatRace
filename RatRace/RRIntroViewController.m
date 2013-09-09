@@ -13,7 +13,15 @@
 #import "RRButtonSound.h"
 #import <GameKit/GameKit.h>
 
+<<<<<<< HEAD
+#import "RRMarketViewController.h"
+
+#import "RRGame.h"
+
+@interface RRIntroViewController ()
+=======
 @interface RRIntroViewController ()<GKLeaderboardViewControllerDelegate>
+>>>>>>> master
 {
     
     __weak IBOutlet RRButtonSound *buttonNewGame;
@@ -42,9 +50,15 @@
 
 - (IBAction)newGame:(id)sender
 {
+    [RRGame clearGame];
     
+    RRMarketViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"marketVC"];
+    
+    [self presentViewController:marketVC animated:YES completion:nil];
 }
 
+<<<<<<< HEAD
+=======
 - (IBAction)leaderBoard:(id)sender {
     
     [self showLeaderboard];
@@ -71,4 +85,5 @@
 }
 
 
+>>>>>>> master
 @end
