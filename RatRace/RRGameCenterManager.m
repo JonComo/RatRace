@@ -11,48 +11,32 @@
 
 @implementation RRGameCenterManager
 
-- (id) init
++(RRGameCenterManager *)sharedManager
 {
-	self = [super init];
-	if(self!= NULL)
-	{
-        NSString* path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    static RRGameCenterManager *sharedManager;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedManager = [[RRGameCenterManager alloc] init];
+    });
+    
+    return sharedManager;
+}
+
+- (id)init
+{
+	if(self = [super init])
+    {
+        //init
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         _storedScoresFilename = [[NSString alloc] initWithFormat:@"%@/%@.storedScores.plist",path,[GKLocalPlayer localPlayer].playerID];
         writeLock = [[NSLock alloc] init];
 	}
+    
 	return self;
 }
 
-//- (void) callDelegate: (SEL) selector withArg: (id) arg error: (NSError*) err
-//{
-//	assert([NSThread isMainThread]);
-//	if([self.delegate respondsToSelector:@selector(selector)])
-//	{
-//		if(arg != NULL)
-//		{
-//			[self.delegate performSelector:@selector(selector) withObject:arg];
-//		}
-//		else
-//		{
-//			[self.delegate performSelector:@selector(selector) withObject: err];
-//		}
-//	}
-//	else
-//	{
-//		NSLog(@"Missed Method");
-//	}
-//}
-//
-//
-//- (void) callDelegateOnMainThread: (SEL) selector withArg: (id) arg error: (NSError*) err
-//{
-//	dispatch_async(dispatch_get_main_queue(), ^(void)
-//                   {
-//                       [self callDelegate: selector withArg: arg error: err];
-//                   });
-//}
-
-+ (BOOL) isGameCenterAvailable
++(BOOL)isGameCenterAvailable
 {
 	// check for presence of GKLocalPlayer API
 	Class gcClass = (NSClassFromString(@"GKLocalPlayer"));
@@ -65,28 +49,31 @@
 	return (gcClass && osVersionSupported);
 }
 
-- (void) authenticateLocalUser:(UIViewController *)viewController
+- (void)authenticateLocalUserOnViewController:(UIViewController *)parentViewController
 {
-    [GKLocalPlayer localPlayer].authenticateHandler = ^(UIViewController *loginVC, NSError *error){
-        if([GKLocalPlayer localPlayer].authenticated){
-            
-        }else{
-            [viewController presentViewController:loginVC animated:YES completion:nil];
+    [[GKLocalPlayer localPlayer] setAuthenticateHandler:^(UIViewController *viewController, NSError *error)
+    {
+        if (viewController && parentViewController)
+        {
+            [parentViewController presentViewController:viewController animated:YES completion:nil];
         }
-        
-            
-
-	};
+        else if ([GKLocalPlayer localPlayer].authenticated)
+        {
+            NSLog(@"Player authenticated");
+        }else{
+            NSLog(@"Player authentication failed");
+        }
+    }];
 }
 
-- (void) reloadHighScoresForCategory: (NSString*) category
+- (void)reloadHighScoresForCategory:(NSString*)category
 {
-	GKLeaderboard* leaderBoard= [[GKLeaderboard alloc] init];
-	leaderBoard.category= category;
-	leaderBoard.timeScope= GKLeaderboardTimeScopeAllTime;
-	leaderBoard.range= NSMakeRange(1, 1);
+	GKLeaderboard *leaderBoard = [[GKLeaderboard alloc] init];
+	leaderBoard.category = category;
+	leaderBoard.timeScope = GKLeaderboardTimeScopeAllTime;
+	leaderBoard.range = NSMakeRange(1, 1);
 	
-	[leaderBoard loadScoresWithCompletionHandler:  ^(NSArray *scores, NSError *error)
+	[leaderBoard loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error)
      {
          if ([self.delegate respondsToSelector:@selector(reloadScoresComplete:error:)]) {
              [self.delegate reloadScoresComplete:leaderBoard error:error];
@@ -94,12 +81,12 @@
      }];
 }
 
-- (void) reportScore:(GKScore *)score forCategory: (NSString*) category
+- (void)reportScore:(GKScore *)score completion:(void (^)(NSError *))block
 {
-	GKScore *scoreReporter = [[GKScore alloc] initWithCategory:category];
-	scoreReporter = score;
-	[scoreReporter reportScoreWithCompletionHandler: ^(NSError *error)
-	 {
+	[score reportScoreWithCompletionHandler: ^(NSError *error)
+    {
+         if (block) block(error);
+         
          if (!error || (![error code] && ![error domain])) {
              // Score submitted correctly. Resubmit others
              [self resubmitStoredScores];
@@ -111,7 +98,6 @@
          if ([self.delegate respondsToSelector:@selector(scoreReported:)]) {
              [self.delegate scoreReported:error];
          }
-
 	 }];
 }
 
@@ -123,7 +109,7 @@
         int index = [_storedScores count]-1;
         while( index >= 0 ) {
             GKScore * score = [_storedScores objectAtIndex:index];
-            [self reportScore:score forCategory:kLeaderboardCategory];
+            [self reportScore:score completion:nil];
             [_storedScores removeObjectAtIndex:index];
             index--;
         }

@@ -12,14 +12,16 @@
 #import "RRGraphics.h"
 #import "RRGame.h"
 
+#import "RRGameCenterManager.h"
+#import <GameKit/GameKit.h>
+
 #import "RRGraphView.h"
 
 #import "JLBPartialModal.h"
 
-@interface RRBriefcaseViewController ()
+@interface RRBriefcaseViewController () <GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate>
 {
     __weak IBOutlet RRGraphView *viewStats;
-    __weak IBOutlet RRButtonSound *buttonLeader;
     __weak IBOutlet RRButtonSound *buttonNewGame;
 }
 
@@ -32,14 +34,13 @@
 
 @implementation RRBriefcaseViewController
 {
-    BOOL newGame;
+    BOOL endGame;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [RRGraphics buttonStyle:buttonNewGame];
-    [RRGraphics buttonStyle:buttonLeader];
     
 	// Do any additional setup after loading the view.
 }
@@ -121,7 +122,7 @@
 
 - (IBAction)newGame:(id)sender
 {
-    newGame = YES;
+    endGame = YES;
     [[JLBPartialModal sharedInstance] dismissViewController];
 }
 
@@ -139,8 +140,8 @@
 
 - (void)didDismissPartialModalView:(JLBPartialModal *)partialModal
 {
-    if (newGame){
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"newGame" object:nil];
+    if (endGame){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"endGame" object:nil];
     }
 }
 

@@ -11,13 +11,17 @@
 #import "RRAudioEngine.h"
 #import "RRGraphics.h"
 #import "RRButtonSound.h"
+
+#import "MBProgressHUD.h"
+
+#import "RRGameCenterManager.h"
 #import <GameKit/GameKit.h>
 
 #import "RRMarketViewController.h"
 
 #import "RRGame.h"
 
-@interface RRIntroViewController ()<GKLeaderboardViewControllerDelegate>
+@interface RRIntroViewController () <GKLeaderboardViewControllerDelegate>
 {
     
     __weak IBOutlet RRButtonSound *buttonNewGame;
@@ -33,9 +37,6 @@
     [super viewDidLoad];
     [RRGraphics buttonStyle:buttonNewGame];
     [RRGraphics buttonStyle:buttonLeaderboard];
-    
-	// Do any additional setup after loading the view.
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -43,6 +44,19 @@
     [super viewDidAppear:animated];
     
     [[RRAudioEngine sharedEngine] stopAllSounds];
+    
+    // Do any additional setup after loading the view.
+}
+
+-(void)submitSavedScore
+{
+    float lastHighScore = [[NSUserDefaults standardUserDefaults] floatForKey:@"score"];
+    
+    GKScore *score = [[GKScore alloc] initWithCategory:kLeaderboardCategory];
+    score.value = lastHighScore;
+    [[RRGameCenterManager sharedManager] reportScore:score completion:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,16 +74,46 @@
     [self presentViewController:marketVC animated:YES completion:nil];
 }
 
-
-- (IBAction)leaderBoard:(id)sender {
+- (IBAction)leaderBoard:(id)sender
+{
+    [self submitSavedScore];
     
-    [self showLeaderboard];
-    
+    if ([GKLocalPlayer localPlayer].authenticated == NO) {
+        
+        [[GKLocalPlayer localPlayer] setAuthenticateHandler:^(UIViewController *viewController, NSError *error) {
+            
+            if ([GKLocalPlayer localPlayer].isAuthenticated)
+            {
+                //has gamecenter enabled
+                [self showLeaderboard];
+                
+            }else if(viewController)
+            {
+                UIViewController *rootVC = (UIViewController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+                [rootVC presentViewController:viewController animated:YES completion:nil];
+            }else{
+                //gamecenter disabled
+                NSLog(@"DISABLED");
+            }
+        }];
+        
+        if (!self.presentedViewController)
+        {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.labelText = @"Gamecenter Disabled";
+            hud.detailsLabelText = @"Sign in to gamecenter to access leaderboards.";
+            hud.color = [UIColor whiteColor];
+            [hud setMode:MBProgressHUDModeText];
+            [hud hide:YES afterDelay:2];
+        }
+    }else{
+        [self showLeaderboard];
+    }
 }
 
 #pragma mark GameCenter Controllers
 
-- (void) showLeaderboard;
+- (void)showLeaderboard;
 {
 	GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
 	if (leaderboardController != NULL)

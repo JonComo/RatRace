@@ -11,6 +11,7 @@
 @interface RRGraphics : NSObject
 
 +(void)buttonStyle:(UIButton *)button;
++(void)buttonStyleDark:(UIButton *)button;
 
 +(UIImage *)resizableBorderImage;
 

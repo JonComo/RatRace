@@ -27,13 +27,14 @@
 @property (readonly, nonatomic) NSMutableArray * storedScores;
 @property (nonatomic, strong) NSString *storedScoresFilename;
 
++(RRGameCenterManager *)sharedManager;
 
-+ (BOOL) isGameCenterAvailable;
++ (BOOL)isGameCenterAvailable;
 
-- (void) authenticateLocalUser:(UIViewController *)viewController;
+- (void)authenticateLocalUserOnViewController:(UIViewController *)viewController;
 
-- (void) reportScore:(GKScore *)score forCategory: (NSString*) category;
-- (void) reloadHighScoresForCategory: (NSString*) category;
+- (void)reportScore:(GKScore *)score completion:(void(^)(NSError *error))block;
+- (void)reloadHighScoresForCategory: (NSString*) category;
 
 //store score
 - (void)storeScore:(GKScore *)score ;

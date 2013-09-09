@@ -8,49 +8,23 @@
 
 #import "RRAppDelegate.h"
 #import "RRAudioEngine.h"
-#import <GameKit/GameKit.h>
 #import "TestFlight.h"
+
+#import "RRGameCenterManager.h"
+#import <GameKit/GameKit.h>
 
 @implementation RRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    if ([GKLocalPlayer localPlayer].authenticated == NO) {
-        
-        [GKLocalPlayer localPlayer].authenticateHandler = ^(UIViewController *viewController, NSError *error)
-        {
-<<<<<<< HEAD
-            if (viewController != nil)
-            {
-                viewController = (UIViewController *)[UIApplication sharedApplication].delegate;
-                
-                //[viewController presentViewController:viewController animated:YES completion:nil];
-            }
-            else if ([GKLocalPlayer localPlayer].authenticated)
-=======
-            if ([GKLocalPlayer localPlayer].authenticated)
->>>>>>> master
-            {
-                NSLog(@"Player authenticated");
-            }
-            else
-            {
-                NSLog(@"Player authentication failed");
-            }
-        };
-    }
-    
     [[RRAudioEngine sharedEngine] initializeAudioSession];
-    
     [TestFlight takeOff:@"20027d9d-5ca4-4093-82bf-930c0d004cb1"];
     
-
-
+    
     
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
 
@@ -64,13 +38,12 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-
-    
+    [[RRGameCenterManager sharedManager] authenticateLocalUserOnViewController:nil];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
