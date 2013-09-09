@@ -22,8 +22,9 @@
 #import "MBProgressHUD.h"
 
 #import "RRAudioEngine.h"
+#import "RRGameCenterManager.h"
 
-@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface RRMarketViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RRGameCenterDelegate>
 {
     SMStatsView *statsView;
     RRTravelViewController *travelController;
@@ -34,6 +35,8 @@
     
     int eventIndex;
 }
+
+@property (nonatomic, strong) RRGameCenterManager *gameCenterManager;
 
 @end
 
@@ -73,9 +76,24 @@
         [collectionViewItems reloadData];
     }];
     
+<<<<<<< HEAD
     [[NSNotificationCenter defaultCenter] addObserverForName:@"newGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
+=======
+    if([RRGameCenterManager isGameCenterAvailable])
+	{
+		self.gameCenterManager= [[RRGameCenterManager alloc] init];
+		[self.gameCenterManager setDelegate: self];
+        [self.gameCenterManager authenticateLocalUser:self];
+        [self.gameCenterManager loadStoredScores];
+        [self.gameCenterManager resubmitStoredScores];
+    }
+	else
+	{
+		NSLog(@"No Game Center");
+	}
+>>>>>>> master
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -225,14 +243,19 @@
 {
     if ([RRGame sharedGame].day >= [RRGame sharedGame].dayMaximum)
     {
-        //end of game
+        if ([RRGame sharedGame].player.money > 0) {
+            GKScore *score = [[GKScore alloc] init];
+            score.value = [RRGame sharedGame].player.money;
+            [self.gameCenterManager reportScore:score forCategory:kLeaderboardCategory];
+        }
+
+    
+    }else{
         
-        return;
+        RRTravelViewController *travelVC = [self.storyboard instantiateViewControllerWithIdentifier:@"travelVC"];
+        
+        [self presentViewController:travelVC animated:YES completion:nil];
     }
-    
-    RRTravelViewController *travelVC = [self.storyboard instantiateViewControllerWithIdentifier:@"travelVC"];
-    
-    [self presentViewController:travelVC animated:YES completion:nil];
 }
 
 - (IBAction)brief:(id)sender {
@@ -284,5 +307,20 @@
     [hud removeGestureRecognizer:tap];
     [hud hide:YES];
 }
+
+
+#pragma mark RRGameCenterManagerDelegate
+
+-(void)scoreReported:(NSError *)error
+{
+    NSLog(@"Score Reported Successfully");
+    
+    [self showHUDWithTitle:@"Score Saved Successful" detail:[NSString stringWithFormat:@"Your score: $%.2f",[RRGame sharedGame].player.money] autoDismiss:YES image:nil];
+    
+    //show finish view control
+}
+
+
+
 
 @end

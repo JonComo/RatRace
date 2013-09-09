@@ -11,15 +11,21 @@
 #import "RRAudioEngine.h"
 #import "RRGraphics.h"
 #import "RRButtonSound.h"
+#import <GameKit/GameKit.h>
 
+<<<<<<< HEAD
 #import "RRMarketViewController.h"
 
 #import "RRGame.h"
 
 @interface RRIntroViewController ()
+=======
+@interface RRIntroViewController ()<GKLeaderboardViewControllerDelegate>
+>>>>>>> master
 {
     
     __weak IBOutlet RRButtonSound *buttonNewGame;
+    __weak IBOutlet RRButtonSound *buttonLeaderboard;
 }
 
 @end
@@ -30,6 +36,7 @@
 {
     [super viewDidLoad];
     [RRGraphics buttonStyle:buttonNewGame];
+    [RRGraphics buttonStyle:buttonLeaderboard];
     
 	// Do any additional setup after loading the view.
     
@@ -50,4 +57,33 @@
     [self presentViewController:marketVC animated:YES completion:nil];
 }
 
+<<<<<<< HEAD
+=======
+- (IBAction)leaderBoard:(id)sender {
+    
+    [self showLeaderboard];
+    
+}
+
+#pragma mark GameCenter Controllers
+
+- (void) showLeaderboard;
+{
+	GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+	if (leaderboardController != NULL)
+	{
+		leaderboardController.category = kLeaderboardCategory;
+		leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
+		leaderboardController.leaderboardDelegate = self;
+		[self presentViewController:leaderboardController animated:YES completion:nil];
+	}
+}
+
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+>>>>>>> master
 @end

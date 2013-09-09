@@ -68,7 +68,11 @@ static RRGame *sharedGame;
     
     //start the day
     self.day = 1;
+<<<<<<< HEAD
     self.dayMaximum = 30;
+=======
+    self.dayMaximum = 2;
+>>>>>>> master
     
     [self randomizeValues];
 }

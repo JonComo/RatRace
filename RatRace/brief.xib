@@ -2,18 +2,17 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">12E3067</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">2083</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
 			<string>IBProxyObject</string>
-			<string>IBUIButton</string>
 			<string>IBUIView</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -36,6 +35,7 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
+<<<<<<< HEAD
 					<object class="IBUIButton" id="902691342">
 						<reference key="NSNextResponder" ref="752683985"/>
 						<int key="NSvFlags">1320</int>
@@ -69,6 +69,8 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
+=======
+>>>>>>> master
 					<object class="IBUIView" id="670902178">
 						<reference key="NSNextResponder" ref="752683985"/>
 						<int key="NSvFlags">292</int>
@@ -108,6 +110,7 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+<<<<<<< HEAD
 						<string key="label">buttonNewGame</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="902691342"/>
@@ -116,12 +119,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+=======
+>>>>>>> master
 						<string key="label">viewStats</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="670902178"/>
 					</object>
 					<int key="connectionID">38</int>
 				</object>
+<<<<<<< HEAD
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">newGame:</string>
@@ -131,6 +137,8 @@
 					</object>
 					<int key="connectionID">17</int>
 				</object>
+=======
+>>>>>>> master
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -155,6 +163,7 @@
 						<int key="objectID">3</int>
 						<reference key="object" ref="752683985"/>
 						<array class="NSMutableArray" key="children">
+<<<<<<< HEAD
 							<object class="IBNSLayoutConstraint" id="1059912432">
 								<reference key="firstItem" ref="902691342"/>
 								<int key="firstAttribute">9</int>
@@ -174,10 +183,16 @@
 							<object class="IBNSLayoutConstraint" id="931006905">
 								<reference key="firstItem" ref="902691342"/>
 								<int key="firstAttribute">3</int>
+=======
+							<object class="IBNSLayoutConstraint" id="735221890">
+								<reference key="firstItem" ref="752683985"/>
+								<int key="firstAttribute">4</int>
+>>>>>>> master
 								<int key="relation">0</int>
 								<reference key="secondItem" ref="670902178"/>
 								<int key="secondAttribute">4</int>
 								<float key="multiplier">1</float>
+<<<<<<< HEAD
 								<object class="IBNSLayoutSymbolicConstant" key="constant">
 									<double key="value">8</double>
 								</object>
@@ -201,6 +216,15 @@
 								<reference key="containingView" ref="752683985"/>
 								<int key="scoringType">8</int>
 								<float key="scoringTypeFloat">29</float>
+=======
+								<object class="IBLayoutConstant" key="constant">
+									<double key="value">62</double>
+								</object>
+								<float key="priority">1000</float>
+								<reference key="containingView" ref="752683985"/>
+								<int key="scoringType">3</int>
+								<float key="scoringTypeFloat">9</float>
+>>>>>>> master
 								<int key="contentType">3</int>
 							</object>
 							<object class="IBNSLayoutConstraint" id="417880144">
@@ -252,11 +276,15 @@
 								<int key="contentType">3</int>
 							</object>
 							<reference ref="670902178"/>
+<<<<<<< HEAD
 							<reference ref="902691342"/>
+=======
+>>>>>>> master
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
+<<<<<<< HEAD
 						<int key="objectID">10</int>
 						<reference key="object" ref="902691342"/>
 						<array class="NSMutableArray" key="children">
@@ -306,6 +334,8 @@
 						<reference key="parent" ref="752683985"/>
 					</object>
 					<object class="IBObjectRecord">
+=======
+>>>>>>> master
 						<int key="objectID">30</int>
 						<reference key="object" ref="670902178"/>
 						<reference key="parent" ref="752683985"/>
@@ -326,6 +356,7 @@
 						<reference key="parent" ref="752683985"/>
 					</object>
 					<object class="IBObjectRecord">
+<<<<<<< HEAD
 						<int key="objectID">48</int>
 						<reference key="object" ref="931006905"/>
 						<reference key="parent" ref="752683985"/>
@@ -338,6 +369,10 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">52</int>
 						<reference key="object" ref="1059912432"/>
+=======
+						<int key="objectID">50</int>
+						<reference key="object" ref="735221890"/>
+>>>>>>> master
 						<reference key="parent" ref="752683985"/>
 					</object>
 				</array>
@@ -347,6 +382,7 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+<<<<<<< HEAD
 				<string key="10.CustomClassName">RRButtonSound</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="10.IBUserGuides" ref="0"/>
@@ -358,14 +394,20 @@
 				<boolean value="NO" key="10.showNotes"/>
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+=======
+>>>>>>> master
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<array class="NSMutableArray" key="3.IBViewMetadataConstraints">
+				<array key="3.IBViewMetadataConstraints">
 					<reference ref="617690768"/>
 					<reference ref="678522099"/>
 					<reference ref="417880144"/>
+<<<<<<< HEAD
 					<reference ref="433531033"/>
 					<reference ref="931006905"/>
 					<reference ref="1059912432"/>
+=======
+					<reference ref="735221890"/>
+>>>>>>> master
 				</array>
 				<string key="30.CustomClassName">RRGraphView</string>
 				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -373,15 +415,23 @@
 				<string key="31.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+<<<<<<< HEAD
 				<string key="48.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+=======
+				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+>>>>>>> master
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
+<<<<<<< HEAD
 			<int key="maxID">52</int>
+=======
+			<int key="maxID">50</int>
+>>>>>>> master
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

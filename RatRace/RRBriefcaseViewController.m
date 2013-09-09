@@ -40,7 +40,6 @@
     [RRGraphics buttonStyle:buttonNewGame];
     [RRGraphics buttonStyle:buttonLeader];
     
-    [self loadLeaderboardInfo];
 	// Do any additional setup after loading the view.
 }
 
