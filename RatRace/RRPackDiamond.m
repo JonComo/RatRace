@@ -12,6 +12,13 @@
 
 @implementation RRPackDiamond
 
++(NSDictionary *)details
+{
+    return @{RRPackDetailName: @"The Diamond Dealer",
+             RRPackDetailDescription: @"Buy and sell diamonds across the globe.",
+             RRPackDetailImage : [UIImage imageNamed:@"diamond-in-hand"]};
+}
+
 -(NSArray *)items
 {
     return @[[RRItem item:@"Cognac Diamond" value:200], [RRItem item:@"Yellow Diamond" value:500], [RRItem item:@"Black Diamond" value:1200], [RRItem item:@"Blue Diamond" value:2260], [RRItem item:@"White Diamond" value:6000], [RRItem item:@"Blood Diamond" value:10000]];

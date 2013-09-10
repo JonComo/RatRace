@@ -10,6 +10,11 @@
 
 @implementation RRPack
 
++(NSDictionary *)details
+{
+    return @{RRPackDetailName : @"Default pack"};
+}
+
 -(RREvent *)randomEvent
 {
     return nil;

@@ -75,6 +75,11 @@
 {
     [RRGame clearGame];
     
+    [[RRGame sharedGame] newGameWithOptions:@{RRGameOptionMaxDays: @(30),
+                                             RRGameOptionPackObject : [RRPackArtist new],
+                                             RRGameOptionStartingMoney : @(800000),
+                                             RRGameOptionStartingLoan : @(1000000)}];
+    
     RRMarketViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"marketVC"];
     
     [self presentViewController:marketVC animated:YES completion:nil];
