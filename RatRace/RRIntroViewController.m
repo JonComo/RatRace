@@ -74,11 +74,6 @@
 
 - (IBAction)newGame:(id)sender
 {
-    [RRGame clearGame];
-    [[RRGame sharedGame] newGameWithOptions:@{RRGameOptionMaxDays: @(30),
-                    RRGameOptionPackObject : [RRPackArtist new],
-                 RRGameOptionStartingMoney : @(800000),
-                  RRGameOptionStartingLoan : @(1000000)}];
     
     RRPackListViewController *packVC = [self.storyboard instantiateViewControllerWithIdentifier:@"packVC"];
 

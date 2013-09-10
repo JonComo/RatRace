@@ -9,9 +9,17 @@
 #import "RRPackListViewController.h"
 #import "RRPackCell.h"
 
+//
+#import "RRPackArtist.h"
+#import "RRPackDiamond.h"
+
+#import "RRGame.h"
+#import "RRMarketViewController.h"
+
 @interface RRPackListViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     __weak IBOutlet UICollectionView *packCollectionView;
+    NSArray *packs;
 }
 
 @end
@@ -22,6 +30,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    packs = @[[RRPackDiamond details], [RRPackArtist details]];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"playGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        
+        [RRGame clearGame];
+        [[RRGame sharedGame] newGameWithOptions:note.object];
+        
+        RRMarketViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"marketVC"];
+        [self presentViewController:marketVC animated:YES completion:nil];
+        
+        
+    }];
 
 }
 
@@ -35,12 +56,14 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 3;
+    return packs.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     RRPackCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"packCell" forIndexPath:indexPath];
+    
+    cell.details = packs[indexPath.row];
     
     return cell;
 }
