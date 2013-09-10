@@ -18,6 +18,7 @@
 #import <GameKit/GameKit.h>
 
 #import "RRMarketViewController.h"
+#import "RRPackListViewController.h"
 
 #import "RRStoreManager.h"
 
@@ -75,7 +76,7 @@
 {
     [RRGame clearGame];
     
-    RRMarketViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"marketVC"];
+    RRPackListViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"packVC"];
     
     [self presentViewController:marketVC animated:YES completion:nil];
 }
