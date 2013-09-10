@@ -32,6 +32,7 @@
 		33D98B4717DCF6BF00172947 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4117DCF6BF00172947 /* release_notes.md */; };
 		33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B4817DCF78A00172947 /* libz.dylib */; };
 		33D98B4C17DD357F00172947 /* RRGameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D98B4B17DD357F00172947 /* RRGameCenterManager.m */; };
+		8600570317DEC71300740C75 /* RRPackArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8600570217DEC71300740C75 /* RRPackArtist.m */; };
 		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
 		86166B3417D9918800A6F925 /* RRPackDiamond.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3317D9918800A6F925 /* RRPackDiamond.m */; };
 		86166B3717D9936200A6F925 /* RRPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3617D9936100A6F925 /* RRPack.m */; };
@@ -128,6 +129,8 @@
 		33D98B4817DCF78A00172947 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		33D98B4A17DD357F00172947 /* RRGameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRGameCenterManager.h; sourceTree = "<group>"; };
 		33D98B4B17DD357F00172947 /* RRGameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRGameCenterManager.m; sourceTree = "<group>"; };
+		8600570117DEC71300740C75 /* RRPackArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackArtist.h; sourceTree = "<group>"; };
+		8600570217DEC71300740C75 /* RRPackArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackArtist.m; sourceTree = "<group>"; };
 		86166B2F17D904AE00A6F925 /* RREventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREventManager.h; sourceTree = "<group>"; };
 		86166B3017D904AE00A6F925 /* RREventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREventManager.m; sourceTree = "<group>"; };
 		86166B3217D9918800A6F925 /* RRPackDiamond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackDiamond.h; sourceTree = "<group>"; };
@@ -353,6 +356,8 @@
 				86166B3617D9936100A6F925 /* RRPack.m */,
 				86166B3217D9918800A6F925 /* RRPackDiamond.h */,
 				86166B3317D9918800A6F925 /* RRPackDiamond.m */,
+				8600570117DEC71300740C75 /* RRPackArtist.h */,
+				8600570217DEC71300740C75 /* RRPackArtist.m */,
 			);
 			name = ContentPacks;
 			sourceTree = "<group>";
@@ -622,8 +627,12 @@
 				33D98B4C17DD357F00172947 /* RRGameCenterManager.m in Sources */,
 				8672928117DD9AE900F70ADE /* RREndViewController.m in Sources */,
 				866EAB8417DE5F53004BB19B /* RRStoreManager.m in Sources */,
+<<<<<<< HEAD
 				3365D73617DEC3B100BF72A3 /* RRPackListViewController.m in Sources */,
 				3365D73917DEC50500BF72A3 /* RRPackCell.m in Sources */,
+=======
+				8600570317DEC71300740C75 /* RRPackArtist.m in Sources */,
+>>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

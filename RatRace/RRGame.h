@@ -14,7 +14,18 @@
 #import "RREventManager.h"
 #import "RRStats.h"
 
+//Packs
+#import "RRPackDiamond.h"
+#import "RRPackArtist.h"
+
 #define RRGameUpdateUI @"updateUI"
+
+//game options
+
+#define RRGameOptionPackObject @"packObject"
+#define RRGameOptionMaxDays @"maxDays"
+#define RRGameOptionStartingMoney @"startingMoney"
+#define RRGameOptionStartingLoan @"startingLoan"
 
 @interface RRGame : NSObject
 
@@ -35,7 +46,7 @@
 
 +(RRGame *)sharedGame;
 
--(void)newGame;
+-(void)newGameWithOptions:(NSDictionary *)options;
 +(void)clearGame;
 
 -(void)advanceDay;

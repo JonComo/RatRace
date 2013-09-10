@@ -10,8 +10,6 @@
 
 #import "RRItem.h"
 
-#import "RRPackDiamond.h"
-
 #import "RRAudioEngine.h"
 
 static RRGame *sharedGame;
@@ -25,7 +23,6 @@ static RRGame *sharedGame;
 {
     if (!sharedGame){
         sharedGame = [RRGame new];
-        [sharedGame newGame];
     }
     
     return sharedGame;
@@ -46,13 +43,15 @@ static RRGame *sharedGame;
     NSLog(@"BYE GAME");
 }
 
--(void)newGame
+-(void)newGameWithOptions:(NSDictionary *)options
 {
     self.player = nil;
     self.player = [RRPlayer new];
     
+    if (options[RRGameOptionStartingMoney]) self.player.money = [options[RRGameOptionStartingMoney] floatValue];
+    
     self.pack = nil;
-    self.pack = [[RRPackDiamond alloc] init];
+    self.pack = options[RRGameOptionPackObject] ? options[RRGameOptionPackObject] : [[RRPackDiamond alloc] init];
     
     self.eventManager = nil;
     self.eventManager = [RREventManager new];
@@ -63,6 +62,8 @@ static RRGame *sharedGame;
     self.bank = nil;
     self.bank = [RRBank bankWithLoanAmount:5000 withInterest:0.05 limit:15000];
     
+    if (options[RRGameOptionStartingLoan]) self.bank.loan = [options[RRGameOptionStartingLoan] floatValue];
+    
     self.availableItems = [self.pack items];
     self.availableLocations = [self.pack locations];
     
@@ -70,7 +71,7 @@ static RRGame *sharedGame;
     
     //start the day
     self.day = 1;
-    self.dayMaximum = 30;
+    self.dayMaximum = options[RRGameOptionMaxDays] ? [options[RRGameOptionMaxDays] floatValue] : 30;
     
     [self randomizeValues];
 }
@@ -78,7 +79,6 @@ static RRGame *sharedGame;
 +(void)clearGame
 {
     if (sharedGame){
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"clearGame" object:nil];
         sharedGame = nil;
     }
 }
