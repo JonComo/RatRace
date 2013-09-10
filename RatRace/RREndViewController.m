@@ -42,7 +42,7 @@
 	// Do any additional setup after loading the view.
     
     labelDay.text = [NSString stringWithFormat:@"DAY %i", [RRGame sharedGame].day];
-    labelMoney.text = [[RRGame sharedGame] format:[RRGame sharedGame].player.money];
+    labelMoney.text = [[RRGame sharedGame] format:[RRGame sharedGame].player.money - [RRGame sharedGame].bank.loan];
     
     [RRGraphics buttonStyleDark:buttonDone];
 }

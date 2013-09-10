@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330EF1E217DE63B0009061C5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330EF1E117DE63B0009061C5 /* icon@2x.png */; };
+		330EF1E417DE7BBC009061C5 /* icon_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330EF1E317DE7BBC009061C5 /* icon_@2x.png */; };
 		338157F117D44EB2006CCA90 /* RRBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F017D44EB2006CCA90 /* RRBank.m */; };
 		338157F517D45B1E006CCA90 /* RRBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F317D45B1E006CCA90 /* RRBankViewController.m */; };
 		338157F617D45B1E006CCA90 /* RRBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 338157F417D45B1E006CCA90 /* RRBankViewController.xib */; };
@@ -22,7 +24,6 @@
 		3381583417D83FEB006CCA90 /* debeers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583017D83FEB006CCA90 /* debeers.png */; };
 		3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583117D83FEB006CCA90 /* diamond-in-hand.png */; };
 		3381583717D94226006CCA90 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3381583617D94226006CCA90 /* GameKit.framework */; };
-		3381583C17D9B01C006CCA90 /* brief.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3381583B17D9B01C006CCA90 /* brief.xib */; };
 		33CA594F17DD6287007F4A59 /* brief.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CA594E17DD6287007F4A59 /* brief.xib */; };
 		33D98B4517DCF6BF00172947 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B3F17DCF6BF00172947 /* libTestFlight.a */; };
 		33D98B4617DCF6BF00172947 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4017DCF6BF00172947 /* README.md */; };
@@ -89,6 +90,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		330EF1E117DE63B0009061C5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		330EF1E317DE7BBC009061C5 /* icon_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_@2x.png"; sourceTree = "<group>"; };
 		338157EF17D44EB2006CCA90 /* RRBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBank.h; sourceTree = "<group>"; };
 		338157F017D44EB2006CCA90 /* RRBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBank.m; sourceTree = "<group>"; };
 		338157F217D45B1E006CCA90 /* RRBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBankViewController.h; sourceTree = "<group>"; };
@@ -109,7 +112,6 @@
 		3381583017D83FEB006CCA90 /* debeers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debeers.png; sourceTree = "<group>"; };
 		3381583117D83FEB006CCA90 /* diamond-in-hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond-in-hand.png"; sourceTree = "<group>"; };
 		3381583617D94226006CCA90 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		3381583B17D9B01C006CCA90 /* brief.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = brief.xib; sourceTree = "<group>"; };
 		33CA594E17DD6287007F4A59 /* brief.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = brief.xib; sourceTree = "<group>"; };
 		33D98B3F17DCF6BF00172947 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		33D98B4017DCF6BF00172947 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -237,7 +239,6 @@
 				86DBBD4917D41CA90032D830 /* stats.xib */,
 				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
 				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
-				3381583B17D9B01C006CCA90 /* brief.xib */,
 				86D3116B17DA6C9300D218E3 /* RRGraphView.h */,
 				86D3116C17DA6C9300D218E3 /* RRGraphView.m */,
 				33CA594E17DD6287007F4A59 /* brief.xib */,
@@ -415,9 +416,11 @@
 		86DBBD0B17D415F60032D830 = {
 			isa = PBXGroup;
 			children = (
+				330EF1E317DE7BBC009061C5 /* icon_@2x.png */,
+				330EF1E117DE63B0009061C5 /* icon@2x.png */,
 				86DBBD1D17D415F60032D830 /* RatRace */,
-				3381582A17D7EEA4006CCA90 /* Libraries */,
 				86DBBD1E17D415F60032D830 /* Supporting Files */,
+				3381582A17D7EEA4006CCA90 /* Libraries */,
 				86DBBD1617D415F60032D830 /* Frameworks */,
 				86DBBD1517D415F60032D830 /* Products */,
 			);
@@ -561,12 +564,13 @@
 				3381583317D83FEB006CCA90 /* cut_diamonds.png in Resources */,
 				3381583417D83FEB006CCA90 /* debeers.png in Resources */,
 				3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */,
-				3381583C17D9B01C006CCA90 /* brief.xib in Resources */,
 				861F691617DA8CD00097541C /* slide.aiff in Resources */,
 				33D98B4617DCF6BF00172947 /* README.md in Resources */,
 				33D98B4717DCF6BF00172947 /* release_notes.md in Resources */,
 				33CA594F17DD6287007F4A59 /* brief.xib in Resources */,
 				8672928317DD9DBC00F70ADE /* borderDark@2x.png in Resources */,
+				330EF1E217DE63B0009061C5 /* icon@2x.png in Resources */,
+				330EF1E417DE7BBC009061C5 /* icon_@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,8 +706,7 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A2577D6C-02D6-43E7-8123-81C4786385E3";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A2577D6C-02D6-43E7-8123-81C4786385E3";
+				PROVISIONING_PROFILE = "0DA0D14C-ECFA-4AC4-95A8-904F2D4B603C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -721,8 +724,7 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A2577D6C-02D6-43E7-8123-81C4786385E3";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A2577D6C-02D6-43E7-8123-81C4786385E3";
+				PROVISIONING_PROFILE = "0DA0D14C-ECFA-4AC4-95A8-904F2D4B603C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
