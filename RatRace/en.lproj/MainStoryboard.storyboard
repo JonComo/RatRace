@@ -389,57 +389,6 @@
         <image name="icon@2x.png" width="114" height="114"/>
         <image name="travel.png" width="640" height="1120"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RRButtonSound" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRButtonSound.h"/>
-        </class>
-        <class className="RREndViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RREndViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="buttonDone" candidateClass="RRButtonSound"/>
-                <relationship kind="outlet" name="labelDay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelMoney" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelScoreSubmitted" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="viewStats" candidateClass="RRGraphView"/>
-            </relationships>
-        </class>
-        <class className="RRGraphView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRGraphView.h"/>
-        </class>
-        <class className="RRIntroViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRIntroViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="buttonLeaderboard" candidateClass="RRButtonSound"/>
-                <relationship kind="outlet" name="buttonNewGame" candidateClass="RRButtonSound"/>
-            </relationships>
-        </class>
-        <class className="RRMarketViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
-                <relationship kind="outlet" name="briefButton" candidateClass="RRButtonSound"/>
-                <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>
-            </relationships>
-        </class>
-        <class className="RRTravelViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RRTravelViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="collectionViewCountries" candidateClass="UICollectionView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
