@@ -75,19 +75,14 @@
 - (IBAction)newGame:(id)sender
 {
     [RRGame clearGame];
-    
-<<<<<<< HEAD
-    RRPackListViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"packVC"];
-=======
     [[RRGame sharedGame] newGameWithOptions:@{RRGameOptionMaxDays: @(30),
-                                             RRGameOptionPackObject : [RRPackArtist new],
-                                             RRGameOptionStartingMoney : @(800000),
-                                             RRGameOptionStartingLoan : @(1000000)}];
+                    RRGameOptionPackObject : [RRPackArtist new],
+                 RRGameOptionStartingMoney : @(800000),
+                  RRGameOptionStartingLoan : @(1000000)}];
     
-    RRMarketViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"marketVC"];
->>>>>>> master
-    
-    [self presentViewController:marketVC animated:YES completion:nil];
+    RRPackListViewController *packVC = [self.storyboard instantiateViewControllerWithIdentifier:@"packVC"];
+
+    [self presentViewController:packVC animated:YES completion:nil];
 }
 
 - (IBAction)leaderBoard:(id)sender

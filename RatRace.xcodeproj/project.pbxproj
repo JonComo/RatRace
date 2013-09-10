@@ -627,12 +627,9 @@
 				33D98B4C17DD357F00172947 /* RRGameCenterManager.m in Sources */,
 				8672928117DD9AE900F70ADE /* RREndViewController.m in Sources */,
 				866EAB8417DE5F53004BB19B /* RRStoreManager.m in Sources */,
-<<<<<<< HEAD
 				3365D73617DEC3B100BF72A3 /* RRPackListViewController.m in Sources */,
 				3365D73917DEC50500BF72A3 /* RRPackCell.m in Sources */,
-=======
 				8600570317DEC71300740C75 /* RRPackArtist.m in Sources */,
->>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
