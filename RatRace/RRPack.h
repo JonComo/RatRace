@@ -17,6 +17,7 @@
 #define RRPackDetailName @"name"
 #define RRPackDetailDescription @"description"
 #define RRPackDetailImage @"image"
+#define RRPackClassObject @"class"
 
 @interface RRPack : NSObject
 
