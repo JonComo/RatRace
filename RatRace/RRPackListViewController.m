@@ -64,6 +64,12 @@
     RRPackCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"packCell" forIndexPath:indexPath];
     
     cell.details = packs[indexPath.row];
+
+    if (indexPath.row == 1) {
+        cell.buttonUnlock.enabled = NO;
+        
+    }
+    
     
     return cell;
 }

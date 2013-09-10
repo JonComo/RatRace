@@ -14,9 +14,9 @@
     __weak IBOutlet UIImageView *imageMain;
     __weak IBOutlet UILabel *labelMain;
     __weak IBOutlet UILabel *labelDetail;
-    __weak IBOutlet UIButton *buttonUnlock;
 }
 
+@property (nonatomic, weak) IBOutlet UIButton *buttonUnlock;
 @property (nonatomic, copy) NSMutableDictionary *details;
 
 @end

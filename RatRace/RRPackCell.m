@@ -21,7 +21,7 @@
     labelDetail.text = details[RRPackDetailDescription];
     imageMain.image = details[RRPackDetailImage];
     
-    [RRGraphics buttonStyle:buttonUnlock];
+    [RRGraphics buttonStyle:self.buttonUnlock];
     
 }
 
@@ -29,8 +29,8 @@
     
     NSDictionary *options = @{RRGameOptionMaxDays: @(30),
                               RRGameOptionPackObject : self.details[RRPackClassObject],
-                              RRGameOptionStartingMoney : @(800000),
-                              RRGameOptionStartingLoan : @(1000000)};
+                              RRGameOptionStartingMoney : @(2000),
+                              RRGameOptionStartingLoan : @(5000)};
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"playGame" object:options];
 }
