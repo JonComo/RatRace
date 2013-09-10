@@ -14,8 +14,5 @@
 +(void)buttonStyleDark:(UIButton *)button;
 
 +(UIImage *)resizableBorderImageName:(NSString *)name;
-<<<<<<< HEAD
 
-=======
->>>>>>> davidsBranch
 @end
