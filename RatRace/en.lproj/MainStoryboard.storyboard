@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5H3-6w-xSb">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5H3-6w-xSb">
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VVw-65-meX">
                                     <size key="itemSize" width="320" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -37,7 +37,7 @@
                                                         <constraint firstAttribute="width" constant="124" id="fVK-3s-IOn"/>
                                                         <constraint firstAttribute="height" constant="21" id="uB0-QZ-ecA"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -45,7 +45,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="1yQ-Ip-Dek"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -71,16 +71,16 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="ljR-jX-nJ5" firstAttribute="centerY" secondItem="Gil-d6-dUB" secondAttribute="centerY" type="default" id="3Vl-S7-Duv"/>
                                             <constraint firstItem="REa-2k-yMb" firstAttribute="bottom" secondItem="goU-GO-mFv" secondAttribute="bottom" type="default" id="6fL-ZF-K20"/>
                                             <constraint firstItem="REa-2k-yMb" firstAttribute="top" secondItem="ljR-jX-nJ5" secondAttribute="top" type="default" id="KdK-cq-3p2"/>
-                                            <constraint firstItem="REa-2k-yMb" firstAttribute="leading" secondItem="goU-GO-mFv" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="QFL-vq-toN"/>
+                                            <constraint firstItem="F3J-mD-7c7" firstAttribute="centerX" secondItem="Gil-d6-dUB" secondAttribute="centerX" type="default" id="PDb-hl-RN9"/>
+                                            <constraint firstItem="goU-GO-mFv" firstAttribute="leading" secondItem="Gil-d6-dUB" secondAttribute="leading" constant="5" id="V9g-Rw-lSS"/>
                                             <constraint firstItem="F3J-mD-7c7" firstAttribute="top" secondItem="goU-GO-mFv" secondAttribute="top" type="default" id="VUo-OE-1DL"/>
-                                            <constraint firstItem="REa-2k-yMb" firstAttribute="centerX" secondItem="Gil-d6-dUB" secondAttribute="centerX" type="default" id="YJm-nl-5kX"/>
+                                            <constraint firstAttribute="trailing" secondItem="ljR-jX-nJ5" secondAttribute="trailing" constant="9" id="VXa-7p-qK1"/>
                                             <constraint firstItem="ljR-jX-nJ5" firstAttribute="centerY" secondItem="goU-GO-mFv" secondAttribute="centerY" type="default" id="eAh-3m-Gub"/>
+                                            <constraint firstItem="F3J-mD-7c7" firstAttribute="leading" secondItem="REa-2k-yMb" secondAttribute="leading" type="default" id="j2u-iG-dUe"/>
                                             <constraint firstItem="REa-2k-yMb" firstAttribute="trailing" secondItem="F3J-mD-7c7" secondAttribute="trailing" type="default" id="jvL-D2-oaK"/>
-                                            <constraint firstAttribute="trailing" secondItem="ljR-jX-nJ5" secondAttribute="trailing" constant="10" id="uYu-yF-Z2f"/>
-                                            <constraint firstItem="F3J-mD-7c7" firstAttribute="leading" secondItem="goU-GO-mFv" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="y4C-6h-Jnx"/>
-                                            <constraint firstItem="goU-GO-mFv" firstAttribute="centerY" secondItem="Gil-d6-dUB" secondAttribute="centerY" type="default" id="ziq-Ko-fir"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="buttonUnlock" destination="ljR-jX-nJ5" id="8Cs-of-CzB"/>
