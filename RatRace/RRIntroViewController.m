@@ -18,6 +18,7 @@
 #import <GameKit/GameKit.h>
 
 #import "RRMarketViewController.h"
+#import "RRPackListViewController.h"
 
 #import "RRStoreManager.h"
 
@@ -73,16 +74,10 @@
 
 - (IBAction)newGame:(id)sender
 {
-    [RRGame clearGame];
     
-    [[RRGame sharedGame] newGameWithOptions:@{RRGameOptionMaxDays: @(30),
-                                             RRGameOptionPackObject : [RRPackArtist new],
-                                             RRGameOptionStartingMoney : @(800000),
-                                             RRGameOptionStartingLoan : @(1000000)}];
-    
-    RRMarketViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"marketVC"];
-    
-    [self presentViewController:marketVC animated:YES completion:nil];
+    RRPackListViewController *packVC = [self.storyboard instantiateViewControllerWithIdentifier:@"packVC"];
+
+    [self presentViewController:packVC animated:YES completion:nil];
 }
 
 - (IBAction)leaderBoard:(id)sender

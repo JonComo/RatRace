@@ -50,8 +50,10 @@ static RRGame *sharedGame;
     
     if (options[RRGameOptionStartingMoney]) self.player.money = [options[RRGameOptionStartingMoney] floatValue];
     
+    Class packClass = options[RRGameOptionPackObject];
+    
     self.pack = nil;
-    self.pack = options[RRGameOptionPackObject] ? options[RRGameOptionPackObject] : [[RRPackDiamond alloc] init];
+    self.pack = packClass ? [packClass new] : [RRPackDiamond new];
     
     self.eventManager = nil;
     self.eventManager = [RREventManager new];

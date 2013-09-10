@@ -127,7 +127,7 @@
 
 - (IBAction)done:(id)sender
 {
-    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		330EF1E217DE63B0009061C5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330EF1E117DE63B0009061C5 /* icon@2x.png */; };
 		330EF1E417DE7BBC009061C5 /* icon_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330EF1E317DE7BBC009061C5 /* icon_@2x.png */; };
+		3365D73617DEC3B100BF72A3 /* RRPackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3365D73517DEC3B100BF72A3 /* RRPackListViewController.m */; };
+		3365D73917DEC50500BF72A3 /* RRPackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3365D73817DEC50500BF72A3 /* RRPackCell.m */; };
 		338157F117D44EB2006CCA90 /* RRBank.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F017D44EB2006CCA90 /* RRBank.m */; };
 		338157F517D45B1E006CCA90 /* RRBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 338157F317D45B1E006CCA90 /* RRBankViewController.m */; };
 		338157F617D45B1E006CCA90 /* RRBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 338157F417D45B1E006CCA90 /* RRBankViewController.xib */; };
@@ -93,6 +95,10 @@
 /* Begin PBXFileReference section */
 		330EF1E117DE63B0009061C5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		330EF1E317DE7BBC009061C5 /* icon_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_@2x.png"; sourceTree = "<group>"; };
+		3365D73417DEC3B100BF72A3 /* RRPackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackListViewController.h; sourceTree = "<group>"; };
+		3365D73517DEC3B100BF72A3 /* RRPackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackListViewController.m; sourceTree = "<group>"; };
+		3365D73717DEC50500BF72A3 /* RRPackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackCell.h; sourceTree = "<group>"; };
+		3365D73817DEC50500BF72A3 /* RRPackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackCell.m; sourceTree = "<group>"; };
 		338157EF17D44EB2006CCA90 /* RRBank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBank.h; sourceTree = "<group>"; };
 		338157F017D44EB2006CCA90 /* RRBank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBank.m; sourceTree = "<group>"; };
 		338157F217D45B1E006CCA90 /* RRBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBankViewController.h; sourceTree = "<group>"; };
@@ -245,6 +251,8 @@
 				86D3116B17DA6C9300D218E3 /* RRGraphView.h */,
 				86D3116C17DA6C9300D218E3 /* RRGraphView.m */,
 				33CA594E17DD6287007F4A59 /* brief.xib */,
+				3365D73717DEC50500BF72A3 /* RRPackCell.h */,
+				3365D73817DEC50500BF72A3 /* RRPackCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -303,6 +311,8 @@
 				86DBBD3B17D416ED0032D830 /* RRMarketViewController.m */,
 				8664AE8017D8711B0096CD2B /* RRBriefcaseViewController.h */,
 				8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */,
+				3365D73417DEC3B100BF72A3 /* RRPackListViewController.h */,
+				3365D73517DEC3B100BF72A3 /* RRPackListViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -617,6 +627,8 @@
 				33D98B4C17DD357F00172947 /* RRGameCenterManager.m in Sources */,
 				8672928117DD9AE900F70ADE /* RREndViewController.m in Sources */,
 				866EAB8417DE5F53004BB19B /* RRStoreManager.m in Sources */,
+				3365D73617DEC3B100BF72A3 /* RRPackListViewController.m in Sources */,
+				3365D73917DEC50500BF72A3 /* RRPackCell.m in Sources */,
 				8600570317DEC71300740C75 /* RRPackArtist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
