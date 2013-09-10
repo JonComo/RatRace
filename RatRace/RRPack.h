@@ -10,7 +10,17 @@
 
 #import "RREvent.h"
 
+#import "RRItem.h"
+
+//details
+
+#define RRPackDetailName @"name"
+#define RRPackDetailDescription @"description"
+#define RRPackDetailImage @"image"
+
 @interface RRPack : NSObject
+
++(NSDictionary *)details;
 
 -(RREvent *)randomEvent;
 -(NSArray *)locations;
