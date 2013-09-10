@@ -14,4 +14,5 @@
 +(void)buttonStyleDark:(UIButton *)button;
 
 +(UIImage *)resizableBorderImageName:(NSString *)name;
+
 @end
