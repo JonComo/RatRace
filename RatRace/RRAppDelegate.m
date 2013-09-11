@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[RRAudioEngine sharedEngine] initializeAudioSession];
-    [TestFlight takeOff:@"20027d9d-5ca4-4093-82bf-930c0d004cb1"];
+    [TestFlight takeOff:@"9f892d79-fcda-4e71-a89f-ed84cde72dc4"];
     
     
     
