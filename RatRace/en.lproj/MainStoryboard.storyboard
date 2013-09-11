@@ -31,7 +31,7 @@
                                     <action selector="done:" destination="GiS-aC-hv1" eventType="touchUpInside" id="dnG-yH-hHA"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="How To Play:" translatesAutoresizingMaskIntoConstraints="NO" id="dmH-0R-Kld">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" text="How To Play:" translatesAutoresizingMaskIntoConstraints="NO" id="dmH-0R-Kld">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="476" id="aCT-Hr-Mv2"/>
@@ -49,6 +49,9 @@
                             <constraint firstAttribute="bottom" secondItem="noi-N5-BGI" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="xFl-mD-asK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textViewMain" destination="dmH-0R-Kld" id="8Pe-3g-gud"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94q-JO-DZK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -583,9 +586,6 @@
         <class className="RRMarketViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
             <relationships>
-                <relationship kind="action" name="bank:"/>
-                <relationship kind="action" name="brief:"/>
-                <relationship kind="action" name="travel:"/>
                 <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="briefButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>
@@ -595,6 +595,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMoreViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="textViewMain" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="RRPackCell" superclassName="UICollectionViewCell">
