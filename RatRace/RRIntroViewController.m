@@ -29,6 +29,7 @@
     
     __weak IBOutlet RRButtonSound *buttonNewGame;
     __weak IBOutlet RRButtonSound *buttonLeaderboard;
+    __weak IBOutlet RRButtonSound *buttonMore;
 }
 
 @end
@@ -40,6 +41,7 @@
     [super viewDidLoad];
     [RRGraphics buttonStyle:buttonNewGame];
     [RRGraphics buttonStyle:buttonLeaderboard];
+    [RRGraphics buttonStyle:buttonMore];
     
     [[RRStoreManager store] requestProdcutsCompletion:^(NSArray *prodcuts) {
         NSLog(@"Products: %@", prodcuts);
