@@ -58,8 +58,6 @@
 
 -(RRAudioPlayer *)playSoundNamed:(NSString *)soundName extension:(NSString *)ext loop:(BOOL)loop
 {
-    if (self.muted) return nil;
-    
     NSString *path = [[NSBundle mainBundle] pathForResource:soundName ofType:ext];
     
     NSError *soundError;
@@ -77,6 +75,10 @@
     soundPlayer.numberOfLoops = loop ? -1 : 0;
     
     [sounds addObject:soundPlayer];
+    
+    if (([[NSUserDefaults standardUserDefaults] boolForKey:MUTE_MUSIC] && loop == YES) || self.muted){
+        soundPlayer.volume = 0;
+    }
     
     [soundPlayer play];
     
@@ -116,9 +118,30 @@
     }
 }
 
+-(void)toggleMusic
+{
+    float newVolume;
+    
+    for (RRAudioPlayer *player in sounds){
+        if (player.numberOfLoops == -1)
+        {
+            //found music
+            newVolume = (player.volume == 0) ? 1 : 0;
+            player.volume = newVolume;
+        }
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setBool:(newVolume == 0) ? YES : NO forKey:MUTE_MUSIC];
+}
+
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     [sounds removeObject:player];
+}
+
+-(BOOL)musicMuted
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:MUTE_MUSIC];
 }
 
 @end

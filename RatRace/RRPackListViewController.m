@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     
+    [packCollectionView registerNib:[UINib nibWithNibName:@"packCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"packCell"];
+    
     packs = @[[RRPackDiamond details], [RRPackArtist details]];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"playGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
@@ -64,12 +66,6 @@
     RRPackCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"packCell" forIndexPath:indexPath];
     
     cell.details = packs[indexPath.row];
-
-    if (indexPath.row == 1) {
-        cell.buttonUnlock.enabled = NO;
-        
-    }
-    
     
     return cell;
 }

@@ -34,6 +34,7 @@
 		33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B4817DCF78A00172947 /* libz.dylib */; };
 		33D98B4C17DD357F00172947 /* RRGameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D98B4B17DD357F00172947 /* RRGameCenterManager.m */; };
 		8600570317DEC71300740C75 /* RRPackArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8600570217DEC71300740C75 /* RRPackArtist.m */; };
+		8614D0AD17E11D36002D08B9 /* packCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8614D0AC17E11D36002D08B9 /* packCell.xib */; };
 		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
 		86166B3417D9918800A6F925 /* RRPackDiamond.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3317D9918800A6F925 /* RRPackDiamond.m */; };
 		86166B3717D9936200A6F925 /* RRPack.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3617D9936100A6F925 /* RRPack.m */; };
@@ -67,6 +68,7 @@
 		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
 		86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A0C4F717D5461B001663D6 /* AVFoundation.framework */; };
 		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
+		86AE9CCB17E1292400F5602F /* RROptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AE9CCA17E1292400F5602F /* RROptionsViewController.m */; };
 		86B5678017DBEBB400E1F4E9 /* PerlinNoise.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B5677F17DBEBB400E1F4E9 /* PerlinNoise.m */; };
 		86B9850817D5BBEB0065FD70 /* diamondWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B9850617D5BBEB0065FD70 /* diamondWhite@2x.png */; };
 		86B9850917D5BBEB0065FD70 /* diamondBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B9850717D5BBEB0065FD70 /* diamondBlack@2x.png */; };
@@ -134,6 +136,8 @@
 		33D98B4B17DD357F00172947 /* RRGameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRGameCenterManager.m; sourceTree = "<group>"; };
 		8600570117DEC71300740C75 /* RRPackArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackArtist.h; sourceTree = "<group>"; };
 		8600570217DEC71300740C75 /* RRPackArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackArtist.m; sourceTree = "<group>"; };
+		8614D0AC17E11D36002D08B9 /* packCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = packCell.xib; sourceTree = "<group>"; };
+		8614D0AE17E11F0A002D08B9 /* RRPackList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRPackList.h; sourceTree = "<group>"; };
 		86166B2F17D904AE00A6F925 /* RREventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREventManager.h; sourceTree = "<group>"; };
 		86166B3017D904AE00A6F925 /* RREventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREventManager.m; sourceTree = "<group>"; };
 		86166B3217D9918800A6F925 /* RRPackDiamond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackDiamond.h; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 		86A0C4F517D5455A001663D6 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
 		86A0C4F717D5461B001663D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		86A0C4FA17D54832001663D6 /* click.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = click.aiff; sourceTree = "<group>"; };
+		86AE9CC917E1292400F5602F /* RROptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RROptionsViewController.h; sourceTree = "<group>"; };
+		86AE9CCA17E1292400F5602F /* RROptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RROptionsViewController.m; sourceTree = "<group>"; };
 		86B5677E17DBEBB400E1F4E9 /* PerlinNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerlinNoise.h; sourceTree = "<group>"; };
 		86B5677F17DBEBB400E1F4E9 /* PerlinNoise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerlinNoise.m; sourceTree = "<group>"; };
 		86B9850617D5BBEB0065FD70 /* diamondWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamondWhite@2x.png"; sourceTree = "<group>"; };
@@ -243,17 +249,18 @@
 		3381580217D468D8006CCA90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				338157FC17D462A4006CCA90 /* RRDiamondCell.h */,
-				338157FD17D462A5006CCA90 /* RRDiamondCell.m */,
-				864F707C17D55C5C00FEDAA6 /* diamondCell.xib */,
 				86DBBD2F17D415F60032D830 /* MainStoryboard.storyboard */,
 				338157F417D45B1E006CCA90 /* RRBankViewController.xib */,
 				86DBBD4917D41CA90032D830 /* stats.xib */,
+				33CA594E17DD6287007F4A59 /* brief.xib */,
+				864F707C17D55C5C00FEDAA6 /* diamondCell.xib */,
+				8614D0AC17E11D36002D08B9 /* packCell.xib */,
 				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
 				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
+				338157FC17D462A4006CCA90 /* RRDiamondCell.h */,
+				338157FD17D462A5006CCA90 /* RRDiamondCell.m */,
 				86D3116B17DA6C9300D218E3 /* RRGraphView.h */,
 				86D3116C17DA6C9300D218E3 /* RRGraphView.m */,
-				33CA594E17DD6287007F4A59 /* brief.xib */,
 				3365D73717DEC50500BF72A3 /* RRPackCell.h */,
 				3365D73817DEC50500BF72A3 /* RRPackCell.m */,
 			);
@@ -318,6 +325,8 @@
 				3365D73517DEC3B100BF72A3 /* RRPackListViewController.m */,
 				3378D98217DFE8EC0067A46C /* RRMoreViewController.h */,
 				3378D98317DFE8EC0067A46C /* RRMoreViewController.m */,
+				86AE9CC917E1292400F5602F /* RROptionsViewController.h */,
+				86AE9CCA17E1292400F5602F /* RROptionsViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -357,6 +366,7 @@
 		86166B3817D9C51400A6F925 /* ContentPacks */ = {
 			isa = PBXGroup;
 			children = (
+				8614D0AE17E11F0A002D08B9 /* RRPackList.h */,
 				86166B3517D9936100A6F925 /* RRPack.h */,
 				86166B3617D9936100A6F925 /* RRPack.m */,
 				86166B3217D9918800A6F925 /* RRPackDiamond.h */,
@@ -591,6 +601,7 @@
 				8672928317DD9DBC00F70ADE /* borderDark@2x.png in Resources */,
 				330EF1E217DE63B0009061C5 /* icon@2x.png in Resources */,
 				330EF1E417DE7BBC009061C5 /* icon_@2x.png in Resources */,
+				8614D0AD17E11D36002D08B9 /* packCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +647,7 @@
 				3365D73917DEC50500BF72A3 /* RRPackCell.m in Sources */,
 				8600570317DEC71300740C75 /* RRPackArtist.m in Sources */,
 				3378D98417DFE8EC0067A46C /* RRMoreViewController.m in Sources */,
+				86AE9CCB17E1292400F5602F /* RROptionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +742,8 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "47B0465E-AB09-4F8A-B685-34E78890E720";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47B0465E-AB09-4F8A-B685-34E78890E720";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -747,6 +761,8 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "47B0465E-AB09-4F8A-B685-34E78890E720";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47B0465E-AB09-4F8A-B685-34E78890E720";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

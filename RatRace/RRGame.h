@@ -57,6 +57,6 @@
 -(void)randomizeItem:(RRItem *)item;
 
 
--(NSString *)format:(float)value;
++(NSString *)format:(float)value;
 
 @end

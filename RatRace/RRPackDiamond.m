@@ -17,7 +17,8 @@
     return @{RRPackDetailName: @"The Diamond Dealer",
              RRPackDetailDescription: @"Buy and sell diamonds across the globe.",
              RRPackDetailImage : [UIImage imageNamed:@"diamond-in-hand"],
-             RRPackClassObject: [RRPackDiamond class]};
+             RRPackClassObject: [RRPackDiamond class],
+             RRPackDetailID : @"com.unmd76.theMerchant.packDiamondDealer"};
 }
 
 -(NSArray *)items
