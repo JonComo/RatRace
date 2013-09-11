@@ -12,6 +12,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" text="How To Play:" translatesAutoresizingMaskIntoConstraints="NO" id="dmH-0R-Kld">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noi-N5-BGI" customClass="RRButtonSound">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="89" id="Kjm-ws-Ou0"/>
@@ -31,17 +36,10 @@
                                     <action selector="done:" destination="GiS-aC-hv1" eventType="touchUpInside" id="dnG-yH-hHA"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" text="How To Play:" translatesAutoresizingMaskIntoConstraints="NO" id="dmH-0R-Kld">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="476" id="aCT-Hr-Mv2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dmH-0R-Kld" firstAttribute="bottom" secondItem="Ahu-ar-Ihc" secondAttribute="bottom" type="default" id="24x-mO-f9I"/>
                             <constraint firstAttribute="trailing" secondItem="noi-N5-BGI" secondAttribute="trailing" constant="14" id="7uj-mJ-uYJ"/>
                             <constraint firstItem="dmH-0R-Kld" firstAttribute="trailing" secondItem="Ahu-ar-Ihc" secondAttribute="trailing" type="default" id="Wcz-bJ-JmJ"/>
                             <constraint firstItem="dmH-0R-Kld" firstAttribute="top" secondItem="Ahu-ar-Ihc" secondAttribute="top" type="default" id="YJ4-rY-ZvS"/>
@@ -50,6 +48,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonDone" destination="noi-N5-BGI" id="Yy5-nP-rR2"/>
                         <outlet property="textViewMain" destination="dmH-0R-Kld" id="8Pe-3g-gud"/>
                     </connections>
                 </viewController>
@@ -595,6 +594,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMoreViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="buttonDone" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="textViewMain" candidateClass="UITextView"/>
             </relationships>
         </class>

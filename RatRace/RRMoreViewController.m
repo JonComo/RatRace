@@ -7,11 +7,14 @@
 //
 
 #import "RRMoreViewController.h"
+#import "RRGraphics.h"
+#import "RRButtonSound.h"
 
 @interface RRMoreViewController ()
 {
     
     __weak IBOutlet UITextView *textViewMain;
+    __weak IBOutlet RRButtonSound *buttonDone;
 }
 
 @end
@@ -20,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [RRGraphics buttonStyleDark:buttonDone];
     textViewMain.text = [self howToString];
     
 }
@@ -37,7 +41,7 @@
 
 -(NSString *)howToString
 {
-    NSString *main = @"How to play: Buy low and sell high blah blah blah blah blah blah!";
+    NSString *main = @"How to play:\n 1. Choose or unlock a profile that matches your character preference \n\n 2. Begin the game in the main location your bank exists \n\n 3. Borrow from the bank \n\n 4. Assess costs of goods in your current location \n\n 5. Make a decision to buy \n\n 6. Travel to another country, assess costs in new location \n\n 7. Sell goods for a high premium to raise your money \n\n";
     return main;
 }
 @end
