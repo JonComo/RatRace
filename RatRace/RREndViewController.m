@@ -42,7 +42,7 @@
 	// Do any additional setup after loading the view.
     
     labelDay.text = [NSString stringWithFormat:@"DAY %i", [RRGame sharedGame].day];
-    labelMoney.text = [[RRGame sharedGame] format:[RRGame sharedGame].player.money - [RRGame sharedGame].bank.loan];
+    labelMoney.text = [RRGame format:[RRGame sharedGame].player.money - [RRGame sharedGame].bank.loan];
     
     [RRGraphics buttonStyleDark:buttonDone];
 }
@@ -62,7 +62,7 @@
     
     for (UIView *view in self.view.subviews){
         if (view == labelScoreSubmitted) continue;
-        [UIView animateWithDuration:0.3 delay:view.frame.origin.y/120 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.3 delay:view.frame.origin.y/240 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             view.alpha = 1;
         } completion:nil];
     }

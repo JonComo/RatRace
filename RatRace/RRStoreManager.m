@@ -12,7 +12,7 @@
 
 #define PRODUCTS @[@"com.unmd76.theMerchant.packArtDealer", @"com.unmd76.theMerchant.handbagDealer"]
 
-@interface RRStoreManager () <SKProductsRequestDelegate>
+@interface RRStoreManager () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 {
     productCompletion gotProducts;
 }
@@ -40,7 +40,7 @@
 {
     if (self = [super init]) {
         //init
-        
+        [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     }
     
     return self;
@@ -60,12 +60,50 @@
 
 -(void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
-    for (SKProduct *product in response.products)
+    self.products = response.products;
+    
+    if (gotProducts) gotProducts(self.products);
+}
+
+-(void)buyProductWithID:(NSString *)productID completion:(void (^)(BOOL))purchaseHandler
+{
+    SKPayment *payment;
+    
+    for (SKProduct *product in self.products)
     {
-        
+        if ([product.productIdentifier isEqualToString:productID])
+        {
+            payment = [SKPayment paymentWithProduct:product];
+        }
     }
     
-    if (gotProducts) gotProducts(response.products);
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+-(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
+{
+    for (SKPaymentTransaction *transaction in transactions)
+    {
+        switch (transaction.transactionState) {
+            case SKPaymentTransactionStatePurchased:
+                
+                //bought, so unlock
+                
+                [[SKPaymentQueue defaultQueue]
+                 finishTransaction:transaction];
+                break;
+                
+            case SKPaymentTransactionStateFailed:
+                //Failed, don't unlock
+                
+                [[SKPaymentQueue defaultQueue]
+                 finishTransaction:transaction];
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 
 @end

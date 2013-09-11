@@ -10,13 +10,7 @@
 #import "RRButtonSound.h"
 
 @interface RRPackCell : UICollectionViewCell
-{
-    __weak IBOutlet UIImageView *imageMain;
-    __weak IBOutlet UILabel *labelMain;
-    __weak IBOutlet UILabel *labelDetail;
-}
 
-@property (nonatomic, weak) IBOutlet UIButton *buttonUnlock;
 @property (nonatomic, copy) NSMutableDictionary *details;
 
 @end

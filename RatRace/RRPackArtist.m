@@ -15,7 +15,8 @@
     return @{RRPackDetailName: @"The Art Dealer",
              RRPackDetailDescription: @"Visit galleries from Paris to New York, growing your collection.",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
-             RRPackClassObject: [RRPackArtist class]};
+             RRPackClassObject: [RRPackArtist class],
+             RRPackDetailID : @"com.unmd76.theMerchant.packArtDealer"};
 }
 
 -(NSArray *)items

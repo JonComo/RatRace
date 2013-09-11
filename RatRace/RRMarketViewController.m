@@ -242,8 +242,6 @@
 }
 
 - (IBAction)brief:(id)sender {
-    
-    
     RRBriefcaseViewController *brief = [[RRBriefcaseViewController alloc] initWithNibName:@"brief" bundle:[NSBundle mainBundle]];
     
     JLBPartialModal *modal = [JLBPartialModal sharedInstance];

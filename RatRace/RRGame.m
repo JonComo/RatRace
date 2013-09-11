@@ -13,11 +13,9 @@
 #import "RRAudioEngine.h"
 
 static RRGame *sharedGame;
+static NSNumberFormatter *numberFormatter;
 
 @implementation RRGame
-{
-    NSNumberFormatter *numberFormatter;
-}
 
 +(RRGame *)sharedGame
 {
@@ -31,9 +29,7 @@ static RRGame *sharedGame;
 - (id)init
 {
     if (self = [super init]) {
-        numberFormatter = [[NSNumberFormatter alloc] init];
-        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        [numberFormatter setMaximumFractionDigits:0];
+        
     }
     return self;
 }
@@ -123,8 +119,15 @@ static RRGame *sharedGame;
 
 }
 
--(NSString *)format:(float)value
++(NSString *)format:(float)value
 {
+    if (!numberFormatter)
+    {
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [numberFormatter setMaximumFractionDigits:0];
+    }
+    
     NSString *formattedString = [numberFormatter stringFromNumber:@(value)];
     return [NSString stringWithFormat:@"$%@", formattedString];
 }

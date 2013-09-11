@@ -11,6 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "RRAudioPlayer.h"
 
+#define MUTE_MUSIC @"muteMusic"
+
 @interface RRAudioEngine : NSObject
 
 @property BOOL muted;
@@ -25,5 +27,8 @@
 -(void)stopAllSounds;
 
 -(void)mute:(BOOL)mute;
+
+-(void)toggleMusic;
+-(BOOL)musicMuted;
 
 @end

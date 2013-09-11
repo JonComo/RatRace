@@ -8,6 +8,8 @@
 
 #import "RRAudioPlayer.h"
 
+#import "RRAudioEngine.h"
+
 @implementation RRAudioPlayer
 {
     NSTimer *fadeTimer;
@@ -15,8 +17,26 @@
     float fadeTime;
 }
 
+-(BOOL)shouldMute
+{
+    BOOL muteMusic = [[NSUserDefaults standardUserDefaults] boolForKey:MUTE_MUSIC];
+    
+    if (muteMusic && self.numberOfLoops == -1)
+    {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
 -(void)fadeIn:(float)time
 {
+    if ([self shouldMute])
+    {
+        self.volume = 0;
+        return;
+    }
+    
     [fadeTimer invalidate];
     fadeTimer = nil;
     
@@ -27,6 +47,12 @@
 
 -(void)fadeOut:(float)time
 {
+    if ([self shouldMute])
+    {
+        self.volume = 0;
+        return;
+    }
+    
     [fadeTimer invalidate];
     fadeTimer = nil;
     
