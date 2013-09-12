@@ -74,6 +74,11 @@ static NSNumberFormatter *numberFormatter;
     [self randomizeValues];
 }
 
+-(void)endGame
+{
+    [self.stats archiveStats];
+}
+
 +(void)clearGame
 {
     if (sharedGame){
