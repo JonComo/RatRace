@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define ARCHIVE_PATH NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES)[0]
+
 @interface RRStats : NSObject
 
 @property (nonatomic, strong) NSMutableArray *dayLogs;
@@ -16,5 +18,9 @@
 -(void)logDay;
 
 -(NSArray *)currentLogs;
+
+-(void)archiveStats;
+
++(NSArray *)history;
 
 @end

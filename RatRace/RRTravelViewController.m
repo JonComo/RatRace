@@ -32,7 +32,7 @@
     
     locations = [[RRGame sharedGame].availableLocations mutableCopy];
     
-    [self removeCurrentLocation];
+    //[self removeCurrentLocation];
     
     plane = [[RRAudioEngine sharedEngine] playSoundNamed:@"planeAmbient" extension:@"aiff" loop:YES];
     plane.volume = 0;
@@ -82,7 +82,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {    
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
@@ -90,7 +89,7 @@
     NSString *location = locations[indexPath.row];
     
     UILabel *label = (UILabel *)[cell viewWithTag:100];
-    label.text = location;
+    label.text = [NSString stringWithFormat:@"%@%@", [[RRGame sharedGame].location isEqualToString:location] ? @"<" : @"", location];
     
     UIImageView *image = (UIImageView *)[cell viewWithTag:200];
     image.image = [UIImage imageNamed:location];
@@ -106,8 +105,14 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //select item
-    
     NSString *location = locations[indexPath.row];
+    
+    if ([location isEqualToString:[RRGame sharedGame].location])
+    {
+        //just go back
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
     
     [RRGame sharedGame].location = location;
     

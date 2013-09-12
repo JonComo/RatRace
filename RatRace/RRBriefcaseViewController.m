@@ -12,22 +12,19 @@
 #import "RRGraphics.h"
 #import "RRGame.h"
 
-#import "RRGameCenterManager.h"
-#import <GameKit/GameKit.h>
+#import "RRAudioEngine.h"
 
 #import "RRGraphView.h"
 
 #import "JLBPartialModal.h"
 
-@interface RRBriefcaseViewController () <GKLeaderboardViewControllerDelegate, GKGameCenterControllerDelegate,UIAlertViewDelegate>
+@interface RRBriefcaseViewController () <UIAlertViewDelegate>
 {
     __weak IBOutlet RRGraphView *viewStats;
-    __weak IBOutlet RRButtonSound *buttonNewGame;
+    
+    __weak IBOutlet RRButtonSound *buttonMusic;
+    __weak IBOutlet RRButtonSound *buttonQuit;
 }
-
-
-@property (nonatomic, strong) GKLeaderboard *leaderboards;
-@property (nonatomic, strong) GKScore *score;
 
 @end
 
@@ -40,14 +37,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [RRGraphics buttonStyle:buttonNewGame];
     
-	// Do any additional setup after loading the view.
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+    [RRGraphics buttonStyle:buttonMusic];
+    [RRGraphics buttonStyle:buttonQuit];
+    
+    [self updateUI];
     
     [self graphStats];
 }
@@ -84,6 +78,12 @@
     [viewStats setNeedsDisplay];
 }
 
+-(void)updateUI
+{
+    BOOL mutedMusic = [[RRAudioEngine sharedEngine] musicMuted];
+    [buttonMusic setTitle:mutedMusic ? @"MUSIC: OFF" : @"MUSIC: ON" forState:UIControlStateNormal];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -91,41 +91,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)leaderboard:(id)sender {
-
+- (IBAction)quitGame:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Quit Game?" message:@"Are you sure you want to quit? This will end the game on the current day." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Quit", nil];
+    alert.delegate = self;
+    [alert show];
 }
 
-- (void) loadLeaderboardInfo
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [[GKLocalPlayer localPlayer] loadDefaultLeaderboardCategoryIDWithCompletionHandler:^(NSString *categoryID, NSError *error) {
-        
-         NSLog(@"%@ %@", categoryID, error);
-        [self showLeaderboard:self.leaderboards.groupIdentifier];
-        
-    }];
-
-}
-
-- (void)showLeaderboard:(NSString*)leaderboardID
-{
-    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
-    
-    if (gameCenterController != nil)
-    {
-        gameCenterController.gameCenterDelegate = self;
-        gameCenterController.viewState = GKGameCenterViewControllerStateLeaderboards;
-        gameCenterController.leaderboardTimeScope = GKLeaderboardTimeScopeToday;
-        gameCenterController.leaderboardCategory = leaderboardID;
-        [self presentViewController: gameCenterController animated: YES completion:nil];
+    if (buttonIndex == 1) {
+        endGame = YES;
+        [[JLBPartialModal sharedInstance] dismissViewController];
     }
 }
 
-- (IBAction)newGame:(id)sender
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Quit Game?" message:@"Are you sure you want to quit?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-    
-    [alert show];
-
+- (IBAction)toggleMusic:(id)sender {
+    [[RRAudioEngine sharedEngine] toggleMusic];
+    [self updateUI];
 }
 
 #pragma mark JLModalDelegate
@@ -142,32 +124,8 @@
 
 - (void)didDismissPartialModalView:(JLBPartialModal *)partialModal
 {
-    if (endGame){
+    if (endGame)
         [[NSNotificationCenter defaultCenter] postNotificationName:@"endGame" object:nil];
-    }
-}
-
-#pragma mark GKLeaderboardDelegate
-
-- (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
-{
-    
-}
-
-- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-    
-}
-
-#pragma mark UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        //
-        endGame = YES;
-        [[JLBPartialModal sharedInstance] dismissViewController];
-    }
 }
 
 

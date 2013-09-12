@@ -47,6 +47,8 @@
 +(RRGame *)sharedGame;
 
 -(void)newGameWithOptions:(NSDictionary *)options;
+-(void)endGame;
+
 +(void)clearGame;
 
 -(void)advanceDay;
@@ -57,6 +59,6 @@
 -(void)randomizeItem:(RRItem *)item;
 
 
--(NSString *)format:(float)value;
++(NSString *)format:(float)value;
 
 @end

@@ -20,7 +20,9 @@
     [[RRAudioEngine sharedEngine] initializeAudioSession];
     [TestFlight takeOff:@"9f892d79-fcda-4e71-a89f-ed84cde72dc4"];
     
-    
+    //reset userdefaults for testing purposes
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     
     return YES;
 }

@@ -121,7 +121,7 @@
     
     labelItemCount.text = [NSString stringWithFormat:@"%i", numberOwned];
     imageViewHasItem.hidden = self.item.count == 0 ? YES : NO;
-    labelPrice.text = [[RRGame sharedGame] format:self.item.value];
+    labelPrice.text = [RRGame format:self.item.value];
 }
 
 -(float)calculatePercent

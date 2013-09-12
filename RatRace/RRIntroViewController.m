@@ -26,10 +26,10 @@
 
 @interface RRIntroViewController () <GKLeaderboardViewControllerDelegate>
 {
-    
     __weak IBOutlet RRButtonSound *buttonNewGame;
     __weak IBOutlet RRButtonSound *buttonLeaderboard;
     __weak IBOutlet RRButtonSound *buttonMore;
+    __weak IBOutlet RRButtonSound *buttonChallenge;
 }
 
 @end
@@ -42,6 +42,7 @@
     [RRGraphics buttonStyle:buttonNewGame];
     [RRGraphics buttonStyle:buttonLeaderboard];
     [RRGraphics buttonStyle:buttonMore];
+    [RRGraphics buttonStyle:buttonChallenge];
     
     [[RRStoreManager store] requestProdcutsCompletion:^(NSArray *prodcuts) {
         NSLog(@"Products: %@", prodcuts);
@@ -118,6 +119,17 @@
         [self showLeaderboard];
     }
 }
+
+- (IBAction)challenge:(id)sender {
+    NSNumber *highScore = [[NSUserDefaults standardUserDefaults] valueForKey:@"score"];
+    
+    NSString *challengeMessage = [NSString stringWithFormat:@"Try and beat %@ in The Merchant. You can't.", [RRGame format:[highScore floatValue]]];
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[challengeMessage] applicationActivities:nil];
+    
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
 
 #pragma mark GameCenter Controllers
 
