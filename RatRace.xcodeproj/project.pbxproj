@@ -61,6 +61,8 @@
 		864F708617D56EE500FEDAA6 /* ding.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 864F708517D56EE500FEDAA6 /* ding.aiff */; };
 		864F708817D5714700FEDAA6 /* jet.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 864F708717D5714700FEDAA6 /* jet.aiff */; };
 		8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */; };
+		866E613317E1477500F544DD /* historyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866E613217E1477500F544DD /* historyCell.xib */; };
+		866E613617E1479900F544DD /* RRHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 866E613517E1479900F544DD /* RRHistoryCell.m */; };
 		866EAB8117DE5B2E004BB19B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866EAB8017DE5B2E004BB19B /* StoreKit.framework */; };
 		866EAB8417DE5F53004BB19B /* RRStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EAB8317DE5F53004BB19B /* RRStoreManager.m */; };
 		8672928117DD9AE900F70ADE /* RREndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8672928017DD9AE900F70ADE /* RREndViewController.m */; };
@@ -174,6 +176,9 @@
 		864F708717D5714700FEDAA6 /* jet.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = jet.aiff; sourceTree = "<group>"; };
 		8664AE8017D8711B0096CD2B /* RRBriefcaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRBriefcaseViewController.h; sourceTree = "<group>"; };
 		8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRBriefcaseViewController.m; sourceTree = "<group>"; };
+		866E613217E1477500F544DD /* historyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = historyCell.xib; sourceTree = "<group>"; };
+		866E613417E1479900F544DD /* RRHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRHistoryCell.h; sourceTree = "<group>"; };
+		866E613517E1479900F544DD /* RRHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRHistoryCell.m; sourceTree = "<group>"; };
 		866EAB8017DE5B2E004BB19B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		866EAB8217DE5F53004BB19B /* RRStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStoreManager.h; sourceTree = "<group>"; };
 		866EAB8317DE5F53004BB19B /* RRStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStoreManager.m; sourceTree = "<group>"; };
@@ -263,6 +268,9 @@
 				86D3116C17DA6C9300D218E3 /* RRGraphView.m */,
 				3365D73717DEC50500BF72A3 /* RRPackCell.h */,
 				3365D73817DEC50500BF72A3 /* RRPackCell.m */,
+				866E613217E1477500F544DD /* historyCell.xib */,
+				866E613417E1479900F544DD /* RRHistoryCell.h */,
+				866E613517E1479900F544DD /* RRHistoryCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -602,6 +610,7 @@
 				330EF1E217DE63B0009061C5 /* icon@2x.png in Resources */,
 				330EF1E417DE7BBC009061C5 /* icon_@2x.png in Resources */,
 				8614D0AD17E11D36002D08B9 /* packCell.xib in Resources */,
+				866E613317E1477500F544DD /* historyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +657,7 @@
 				8600570317DEC71300740C75 /* RRPackArtist.m in Sources */,
 				3378D98417DFE8EC0067A46C /* RRMoreViewController.m in Sources */,
 				86AE9CCB17E1292400F5602F /* RROptionsViewController.m in Sources */,
+				866E613617E1479900F544DD /* RRHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

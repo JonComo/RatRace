@@ -65,4 +65,44 @@
     return [self.dayLogs arrayByAddingObject:[self statsForDay]];
 }
 
+-(void)archiveStats
+{
+    NSDictionary *gameDict = @{@"date" : [NSDate date],
+                               @"daysPlayed" : @([RRGame sharedGame].day),
+                               @"money" : @([RRGame sharedGame].player.money),
+                               @"loan" : @([RRGame sharedGame].bank.loan),
+                               @"logs": [self currentLogs]};
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:gameDict];
+    
+    NSError *error;
+    [data writeToURL:[self uniqueURLWithFilename:@"stats"] options:NSDataWritingAtomic error:&error];
+    
+    if (error)
+        NSLog(@"Error archiving stats: %@", error);
+}
+
++(NSArray *)history
+{
+    NSArray *filenames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:ARCHIVE_PATH error:nil];
+    
+    return filenames;
+}
+
+-(NSURL *)uniqueURLWithFilename:(NSString *)filename
+{
+    NSString *documents = ARCHIVE_PATH;
+    
+    int count = 0;
+    
+    NSURL *URL;
+    
+    do {
+        URL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@%i", documents, filename, count]];
+        count ++;
+    } while ([[NSFileManager defaultManager] fileExistsAtPath:[URL path]]);
+    
+    return URL;
+}
+
 @end
