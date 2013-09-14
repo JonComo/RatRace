@@ -12,7 +12,7 @@
 
 +(NSDictionary *)details
 {
-    return @{RRPackDetailName: @"The Drug Dealer",
+    return @{RRPackDetailName: @"The Drug Merchant",
              RRPackDetailDescription: @"Ode to the original drug wars text game",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
              RRPackClassObject: [RRPackDope class],
@@ -21,7 +21,7 @@
 
 -(NSArray *)items
 {
-    return @[[RRItem item:@"Weed" value:70], [RRItem item:@"Meth" value:200], [RRItem item:@"Molly" value:2500], [RRItem item:@"Heroine" value:5000], [RRItem item:@"Cocaine" value:10000]];
+    return @[[RRItem item:@"Weed" value:70], [RRItem item:@"Meth" value:200], [RRItem item:@"Molly" value:2500], [RRItem item:@"Heroine" value:5000], [RRItem item:@"Cocaine" value:11000]];
 }
 
 -(NSArray *)locations

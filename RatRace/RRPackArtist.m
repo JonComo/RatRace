@@ -12,7 +12,7 @@
 
 +(NSDictionary *)details
 {
-    return @{RRPackDetailName: @"The Art Dealer",
+    return @{RRPackDetailName: @"The Art Merchant",
              RRPackDetailDescription: @"Visit galleries from Paris to New York, growing your collection.",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
              RRPackClassObject: [RRPackArtist class],

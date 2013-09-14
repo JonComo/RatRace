@@ -12,7 +12,7 @@
 
 +(NSDictionary *)details
 {
-    return @{RRPackDetailName: @"The Fashion isto/ista",
+    return @{RRPackDetailName: @"The Fashion Merchant",
              RRPackDetailDescription: @"Buy and sell collections of brand names high end fashion apparel.",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
              RRPackClassObject: [RRPackFashion class],
@@ -21,7 +21,7 @@
 
 -(NSArray *)items
 {
-    return @[[RRItem item:@"??" value:2500], [RRItem item:@"??" value:5000], [RRItem item:@"??" value:100000],[RRItem item:@"??" value:20000],[RRItem item:@"??" value:150000]];
+    return @[[RRItem item:@"Gucci" value:250], [RRItem item:@"Versace" value:600], [RRItem item:@"Yve Saint Laurent" value:1600],[RRItem item:@"Dolce & Gabbana" value:3000],[RRItem item:@"Versace" value:5000],[RRItem item:@"Hermes" value:11000]];
 }
 
 -(NSArray *)locations
