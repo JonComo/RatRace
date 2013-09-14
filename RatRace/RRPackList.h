@@ -11,7 +11,9 @@
 
 #import "RRPackDiamond.h"
 #import "RRPackArtist.h"
+#import "RRPackDope.h"
+#import "RRPackFashion.h"
 
-#define PACK_IDS @[[RRPackDiamond packID], [RRPackArtist packID]]
+#define PACK_IDS @[[RRPackDiamond packID], [RRPackArtist packID], [RRPackDope packID], [RRPackFashion packID]]
 
 #endif
