@@ -1,21 +1,21 @@
 //
-//  RRPackFashion.m
+//  RRPackCars.m
 //  RatRace
 //
 //  Created by David de Jesus on 9/13/13.
 //  Copyright (c) 2013 Jon Como. All rights reserved.
 //
 
-#import "RRPackFashion.h"
+#import "RRPackCars.h"
 
-@implementation RRPackFashion
+@implementation RRPackCars
 
 +(NSDictionary *)details
 {
-    return @{RRPackDetailName: @"The Fashion isto/ista",
-             RRPackDetailDescription: @"Buy and sell collections of brand names high end fashion apparel.",
+    return @{RRPackDetailName: @"The Luxury Car Dealer",
+             RRPackDetailDescription: @"Buy and sell high end luxury cars around the world.",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
-             RRPackClassObject: [RRPackFashion class],
+             RRPackClassObject: [RRPackCars class],
              RRPackDetailID : @"com.unmd76.theMerchant. - - -"};
 }
 
