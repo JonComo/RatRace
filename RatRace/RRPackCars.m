@@ -12,7 +12,7 @@
 
 +(NSDictionary *)details
 {
-    return @{RRPackDetailName: @"The Luxury Car Dealer",
+    return @{RRPackDetailName: @"The Luxury Car Merchant",
              RRPackDetailDescription: @"Buy and sell high end luxury cars around the world.",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
              RRPackClassObject: [RRPackCars class],
@@ -21,7 +21,7 @@
 
 -(NSArray *)items
 {
-    return @[[RRItem item:@"??" value:2500], [RRItem item:@"??" value:5000], [RRItem item:@"??" value:100000],[RRItem item:@"??" value:20000],[RRItem item:@"??" value:150000]];
+    return @[[RRItem item:@"Porsche" value:70000], [RRItem item:@"Ferrari" value:112000], [RRItem item:@"Lamborghini" value:210000],[RRItem item:@"Aston Martin" value:250000],[RRItem item:@"Bugatti" value:350000]];
 }
 
 -(NSArray *)locations

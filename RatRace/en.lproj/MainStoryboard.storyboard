@@ -69,6 +69,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5H3-6w-xSb">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="488" type="user" id="alV-Gj-JgT"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VVw-65-meX">
                                     <size key="itemSize" width="320" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -93,10 +96,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5H3-6w-xSb" firstAttribute="top" secondItem="Hb0-1h-14F" secondAttribute="top" constant="82" type="user" id="0wb-uz-ULv"/>
                             <constraint firstItem="DWS-Lc-3oa" firstAttribute="centerX" secondItem="5H3-6w-xSb" secondAttribute="centerX" type="default" id="LSV-p2-oi3"/>
+                            <constraint firstItem="5H3-6w-xSb" firstAttribute="top" secondItem="Hb0-1h-14F" secondAttribute="top" constant="60" type="user" id="RDC-VI-tJH"/>
                             <constraint firstItem="5H3-6w-xSb" firstAttribute="leading" secondItem="Hb0-1h-14F" secondAttribute="leading" type="default" id="Y0G-88-2jm"/>
-                            <constraint firstItem="5H3-6w-xSb" firstAttribute="bottom" secondItem="Hb0-1h-14F" secondAttribute="bottom" type="default" id="Ze6-Mp-ntW"/>
                             <constraint firstItem="DWS-Lc-3oa" firstAttribute="top" secondItem="Hb0-1h-14F" secondAttribute="top" constant="20" symbolic="YES" type="default" id="nhi-MV-VS9"/>
                             <constraint firstItem="5H3-6w-xSb" firstAttribute="trailing" secondItem="Hb0-1h-14F" secondAttribute="trailing" type="default" id="x3w-js-yV9"/>
                         </constraints>
@@ -742,9 +744,6 @@
         <class className="RRMarketViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMarketViewController.h"/>
             <relationships>
-                <relationship kind="action" name="bank:"/>
-                <relationship kind="action" name="brief:"/>
-                <relationship kind="action" name="travel:"/>
                 <relationship kind="outlet" name="bankButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="briefButton" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="travelButton" candidateClass="RRButtonSound"/>
@@ -753,7 +752,6 @@
         <class className="RRMoreViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RRMoreViewController.h"/>
             <relationships>
-                <relationship kind="action" name="done:"/>
                 <relationship kind="outlet" name="buttonDone" candidateClass="RRButtonSound"/>
                 <relationship kind="outlet" name="textViewMain" candidateClass="UITextView"/>
             </relationships>
