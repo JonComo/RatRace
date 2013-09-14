@@ -15,8 +15,8 @@
 +(NSDictionary *)details
 {
     return @{RRPackDetailName: @"The Diamond Merchant",
-             RRPackDetailDescription: @"Buy and sell diamonds across the globe.",
-             RRPackDetailImage : [UIImage imageNamed:@"diamond-in-hand"],
+             RRPackDetailDescription: @"Buy and sell diamonds across the globe and grow your worth.",
+             RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
              RRPackClassObject: [RRPackDiamond class],
              RRPackDetailID : @"com.unmd76.theMerchant.packDiamondDealer"};
 }

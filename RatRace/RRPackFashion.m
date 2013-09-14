@@ -13,7 +13,7 @@
 +(NSDictionary *)details
 {
     return @{RRPackDetailName: @"The Fashion Merchant",
-             RRPackDetailDescription: @"Buy and sell collections of brand names high end fashion apparel.",
+             RRPackDetailDescription: @"Buy and sell collections of brand name high end fashion apparel.",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
              RRPackClassObject: [RRPackFashion class],
              RRPackDetailID : @"com.unmd76.theMerchant. - - -"};

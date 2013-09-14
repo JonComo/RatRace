@@ -70,7 +70,7 @@
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5H3-6w-xSb">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="488" type="user" id="alV-Gj-JgT"/>
+                                    <constraint firstAttribute="height" constant="488" id="BYY-CX-S6f"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VVw-65-meX">
                                     <size key="itemSize" width="320" height="100"/>
@@ -84,7 +84,7 @@
                                     <outlet property="delegate" destination="iTP-TO-3BN" id="R6n-hA-MeX"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWS-Lc-3oa">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWS-Lc-3oa">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="gd8-f1-yNl"/>
                                     <constraint firstAttribute="width" constant="200" id="ttc-QP-erd"/>
@@ -246,7 +246,7 @@
                                     <action selector="challenge:" destination="dRU-ZG-PbK" eventType="touchUpInside" id="uVF-Pf-94n"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The Merchant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0v-yc-PhZ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Merchant X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0v-yc-PhZ">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="Smr-h5-Je2"/>
