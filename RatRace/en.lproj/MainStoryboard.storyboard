@@ -69,9 +69,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5H3-6w-xSb">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="488" id="BYY-CX-S6f"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="VVw-65-meX">
                                     <size key="itemSize" width="320" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -86,8 +83,8 @@
                             </collectionView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWS-Lc-3oa">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="gd8-f1-yNl"/>
                                     <constraint firstAttribute="width" constant="200" id="ttc-QP-erd"/>
+                                    <constraint firstAttribute="height" constant="21" id="uyY-D1-a2D"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -97,10 +94,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DWS-Lc-3oa" firstAttribute="centerX" secondItem="5H3-6w-xSb" secondAttribute="centerX" type="default" id="LSV-p2-oi3"/>
-                            <constraint firstItem="5H3-6w-xSb" firstAttribute="top" secondItem="Hb0-1h-14F" secondAttribute="top" constant="60" type="user" id="RDC-VI-tJH"/>
+                            <constraint firstItem="5H3-6w-xSb" firstAttribute="top" secondItem="DWS-Lc-3oa" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Qnf-s0-SxY"/>
                             <constraint firstItem="5H3-6w-xSb" firstAttribute="leading" secondItem="Hb0-1h-14F" secondAttribute="leading" type="default" id="Y0G-88-2jm"/>
                             <constraint firstItem="DWS-Lc-3oa" firstAttribute="top" secondItem="Hb0-1h-14F" secondAttribute="top" constant="20" symbolic="YES" type="default" id="nhi-MV-VS9"/>
                             <constraint firstItem="5H3-6w-xSb" firstAttribute="trailing" secondItem="Hb0-1h-14F" secondAttribute="trailing" type="default" id="x3w-js-yV9"/>
+                            <constraint firstAttribute="bottom" secondItem="5H3-6w-xSb" secondAttribute="bottom" type="user" id="xtF-Lu-cWW"/>
                         </constraints>
                     </view>
                     <connections>

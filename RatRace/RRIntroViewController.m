@@ -38,14 +38,14 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [super viewDidLoad]; 
     [RRGraphics buttonStyle:buttonNewGame];
     [RRGraphics buttonStyle:buttonLeaderboard];
     [RRGraphics buttonStyle:buttonMore];
     [RRGraphics buttonStyle:buttonChallenge];
     
-    [[RRStoreManager store] requestProdcutsCompletion:^(NSArray *prodcuts) {
-        NSLog(@"Products: %@", prodcuts);
+    [[RRStoreManager store] requestProdcutsCompletion:^(NSArray *products) {
+        NSLog(@"Products: %@", products);
     }];
 }
 
