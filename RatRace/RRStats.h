@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define ARCHIVE_PATH NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES)[0]
+#define ARCHIVE_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 
 @interface RRStats : NSObject
 

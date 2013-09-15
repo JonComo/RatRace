@@ -91,8 +91,8 @@
     UILabel *label = (UILabel *)[cell viewWithTag:100];
     label.text = [NSString stringWithFormat:@"%@%@", [[RRGame sharedGame].location isEqualToString:location] ? @"<" : @"", location];
     
-    UIImageView *image = (UIImageView *)[cell viewWithTag:200];
-    image.image = [UIImage imageNamed:location];
+    //UIImageView *image = (UIImageView *)[cell viewWithTag:200];
+    //image.image = [UIImage imageNamed:location];
     
     return cell;
 }

@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSDictionary *gameStats;
 
+@property (nonatomic, assign) BOOL showSeperator;
+
 @end

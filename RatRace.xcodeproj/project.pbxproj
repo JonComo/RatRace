@@ -70,6 +70,7 @@
 		866EAB8417DE5F53004BB19B /* RRStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EAB8317DE5F53004BB19B /* RRStoreManager.m */; };
 		8672928117DD9AE900F70ADE /* RREndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8672928017DD9AE900F70ADE /* RREndViewController.m */; };
 		8672928317DD9DBC00F70ADE /* borderDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8672928217DD9DBC00F70ADE /* borderDark@2x.png */; };
+		8696EDBE17E64C140075DCE7 /* RRHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8696EDBD17E64C140075DCE7 /* RRHistoryViewController.m */; };
 		86A0C4F617D5455A001663D6 /* RRAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A0C4F517D5455A001663D6 /* RRAudioEngine.m */; };
 		86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A0C4F717D5461B001663D6 /* AVFoundation.framework */; };
 		86A0C50217D54832001663D6 /* click.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 86A0C4FA17D54832001663D6 /* click.aiff */; };
@@ -194,6 +195,9 @@
 		8672927F17DD9AE900F70ADE /* RREndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREndViewController.h; sourceTree = "<group>"; };
 		8672928017DD9AE900F70ADE /* RREndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RREndViewController.m; sourceTree = "<group>"; };
 		8672928217DD9DBC00F70ADE /* borderDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "borderDark@2x.png"; sourceTree = "<group>"; };
+		8696EDBC17E64C140075DCE7 /* RRHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRHistoryViewController.h; sourceTree = "<group>"; };
+		8696EDBD17E64C140075DCE7 /* RRHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRHistoryViewController.m; sourceTree = "<group>"; };
+		8696EDBF17E6509C0075DCE7 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		86A0C4F417D5455A001663D6 /* RRAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRAudioEngine.h; sourceTree = "<group>"; };
 		86A0C4F517D5455A001663D6 /* RRAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRAudioEngine.m; sourceTree = "<group>"; };
 		86A0C4F717D5461B001663D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -269,6 +273,7 @@
 				33CA594E17DD6287007F4A59 /* brief.xib */,
 				864F707C17D55C5C00FEDAA6 /* diamondCell.xib */,
 				8614D0AC17E11D36002D08B9 /* packCell.xib */,
+				866E613217E1477500F544DD /* historyCell.xib */,
 				86DBBD4B17D41CB30032D830 /* SMStatsView.h */,
 				86DBBD4C17D41CB30032D830 /* SMStatsView.m */,
 				338157FC17D462A4006CCA90 /* RRDiamondCell.h */,
@@ -277,7 +282,6 @@
 				86D3116C17DA6C9300D218E3 /* RRGraphView.m */,
 				3365D73717DEC50500BF72A3 /* RRPackCell.h */,
 				3365D73817DEC50500BF72A3 /* RRPackCell.m */,
-				866E613217E1477500F544DD /* historyCell.xib */,
 				866E613417E1479900F544DD /* RRHistoryCell.h */,
 				866E613517E1479900F544DD /* RRHistoryCell.m */,
 			);
@@ -344,6 +348,8 @@
 				3378D98317DFE8EC0067A46C /* RRMoreViewController.m */,
 				86AE9CC917E1292400F5602F /* RROptionsViewController.h */,
 				86AE9CCA17E1292400F5602F /* RROptionsViewController.m */,
+				8696EDBC17E64C140075DCE7 /* RRHistoryViewController.h */,
+				8696EDBD17E64C140075DCE7 /* RRHistoryViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -518,6 +524,7 @@
 		86DBBD1E17D415F60032D830 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8696EDBF17E6509C0075DCE7 /* Macros.h */,
 				86DBBD2617D415F60032D830 /* RRAppDelegate.h */,
 				86DBBD2717D415F60032D830 /* RRAppDelegate.m */,
 				86DBBD1F17D415F60032D830 /* RatRace-Info.plist */,
@@ -676,6 +683,7 @@
 				3384B44C17E3F0BF003992C6 /* RRPackDope.m in Sources */,
 				3384B44F17E3F767003992C6 /* RRPackFashion.m in Sources */,
 				3384B45217E3FB46003992C6 /* RRPackCars.m in Sources */,
+				8696EDBE17E64C140075DCE7 /* RRHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

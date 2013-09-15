@@ -20,6 +20,8 @@
 #import "RRMarketViewController.h"
 #import "RRPackListViewController.h"
 
+#import "RRHistoryViewController.h"
+
 #import "RRStoreManager.h"
 
 #import "RRGame.h"
@@ -30,6 +32,7 @@
     __weak IBOutlet RRButtonSound *buttonLeaderboard;
     __weak IBOutlet RRButtonSound *buttonMore;
     __weak IBOutlet RRButtonSound *buttonChallenge;
+    __weak IBOutlet RRButtonSound *buttonHistory;
 }
 
 @end
@@ -43,6 +46,7 @@
     [RRGraphics buttonStyle:buttonLeaderboard];
     [RRGraphics buttonStyle:buttonMore];
     [RRGraphics buttonStyle:buttonChallenge];
+    [RRGraphics buttonStyle:buttonHistory];
     
     [[RRStoreManager store] requestProdcutsCompletion:^(NSArray *prodcuts) {
         NSLog(@"Products: %@", prodcuts);
@@ -130,6 +134,11 @@
     [self presentViewController:activityController animated:YES completion:nil];
 }
 
+- (IBAction)history:(id)sender {
+    RRHistoryViewController *historyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"historyVC"];
+    
+    [self presentViewController:historyVC animated:YES completion:nil];
+}
 
 #pragma mark GameCenter Controllers
 
