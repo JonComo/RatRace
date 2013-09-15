@@ -96,7 +96,7 @@
     labelCash.text = [NSString stringWithFormat:@"%@ (-%@ * %.1f%%)", [RRGame format:money], [RRGame format:loan], interest * 100];
     labelInventory.text = [NSString stringWithFormat:@"Inventory: %d / %d", inventory, [RRGame sharedGame].player.inventoryCapacity];
     
-    imageViewLocation.image = [UIImage imageNamed:location];
+    //imageViewLocation.image = [UIImage imageNamed:location];
     labelLocation.text = location;
 }
 
