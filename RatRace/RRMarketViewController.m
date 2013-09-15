@@ -66,7 +66,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:RREventShowMessageNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *title = note.userInfo[RREventTitle];
         NSString *message = note.userInfo[RREventMessage];
-        UIImage *image = note.userInfo[RREventImage];
+        UIImage *image = nil; /*note.userInfo[RREventImage]; */
         
         [self showHUDWithTitle:title detail:message autoDismiss:NO image:image];
     }];
@@ -209,7 +209,7 @@
     
     if (![[RRGame sharedGame].location isEqualToString:bankLocation]) {
         // Show
-        [self showHUDWithTitle:@"Cannot access bank." detail:[NSString stringWithFormat:@"%@ is not where you want to manage your finances. Go back to %@.", [RRGame sharedGame].location, bankLocation] autoDismiss:NO image:[UIImage imageNamed:@"debeers"]];
+        [self showHUDWithTitle:@"Cannot access bank." detail:[NSString stringWithFormat:@"%@ is not where you want to manage your finances. Go back to %@.", [RRGame sharedGame].location, bankLocation] autoDismiss:NO image:nil /*[UIImage imageNamed:@"debeers"]*/];
         return;
     }
     
@@ -256,7 +256,8 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
     hud.detailsLabelText = detail;
-    hud.mode = MBProgressHUDModeCustomView;
+    //hud.mode = MBProgressHUDModeCustomView;
+    hud.mode = MBProgressHUDModeText;
     
     hud.color = [UIColor whiteColor];
     

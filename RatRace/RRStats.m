@@ -67,10 +67,14 @@
 
 -(void)archiveStats
 {
+    //[RRGame sharedGame].pack details[RRPackDetailName]
+    
     NSDictionary *gameDict = @{@"date" : [NSDate date],
                                @"daysPlayed" : @([RRGame sharedGame].day),
                                @"money" : @([RRGame sharedGame].player.money),
+                               @"moneyFormatted" : [RRGame format:[RRGame sharedGame].player.money],
                                @"loan" : @([RRGame sharedGame].bank.loan),
+                               //@"packName" : [RRGame sharedGame].pack details[RRPackDetailName],
                                @"logs": [self currentLogs]};
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:gameDict];
@@ -86,7 +90,17 @@
 {
     NSArray *filenames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:ARCHIVE_PATH error:nil];
     
-    return filenames;
+    NSMutableArray *logs = [NSMutableArray array];
+    
+    for (NSString *filename in filenames)
+    {
+        NSData *data = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", ARCHIVE_PATH, filename]];
+        
+        NSDictionary *log = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [logs addObject:log];
+    }
+    
+    return logs;
 }
 
 -(NSURL *)uniqueURLWithFilename:(NSString *)filename
@@ -98,7 +112,7 @@
     NSURL *URL;
     
     do {
-        URL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@%i", documents, filename, count]];
+        URL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@%i", documents, filename, count]];
         count ++;
     } while ([[NSFileManager defaultManager] fileExistsAtPath:[URL path]]);
     
