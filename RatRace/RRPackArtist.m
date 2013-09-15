@@ -12,7 +12,7 @@
 
 +(NSDictionary *)details
 {
-    return @{RRPackDetailName: @"The Art Dealer",
+    return @{RRPackDetailName: @"The Art Merchant",
              RRPackDetailDescription: @"Visit galleries from Paris to New York, growing your collection.",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
              RRPackClassObject: [RRPackArtist class],
@@ -21,12 +21,12 @@
 
 -(NSArray *)items
 {
-    return @[[RRItem item:@"Georgia O'Keeffe" value:150000], [RRItem item:@"Salvador Dali" value:200000], [RRItem item:@"Claude Monet" value:250000], [RRItem item:@"Pablo Picasso" value:500000], [RRItem item:@"Vincent van Gogh" value:1000000]];
+    return @[[RRItem item:@"El Mac" value:2500], [RRItem item:@"Retna" value:5000], [RRItem item:@"David Choe" value:100000],[RRItem item:@"Shepard Fairey" value:20000],[RRItem item:@"Banksy" value:150000]];
 }
 
 -(NSArray *)locations
 {
-    return @[@"Switzerland", @"Dubai", @"Greece", @"Russia", @"South Africa", @"Thailand"];
+    return @[@"Paris", @"Los Angeles", @"Manhattan", @"Coppenhagen", @"London", @"Tokyo"];
 }
 
 -(RREvent *)randomEvent

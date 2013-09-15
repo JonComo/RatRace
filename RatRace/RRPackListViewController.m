@@ -10,8 +10,7 @@
 #import "RRPackCell.h"
 
 //
-#import "RRPackArtist.h"
-#import "RRPackDiamond.h"
+#import "RRPackList.h"
 
 #import "RRGame.h"
 #import "RRMarketViewController.h"
@@ -33,7 +32,7 @@
     
     [packCollectionView registerNib:[UINib nibWithNibName:@"packCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"packCell"];
     
-    packs = @[[RRPackDiamond details], [RRPackArtist details]];
+    packs = @[[RRPackDiamond details], [RRPackArtist details], [RRPackDope details], [RRPackFashion details],[RRPackCars details]];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"playGame" object:nil queue:nil usingBlock:^(NSNotification *note) {
         
