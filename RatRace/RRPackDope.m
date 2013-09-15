@@ -13,7 +13,7 @@
 +(NSDictionary *)details
 {
     return @{RRPackDetailName: @"The Drug Merchant",
-             RRPackDetailDescription: @"Ode to the original drug wars text game",
+             RRPackDetailDescription: @"A tribute to the original drug wars. Build your empire in style.",
              RRPackDetailImage : [UIImage imageNamed:@"diamondWhite"],
              RRPackClassObject: [RRPackDope class],
              RRPackDetailID : @"com.unmd76.theMerchant. - - -"};
