@@ -59,6 +59,9 @@
     
     [[RRAudioEngine sharedEngine] stopAllSounds];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
+    
     // Do any additional setup after loading the view.
 }
 
@@ -81,10 +84,20 @@
 
 - (IBAction)newGame:(id)sender
 {
+    NSDictionary *options = @{RRGameOptionMaxDays: @(30),
+                              RRGameOptionPackObject : [RRPackDiamond class],
+                              RRGameOptionStartingMoney : @(2000),
+                              RRGameOptionStartingLoan : @(5000)};
+    [RRGame clearGame];
+    [[RRGame sharedGame] newGameWithOptions:options];
     
-    RRPackListViewController *packVC = [self.storyboard instantiateViewControllerWithIdentifier:@"packVC"];
-
-    [self presentViewController:packVC animated:YES completion:nil];
+    RRMarketViewController *marketVC = [self.storyboard instantiateViewControllerWithIdentifier:@"marketVC"];
+    [self presentViewController:marketVC animated:YES completion:nil];
+    
+//    Save for In-App-Purchase Options
+    
+//    RRPackListViewController *packVC = [self.storyboard instantiateViewControllerWithIdentifier:@"packVC"];
+//    [self presentViewController:packVC animated:YES completion:nil];
 }
 
 - (IBAction)leaderBoard:(id)sender

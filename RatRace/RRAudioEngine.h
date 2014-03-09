@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import "RRAudioPlayer.h"
 
+
 #define MUTE_MUSIC @"muteMusic"
 
-@interface RRAudioEngine : NSObject
+@interface RRAudioEngine : NSObject <MPMediaPickerControllerDelegate, AVAudioPlayerDelegate>
+{
+
+}
 
 @property BOOL muted;
 
@@ -22,6 +27,7 @@
 -(void)initializeAudioSession;
 
 -(RRAudioPlayer *)playSoundNamed:(NSString *)soundName extension:(NSString *)ext loop:(BOOL)loop;
+
 -(void)stopSoundName:(NSString *)soundName;
 
 -(void)stopAllSounds;
@@ -29,6 +35,7 @@
 -(void)mute:(BOOL)mute;
 
 -(void)toggleMusic;
+
 -(BOOL)musicMuted;
 
 @end

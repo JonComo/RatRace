@@ -17,14 +17,19 @@
 #import "RRGraphView.h"
 
 #import "JLBPartialModal.h"
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface RRBriefcaseViewController () <UIAlertViewDelegate>
+
+@interface RRBriefcaseViewController () <UIAlertViewDelegate, MPMediaPickerControllerDelegate>
 {
     __weak IBOutlet RRGraphView *viewStats;
     
     __weak IBOutlet RRButtonSound *buttonMusic;
     __weak IBOutlet RRButtonSound *buttonQuit;
+    __weak IBOutlet RRButtonSound *buttonRadio;
 }
+
+@property (nonatomic, strong) MPMediaPickerController *picker;
 
 @end
 
@@ -40,6 +45,8 @@
     
     [RRGraphics buttonStyle:buttonMusic];
     [RRGraphics buttonStyle:buttonQuit];
+    [RRGraphics buttonStyle:buttonRadio];
+
     
     [self updateUI];
     
@@ -108,6 +115,20 @@
 - (IBAction)toggleMusic:(id)sender {
     [[RRAudioEngine sharedEngine] toggleMusic];
     [self updateUI];
+}
+
+- (IBAction)picker:(id)sender {
+    self.picker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeMusic];
+    
+    self.picker.delegate                     = [RRAudioEngine sharedEngine];
+    self.picker.allowsPickingMultipleItems   = YES;
+    self.picker.prompt                       = NSLocalizedString (@"Add songs to play", "Prompt in media item picker");
+    
+
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault animated: YES];
+    
+    [self presentViewController:self.picker animated:YES completion:nil];
+    
 }
 
 #pragma mark JLModalDelegate

@@ -114,7 +114,7 @@
         newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
     } while (newInterest == interest);
     
-    newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
+//    newInterest = MAX(0, interest + (float)(arc4random()%20)/100);
     UIImage *image = [UIImage imageNamed:@"suisse"];
     
     RREvent *interestEvent = [RREvent eventWithName:@"interest" initialBlock:^{

@@ -66,7 +66,7 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:RREventShowMessageNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSString *title = note.userInfo[RREventTitle];
         NSString *message = note.userInfo[RREventMessage];
-        UIImage *image = nil; /*note.userInfo[RREventImage]; */
+        UIImage *image = note.userInfo[RREventImage];
         
         [self showHUDWithTitle:title detail:message autoDismiss:NO image:image];
     }];
@@ -256,8 +256,8 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
     hud.detailsLabelText = detail;
-    //hud.mode = MBProgressHUDModeCustomView;
-    hud.mode = MBProgressHUDModeText;
+    hud.mode = MBProgressHUDModeCustomView;
+//    hud.mode = MBProgressHUDModeText;
     
     hud.color = [UIColor whiteColor];
     

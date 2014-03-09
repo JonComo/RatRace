@@ -26,6 +26,9 @@
     
     textViewMain.text = [self howToString];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
+    
 }
 
 - (void)didReceiveMemoryWarning

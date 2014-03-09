@@ -13,12 +13,20 @@
     
 }
 
+@property (nonatomic, retain)	MPMediaItemCollection	*userMediaItemCollection;
+
+
 @end
+
+
 
 @implementation RRAudioEngine
 {
     NSMutableArray *sounds;
 }
+
+@synthesize userMediaItemCollection;
+
 
 +(RRAudioEngine *)sharedEngine
 {
@@ -129,9 +137,11 @@
             newVolume = (player.volume == 0) ? 1 : 0;
             player.volume = newVolume;
         }
+        
     }
-    
     [[NSUserDefaults standardUserDefaults] setBool:(newVolume == 0) ? YES : NO forKey:MUTE_MUSIC];
+
+    
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
@@ -142,6 +152,62 @@
 -(BOOL)musicMuted
 {
     return [[NSUserDefaults standardUserDefaults] boolForKey:MUTE_MUSIC];
+}
+
+
+#pragma mark MPMediaPickerControllerDelegate
+
+
+- (void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection
+{
+    MPMediaItem *item = [[mediaItemCollection items] objectAtIndex:0];
+    
+    NSURL *url = [item valueForProperty:MPMediaItemPropertyAssetURL];
+    if (!url) {
+        NSLog(@"Throw Protected Content");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Content Not Available" message:@"Please check song settings." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }else{
+        NSError *soundError;
+        
+        RRAudioPlayer *soundPlayer = [[RRAudioPlayer alloc] initWithContentsOfURL:url error:&soundError];
+        
+        if (soundError)
+        {
+            NSLog(@"Error: %@" , soundError);
+        }
+        
+        soundPlayer.delegate = self;
+        
+        soundPlayer.numberOfLoops = -1;
+        
+        [sounds addObject:soundPlayer];
+        
+        if (([[NSUserDefaults standardUserDefaults] boolForKey:MUTE_MUSIC]) || self.muted){
+            soundPlayer.volume = 0;
+        }
+        
+        RRAudioPlayer *currentPlayer;
+        for (RRAudioPlayer *player in sounds)
+        {
+            if (player.isPlaying) {
+                [player stop];
+                currentPlayer = player;
+            }
+
+            NSLog(@"Stopped sound: %@", player);
+        }
+        [sounds removeObject:currentPlayer];
+        [soundPlayer play];
+
+    }
+    [mediaPicker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker
+{
+    [mediaPicker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

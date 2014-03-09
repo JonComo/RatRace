@@ -61,6 +61,9 @@
 {
     [super viewDidAppear:animated];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
+    
     for (UIView *view in self.view.subviews){
         if (view == labelScoreSubmitted) continue;
         [UIView animateWithDuration:0.3 delay:view.frame.origin.y/240 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -128,7 +131,7 @@
 
 - (IBAction)done:(id)sender
 {
-    [self.presentingViewController.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

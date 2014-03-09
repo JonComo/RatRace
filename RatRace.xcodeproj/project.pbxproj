@@ -30,6 +30,7 @@
 		3384B44C17E3F0BF003992C6 /* RRPackDope.m in Sources */ = {isa = PBXBuildFile; fileRef = 3384B44B17E3F0BF003992C6 /* RRPackDope.m */; };
 		3384B44F17E3F767003992C6 /* RRPackFashion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3384B44E17E3F767003992C6 /* RRPackFashion.m */; };
 		3384B45217E3FB46003992C6 /* RRPackCars.m in Sources */ = {isa = PBXBuildFile; fileRef = 3384B45117E3FB46003992C6 /* RRPackCars.m */; };
+		338BD56018CBFB1A0031594D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338BD55F18CBFB1A0031594D /* MediaPlayer.framework */; };
 		33CA594F17DD6287007F4A59 /* brief.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CA594E17DD6287007F4A59 /* brief.xib */; };
 		33D98B4517DCF6BF00172947 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B3F17DCF6BF00172947 /* libTestFlight.a */; };
 		33D98B4617DCF6BF00172947 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4017DCF6BF00172947 /* README.md */; };
@@ -136,6 +137,7 @@
 		3384B44E17E3F767003992C6 /* RRPackFashion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackFashion.m; sourceTree = "<group>"; };
 		3384B45017E3FB45003992C6 /* RRPackCars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackCars.h; sourceTree = "<group>"; };
 		3384B45117E3FB46003992C6 /* RRPackCars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackCars.m; sourceTree = "<group>"; };
+		338BD55F18CBFB1A0031594D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		33CA594E17DD6287007F4A59 /* brief.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = brief.xib; sourceTree = "<group>"; };
 		33D98B3F17DCF6BF00172947 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		33D98B4017DCF6BF00172947 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338BD56018CBFB1A0031594D /* MediaPlayer.framework in Frameworks */,
 				866EAB8117DE5B2E004BB19B /* StoreKit.framework in Frameworks */,
 				33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */,
 				3381583717D94226006CCA90 /* GameKit.framework in Frameworks */,
@@ -496,6 +499,7 @@
 		86DBBD1617D415F60032D830 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				338BD55F18CBFB1A0031594D /* MediaPlayer.framework */,
 				866EAB8017DE5B2E004BB19B /* StoreKit.framework */,
 				33D98B4817DCF78A00172947 /* libz.dylib */,
 				3381583617D94226006CCA90 /* GameKit.framework */,
@@ -568,6 +572,11 @@
 				CLASSPREFIX = RR;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Jon Como";
+				TargetAttributes = {
+					86DBBD1317D415F60032D830 = {
+						DevelopmentTeam = 8Y2SZ2VU8N;
+					};
+				};
 			};
 			buildConfigurationList = 86DBBD0F17D415F60032D830 /* Build configuration list for PBXProject "RatRace" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -768,8 +777,8 @@
 		86DBBD3817D415F60032D830 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jon Como (456YE3KXB7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jon Como (456YE3KXB7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RatRace/RatRace-Prefix.pch";
 				INFOPLIST_FILE = "RatRace/RatRace-Info.plist";
@@ -778,8 +787,8 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "47B0465E-AB09-4F8A-B685-34E78890E720";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47B0465E-AB09-4F8A-B685-34E78890E720";
+				PROVISIONING_PROFILE = "405FF907-8D38-4658-A746-A51A7DD41307";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -787,8 +796,8 @@
 		86DBBD3917D415F60032D830 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jon Como (456YE3KXB7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jon Como (456YE3KXB7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RatRace/RatRace-Prefix.pch";
 				INFOPLIST_FILE = "RatRace/RatRace-Info.plist";
@@ -797,8 +806,8 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "47B0465E-AB09-4F8A-B685-34E78890E720";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "47B0465E-AB09-4F8A-B685-34E78890E720";
+				PROVISIONING_PROFILE = "405FF907-8D38-4658-A746-A51A7DD41307";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
