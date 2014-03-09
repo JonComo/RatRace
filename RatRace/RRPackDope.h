@@ -9,11 +9,11 @@
 #import "RRPack.h"
 
 @interface RRPackDope : RRPack
-
--(RREvent *)eventInventoryBoost;
--(RREvent *)eventPriceChange;
--(RREvent *)eventInterest;
--(RREvent *)eventSeize;
--(RREvent *)eventGift;
+//
+//-(RREvent *)eventInventoryBoost;
+//-(RREvent *)eventPriceChange;
+//-(RREvent *)eventInterest;
+//-(RREvent *)eventSeize;
+//-(RREvent *)eventGift;
 
 @end

@@ -60,7 +60,7 @@
     [self addStatsView];
     
     //music
-    strings = [[RRAudioEngine sharedEngine] playSoundNamed:@"strings" extension:@"wav" loop:YES];
+    strings = [[RRAudioEngine sharedEngine] playSoundNamed:@"ambient" extension:@"wav" loop:YES];
     strings.volume = 0;
     
     [[NSNotificationCenter defaultCenter] addObserverForName:RREventShowMessageNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
@@ -256,8 +256,10 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = title;
     hud.detailsLabelText = detail;
-    hud.mode = MBProgressHUDModeCustomView;
-//    hud.mode = MBProgressHUDModeText;
+    if (image) {
+        hud.mode = MBProgressHUDModeCustomView;
+    }else
+    hud.mode = MBProgressHUDModeText;
     
     hud.color = [UIColor whiteColor];
     

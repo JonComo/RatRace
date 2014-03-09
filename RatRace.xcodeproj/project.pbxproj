@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		330EF1E217DE63B0009061C5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330EF1E117DE63B0009061C5 /* icon@2x.png */; };
-		330EF1E417DE7BBC009061C5 /* icon_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 330EF1E317DE7BBC009061C5 /* icon_@2x.png */; };
 		3365D73617DEC3B100BF72A3 /* RRPackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3365D73517DEC3B100BF72A3 /* RRPackListViewController.m */; };
 		3365D73917DEC50500BF72A3 /* RRPackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3365D73817DEC50500BF72A3 /* RRPackCell.m */; };
 		3378D98417DFE8EC0067A46C /* RRMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3378D98317DFE8EC0067A46C /* RRMoreViewController.m */; };
@@ -26,17 +24,20 @@
 		3381583317D83FEB006CCA90 /* cut_diamonds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381582F17D83FEB006CCA90 /* cut_diamonds.png */; };
 		3381583417D83FEB006CCA90 /* debeers.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583017D83FEB006CCA90 /* debeers.png */; };
 		3381583517D83FEB006CCA90 /* diamond-in-hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 3381583117D83FEB006CCA90 /* diamond-in-hand.png */; };
-		3381583717D94226006CCA90 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3381583617D94226006CCA90 /* GameKit.framework */; };
 		3384B44C17E3F0BF003992C6 /* RRPackDope.m in Sources */ = {isa = PBXBuildFile; fileRef = 3384B44B17E3F0BF003992C6 /* RRPackDope.m */; };
 		3384B44F17E3F767003992C6 /* RRPackFashion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3384B44E17E3F767003992C6 /* RRPackFashion.m */; };
 		3384B45217E3FB46003992C6 /* RRPackCars.m in Sources */ = {isa = PBXBuildFile; fileRef = 3384B45117E3FB46003992C6 /* RRPackCars.m */; };
 		338BD56018CBFB1A0031594D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338BD55F18CBFB1A0031594D /* MediaPlayer.framework */; };
+		338BD56218CC39150031594D /* ambient.wav in Resources */ = {isa = PBXBuildFile; fileRef = 338BD56118CC39150031594D /* ambient.wav */; };
+		338BD56418CC3DFF0031594D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 338BD56318CC3DFF0031594D /* Images.xcassets */; };
 		33CA594F17DD6287007F4A59 /* brief.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CA594E17DD6287007F4A59 /* brief.xib */; };
 		33D98B4517DCF6BF00172947 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B3F17DCF6BF00172947 /* libTestFlight.a */; };
 		33D98B4617DCF6BF00172947 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4017DCF6BF00172947 /* README.md */; };
 		33D98B4717DCF6BF00172947 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4117DCF6BF00172947 /* release_notes.md */; };
 		33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B4817DCF78A00172947 /* libz.dylib */; };
 		33D98B4C17DD357F00172947 /* RRGameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33D98B4B17DD357F00172947 /* RRGameCenterManager.m */; };
+		33DD348318CC4C5200BBE8D6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DD348218CC4C5200BBE8D6 /* StoreKit.framework */; };
+		33DD348518CC4D9D00BBE8D6 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DD348418CC4D9D00BBE8D6 /* GameKit.framework */; };
 		8600570317DEC71300740C75 /* RRPackArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8600570217DEC71300740C75 /* RRPackArtist.m */; };
 		8614D0AD17E11D36002D08B9 /* packCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8614D0AC17E11D36002D08B9 /* packCell.xib */; };
 		86166B3117D904AE00A6F925 /* RREventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86166B3017D904AE00A6F925 /* RREventManager.m */; };
@@ -67,7 +68,6 @@
 		8664AE8217D8711B0096CD2B /* RRBriefcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8664AE8117D8711B0096CD2B /* RRBriefcaseViewController.m */; };
 		866E613317E1477500F544DD /* historyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866E613217E1477500F544DD /* historyCell.xib */; };
 		866E613617E1479900F544DD /* RRHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 866E613517E1479900F544DD /* RRHistoryCell.m */; };
-		866EAB8117DE5B2E004BB19B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866EAB8017DE5B2E004BB19B /* StoreKit.framework */; };
 		866EAB8417DE5F53004BB19B /* RRStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 866EAB8317DE5F53004BB19B /* RRStoreManager.m */; };
 		8672928117DD9AE900F70ADE /* RREndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8672928017DD9AE900F70ADE /* RREndViewController.m */; };
 		8672928317DD9DBC00F70ADE /* borderDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8672928217DD9DBC00F70ADE /* borderDark@2x.png */; };
@@ -103,8 +103,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		330EF1E117DE63B0009061C5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		330EF1E317DE7BBC009061C5 /* icon_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_@2x.png"; sourceTree = "<group>"; };
 		3365D73417DEC3B100BF72A3 /* RRPackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackListViewController.h; sourceTree = "<group>"; };
 		3365D73517DEC3B100BF72A3 /* RRPackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackListViewController.m; sourceTree = "<group>"; };
 		3365D73717DEC50500BF72A3 /* RRPackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackCell.h; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 		3381582F17D83FEB006CCA90 /* cut_diamonds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cut_diamonds.png; sourceTree = "<group>"; };
 		3381583017D83FEB006CCA90 /* debeers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debeers.png; sourceTree = "<group>"; };
 		3381583117D83FEB006CCA90 /* diamond-in-hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diamond-in-hand.png"; sourceTree = "<group>"; };
-		3381583617D94226006CCA90 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		3384B44A17E3F0BF003992C6 /* RRPackDope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackDope.h; sourceTree = "<group>"; };
 		3384B44B17E3F0BF003992C6 /* RRPackDope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackDope.m; sourceTree = "<group>"; };
 		3384B44D17E3F767003992C6 /* RRPackFashion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackFashion.h; sourceTree = "<group>"; };
@@ -138,6 +135,8 @@
 		3384B45017E3FB45003992C6 /* RRPackCars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackCars.h; sourceTree = "<group>"; };
 		3384B45117E3FB46003992C6 /* RRPackCars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackCars.m; sourceTree = "<group>"; };
 		338BD55F18CBFB1A0031594D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		338BD56118CC39150031594D /* ambient.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ambient.wav; sourceTree = "<group>"; };
+		338BD56318CC3DFF0031594D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RatRace/Images.xcassets; sourceTree = "<group>"; };
 		33CA594E17DD6287007F4A59 /* brief.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = brief.xib; sourceTree = "<group>"; };
 		33D98B3F17DCF6BF00172947 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		33D98B4017DCF6BF00172947 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -148,6 +147,8 @@
 		33D98B4817DCF78A00172947 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		33D98B4A17DD357F00172947 /* RRGameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRGameCenterManager.h; sourceTree = "<group>"; };
 		33D98B4B17DD357F00172947 /* RRGameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRGameCenterManager.m; sourceTree = "<group>"; };
+		33DD348218CC4C5200BBE8D6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		33DD348418CC4D9D00BBE8D6 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		8600570117DEC71300740C75 /* RRPackArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRPackArtist.h; sourceTree = "<group>"; };
 		8600570217DEC71300740C75 /* RRPackArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRPackArtist.m; sourceTree = "<group>"; };
 		8614D0AC17E11D36002D08B9 /* packCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = packCell.xib; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		866E613217E1477500F544DD /* historyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = historyCell.xib; sourceTree = "<group>"; };
 		866E613417E1479900F544DD /* RRHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRHistoryCell.h; sourceTree = "<group>"; };
 		866E613517E1479900F544DD /* RRHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRHistoryCell.m; sourceTree = "<group>"; };
-		866EAB8017DE5B2E004BB19B /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		866EAB8217DE5F53004BB19B /* RRStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRStoreManager.h; sourceTree = "<group>"; };
 		866EAB8317DE5F53004BB19B /* RRStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStoreManager.m; sourceTree = "<group>"; };
 		8672927F17DD9AE900F70ADE /* RREndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RREndViewController.h; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		86D3116917DA6BAC00D218E3 /* RRStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStats.m; sourceTree = "<group>"; };
 		86D3116B17DA6C9300D218E3 /* RRGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRGraphView.h; sourceTree = "<group>"; };
 		86D3116C17DA6C9300D218E3 /* RRGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRGraphView.m; sourceTree = "<group>"; };
-		86DBBD1417D415F60032D830 /* RatRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DBBD1417D415F60032D830 /* Merchant X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Merchant X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DBBD1717D415F60032D830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86DBBD1917D415F60032D830 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86DBBD1B17D415F60032D830 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -252,15 +252,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				338BD56018CBFB1A0031594D /* MediaPlayer.framework in Frameworks */,
-				866EAB8117DE5B2E004BB19B /* StoreKit.framework in Frameworks */,
 				33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */,
-				3381583717D94226006CCA90 /* GameKit.framework in Frameworks */,
 				86A0C4F817D5461B001663D6 /* AVFoundation.framework in Frameworks */,
 				86DBBD4F17D4208D0032D830 /* QuartzCore.framework in Frameworks */,
 				86DBBD1817D415F60032D830 /* UIKit.framework in Frameworks */,
 				86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */,
+				33DD348318CC4C5200BBE8D6 /* StoreKit.framework in Frameworks */,
 				86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */,
 				33D98B4517DCF6BF00172947 /* libTestFlight.a in Frameworks */,
+				33DD348518CC4D9D00BBE8D6 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +431,7 @@
 		86A0C4F917D54832001663D6 /* sound */ = {
 			isa = PBXGroup;
 			children = (
+				338BD56118CC39150031594D /* ambient.wav */,
 				861F691517DA8CD00097541C /* slide.aiff */,
 				864F708717D5714700FEDAA6 /* jet.aiff */,
 				864F708517D56EE500FEDAA6 /* ding.aiff */,
@@ -478,8 +479,7 @@
 		86DBBD0B17D415F60032D830 = {
 			isa = PBXGroup;
 			children = (
-				330EF1E317DE7BBC009061C5 /* icon_@2x.png */,
-				330EF1E117DE63B0009061C5 /* icon@2x.png */,
+				338BD56318CC3DFF0031594D /* Images.xcassets */,
 				86DBBD1D17D415F60032D830 /* RatRace */,
 				86DBBD1E17D415F60032D830 /* Supporting Files */,
 				3381582A17D7EEA4006CCA90 /* Libraries */,
@@ -491,7 +491,7 @@
 		86DBBD1517D415F60032D830 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				86DBBD1417D415F60032D830 /* RatRace.app */,
+				86DBBD1417D415F60032D830 /* Merchant X.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -499,10 +499,10 @@
 		86DBBD1617D415F60032D830 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33DD348418CC4D9D00BBE8D6 /* GameKit.framework */,
+				33DD348218CC4C5200BBE8D6 /* StoreKit.framework */,
 				338BD55F18CBFB1A0031594D /* MediaPlayer.framework */,
-				866EAB8017DE5B2E004BB19B /* StoreKit.framework */,
 				33D98B4817DCF78A00172947 /* libz.dylib */,
-				3381583617D94226006CCA90 /* GameKit.framework */,
 				86A0C4F717D5461B001663D6 /* AVFoundation.framework */,
 				86DBBD4E17D4208D0032D830 /* QuartzCore.framework */,
 				86DBBD1717D415F60032D830 /* UIKit.framework */,
@@ -546,9 +546,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		86DBBD1317D415F60032D830 /* RatRace */ = {
+		86DBBD1317D415F60032D830 /* Merchant X */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 86DBBD3717D415F60032D830 /* Build configuration list for PBXNativeTarget "RatRace" */;
+			buildConfigurationList = 86DBBD3717D415F60032D830 /* Build configuration list for PBXNativeTarget "Merchant X" */;
 			buildPhases = (
 				86DBBD1017D415F60032D830 /* Sources */,
 				86DBBD1117D415F60032D830 /* Frameworks */,
@@ -558,9 +558,9 @@
 			);
 			dependencies = (
 			);
-			name = RatRace;
+			name = "Merchant X";
 			productName = RatRace;
-			productReference = 86DBBD1417D415F60032D830 /* RatRace.app */;
+			productReference = 86DBBD1417D415F60032D830 /* Merchant X.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -574,7 +574,15 @@
 				ORGANIZATIONNAME = "Jon Como";
 				TargetAttributes = {
 					86DBBD1317D415F60032D830 = {
-						DevelopmentTeam = 8Y2SZ2VU8N;
+						DevelopmentTeam = 2A9NB9R327;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -590,7 +598,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				86DBBD1317D415F60032D830 /* RatRace */,
+				86DBBD1317D415F60032D830 /* Merchant X */,
 			);
 		};
 /* End PBXProject section */
@@ -621,6 +629,7 @@
 				862400DC17D5773A00C3BDE0 /* Italy.png in Resources */,
 				862400DD17D5773A00C3BDE0 /* Russia.png in Resources */,
 				862400DE17D5773A00C3BDE0 /* South Africa.png in Resources */,
+				338BD56218CC39150031594D /* ambient.wav in Resources */,
 				862400DF17D5773A00C3BDE0 /* Switzerland.png in Resources */,
 				862400E017D5773A00C3BDE0 /* Thailand.png in Resources */,
 				3381582217D5A27E006CCA90 /* travel.png in Resources */,
@@ -636,10 +645,9 @@
 				861F691617DA8CD00097541C /* slide.aiff in Resources */,
 				33D98B4617DCF6BF00172947 /* README.md in Resources */,
 				33D98B4717DCF6BF00172947 /* release_notes.md in Resources */,
+				338BD56418CC3DFF0031594D /* Images.xcassets in Resources */,
 				33CA594F17DD6287007F4A59 /* brief.xib in Resources */,
 				8672928317DD9DBC00F70ADE /* borderDark@2x.png in Resources */,
-				330EF1E217DE63B0009061C5 /* icon@2x.png in Resources */,
-				330EF1E417DE7BBC009061C5 /* icon_@2x.png in Resources */,
 				8614D0AD17E11D36002D08B9 /* packCell.xib in Resources */,
 				866E613317E1477500F544DD /* historyCell.xib in Resources */,
 			);
@@ -777,6 +785,8 @@
 		86DBBD3817D415F60032D830 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -787,7 +797,7 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "405FF907-8D38-4658-A746-A51A7DD41307";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -796,6 +806,8 @@
 		86DBBD3917D415F60032D830 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -806,7 +818,7 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "405FF907-8D38-4658-A746-A51A7DD41307";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -824,7 +836,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		86DBBD3717D415F60032D830 /* Build configuration list for PBXNativeTarget "RatRace" */ = {
+		86DBBD3717D415F60032D830 /* Build configuration list for PBXNativeTarget "Merchant X" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				86DBBD3817D415F60032D830 /* Debug */,

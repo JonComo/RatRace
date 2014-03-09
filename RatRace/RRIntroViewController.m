@@ -140,7 +140,7 @@
 - (IBAction)challenge:(id)sender {
     NSNumber *highScore = [[NSUserDefaults standardUserDefaults] valueForKey:@"score"];
     
-    NSString *challengeMessage = [NSString stringWithFormat:@"Try and beat %@ in The Merchant. You can't.", [RRGame format:[highScore floatValue]]];
+    NSString *challengeMessage = [NSString stringWithFormat:@"Try and beat %@ in The Merchant. You can't. %@", [RRGame format:[highScore floatValue]], @"https://itunes.apple.com/us/app/merchant-x/id837550884?ls=1&mt=8"];
     
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[challengeMessage] applicationActivities:nil];
     

@@ -13,4 +13,4 @@
     #import <Foundation/Foundation.h>
 #endif
 
-#define kLeaderboardCategory @"com.theMerchant.money"
+#define kLeaderboardCategory @"com.unmd76.merchant.money"
