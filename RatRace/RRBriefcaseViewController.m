@@ -53,6 +53,10 @@
     [self graphStats];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 -(void)graphStats
 {
     [viewStats clear];
@@ -122,7 +126,7 @@
     
     self.picker.showsCloudItems = NO;
     self.picker.delegate                     = [RRAudioEngine sharedEngine];
-    self.picker.allowsPickingMultipleItems   = YES;
+    self.picker.allowsPickingMultipleItems   = NO;
     self.picker.prompt                       = NSLocalizedString (@"Add songs to play", "Prompt in media item picker");
     
 

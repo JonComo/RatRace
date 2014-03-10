@@ -37,8 +37,16 @@
     
     [RRGraphics buttonStyle:buttonDone];
     
-    history = [RRStats history];
+//    history = [RRStats history];
+    
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+    history = [[RRStats history] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+    
     [collectionViewCells reloadData];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning

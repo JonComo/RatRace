@@ -689,15 +689,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Diamonds bought and sold" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cf-gW-7y9">
-                                <rect key="frame" x="20" y="457" width="280" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="A3H-BG-V1A"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GzW-gc-ltq" customClass="RRGraphView">
                                 <rect key="frame" x="0.0" y="297" width="320" height="120"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -705,15 +696,6 @@
                                     <constraint firstAttribute="height" constant="120" id="iLw-hE-5Jz"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Most visited location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ4-ca-OsB">
-                                <rect key="frame" x="20" y="425" width="280" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="O4e-OJ-8XE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWJ-Z3-AvL" customClass="RRButtonSound">
                                 <rect key="frame" x="211" y="514" width="89" height="34"/>
                                 <constraints>
@@ -773,22 +755,16 @@
                             <constraint firstAttribute="trailing" secondItem="M0y-nm-Ph8" secondAttribute="trailing" constant="20" symbolic="YES" id="EzW-9o-US3"/>
                             <constraint firstAttribute="bottom" secondItem="M0y-nm-Ph8" secondAttribute="bottom" constant="71" id="Gak-9O-Yyp"/>
                             <constraint firstItem="GzW-gc-ltq" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" id="Lzl-Vz-mhg"/>
-                            <constraint firstItem="HZ4-ca-OsB" firstAttribute="top" secondItem="GzW-gc-ltq" secondAttribute="bottom" constant="8" symbolic="YES" id="Mrk-Ym-FYE"/>
                             <constraint firstItem="2BV-OZ-Cvc" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" id="NSQ-01-Vd1"/>
                             <constraint firstAttribute="trailing" secondItem="KWJ-Z3-AvL" secondAttribute="trailing" constant="20" symbolic="YES" id="NhO-RJ-sdh"/>
-                            <constraint firstAttribute="bottom" secondItem="0cf-gW-7y9" secondAttribute="bottom" constant="87" id="R0p-vy-4uK"/>
                             <constraint firstItem="FTJ-iJ-0qw" firstAttribute="top" secondItem="4rD-lJ-7Av" secondAttribute="bottom" constant="8" symbolic="YES" id="TQR-T9-IwV"/>
                             <constraint firstItem="FTJ-iJ-0qw" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" id="VlN-SC-9Lf"/>
-                            <constraint firstItem="0cf-gW-7y9" firstAttribute="top" secondItem="HZ4-ca-OsB" secondAttribute="bottom" constant="8" symbolic="YES" id="YFZ-IV-Cir"/>
                             <constraint firstAttribute="bottom" secondItem="KWJ-Z3-AvL" secondAttribute="bottom" constant="20" symbolic="YES" id="bHX-Wm-pXz"/>
                             <constraint firstAttribute="trailing" secondItem="FTJ-iJ-0qw" secondAttribute="trailing" constant="20" symbolic="YES" id="btb-rM-PKC"/>
                             <constraint firstAttribute="trailing" secondItem="1pU-wS-m1z" secondAttribute="trailing" constant="20" symbolic="YES" id="cGD-ry-VKO"/>
                             <constraint firstItem="eAN-B9-776" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" id="fHd-vn-wdO"/>
                             <constraint firstItem="2BV-OZ-Cvc" firstAttribute="centerX" secondItem="4rD-lJ-7Av" secondAttribute="centerX" id="hYc-1D-s0g"/>
-                            <constraint firstItem="HZ4-ca-OsB" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" id="mnA-At-ZGk"/>
-                            <constraint firstAttribute="trailing" secondItem="HZ4-ca-OsB" secondAttribute="trailing" constant="20" symbolic="YES" id="p8z-Xy-Dka"/>
-                            <constraint firstItem="0cf-gW-7y9" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" id="rMs-Np-Kxb"/>
-                            <constraint firstAttribute="trailing" secondItem="0cf-gW-7y9" secondAttribute="trailing" constant="20" symbolic="YES" id="sAW-AQ-8Vh"/>
+                            <constraint firstItem="M0y-nm-Ph8" firstAttribute="top" secondItem="GzW-gc-ltq" secondAttribute="bottom" constant="78" id="kv5-xu-EKW"/>
                             <constraint firstItem="M0y-nm-Ph8" firstAttribute="leading" secondItem="qG2-WK-Yvi" secondAttribute="leading" constant="20" symbolic="YES" id="u4B-TT-dae"/>
                             <constraint firstAttribute="trailing" secondItem="eAN-B9-776" secondAttribute="trailing" constant="20" symbolic="YES" id="wOs-WJ-d82"/>
                         </constraints>

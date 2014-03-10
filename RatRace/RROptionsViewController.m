@@ -37,6 +37,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 -(void)updateUI
 {
     BOOL musicMuted = [[RRAudioEngine sharedEngine] musicMuted];

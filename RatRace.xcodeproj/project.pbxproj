@@ -546,9 +546,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		86DBBD1317D415F60032D830 /* Merchant X */ = {
+		86DBBD1317D415F60032D830 /* MerchantX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 86DBBD3717D415F60032D830 /* Build configuration list for PBXNativeTarget "Merchant X" */;
+			buildConfigurationList = 86DBBD3717D415F60032D830 /* Build configuration list for PBXNativeTarget "MerchantX" */;
 			buildPhases = (
 				86DBBD1017D415F60032D830 /* Sources */,
 				86DBBD1117D415F60032D830 /* Frameworks */,
@@ -558,7 +558,7 @@
 			);
 			dependencies = (
 			);
-			name = "Merchant X";
+			name = MerchantX;
 			productName = RatRace;
 			productReference = 86DBBD1417D415F60032D830 /* Merchant X.app */;
 			productType = "com.apple.product-type.application";
@@ -598,7 +598,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				86DBBD1317D415F60032D830 /* Merchant X */,
+				86DBBD1317D415F60032D830 /* MerchantX */,
 			);
 		};
 /* End PBXProject section */
@@ -836,7 +836,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		86DBBD3717D415F60032D830 /* Build configuration list for PBXNativeTarget "Merchant X" */ = {
+		86DBBD3717D415F60032D830 /* Build configuration list for PBXNativeTarget "MerchantX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				86DBBD3817D415F60032D830 /* Debug */,

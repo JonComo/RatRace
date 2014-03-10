@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "86DBBD1317D415F60032D830"
-               BuildableName = "RatRace.app"
-               BlueprintName = "Merchant X"
+               BuildableName = "Merchant X.app"
+               BlueprintName = "MerchantX"
                ReferencedContainer = "container:RatRace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "86DBBD1317D415F60032D830"
-            BuildableName = "RatRace.app"
-            BlueprintName = "Merchant X"
+            BuildableName = "Merchant X.app"
+            BlueprintName = "MerchantX"
             ReferencedContainer = "container:RatRace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,8 +52,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "86DBBD1317D415F60032D830"
-            BuildableName = "RatRace.app"
-            BlueprintName = "Merchant X"
+            BuildableName = "Merchant X.app"
+            BlueprintName = "MerchantX"
             ReferencedContainer = "container:RatRace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -70,8 +70,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "86DBBD1317D415F60032D830"
-            BuildableName = "RatRace.app"
-            BlueprintName = "Merchant X"
+            BuildableName = "Merchant X.app"
+            BlueprintName = "MerchantX"
             ReferencedContainer = "container:RatRace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

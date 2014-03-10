@@ -31,7 +31,7 @@ static NSDateFormatter *formatter;
     
     if (!formatter){
         formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setDateStyle:NSDateFormatterLongStyle];
     }
     
     labelStats.text = [NSString stringWithFormat:@"%@ %@", gameStats[@"moneyFormatted"], [formatter stringFromDate:gameStats[@"date"]]];

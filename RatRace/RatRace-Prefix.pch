@@ -14,3 +14,4 @@
 #endif
 
 #define kLeaderboardCategory @"com.unmd76.merchant.money"
+#define kLeaderboardID @"Money"

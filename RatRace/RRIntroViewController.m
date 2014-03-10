@@ -59,10 +59,13 @@
     
     [[RRAudioEngine sharedEngine] stopAllSounds];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
     
     // Do any additional setup after loading the view.
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 -(void)submitSavedScore
@@ -160,7 +163,7 @@
 	GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
 	if (leaderboardController != NULL)
 	{
-		leaderboardController.category = kLeaderboardCategory;
+		leaderboardController.category = kLeaderboardID;
 		leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
 		leaderboardController.leaderboardDelegate = self;
 		[self presentViewController:leaderboardController animated:YES completion:nil];

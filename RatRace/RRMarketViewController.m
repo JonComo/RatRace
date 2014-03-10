@@ -100,6 +100,10 @@
     [strings fadeOut:1];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
