@@ -120,6 +120,7 @@
 - (IBAction)picker:(id)sender {
     self.picker = [[MPMediaPickerController alloc] initWithMediaTypes: MPMediaTypeMusic];
     
+    self.picker.showsCloudItems = NO;
     self.picker.delegate                     = [RRAudioEngine sharedEngine];
     self.picker.allowsPickingMultipleItems   = YES;
     self.picker.prompt                       = NSLocalizedString (@"Add songs to play", "Prompt in media item picker");
