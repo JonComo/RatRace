@@ -10,29 +10,29 @@
 	<string>RatRace</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>83E3BE6E-5685-42FC-A874-386EF090341A</key>
+		<key>0CA911CC0560903F10E78D60286D94077A0E2911</key>
 		<string>https://github.com/JonComo/RatRace.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>RatRace.xcodeproj/project.xcworkspace</string>
+	<string>RatRace.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>83E3BE6E-5685-42FC-A874-386EF090341A</key>
+		<key>0CA911CC0560903F10E78D60286D94077A0E2911</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/JonComo/RatRace.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>83E3BE6E-5685-42FC-A874-386EF090341A</string>
+	<string>0CA911CC0560903F10E78D60286D94077A0E2911</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>83E3BE6E-5685-42FC-A874-386EF090341A</string>
+			<string>0CA911CC0560903F10E78D60286D94077A0E2911</string>
 			<key>IDESourceControlWCCName</key>
 			<string>RatRace</string>
 		</dict>

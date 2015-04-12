@@ -31,7 +31,6 @@
 		338BD56218CC39150031594D /* ambient.wav in Resources */ = {isa = PBXBuildFile; fileRef = 338BD56118CC39150031594D /* ambient.wav */; };
 		338BD56418CC3DFF0031594D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 338BD56318CC3DFF0031594D /* Images.xcassets */; };
 		33CA594F17DD6287007F4A59 /* brief.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CA594E17DD6287007F4A59 /* brief.xib */; };
-		33D98B4517DCF6BF00172947 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B3F17DCF6BF00172947 /* libTestFlight.a */; };
 		33D98B4617DCF6BF00172947 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4017DCF6BF00172947 /* README.md */; };
 		33D98B4717DCF6BF00172947 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 33D98B4117DCF6BF00172947 /* release_notes.md */; };
 		33D98B4917DCF78A00172947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D98B4817DCF78A00172947 /* libz.dylib */; };
@@ -214,7 +213,7 @@
 		86D3116917DA6BAC00D218E3 /* RRStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRStats.m; sourceTree = "<group>"; };
 		86D3116B17DA6C9300D218E3 /* RRGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRGraphView.h; sourceTree = "<group>"; };
 		86D3116C17DA6C9300D218E3 /* RRGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRGraphView.m; sourceTree = "<group>"; };
-		86DBBD1417D415F60032D830 /* Merchant X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Merchant X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DBBD1417D415F60032D830 /* MerchantX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerchantX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DBBD1717D415F60032D830 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86DBBD1917D415F60032D830 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86DBBD1B17D415F60032D830 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -259,7 +258,6 @@
 				86DBBD1A17D415F60032D830 /* Foundation.framework in Frameworks */,
 				33DD348318CC4C5200BBE8D6 /* StoreKit.framework in Frameworks */,
 				86DBBD1C17D415F60032D830 /* CoreGraphics.framework in Frameworks */,
-				33D98B4517DCF6BF00172947 /* libTestFlight.a in Frameworks */,
 				33DD348518CC4D9D00BBE8D6 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,7 +489,7 @@
 		86DBBD1517D415F60032D830 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				86DBBD1417D415F60032D830 /* Merchant X.app */,
+				86DBBD1417D415F60032D830 /* MerchantX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -560,7 +558,7 @@
 			);
 			name = MerchantX;
 			productName = RatRace;
-			productReference = 86DBBD1417D415F60032D830 /* Merchant X.app */;
+			productReference = 86DBBD1417D415F60032D830 /* MerchantX.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -574,7 +572,7 @@
 				ORGANIZATIONNAME = "Jon Como";
 				TargetAttributes = {
 					86DBBD1317D415F60032D830 = {
-						DevelopmentTeam = 2A9NB9R327;
+						DevelopmentTeam = 5C23H8QH97;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;

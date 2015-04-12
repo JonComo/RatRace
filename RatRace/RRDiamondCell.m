@@ -46,10 +46,10 @@
     
     NSArray *toGraph = [[RRGame sharedGame].stats currentLogs];
     
-    int startIndex = toGraph.count - daysToGraph - 1;
+    NSInteger startIndex = toGraph.count - daysToGraph - 1;
     if (startIndex < 0) startIndex = 0;
     
-    for (int i = startIndex; i < toGraph.count; i++)
+    for (NSUInteger i = startIndex; i < toGraph.count; i++)
     {
         NSDictionary *dayLog = toGraph[i];
         

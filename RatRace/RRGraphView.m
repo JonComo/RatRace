@@ -14,7 +14,6 @@
 {
     float vertMin;
     float vertMax;
-    int maxSteps;
     
     float xStep;
 }
@@ -86,10 +85,12 @@
     //find total min and max of keys values
     vertMin = FLT_MAX;
     vertMax = FLT_MIN;
-    maxSteps = INT_MIN;
+    NSUInteger maxSteps = INT_MIN;
     
     for (RRGraphData *data in self.graphData){
-        if (data.data.count > maxSteps) maxSteps = data.data.count;
+        if (data.data.count > maxSteps) {
+            maxSteps = data.data.count;
+        }
         
         for (NSNumber *number in data.data)
         {
@@ -134,6 +135,8 @@
 
 -(void)graphData:(RRGraphData *)data verticalRange:(CGPoint)vertRange inRect:(CGRect)rect
 {
+    if (data.data.count < 2) return;
+    
     UIBezierPath *path = [UIBezierPath bezierPath];
     
     float x = 0;
