@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "86DBBD1317D415F60032D830"
-               BuildableName = "Merchant X.app"
+               BuildableName = "MerchantX.app"
                BlueprintName = "MerchantX"
                ReferencedContainer = "container:RatRace.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "86DBBD1317D415F60032D830"
-            BuildableName = "Merchant X.app"
+            BuildableName = "MerchantX.app"
             BlueprintName = "MerchantX"
             ReferencedContainer = "container:RatRace.xcodeproj">
          </BuildableReference>
@@ -48,11 +48,12 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "86DBBD1317D415F60032D830"
-            BuildableName = "Merchant X.app"
+            BuildableName = "MerchantX.app"
             BlueprintName = "MerchantX"
             ReferencedContainer = "container:RatRace.xcodeproj">
          </BuildableReference>
@@ -66,11 +67,12 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "86DBBD1317D415F60032D830"
-            BuildableName = "Merchant X.app"
+            BuildableName = "MerchantX.app"
             BlueprintName = "MerchantX"
             ReferencedContainer = "container:RatRace.xcodeproj">
          </BuildableReference>
